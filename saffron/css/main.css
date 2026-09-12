@@ -93,15 +93,14 @@
   --glow-bright: var(--rose-bright);
 }
 
-.shelf-room::before {
-  content: "";
-  display: block;
-  height: clamp(2rem, 5vw, 3.5rem);
-  margin: 0 auto 0;
-  max-width: 900px;
-  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--glow-bright) 55%, transparent) 0%, transparent 72%);
-  filter: blur(2px);
-  transition: background 0.6s ease;
+#shelf-rows {
+  position: relative;
+  z-index: 1;
+}
+
+.shelf-stage {
+  position: relative;
+  padding-top: clamp(2.6rem, 6vw, 4rem);
 }
 
 .shelf-intro {
@@ -130,6 +129,65 @@
   max-width: 980px;
   margin: 0 auto clamp(2rem, 5vw, 3.2rem);
   position: relative;
+}
+
+/* 좌우 상단에서 책장 전체를 비추는 조명. safe on/off에 따라
+   --glow, --glow-bright가 놋쇠빛 ↔ 장밋빛으로 바뀌면서
+   전구와 대각선 빛줄기 색이 함께 바뀐다. */
+.corner-lamp {
+  position: absolute;
+  top: -34px;
+  width: clamp(56px, 9vw, 78px);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.corner-lamp.left { left: clamp(4%, 10vw, 12%); }
+
+.corner-lamp.right {
+  right: clamp(4%, 10vw, 12%);
+  transform: scaleX(-1);
+}
+
+.corner-lamp svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.corner-lamp .lamp-arm { stroke: var(--walnut-light); stroke-width: 3; }
+
+.corner-lamp .lamp-housing {
+  fill: var(--walnut);
+  stroke: var(--glow);
+  stroke-width: 1.4;
+  transition: stroke 0.6s ease;
+}
+
+.corner-lamp .lamp-bulb {
+  fill: var(--glow-bright);
+  filter: drop-shadow(0 0 8px var(--glow-bright)) drop-shadow(0 0 18px var(--glow));
+  transition: fill 0.6s ease, filter 0.6s ease;
+}
+
+.beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 62%;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  transition: background 0.6s ease;
+}
+
+.beam-left {
+  left: 0;
+  background: linear-gradient(128deg, var(--glow-bright) 0%, transparent 55%);
+  clip-path: polygon(6% 0, 22% 0, 78% 100%, 0% 100%);
+}
+
+.beam-right {
+  right: 0;
+  background: linear-gradient(232deg, var(--glow-bright) 0%, transparent 55%);
+  clip-path: polygon(94% 0, 78% 0, 22% 100%, 100% 100%);
 }
 
 .shelf-row .plank {

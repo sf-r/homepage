@@ -1,0 +1,104 @@
+/* ==========================================================================
+   '참교육 못하는 공녀님' 테마
+   공작가의 격식(짙은 자두색 + 놋쇠 금장)에 메스가키의 장난스러움(장밋빛 포인트,
+   비뚤어진 인장 배지)을 섞는다. 다른 작품 상세페이지는 이 색을 그대로 쓰지 않는다.
+   ========================================================================== */
+
+:root {
+  --work-bg: #241019;
+  --work-header-bg: linear-gradient(180deg, #2f1420, #1c0c14);
+  --work-accent: #b8467d;
+  --work-accent-bright: #ff7fb8;
+}
+
+.detail-content { position: relative; }
+
+/* 공작가 문장을 흉내낸 코너 장식 */
+.content-section h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.content-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 2.4rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--work-accent-bright), transparent);
+}
+
+/* 장난스러운 인장 배지 */
+.duchess-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.6rem;
+  border: 1px solid var(--work-accent);
+  border-radius: 999px;
+  transform: rotate(-2deg);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--work-accent-bright);
+}
+
+.duchess-seal .crest { font-size: 1rem; }
+
+.hero-caption {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--work-accent-bright);
+  opacity: 0.8;
+  margin-top: -1rem;
+  margin-bottom: 1.6rem;
+}
+
+/* 등장인물 카드 (등장인물 목록 펼쳤을 때 미리보기용, characters.html에서도 재사용) */
+.char-section {
+  scroll-margin-top: 80px;
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid rgba(255, 127, 184, 0.15);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+}
+
+.char-section:first-child { border-top: none; }
+
+.char-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 127, 184, 0.3);
+}
+
+.char-section h2 {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  color: var(--parchment);
+  margin: 0 0 0.4rem;
+}
+
+.char-role {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--work-accent-bright);
+  margin: 0 0 1rem;
+}
+
+.char-section p {
+  font-family: var(--font-body);
+  font-size: var(--step-2);
+  line-height: 1.85;
+  color: var(--parchment);
+  opacity: 0.92;
+  max-width: 60ch;
+}
+
+@media (max-width: 620px) {
+  .char-section { grid-template-columns: 1fr; }
+  .char-portrait { max-width: 220px; }
+}

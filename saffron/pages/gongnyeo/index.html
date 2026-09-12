@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>참교육 못하는 공녀님 — Saffron</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="../../css/player.css">
+<link rel="stylesheet" href="gongnyeo-theme.css">
+</head>
+<body>
+
+<header class="detail-header">
+  <a href="../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title">참교육 못하는 공녀님</span>
+</header>
+
+<div class="detail-layout">
+  <aside class="detail-sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item active" data-nav="world"><a href="#world">세계관</a></li>
+        <li class="nav-item" data-nav="mode"><a href="#mode">모드</a></li>
+        <li class="nav-item">
+          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="false">등장인물</button>
+          <ul id="char-sublist" class="char-sublist">
+            <li><a href="characters.html#gongnyeo">공녀님</a></li>
+            <li><a href="characters.html#butler">집사</a></li>
+            <li><a href="characters.html#maid">메이드</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="detail-content">
+    <section id="world" class="content-section">
+      <span class="duchess-seal"><span class="crest">⚜</span> 가주 승인 완료 (본인 승인)</span>
+      <h2>세계관</h2>
+      <img class="hero-image" src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&q=80" alt="참교육 못하는 공녀님 세계관 이미지">
+      <p class="hero-caption">※ 지정 외부 이미지 자리 — 실제 표지/삽화 URL로 교체하면 됩니다.</p>
+      <p>
+        제국에서 손꼽히는 명문가, 로젠클로 공작가. 문제는 이 집안이 유명한 이유가
+        절반은 '격식' 때문이고 절반은 '사고'  때문이라는 점이다. 공녀는 태어난 순간부터
+        이 집을 바로잡을 사람으로 지목되었지만, 정작 집안 사람들은 공녀가 정색할수록
+        더 신나 하는 것 같다.
+      </p>
+      <p>
+        고급스러운 응접실과 끝없는 파티 초대장 뒤에는, 매일 크고 작은 사고를 치는
+        사용인들과 그걸 수습하다 지쳐가는 공녀가 있다. 이 작품은 그 소란스러운
+        공작가의 하루하루를 따라간다.
+      </p>
+    </section>
+
+    <section id="mode" class="content-section">
+      <h2>모드</h2>
+      <p>
+        기본 톤은 코미디에 가깝다. 공녀가 근엄하게 훈계를 시작하면 시작할수록
+        분위기는 어긋나고, 정작 웃는 사람은 훈계를 듣는 쪽이다. 다만 그 소란
+        아래에는 이 집안 사람들 나름의 애정이 있다는 걸, 공녀만 마지막까지
+        눈치채지 못한다.
+      </p>
+      <p>
+        가벼운 궁정 코미디와 잔잔한 성장담 사이를 오가며, 에피소드마다 결이
+        조금씩 다르게 구성될 예정이다.
+      </p>
+    </section>
+  </div>
+</div>
+
+<div id="music-player" class="music-player">
+  <button id="player-toggle" class="player-toggle" aria-label="재생 또는 일시정지">
+    <span class="icon">▶</span>
+  </button>
+  <div class="player-info">
+    <span id="player-track-title" class="track-title">재생목록에서 곡을 선택하세요</span>
+  </div>
+  <button id="mute-toggle" class="mute-toggle muted" aria-label="소리 켜기/끄기" aria-pressed="true">
+    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
+    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg>
+  </button>
+  <button id="playlist-toggle" class="playlist-toggle" aria-label="재생목록 열기">♫</button>
+  <div id="playlist-panel" class="playlist-panel">
+    <div class="volume-row">
+      <input id="volume-slider" type="range" min="0" max="100" value="70" aria-label="음량 조절">
+    </div>
+    <ul id="playlist-list"></ul>
+  </div>
+  <audio id="audio-el" preload="none"></audio>
+</div>
+
+<script type="module">
+  import { initCharToggle, initScrollSpy } from "../../js/detail.js";
+  initCharToggle();
+  initScrollSpy([
+    { id: "world", navItemSelector: '[data-nav="world"]' },
+    { id: "mode", navItemSelector: '[data-nav="mode"]' }
+  ]);
+</script>
+<script type="module">
+  import { initMusicPlayer } from "../../js/music-player.js";
+  import { TRACKS } from "./music-data.js";
+  initMusicPlayer(TRACKS);
+</script>
+</body>
+</html>

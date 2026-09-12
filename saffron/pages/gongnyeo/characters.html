@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>등장인물 — 참교육 못하는 공녀님 — Saffron</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="../../css/player.css">
+<link rel="stylesheet" href="gongnyeo-theme.css">
+</head>
+<body>
+
+<header class="detail-header">
+  <a href="../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title">참교육 못하는 공녀님</span>
+</header>
+
+<div class="detail-layout">
+  <aside class="detail-sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item" data-nav="world"><a href="index.html#world">세계관</a></li>
+        <li class="nav-item" data-nav="mode"><a href="index.html#mode">모드</a></li>
+        <li class="nav-item active">
+          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="true">등장인물</button>
+          <ul id="char-sublist" class="char-sublist expanded">
+            <li data-char="gongnyeo"><a href="#gongnyeo">공녀님</a></li>
+            <li data-char="butler"><a href="#butler">집사</a></li>
+            <li data-char="maid"><a href="#maid">메이드</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="detail-content" id="char-list">
+    <!-- characters.js 가 이 안에 인물 카드를 채워 넣습니다 -->
+  </div>
+</div>
+
+<div id="music-player" class="music-player">
+  <button id="player-toggle" class="player-toggle" aria-label="재생 또는 일시정지">
+    <span class="icon">▶</span>
+  </button>
+  <div class="player-info">
+    <span id="player-track-title" class="track-title">재생목록에서 곡을 선택하세요</span>
+  </div>
+  <button id="mute-toggle" class="mute-toggle muted" aria-label="소리 켜기/끄기" aria-pressed="true">
+    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
+    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg>
+  </button>
+  <button id="playlist-toggle" class="playlist-toggle" aria-label="재생목록 열기">♫</button>
+  <div id="playlist-panel" class="playlist-panel">
+    <div class="volume-row">
+      <input id="volume-slider" type="range" min="0" max="100" value="70" aria-label="음량 조절">
+    </div>
+    <ul id="playlist-list"></ul>
+  </div>
+  <audio id="audio-el" preload="none"></audio>
+</div>
+
+<script type="module" src="characters.js"></script>
+<script type="module">
+  import { initMusicPlayer } from "../../js/music-player.js";
+  import { TRACKS } from "./music-data.js";
+  initMusicPlayer(TRACKS);
+</script>
+</body>
+</html>

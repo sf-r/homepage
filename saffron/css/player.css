@@ -44,17 +44,36 @@
 
 .player-info {
   min-width: 0;
-  max-width: 150px;
+  max-width: 130px;
 }
 
 .track-title {
   display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.track-title-text {
+  display: inline-block;
   font-family: var(--font-ui);
   font-size: 0.8rem;
   color: var(--parchment);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  will-change: transform;
+}
+
+.track-title-text.marquee {
+  animation: track-title-pingpong 6s ease-in-out infinite;
+}
+
+@keyframes track-title-pingpong {
+  0%, 10% { transform: translateX(0); }
+  45%, 55% { transform: translateX(var(--marquee-shift, 0)); }
+  90%, 100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-title-text.marquee { animation: none; }
 }
 
 .playlist-toggle {
@@ -157,5 +176,5 @@
 }
 
 @media (max-width: 480px) {
-  .player-info { display: none; }
+  .player-info { max-width: 78px; }
 }

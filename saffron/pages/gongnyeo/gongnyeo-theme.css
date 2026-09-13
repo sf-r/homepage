@@ -57,12 +57,18 @@
 
 /* 등장인물 카드 (등장인물 목록 펼쳤을 때 미리보기용, characters.html에서도 재사용) */
 .char-section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: calc(var(--detail-header-h) + 20px);
   padding-top: clamp(3rem, 6vw, 5rem);
   border-top: 1px solid rgba(255, 127, 184, 0.15);
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 2rem;
+}
+
+@media (max-width: 760px) {
+  .char-section {
+    scroll-margin-top: calc(var(--detail-header-h) + 3.4rem);
+  }
 }
 
 .char-section:first-child { border-top: none; }

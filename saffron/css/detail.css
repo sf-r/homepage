@@ -8,9 +8,10 @@
   top: 0;
   z-index: 40;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
-  padding: 1rem clamp(1.2rem, 4vw, 2.5rem);
+  min-height: var(--detail-header-h, 3.6rem);
+  padding: 0.7rem clamp(1.2rem, 4vw, 2.5rem);
   background: var(--work-header-bg, var(--walnut));
   border-bottom: 1px solid var(--work-accent, var(--brass));
 }
@@ -38,9 +39,9 @@
 
 .detail-sidebar {
   position: sticky;
-  top: 60px;
+  top: var(--detail-header-h);
   align-self: start;
-  height: calc(100vh - 60px);
+  height: calc(100vh - var(--detail-header-h));
   padding: 2rem 1.2rem;
   border-right: 1px solid rgba(184, 146, 63, 0.25);
 }
@@ -111,7 +112,7 @@
 }
 
 .content-section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: calc(var(--detail-header-h) + 20px);
   padding-top: clamp(3rem, 6vw, 5rem);
   border-top: 1px solid rgba(184, 146, 63, 0.15);
 }
@@ -148,12 +149,85 @@
 
 @media (max-width: 760px) {
   .detail-layout { grid-template-columns: 1fr; }
+
+  .content-section {
+    scroll-margin-top: calc(var(--detail-header-h) + 3.4rem);
+  }
+
   .detail-sidebar {
-    position: static;
+    position: sticky;
+    top: var(--detail-header-h);
+    z-index: 35;
     height: auto;
+    padding: 0;
     border-right: none;
     border-bottom: 1px solid rgba(184, 146, 63, 0.25);
+    background: var(--work-bg, var(--void));
   }
-  .detail-sidebar nav > ul { flex-direction: row; flex-wrap: wrap; }
-  .char-sublist { flex-direction: row; flex-wrap: wrap; border-left: none; margin-left: 0; }
+
+  /* 세계관 / 모드 / 등장인물 — 한 줄 가로 스크롤, 줄바꿈 없음 */
+  .detail-sidebar nav > ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.2rem;
+    padding: 0.5rem 0.8rem;
+    mask-image: linear-gradient(90deg, transparent, black 16px, black calc(100% - 16px), transparent);
+  }
+
+  .detail-sidebar nav > ul::-webkit-scrollbar { display: none; }
+
+  .detail-sidebar .nav-item { flex: 0 0 auto; }
+
+  .detail-sidebar .nav-item > a,
+  .detail-sidebar .nav-item > button {
+    width: auto;
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .detail-sidebar .nav-item.active > a,
+  .detail-sidebar .nav-item.active > button {
+    border-left-color: transparent;
+    border-bottom-color: var(--work-accent-bright, var(--brass-bright));
+  }
+
+  /* 등장인물 하위 목록 — 위 탭 줄과 별도로 그 아래에 붙는 두 번째 가로 스크롤 줄.
+     인물이 아무리 늘어나도 옆으로만 늘어나지 세로로 밀리거나 줄바꿈되지 않는다. */
+  .char-sublist {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0.5rem 0.8rem 0.7rem;
+    border-left: none;
+    border-top: 1px dashed rgba(184, 146, 63, 0.3);
+    background: var(--work-bg, var(--void));
+    mask-image: linear-gradient(90deg, transparent, black 16px, black calc(100% - 16px), transparent);
+  }
+
+  .char-sublist::-webkit-scrollbar { display: none; }
+
+  .char-sublist li { flex: 0 0 auto; }
+
+  .char-sublist li a {
+    padding: 0.4rem 0.7rem;
+    white-space: nowrap;
+    border-radius: 999px;
+    border: 1px solid rgba(184, 146, 63, 0.3);
+  }
+
+  .char-sublist li.active a {
+    border-color: var(--work-accent-bright, var(--brass-bright));
+  }
 }

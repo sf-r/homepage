@@ -12,6 +12,7 @@ export function initMusicPlayer(tracks) {
   const toggleBtn = document.getElementById("player-toggle");
   const toggleIcon = toggleBtn.querySelector(".icon");
   const titleEl = document.getElementById("player-track-title");
+  const titleTextEl = titleEl.querySelector(".track-title-text");
   const listEl = document.getElementById("playlist-list");
   const playlistPanel = document.getElementById("playlist-panel");
   const playlistToggleBtn = document.getElementById("playlist-toggle");
@@ -25,6 +26,21 @@ export function initMusicPlayer(tracks) {
   audio.volume = 0.7;
   setMuted(true);
   volumeSlider.value = 70;
+
+  /* 제목이 보이는 칸보다 길면 좌우로 왔다갔다하는 애니메이션을 붙인다 */
+  function setTrackTitle(text) {
+    titleTextEl.textContent = text;
+    titleTextEl.classList.remove("marquee");
+    titleTextEl.style.removeProperty("--marquee-shift");
+
+    requestAnimationFrame(() => {
+      const overflow = titleTextEl.scrollWidth - titleEl.clientWidth;
+      if (overflow > 4) {
+        titleTextEl.style.setProperty("--marquee-shift", `-${overflow + 12}px`);
+        titleTextEl.classList.add("marquee");
+      }
+    });
+  }
 
   /* 부품: 재생목록 한 줄 */
   function renderPlaylist() {
@@ -50,7 +66,7 @@ export function initMusicPlayer(tracks) {
     audio.play().catch(() => {
       // 자동재생이 브라우저 정책에 막히면 버튼을 다시 눌러야 재생됩니다.
     });
-    titleEl.textContent = track.title;
+    setTrackTitle(track.title);
     renderPlaylist();
   }
 
@@ -102,6 +118,10 @@ export function initMusicPlayer(tracks) {
     if (!playerEl.contains(e.target)) playlistPanel.classList.remove("open");
   });
 
-  titleEl.textContent = tracks.length ? "재생목록에서 곡을 선택하세요" : "등록된 곡이 없어요";
+  window.addEventListener("resize", () => {
+    if (currentIndex !== -1) setTrackTitle(tracks[currentIndex].title);
+  });
+
+  setTrackTitle(tracks.length ? "재생목록에서 곡을 선택하세요" : "등록된 곡이 없어요");
   renderPlaylist();
 }

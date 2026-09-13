@@ -210,6 +210,23 @@
   transition: background 0.6s ease;
 }
 
+/* 아래쪽 책장 칸이 윗칸에 비해 어두워 보이지 않도록,
+   가운데 조명을 아래쪽에도 대칭으로 하나 더 둔다. 좌우 램프/beam은 그대로. */
+.beam-center-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 55%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at bottom, var(--glow-bright) 0%, transparent 72%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.6s ease;
+}
+
 .shelf-row .plank {
   position: absolute;
   left: -1rem;

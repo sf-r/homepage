@@ -182,16 +182,32 @@
 
 .beam-left {
   left: 0;
-  transform: translateX(16%);
+  transform: translateX(9%);
   background: linear-gradient(128deg, var(--glow-bright) 0%, transparent 55%);
   clip-path: polygon(8% 0, 24% 0, 94% 100%, 8% 100%);
 }
 
 .beam-right {
   right: 0;
-  transform: translateX(-16%);
+  transform: translateX(-9%);
   background: linear-gradient(232deg, var(--glow-bright) 0%, transparent 55%);
   clip-path: polygon(92% 0, 76% 0, 6% 100%, 92% 100%);
+}
+
+/* 두 빛줄기가 만나는 가운데를 은은하게 이어주는 보조 조명 */
+.beam-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 55%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at top, var(--glow-bright) 0%, transparent 72%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.6s ease;
 }
 
 .shelf-row .plank {

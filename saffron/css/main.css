@@ -184,14 +184,14 @@
   left: 0;
   transform: translateX(16%);
   background: linear-gradient(128deg, var(--glow-bright) 0%, transparent 55%);
-  clip-path: polygon(12% 0, 28% 0, 94% 100%, 0% 100%);
+  clip-path: polygon(8% 0, 24% 0, 94% 100%, 8% 100%);
 }
 
 .beam-right {
   right: 0;
   transform: translateX(-16%);
   background: linear-gradient(232deg, var(--glow-bright) 0%, transparent 55%);
-  clip-path: polygon(88% 0, 72% 0, 6% 100%, 100% 100%);
+  clip-path: polygon(92% 0, 76% 0, 6% 100%, 92% 100%);
 }
 
 .shelf-row .plank {

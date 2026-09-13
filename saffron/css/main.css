@@ -166,6 +166,8 @@
   transition: fill 0.6s ease, filter 0.6s ease;
 }
 
+/* 램프에서 떨어지는 직각 사다리꼴 빛줄기. 가장자리(책장 바깥)까지
+   비추지 않도록 안쪽(가운데 방향)으로 밀어 넣었다. */
 .beam {
   position: absolute;
   top: 0;
@@ -175,35 +177,21 @@
   z-index: 3;
   mix-blend-mode: screen;
   opacity: 0.6;
-  transition: background 0.6s ease;
+  transition: background 0.6s ease, transform 0.6s ease;
 }
 
 .beam-left {
   left: 0;
+  transform: translateX(16%);
   background: linear-gradient(128deg, var(--glow-bright) 0%, transparent 55%);
-  clip-path: polygon(3% 0, 36% 0, 94% 100%, 0% 100%);
+  clip-path: polygon(12% 0, 28% 0, 94% 100%, 0% 100%);
 }
 
 .beam-right {
   right: 0;
+  transform: translateX(-16%);
   background: linear-gradient(232deg, var(--glow-bright) 0%, transparent 55%);
-  clip-path: polygon(97% 0, 64% 0, 6% 100%, 100% 100%);
-}
-
-/* 두 빛줄기가 만나는 가운데를 은은하게 이어주는 보조 조명 */
-.beam-center {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 55%;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at top, var(--glow-bright) 0%, transparent 72%);
-  opacity: 0.4;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: 2;
-  transition: background 0.6s ease;
+  clip-path: polygon(88% 0, 72% 0, 6% 100%, 100% 100%);
 }
 
 .shelf-row .plank {

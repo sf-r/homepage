@@ -24,6 +24,6 @@ export const BOOKS = [
     spine: { bg: "#2b2f5c", emblem: "✦", height: 220, width: 46 },
     cover: "https://saffran.kr/Thumbnail/%EC%84%B8%20%EA%B0%9C%EC%9D%98%20%EB%AF%B8%EB%9E%98%EC%97%90%EC%84%9C%20%EC%98%A8%20%EA%B7%B8%EB%85%80%EB%93%A4.webp",
     description: "30일 뒤 서울 하늘에 열리는 시간의 균열 앞에서, 당신의 선택이 세 미래 중 하나를 확정한다. 그 세 미래가 저마다 회귀자를 한 명씩 보냈고, 셋은 서로의 존재를 몰랐다.",
-    detailUrl: null
+    detailUrl: "pages/three-futures/index.html"
   }
 ];

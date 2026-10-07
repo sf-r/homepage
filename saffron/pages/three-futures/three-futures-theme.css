@@ -1,0 +1,255 @@
+/* ==========================================================================
+   '세 개의 미래에서 온 그녀들' 테마
+   한강 위 밤하늘에 뚫린 시간의 균열. 배경은 CSS로 그린 하늘이고,
+   실제 이미지가 생기면 --sky-image에 url("...")을 넣고, CSS로 그린 균열이
+   겹치지 않게 --rift-display를 none으로 바꾸면 된다.
+   세 미래의 색: 잿빛(ash) · 금빛(gold) · 푸른빛(blue).
+   ========================================================================== */
+
+:root {
+  --sky-image: none;            /* 예: url("https://saffran.kr/...webp") */
+  --rift-display: block;
+  --work-bg: #0a0d1f;
+  --work-header-bg: linear-gradient(180deg, rgba(14, 18, 42, 0.92), rgba(8, 10, 26, 0.92));
+  --work-accent: #5d6fd6;
+  --work-accent-bright: #a9c4ff;
+  --ash: #a7a29a;
+  --gold: #e4c673;
+  --blue: #7fb2ff;
+}
+
+/* ---------- 하늘 배경 (화면에 고정) ---------- */
+.sky-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    var(--sky-image) center top / cover no-repeat,
+    radial-gradient(ellipse 120% 70% at 50% 110%, #1a1530 0%, transparent 60%),
+    linear-gradient(180deg, #05071a 0%, #0c1233 45%, #141a3d 75%, #1b1834 100%);
+}
+
+/* 별 */
+.sky-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 27% 42%, #cfd8ff, transparent),
+    radial-gradient(1.5px 1.5px at 38% 9%, #fff, transparent),
+    radial-gradient(1px 1px at 63% 31%, #fff, transparent),
+    radial-gradient(1px 1px at 71% 12%, #dfe6ff, transparent),
+    radial-gradient(1.5px 1.5px at 84% 46%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 61%, #cfd8ff, transparent),
+    radial-gradient(1px 1px at 47% 66%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 72%, #fff, transparent),
+    radial-gradient(1px 1px at 19% 84%, #dfe6ff, transparent),
+    radial-gradient(1px 1px at 56% 88%, #fff, transparent);
+  background-size: 640px 520px;
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+/* 하늘에 뚫린 구멍 (rift.svg) — 화면 위쪽 가운데에 떠 있다 */
+.sky-rift {
+  display: var(--rift-display);
+  position: absolute;
+  top: -4vh;
+  left: 50%;
+  width: min(92vw, 1100px);
+  aspect-ratio: 1000 / 660;
+  translate: -50% 0;
+  background: url("rift.svg") center / contain no-repeat;
+  animation: rift-breathe 8s ease-in-out infinite;
+}
+
+@keyframes twinkle { from { opacity: 0.55; } to { opacity: 0.9; } }
+@keyframes rift-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.03); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-stars, .sky-rift { animation: none; }
+}
+
+/* 본문은 하늘 위에 뜨도록 */
+.detail-header { position: sticky; z-index: 40; backdrop-filter: blur(6px); }
+.detail-layout { position: relative; z-index: 1; background: transparent; }
+.detail-sidebar { background: rgba(8, 10, 26, 0.55); backdrop-filter: blur(4px); }
+/* 위쪽은 균열이 보이도록 비우고, 글이 시작되는 곳부터 어둡게 깔아 읽기 쉽게 */
+.detail-content {
+  position: relative;
+  padding-top: clamp(14rem, 34vw, 24rem);
+}
+.detail-content > .content-section,
+#char-list > .char-section {
+  position: relative;
+}
+.detail-content::before {
+  content: "";
+  position: absolute;
+  inset: clamp(12rem, 30vw, 21rem) 0 0;
+  background: linear-gradient(180deg, transparent, rgba(8, 10, 26, 0.82) 8rem);
+  pointer-events: none;
+}
+
+/* ---------- 본문 장식 ---------- */
+.content-section h2 { position: relative; display: inline-block; }
+.content-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ash), var(--gold), var(--blue));
+}
+
+.content-section h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--parchment);
+  margin: 2.4rem 0 0.8rem;
+}
+
+.content-section .lead { font-size: var(--step-3); line-height: 1.7; opacity: 1; }
+
+.rift-badge {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.6rem;
+  border: 1px solid var(--work-accent-bright);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--work-accent-bright);
+  box-shadow: 0 0 14px rgba(169, 196, 255, 0.25);
+}
+
+.rule-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-family: var(--font-body);
+  font-size: var(--step-2);
+  line-height: 1.85;
+  color: var(--parchment);
+  max-width: 68ch;
+}
+.rule-list li::marker { color: var(--work-accent-bright); }
+
+/* 세 미래 카드 */
+.future-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.future-card {
+  --c: var(--blue);
+  position: relative;
+  padding: 1.4rem 1.2rem 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-top: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 12%, transparent), rgba(8, 10, 26, 0.6));
+}
+.future-card.ash { --c: var(--ash); }
+.future-card.gold { --c: var(--gold); }
+.future-card.blue { --c: var(--blue); }
+
+.future-card h3 { margin: 0.2rem 0 0.6rem; color: var(--c); font-size: var(--step-3); }
+.future-card p { font-size: 0.95rem; line-height: 1.7; margin: 0 0 0.7rem; }
+.future-year { font-family: var(--font-ui); font-size: 0.8rem; letter-spacing: 0.12em; color: var(--muted); }
+.future-choice { font-style: italic; color: var(--c) !important; opacity: 1 !important; }
+.future-sender { font-family: var(--font-ui); font-size: 0.82rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+@media (max-width: 900px) {
+  .future-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- 등장인물 ---------- */
+.char-section {
+  --c: var(--blue);
+  scroll-margin-top: calc(var(--detail-header-h) + 20px);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid rgba(169, 196, 255, 0.15);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+}
+.char-section.ash { --c: var(--ash); }
+.char-section.gold { --c: var(--gold); }
+.char-section.blue { --c: var(--blue); }
+.char-section:first-child { border-top: none; }
+
+@media (max-width: 760px) {
+  .char-section { scroll-margin-top: calc(var(--detail-header-h) + 3.4rem); }
+}
+
+.char-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--c) 50%, transparent);
+}
+
+.char-monogram {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--c);
+  background:
+    radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--c) 30%, transparent), transparent 70%),
+    rgba(8, 10, 26, 0.7);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--c) 60%, transparent);
+}
+
+.char-section h2 {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  color: var(--parchment);
+  margin: 0 0 0.4rem;
+}
+
+.char-role {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--c);
+  margin: 0 0 1rem;
+}
+
+.char-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0 0 1.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+.char-facts dt { color: var(--muted); }
+.char-facts dd { margin: 0; color: var(--parchment); }
+
+.char-section p {
+  font-family: var(--font-body);
+  font-size: var(--step-2);
+  line-height: 1.85;
+  color: var(--parchment);
+  opacity: 0.92;
+  max-width: 60ch;
+}
+
+@media (max-width: 620px) {
+  .char-section { grid-template-columns: 1fr; }
+  .char-portrait { max-width: 220px; }
+  .sky-rift { width: 140vw; top: 2vh; }
+}

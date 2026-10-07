@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>세 개의 미래에서 온 그녀들 — Saffron</title>
 <link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/lang.css">
+<script>try{var l=localStorage.getItem("saffron-lang")||(navigator.language||"").slice(0,2).toLowerCase();if(l==="en"||l==="ja"){document.documentElement.classList.add("i18n-loading");setTimeout(function(){document.documentElement.classList.remove("i18n-loading")},2000)}}catch(e){}</script>
 <link rel="stylesheet" href="../../css/detail.css">
 <link rel="stylesheet" href="three-futures-theme.css">
 </head>
@@ -18,26 +20,21 @@
 
 <header class="detail-header">
   <a href="../../index.html" class="wordmark">Saffron</a>
-  <span class="work-title">세 개의 미래에서 온 그녀들</span>
+  <span class="work-title" data-i18n="workTitle">세 개의 미래에서 온 그녀들</span>
+  <div id="lang-slot" class="lang-slot"></div>
 </header>
 
 <div class="detail-layout">
   <aside class="detail-sidebar">
     <nav>
       <ul>
-        <li class="nav-item active" data-nav="world"><a href="#world">세계관</a></li>
-        <li class="nav-item" data-nav="futures"><a href="#futures">세 개의 미래</a></li>
-        <li class="nav-item" data-nav="pieces"><a href="#pieces">진실 조각</a></li>
-        <li class="nav-item" data-nav="mode"><a href="#mode">플레이 방식</a></li>
+        <li class="nav-item active" data-nav="world"><a href="#world" data-i18n="navWorld">세계관</a></li>
+        <li class="nav-item" data-nav="futures"><a href="#futures" data-i18n="navFutures">세 개의 미래</a></li>
+        <li class="nav-item" data-nav="pieces"><a href="#pieces" data-i18n="navPieces">진실 조각</a></li>
+        <li class="nav-item" data-nav="mode"><a href="#mode" data-i18n="navMode">플레이 방식</a></li>
         <li class="nav-item">
-          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="false">등장인물</button>
+          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="false" data-i18n="navChars">등장인물</button>
           <ul id="char-sublist" class="char-sublist">
-            <li data-char="seojin"><a href="characters.html#seojin">한서진</a></li>
-            <li data-char="taeyoung"><a href="characters.html#taeyoung">윤태영</a></li>
-            <li data-char="seoyeon"><a href="characters.html#seoyeon">서연</a></li>
-            <li data-char="haram"><a href="characters.html#haram">어린 하람</a></li>
-            <li data-char="haram-mom"><a href="characters.html#haram-mom">하람의 엄마</a></li>
-            <li data-char="doyoon"><a href="characters.html#doyoon">도윤</a></li>
           </ul>
         </li>
       </ul>
@@ -45,7 +42,7 @@
   </aside>
 
   <div class="detail-content">
-    <section id="world" class="content-section">
+    <section id="world" class="content-section" data-i18n="world">
       <span class="rift-badge"><span class="mark">✦</span> D-30 · 그날까지 남은 날</span>
       <h2>세계관</h2>
       <p class="lead">
@@ -76,7 +73,7 @@
       </ul>
     </section>
 
-    <section id="futures" class="content-section">
+    <section id="futures" class="content-section" data-i18n="futures">
       <h2>세 개의 미래</h2>
       <p>그날 균열 앞에서 당신이 무엇을 하느냐가, 미래 전체를 한 갈래로 굳힌다.</p>
       <div class="future-cards">
@@ -113,7 +110,7 @@
       </div>
     </section>
 
-    <section id="pieces" class="content-section">
+    <section id="pieces" class="content-section" data-i18n="pieces">
       <h2>진실 조각</h2>
       <p>
         그날의 진실은 여섯 조각이며, 세 미래에 두 조각씩 흩어져 있다. 셋 모드에서는 회귀자에게서,
@@ -237,7 +234,7 @@
       </details>
     </section>
 
-    <section id="mode" class="content-section">
+    <section id="mode" class="content-section" data-i18n="mode">
       <h2>플레이 방식</h2>
       <p>
         <strong>셋 모드</strong> — 세 회귀자가 모두 등장한다. 아침마다 동행을 골라 신뢰를 나눠 쌓고,
@@ -253,6 +250,13 @@
 
 <script type="module">
   import { initCharToggle, initScrollSpy } from "../../js/detail.js";
+  import { applyPageText, mountLangSwitcher } from "../../js/i18n.js";
+  import { PAGE_TEXT } from "./i18n.js";
+  import { loadGroups, fillCharSublist } from "./nav.js";
+  applyPageText(PAGE_TEXT);
+  mountLangSwitcher(document.getElementById("lang-slot"));
+  fillCharSublist(await loadGroups(), "characters.html");
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
   initCharToggle();
   initScrollSpy([
     { id: "world", navItemSelector: '[data-nav="world"]' },

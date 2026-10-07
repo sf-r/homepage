@@ -360,3 +360,22 @@
 }
 .char-group-desc + .char-section { border-top: none; padding-top: 2rem; }
 .char-section.local { --c: #d9b8a0; }
+
+.char-section.store { --c: #7fe3cf; }   /* 새벽 편의점: 형광 민트 */
+.char-section.ntl { --c: #e0896a; }     /* 소방관: 불빛 */
+.char-section.ntr { --c: #c9a27e; }     /* 심야 카페: 커피 */
+
+/* 사이드바 인물 목록의 칸 이름 */
+.char-sublist .sublist-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  opacity: 0.8;
+  padding: 0.6rem 0 0.15rem 0.8rem;
+}
+.char-sublist .sublist-label:first-child { padding-top: 0.2rem; }
+
+@media (max-width: 760px) {
+  .char-sublist .sublist-label { align-self: center; padding: 0 0.2rem 0 0.6rem; white-space: nowrap; }
+}

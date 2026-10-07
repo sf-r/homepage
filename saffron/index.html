@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saffron</title>
 <link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/lang.css">
+<script>try{var l=localStorage.getItem("saffron-lang")||(navigator.language||"").slice(0,2).toLowerCase();if(l==="en"||l==="ja"){document.documentElement.classList.add("i18n-loading");setTimeout(function(){document.documentElement.classList.remove("i18n-loading")},2000)}}catch(e){}</script>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/player.css">
 </head>
 <body>
 
 <header class="site-header">
+  <div id="lang-slot" class="lang-slot"></div>
   <ul id="genre-left" class="genre-nav"></ul>
   <a href="index.html" class="wordmark">Saffron</a>
   <ul id="genre-right" class="genre-nav right"></ul>
@@ -22,8 +25,8 @@
 
 <main id="shelf-room" class="shelf-room" data-safe="on">
   <div class="shelf-intro">
-    <h1>서재에 오신 걸 환영해요</h1>
-    <p>책을 눌러 펼쳐 보세요. 오른쪽 Safe 스위치를 끄면 조명이 바뀌고, 가려져 있던 책들도 꺼낼 수 있어요.</p>
+    <h1 data-i18n="introTitle">서재에 오신 걸 환영해요</h1>
+    <p data-i18n="introText">책을 눌러 펼쳐 보세요. 오른쪽 Safe 스위치를 끄면 조명이 바뀌고, 가려져 있던 책들도 꺼낼 수 있어요.</p>
   </div>
 
   <div class="shelf-stage">
@@ -51,16 +54,16 @@
 </main>
 
 <div id="spread-overlay" class="spread-overlay">
-  <button class="backdrop-close" aria-label="닫기"></button>
+  <button class="backdrop-close" aria-label="닫기" data-i18n-attr="aria-label:close"></button>
   <div class="book-spread">
-    <button id="spread-close" class="spread-close" aria-label="닫기">&times;</button>
+    <button id="spread-close" class="spread-close" aria-label="닫기" data-i18n-attr="aria-label:close">&times;</button>
     <div class="spread-page left">
       <h2 class="spread-title"></h2>
     </div>
     <div class="spread-page right">
       <img class="spread-cover" src="" alt="">
       <p class="spread-desc"></p>
-      <a class="detail-link" href="#">상세정보로 이동</a>
+      <a class="detail-link" href="#" data-i18n="openDetail">상세정보로 이동</a>
     </div>
   </div>
 </div>

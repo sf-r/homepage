@@ -105,8 +105,11 @@ function closeSpread() {
 }
 
 /* ---------- safe 토글 ---------- */
+// 새로 접속할 때마다 Safe ON으로 시작하도록, 끈 상태는 같은 탭 안에서만 기억합니다.
 function getSafeState() {
-  const stored = localStorage.getItem(SAFE_KEY);
+  try { localStorage.removeItem(SAFE_KEY); } catch {}
+  let stored = null;
+  try { stored = sessionStorage.getItem(SAFE_KEY); } catch {}
   return stored === null ? true : stored === "true";
 }
 
@@ -125,7 +128,7 @@ function initSafeToggle() {
 
   document.getElementById("safe-toggle").addEventListener("click", () => {
     safeOn = !safeOn;
-    localStorage.setItem(SAFE_KEY, String(safeOn));
+    try { sessionStorage.setItem(SAFE_KEY, String(safeOn)); } catch {}
     applySafeState(safeOn);
   });
 }

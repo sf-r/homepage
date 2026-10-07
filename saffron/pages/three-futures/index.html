@@ -6,7 +6,6 @@
 <title>세 개의 미래에서 온 그녀들 — Saffron</title>
 <link rel="stylesheet" href="../../css/tokens.css">
 <link rel="stylesheet" href="../../css/detail.css">
-<link rel="stylesheet" href="../../css/player.css">
 <link rel="stylesheet" href="three-futures-theme.css">
 </head>
 <body>
@@ -28,6 +27,7 @@
       <ul>
         <li class="nav-item active" data-nav="world"><a href="#world">세계관</a></li>
         <li class="nav-item" data-nav="futures"><a href="#futures">세 개의 미래</a></li>
+        <li class="nav-item" data-nav="pieces"><a href="#pieces">진실 조각</a></li>
         <li class="nav-item" data-nav="mode"><a href="#mode">플레이 방식</a></li>
         <li class="nav-item">
           <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="false">등장인물</button>
@@ -35,6 +35,9 @@
             <li data-char="seojin"><a href="characters.html#seojin">한서진</a></li>
             <li data-char="taeyoung"><a href="characters.html#taeyoung">윤태영</a></li>
             <li data-char="seoyeon"><a href="characters.html#seoyeon">서연</a></li>
+            <li data-char="haram"><a href="characters.html#haram">어린 하람</a></li>
+            <li data-char="haram-mom"><a href="characters.html#haram-mom">하람의 엄마</a></li>
+            <li data-char="doyoon"><a href="characters.html#doyoon">도윤</a></li>
           </ul>
         </li>
       </ul>
@@ -82,6 +85,7 @@
           <h3>잿빛 미래</h3>
           <p class="future-choice">아이를 안고 균열에서 도망친다</p>
           <p>닻 잃은 균열이 15년간 재를 뿜는다. 재에 닿으면 기억부터 잃고 사라진다. 생존자는 지하철 터널에 산다.</p>
+          <p class="future-you">그 미래의 당신 · 생존자 부대 '회색 등불'의 대장. 엄격하지만 누구도 버리지 않았다.</p>
           <p class="future-sender">보낸 사람 · 한서진</p>
         </article>
         <article class="future-card gold">
@@ -89,6 +93,7 @@
           <h3>금빛 미래</h3>
           <p class="future-choice">균열 앞에 버티고 서서 힘을 받아들인다</p>
           <p>감정 동기화 체계 '공명'이 다스리는 도시 아르카디아. 범죄도 전쟁도 없지만, 사람들은 자기 마음을 묻지 않는다.</p>
+          <p class="future-you">그 미래의 당신 · 체계에 묶여 늙지 않는 영원한 의장.</p>
           <p class="future-sender">보낸 사람 · 윤태영</p>
         </article>
         <article class="future-card blue">
@@ -96,9 +101,140 @@
           <h3>푸른빛 미래</h3>
           <p class="future-choice">아이를 밀어내고 홀로 균열로 걸어 들어간다</p>
           <p>아무 일 없던 듯 평화롭다. 사람들은 그날을 '맑은 밤'이라 부른다.</p>
+          <details class="secret">
+            <summary>그 미래의 당신 · 비밀 보기</summary>
+            <div class="secret-body">
+              <p>실종. 편지 한 장만 남았다. 세상이 평화로운 대신, 당신이 사라진 미래다.</p>
+              <p class="secret-when">드러나는 때 · 서연의 신뢰 40 이상</p>
+            </div>
+          </details>
           <p class="future-sender">보낸 사람 · 서연</p>
         </article>
       </div>
+    </section>
+
+    <section id="pieces" class="content-section">
+      <h2>진실 조각</h2>
+      <p>
+        그날의 진실은 여섯 조각이며, 세 미래에 두 조각씩 흩어져 있다. 셋 모드에서는 회귀자에게서,
+        1:1 루트에서는 오지 못한 미래가 시간선의 틈에 떨어뜨린 '흔적'에서 조각을 얻는다.
+        두 번째 조각은 그 사람이 자기 미래가 틀렸음을 인정하는 순간이다.
+      </p>
+      <p class="secret-hint">버튼을 누르면 먼저 조건이, 한 번 더 누르면 조각의 내용이 열린다.</p>
+      <div class="piece-groups">
+        <div class="piece-group ash">
+          <h3>잿빛 미래 <span class="piece-who">· 한서진</span></h3>
+          <details class="secret piece">
+            <summary>조각 1 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>서진의 신뢰 40 이상</dd>
+                <dt>셋 모드</dt><dd>서진이 재 속에서 들린 '누군가를 부르는 소리'를 회상한다.</dd>
+                <dt>1:1 루트</dt><dd>흔적 '재 한 줌' (파트너의 신뢰 40 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>균열은 재앙이 아니라 닻을 찾는 문이다. 재는 닻 없는 문이 흘리는 피였다.</p></div>
+              </details>
+            </div>
+          </details>
+          <details class="secret piece">
+            <summary>조각 2 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>서진의 신뢰 70 이상</dd>
+                <dt>셋 모드</dt><dd>대장 인식표 뒷면에 새겨진 "문을 비우지 마".</dd>
+                <dt>1:1 루트</dt><dd>흔적 '녹슨 인식표 조각' (파트너의 신뢰 70 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>잿빛 미래의 폭주는 당신이 도망쳐 문 앞이 비었기 때문이다.</p></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div class="piece-group gold">
+          <h3>금빛 미래 <span class="piece-who">· 윤태영</span></h3>
+          <details class="secret piece">
+            <summary>조각 1 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>태영의 신뢰 40 이상</dd>
+                <dt>셋 모드</dt><dd>태영이 커프스의 공명 문양을 풀어 설계를 설명한다.</dd>
+                <dt>1:1 루트</dt><dd>흔적 '바랜 금빛 파편' (파트너의 신뢰 40 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>공명은 균열의 힘을 여럿이 나눠 받는 구조다. 나누면 안정된다.</p></div>
+              </details>
+            </div>
+          </details>
+          <details class="secret piece">
+            <summary>조각 2 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>태영의 신뢰 70 이상</dd>
+                <dt>셋 모드</dt><dd>공명 밖의 사람이었다는 고백과 함께.</dd>
+                <dt>1:1 루트</dt><dd>흔적 '공명 문양' (파트너의 신뢰 70 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>혼자 중심이라 모두가 묶였다. 중심이 여럿이면 자유롭다.</p></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div class="piece-group blue">
+          <h3>푸른빛 미래 <span class="piece-who">· 서연</span></h3>
+          <details class="secret piece">
+            <summary>조각 1 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>서연의 신뢰 40 이상</dd>
+                <dt>셋 모드</dt><dd>서연의 측정 데이터. 정체가 드러난 뒤라면 편지와 함께.</dd>
+                <dt>1:1 루트</dt><dd>흔적 '젖은 편지 조각' (파트너의 신뢰 40 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>닻이 안에서 문을 당겨야 닫히고, 혼자면 돌아오지 못한다.</p></div>
+              </details>
+            </div>
+          </details>
+          <details class="secret piece">
+            <summary>조각 2 · 조건 보기</summary>
+            <div class="secret-body">
+              <dl class="piece-cond">
+                <dt>해제</dt><dd>서연의 신뢰 70 이상</dd>
+                <dt>셋 모드</dt><dd>자기 미래가 사라진다는 깨달음과 함께.</dd>
+                <dt>1:1 루트</dt><dd>흔적 '낡은 측정 기록' (파트너의 신뢰 70 이상일 때 뜻을 알아챌 수 있다)</dd>
+              </dl>
+              <details class="secret inner">
+                <summary>조각 내용 보기</summary>
+                <div class="secret-body"><p>다른 시간의 사람이 붙잡으면 닻은 돌아온다. 그 사람은 회귀자다.</p></div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <details class="secret hidden-path">
+        <summary>숨겨진 두 길 · 조건 보기</summary>
+        <div class="secret-body">
+          <dl class="piece-cond">
+            <dt>셋 모드</dt><dd>여섯 조각을 모두 모으고, 세 사람의 신뢰가 모두 80 이상일 때 셋과 함께 균열을 닫으려 한다.</dd>
+            <dt>1:1 루트</dt><dd>여섯 조각을 모두 모으고, 파트너의 신뢰가 80 이상일 때 파트너와 함께 균열을 닫으려 한다.</dd>
+          </dl>
+          <p class="secret-when">이 길의 존재는 여섯 조각이 모두 모였을 때, 회귀자들도 함께 깨닫는다.</p>
+          <details class="secret inner">
+            <summary>내용 보기</summary>
+            <div class="secret-body">
+              <p>여섯 조각을 합치면 희생 없이 균열을 닫는 길이 보인다.</p>
+              <p><strong>네 번째 미래</strong> (셋 모드) — 당신이 균열에 들어가고, 세 회귀자가 각자의 미래를 걸고 붙잡아 힘을 나눠 받는다. 균열이 닫히고 당신은 돌아온다. 세 미래는 모두 사라지고, 셋은 돌아갈 곳 없이 이 시간에 남는다.</p>
+              <p><strong>둘만의 길</strong> (1:1 루트) — 파트너 한 명이 붙잡고, 모아 둔 흔적들이 오지 못한 두 미래의 몫을 대신 버틴다. 대가로 파트너는 자기 미래의 기억 대부분을 잃는다. 서진은 대장의 얼굴을, 태영은 아르카디아와 숨어 살던 기억을, 서연은 22년의 연구를.</p>
+            </div>
+          </details>
+        </div>
+      </details>
     </section>
 
     <section id="mode" class="content-section">
@@ -115,40 +251,15 @@
   </div>
 </div>
 
-<div id="music-player" class="music-player">
-  <button id="player-toggle" class="player-toggle" aria-label="재생 또는 일시정지">
-    <span class="icon">▶</span>
-  </button>
-  <div class="player-info">
-    <span id="player-track-title" class="track-title"><span class="track-title-text">재생목록에서 곡을 선택하세요</span></span>
-  </div>
-  <button id="mute-toggle" class="mute-toggle muted" aria-label="소리 켜기/끄기" aria-pressed="true">
-    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
-    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg>
-  </button>
-  <button id="playlist-toggle" class="playlist-toggle" aria-label="재생목록 열기">♫</button>
-  <div id="playlist-panel" class="playlist-panel">
-    <div class="volume-row">
-      <input id="volume-slider" type="range" min="0" max="100" value="70" aria-label="음량 조절">
-    </div>
-    <ul id="playlist-list"></ul>
-  </div>
-  <audio id="audio-el" preload="none"></audio>
-</div>
-
 <script type="module">
   import { initCharToggle, initScrollSpy } from "../../js/detail.js";
   initCharToggle();
   initScrollSpy([
     { id: "world", navItemSelector: '[data-nav="world"]' },
     { id: "futures", navItemSelector: '[data-nav="futures"]' },
+    { id: "pieces", navItemSelector: '[data-nav="pieces"]' },
     { id: "mode", navItemSelector: '[data-nav="mode"]' }
   ]);
-</script>
-<script type="module">
-  import { initMusicPlayer } from "../../js/music-player.js";
-  import { TRACKS } from "./music-data.js";
-  initMusicPlayer(TRACKS);
 </script>
 </body>
 </html>

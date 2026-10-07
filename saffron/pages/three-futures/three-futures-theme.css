@@ -85,8 +85,7 @@
   position: relative;
   padding-top: clamp(14rem, 34vw, 24rem);
 }
-.detail-content > .content-section,
-#char-list > .char-section {
+.detail-content > * {
   position: relative;
 }
 .detail-content::before {
@@ -253,3 +252,111 @@
   .char-portrait { max-width: 220px; }
   .sky-rift { width: 140vw; top: 2vh; }
 }
+
+/* ---------- 미래 카드: 그 미래의 당신 ---------- */
+.future-you { font-size: 0.88rem !important; color: var(--parchment); opacity: 0.75 !important; }
+
+/* ---------- 숨김 비밀 (버튼을 눌러야 열림) ---------- */
+.secret {
+  margin: 1rem 0 0;
+  max-width: 68ch;
+}
+
+.secret > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed color-mix(in srgb, var(--c, var(--work-accent-bright)) 70%, transparent);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--c, var(--work-accent-bright));
+  background: rgba(8, 10, 26, 0.6);
+  transition: background 0.2s ease;
+}
+.secret > summary::-webkit-details-marker { display: none; }
+.secret > summary::before { content: "🔒"; font-size: 0.8rem; }
+.secret[open] > summary::before { content: "🔓"; }
+.secret > summary:hover { background: color-mix(in srgb, var(--c, var(--work-accent-bright)) 14%, rgba(8, 10, 26, 0.6)); }
+.secret > summary:focus-visible { outline: 2px solid var(--work-accent-bright); outline-offset: 2px; }
+
+.secret-body {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--c, var(--work-accent-bright));
+  background: rgba(8, 10, 26, 0.55);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  animation: secret-open 0.35s var(--ease-open);
+}
+.secret-body p { font-size: 0.98rem !important; margin: 0 0 0.6rem; }
+.secret-body p:last-child { margin-bottom: 0; }
+.secret .secret-when { font-family: var(--font-ui); font-size: 0.82rem !important; color: var(--muted) !important; opacity: 1 !important; }
+.secret.inner { margin-top: 0.9rem; }
+
+@keyframes secret-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+.secret-hint { font-family: var(--font-ui); font-size: 0.85rem !important; color: var(--muted) !important; }
+
+/* 진실 조각 */
+.piece-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.4rem 0 1.6rem;
+}
+.piece-group {
+  --c: var(--blue);
+  padding: 1.1rem 1.1rem 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  border-top: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: rgba(8, 10, 26, 0.55);
+}
+.piece-group.ash { --c: var(--ash); }
+.piece-group.gold { --c: var(--gold); }
+.piece-group.blue { --c: var(--blue); }
+.piece-group h3 { margin: 0 0 0.4rem; color: var(--c); font-size: var(--step-2); }
+.piece-who { color: var(--muted); font-family: var(--font-ui); font-size: 0.85rem; }
+.piece-group .secret-body { padding: 0.8rem 0.9rem; }
+
+.piece-cond {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.piece-cond dt { color: var(--c, var(--work-accent-bright)); }
+.piece-cond dd { margin: 0; color: var(--parchment); }
+
+.hidden-path { --c: var(--parchment); }
+
+@media (max-width: 900px) {
+  .piece-groups { grid-template-columns: 1fr; }
+}
+
+/* ---------- 등장인물 칸 ---------- */
+.char-group { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.char-group:first-child { padding-top: 0; }
+.char-group + .char-group { border-top: 1px solid rgba(169, 196, 255, 0.25); }
+
+.char-group-title {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--work-accent-bright);
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.04em;
+}
+.char-group-desc {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+.char-group-desc + .char-section { border-top: none; padding-top: 2rem; }
+.char-section.local { --c: #d9b8a0; }

@@ -150,7 +150,8 @@
 }
 
 @media (max-width: 760px) {
-  .detail-layout { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr): 탭이 많아도 칸이 화면보다 넓어지지 않고, 탭 줄 안에서 가로로 스크롤되게 */
+  .detail-layout { grid-template-columns: minmax(0, 1fr); }
 
   .content-section {
     scroll-margin-top: calc(var(--detail-header-h) + 3.4rem);
@@ -176,8 +177,22 @@
     scrollbar-width: none;
     gap: 0.2rem;
     padding: 0.5rem 0.8rem;
-    mask-image: linear-gradient(90deg, transparent, black 16px, black calc(100% - 16px), transparent);
   }
+
+  /* 탭 줄 양끝을 흐리게: mask-image를 탭 줄에 걸면 그 아래로 펼쳐지는 인물 목록까지
+     가려져 눌리지 않으므로, 대신 위에 얇은 그라데이션 막을 얹는다 */
+  .detail-sidebar::before,
+  .detail-sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .detail-sidebar::before { left: 0; background: linear-gradient(90deg, var(--work-bg, var(--void)), transparent); }
+  .detail-sidebar::after { right: 0; background: linear-gradient(270deg, var(--work-bg, var(--void)), transparent); }
 
   .detail-sidebar nav > ul::-webkit-scrollbar { display: none; }
 

@@ -2,7 +2,7 @@
 // safe: true 인 책은 safe 모드가 켜져 있으면 제목이 가려지고 뽑을 수 없다.
 // detailUrl 이 없으면 아직 상세 페이지가 준비되지 않은 예시 항목.
 
-export const GENRES_LEFT = ["로맨스 판타지", "현대 로맨스"];
+export const GENRES_LEFT = ["로맨스 판타지", "현대 로맨스", "현대 판타지"];
 export const GENRES_RIGHT = ["BL", "무협"];
 
 export const BOOKS = [
@@ -17,43 +17,13 @@ export const BOOKS = [
     detailUrl: "pages/gongnyeo/index.html"
   },
   {
-    id: "moonlit-vow",
-    title: "달빛 서약",
-    genre: "현대 로맨스",
-    safe: false,
-    spine: { bg: "#1f3b4d", emblem: "☾", height: 195, width: 42 },
-    cover: "https://images.unsplash.com/photo-1495467033336-2effc0a04b09?w=600&q=80",
-    description: "10년 만에 재회한 두 사람, 그리고 그때 끝맺지 못한 약속. (예시 항목 — 상세 페이지 준비 중)",
-    detailUrl: null
-  },
-  {
-    id: "ashfall",
-    title: "재의 계절",
-    genre: "무협",
+    id: "three-futures",
+    title: "세 개의 미래에서 온 그녀들",
+    genre: "현대 판타지",
     safe: true,
-    spine: { bg: "#2e2620", emblem: "劍", height: 225, width: 44 },
-    cover: "https://images.unsplash.com/photo-1502084400208-fb99cbb2b3b1?w=600&q=80",
-    description: "성인 독자 대상의 강렬한 장면이 포함된 작품. (예시 항목 — safe 모드로 가려짐)",
-    detailUrl: null
-  },
-  {
-    id: "hollow-crown",
-    title: "속 빈 왕관",
-    genre: "BL",
-    safe: true,
-    spine: { bg: "#4a1f42", emblem: "♛", height: 205, width: 40 },
+    spine: { bg: "#2b2f5c", emblem: "✦", height: 220, width: 46 },
     cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80",
-    description: "성인 독자 대상의 강렬한 장면이 포함된 작품. (예시 항목 — safe 모드로 가려짐)",
-    detailUrl: null
-  },
-  {
-    id: "paper-lantern",
-    title: "종이 등불",
-    genre: "현대 로맨스",
-    safe: false,
-    spine: { bg: "#8a6a2c", emblem: "✿", height: 185, width: 38 },
-    cover: "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=600&q=80",
-    description: "작은 서점을 지키는 사람과, 매일 같은 시간에 찾아오는 손님. (예시 항목 — 상세 페이지 준비 중)",
+    description: "30일 뒤 서울 하늘에 열리는 시간의 균열 앞에서, 당신의 선택이 세 미래 중 하나를 확정한다. 그 세 미래가 저마다 회귀자를 한 명씩 보냈고, 셋은 서로의 존재를 몰랐다.",
     detailUrl: null
   }
 ];

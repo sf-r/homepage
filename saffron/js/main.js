@@ -1,4 +1,7 @@
-import { GENRES_LEFT, GENRES_RIGHT, BOOKS } from "./data.js";
+import { GENRES_LEFT, GENRES_RIGHT, BOOKS as RAW_BOOKS } from "./data.js";
+import { ui, loc, getLang, applyPageText, mountLangSwitcher } from "./i18n.js";
+
+const BOOKS = RAW_BOOKS.map(loc);
 
 const SAFE_KEY = "saffron-safe";
 
@@ -10,7 +13,7 @@ function createGenreList(items, alignRight) {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = "#";
-    a.textContent = g;
+    a.textContent = g[getLang()] || g.ko;
     li.appendChild(a);
     ul.appendChild(li);
   }
@@ -28,7 +31,7 @@ function createBookSpine(book, safeOn) {
   btn.style.height = book.spine.height + "px";
   btn.style.width = book.spine.width + "px";
   btn.disabled = hidden;
-  btn.setAttribute("aria-label", hidden ? "가려진 책" : book.title);
+  btn.setAttribute("aria-label", hidden ? ui("hiddenBook") : book.title);
 
   if (!hidden) {
     const emblem = document.createElement("span");
@@ -85,13 +88,13 @@ function openSpread(book) {
   const overlay = document.getElementById("spread-overlay");
   overlay.querySelector(".spread-title").textContent = book.title;
   overlay.querySelector(".spread-cover").src = book.cover;
-  overlay.querySelector(".spread-cover").alt = book.title + " 표지 이미지";
+  overlay.querySelector(".spread-cover").alt = ui("coverAlt", { title: book.title });
   overlay.querySelector(".spread-desc").textContent = book.description;
 
   const link = overlay.querySelector(".detail-link");
   if (book.detailUrl) {
     link.href = book.detailUrl;
-    link.textContent = "상세정보로 이동";
+    link.textContent = ui("openDetail");
     link.style.display = "inline-block";
   } else {
     link.style.display = "none";
@@ -118,7 +121,7 @@ function applySafeState(safeOn) {
   const shelfRoom = document.getElementById("shelf-room");
   toggle.dataset.safe = safeOn ? "on" : "off";
   shelfRoom.dataset.safe = safeOn ? "on" : "off";
-  toggle.querySelector(".label").textContent = safeOn ? "Safe ON" : "Safe OFF";
+  toggle.querySelector(".label").textContent = safeOn ? ui("safeOn") : ui("safeOff");
   renderShelves(safeOn);
 }
 
@@ -134,7 +137,26 @@ function initSafeToggle() {
 }
 
 /* ---------- 초기화 ---------- */
+const PAGE_TEXT = {
+  en: {
+    pageTitle: "Saffron",
+    introTitle: "Welcome to the study",
+    introText: "Tap a book to open it. Turn off the Safe switch on the right and the lights change, letting you pull out the books that were hidden.",
+    close: "Close",
+    openDetail: "View details"
+  },
+  ja: {
+    pageTitle: "Saffron",
+    introTitle: "書斎へようこそ",
+    introText: "本をタップして開いてみてください。右の Safe スイッチを切ると照明が変わり、隠れていた本も取り出せます。",
+    close: "閉じる",
+    openDetail: "詳細を見る"
+  }
+};
+
 function init() {
+  applyPageText(PAGE_TEXT);
+  mountLangSwitcher(document.getElementById("lang-slot"));
   document.getElementById("genre-left").replaceWith(createGenreList(GENRES_LEFT, false));
   document.getElementById("genre-right").replaceWith(createGenreList(GENRES_RIGHT, true));
 

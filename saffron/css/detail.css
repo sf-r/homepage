@@ -23,6 +23,8 @@
   color: var(--work-accent-bright, var(--brass-bright));
 }
 
+.detail-header .lang-slot { margin-left: auto; }
+
 .detail-header .work-title {
   font-family: var(--font-display);
   font-size: var(--step-2);

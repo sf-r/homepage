@@ -7,6 +7,8 @@
 //   import { TRACKS } from "./music-data.js";
 //   initMusicPlayer(TRACKS);
 
+import { ui } from "./i18n.js";
+
 export function initMusicPlayer(tracks) {
   const audio = document.getElementById("audio-el");
   const toggleBtn = document.getElementById("player-toggle");
@@ -21,6 +23,11 @@ export function initMusicPlayer(tracks) {
   const playerEl = document.getElementById("music-player");
 
   let currentIndex = -1;
+
+  toggleBtn.setAttribute("aria-label", ui("playPause"));
+  muteBtn.setAttribute("aria-label", ui("muteToggle"));
+  playlistToggleBtn.setAttribute("aria-label", ui("openPlaylist"));
+  volumeSlider.setAttribute("aria-label", ui("volume"));
 
   // 기본값: 소리 꺼짐. 볼륨 자체는 70%로 준비해둬서, 켜자마자 무음이 아니게 한다.
   audio.volume = 0.7;
@@ -122,6 +129,6 @@ export function initMusicPlayer(tracks) {
     if (currentIndex !== -1) setTrackTitle(tracks[currentIndex].title);
   });
 
-  setTrackTitle(tracks.length ? "재생목록에서 곡을 선택하세요" : "등록된 곡이 없어요");
+  setTrackTitle(tracks.length ? ui("pickTrack") : ui("noTracks"));
   renderPlaylist();
 }

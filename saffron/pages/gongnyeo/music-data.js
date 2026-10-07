@@ -6,16 +6,19 @@ export const TRACKS = [
   {
     id: "gongnyeo-1",
     title: "공작가의 아침",
+    i18n: { en: { title: "Morning at the Ducal House" }, ja: { title: "公爵家の朝" } },
     src: "https://music.saffran.kr/gongnyeo/track-1.mp3"
   },
   {
     id: "gongnyeo-2",
     title: "실패한 훈계",
+    i18n: { en: { title: "A Failed Lecture" }, ja: { title: "失敗したお説教" } },
     src: "https://music.saffran.kr/gongnyeo/track-2.mp3"
   },
   {
     id: "gongnyeo-3",
     title: "티타임의 소란",
+    i18n: { en: { title: "Teatime Chaos" }, ja: { title: "ティータイムの騒ぎ" } },
     src: "https://music.saffran.kr/gongnyeo/track-3.mp3"
   }
 ];

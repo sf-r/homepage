@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>등장인물 — 세 개의 미래에서 온 그녀들 — Saffron</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/lang.css">
+<script>try{var l=localStorage.getItem("saffron-lang")||(navigator.language||"").slice(0,2).toLowerCase();if(l==="en"||l==="ja"){document.documentElement.classList.add("i18n-loading");setTimeout(function(){document.documentElement.classList.remove("i18n-loading")},2000)}}catch(e){}</script>
+<link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="three-futures-theme.css">
+</head>
+<body data-title-key="pageTitleChars">
+
+<!-- 하늘에 뚫린 균열 배경. 실제 이미지가 생기면 three-futures-theme.css의 --sky-image만 바꾸면 됩니다. -->
+<div class="sky-backdrop" aria-hidden="true">
+  <div class="sky-stars"></div>
+  <div class="sky-rift"></div>
+</div>
+
+<header class="detail-header">
+  <a href="../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title" data-i18n="workTitle">세 개의 미래에서 온 그녀들</span>
+  <div id="lang-slot" class="lang-slot"></div>
+</header>
+
+<div class="detail-layout">
+  <aside class="detail-sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item" data-nav="world"><a href="index.html#world" data-i18n="navWorld">세계관</a></li>
+        <li class="nav-item" data-nav="futures"><a href="index.html#futures" data-i18n="navFutures">세 개의 미래</a></li>
+        <li class="nav-item" data-nav="pieces"><a href="index.html#pieces" data-i18n="navPieces">진실 조각</a></li>
+        <li class="nav-item" data-nav="mode"><a href="index.html#mode" data-i18n="navMode">플레이 방식</a></li>
+        <li class="nav-item active">
+          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="true" data-i18n="navChars">등장인물</button>
+          <ul id="char-sublist" class="char-sublist expanded">
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="detail-content" id="char-list">
+    <!-- characters.js 가 이 안에 인물 카드를 채워 넣습니다 -->
+  </div>
+</div>
+
+<script type="module" src="characters.js"></script>
+</body>
+</html>

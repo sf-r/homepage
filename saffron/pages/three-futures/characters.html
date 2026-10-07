@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../../css/lang.css">
 <script>try{var l=localStorage.getItem("saffron-lang")||(navigator.language||"").slice(0,2).toLowerCase();if(l==="en"||l==="ja"){document.documentElement.classList.add("i18n-loading");setTimeout(function(){document.documentElement.classList.remove("i18n-loading")},2000)}}catch(e){}</script>
 <link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="../../css/player.css">
 <link rel="stylesheet" href="three-futures-theme.css">
 </head>
 <body data-title-key="pageTitleChars">
@@ -46,6 +47,37 @@
   </div>
 </div>
 
+<div id="music-player" class="music-player" hidden>
+  <button id="player-toggle" class="player-toggle" aria-label="재생 또는 일시정지">
+    <span class="icon">▶</span>
+  </button>
+  <div class="player-info">
+    <span id="player-track-title" class="track-title"><span class="track-title-text">재생목록에서 곡을 선택하세요</span></span>
+  </div>
+  <button id="mute-toggle" class="mute-toggle muted" aria-label="소리 켜기/끄기" aria-pressed="true">
+    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
+    <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg>
+  </button>
+  <button id="playlist-toggle" class="playlist-toggle" aria-label="재생목록 열기">♫</button>
+  <div id="playlist-panel" class="playlist-panel">
+    <div class="volume-row">
+      <input id="volume-slider" type="range" min="0" max="100" value="70" aria-label="음량 조절">
+    </div>
+    <ul id="playlist-list"></ul>
+  </div>
+  <audio id="audio-el" preload="none"></audio>
+</div>
+
 <script type="module" src="characters.js"></script>
+<script type="module">
+  // 음악 플레이어는 한국어판에서만 보인다
+  import { getLang } from "../../js/i18n.js";
+  import { initMusicPlayer } from "../../js/music-player.js";
+  import { TRACKS } from "./music-data.js";
+  if (getLang() === "ko") {
+    document.getElementById("music-player").hidden = false;
+    initMusicPlayer(TRACKS);
+  }
+</script>
 </body>
 </html>

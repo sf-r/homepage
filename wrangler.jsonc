@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers 정적 사이트 설정.
+  // name은 Cloudflare 대시보드의 Worker 이름과 같아야 합니다.
+  "name": "homepage",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./saffron"
+  }
+}

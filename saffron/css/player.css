@@ -178,3 +178,6 @@
 @media (max-width: 480px) {
   .player-info { max-width: 78px; }
 }
+
+/* 페이지가 플레이어를 숨길 때 (예: 세 개의 미래 영어·일본어판) */
+.music-player[hidden] { display: none; }

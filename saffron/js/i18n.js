@@ -47,7 +47,8 @@ const UI = {
     playPause: "재생 또는 일시정지",
     muteToggle: "소리 켜기/끄기",
     openPlaylist: "재생목록 열기",
-    volume: "음량 조절"
+    volume: "음량 조절",
+    seek: "재생 위치"
   },
   en: {
     hiddenBook: "Hidden book",
@@ -65,7 +66,8 @@ const UI = {
     playPause: "Play or pause",
     muteToggle: "Sound on/off",
     openPlaylist: "Open playlist",
-    volume: "Volume"
+    volume: "Volume",
+    seek: "Playback position"
   },
   ja: {
     hiddenBook: "隠された本",
@@ -83,7 +85,8 @@ const UI = {
     playPause: "再生・一時停止",
     muteToggle: "サウンドのオン/オフ",
     openPlaylist: "プレイリストを開く",
-    volume: "音量"
+    volume: "音量",
+    seek: "再生位置"
   }
 };
 

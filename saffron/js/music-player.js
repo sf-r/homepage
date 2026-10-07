@@ -23,6 +23,26 @@ export function initMusicPlayer(tracks) {
   const playerEl = document.getElementById("music-player");
 
   let currentIndex = -1;
+  let seeking = false;
+
+  /* 재생 위치 줄: 지난 시간 · 이동 막대 · 전체 시간 (제목 아래) */
+  const seekRow = document.createElement("div");
+  seekRow.className = "seek-row";
+  const curTimeEl = document.createElement("span");
+  curTimeEl.className = "time time-current";
+  const seekBar = document.createElement("input");
+  seekBar.type = "range";
+  seekBar.className = "seek-bar";
+  seekBar.min = "0";
+  seekBar.max = "1000";
+  seekBar.step = "1";
+  seekBar.value = "0";
+  seekBar.disabled = true;
+  seekBar.setAttribute("aria-label", ui("seek"));
+  const durTimeEl = document.createElement("span");
+  durTimeEl.className = "time time-total";
+  seekRow.append(curTimeEl, seekBar, durTimeEl);
+  titleEl.parentElement.appendChild(seekRow);
 
   toggleBtn.setAttribute("aria-label", ui("playPause"));
   muteBtn.setAttribute("aria-label", ui("muteToggle"));
@@ -48,6 +68,50 @@ export function initMusicPlayer(tracks) {
       }
     });
   }
+
+  /* 초 → "3:05" */
+  function formatTime(sec) {
+    if (!Number.isFinite(sec) || sec < 0) return "-:--";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${String(s).padStart(2, "0")}`;
+  }
+
+  function setSeekFill(ratio) {
+    seekBar.style.setProperty("--p", `${(ratio * 100).toFixed(2)}%`);
+  }
+
+  function renderTime() {
+    const dur = audio.duration;
+    const known = Number.isFinite(dur) && dur > 0;
+    durTimeEl.textContent = known ? formatTime(dur) : "-:--";
+    seekBar.disabled = !known;
+    if (seeking) return;
+    const ratio = known ? audio.currentTime / dur : 0;
+    seekBar.value = String(Math.round(ratio * 1000));
+    setSeekFill(ratio);
+    curTimeEl.textContent = formatTime(currentIndex === -1 ? 0 : audio.currentTime);
+  }
+
+  /* 막대를 끄는 동안은 시간 표시만 바꾸고, 놓으면 그 위치로 이동 */
+  seekBar.addEventListener("input", () => {
+    seeking = true;
+    const ratio = Number(seekBar.value) / 1000;
+    setSeekFill(ratio);
+    curTimeEl.textContent = formatTime(ratio * audio.duration);
+  });
+
+  seekBar.addEventListener("change", () => {
+    const ratio = Number(seekBar.value) / 1000;
+    if (Number.isFinite(audio.duration)) audio.currentTime = ratio * audio.duration;
+    seeking = false;
+    renderTime();
+  });
+
+  audio.addEventListener("timeupdate", renderTime);
+  audio.addEventListener("loadedmetadata", renderTime);
+  audio.addEventListener("durationchange", renderTime);
+  audio.addEventListener("emptied", renderTime);
 
   /* 부품: 재생목록 한 줄 */
   function renderPlaylist() {
@@ -131,4 +195,5 @@ export function initMusicPlayer(tracks) {
 
   setTrackTitle(tracks.length ? ui("pickTrack") : ui("noTracks"));
   renderPlaylist();
+  renderTime();
 }

@@ -11,6 +11,7 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.4rem 0.7rem 0.4rem 0.4rem;
+  max-width: calc(100vw - 2rem);
   background: linear-gradient(180deg, var(--walnut-light), var(--walnut));
   border: 1px solid rgba(184, 146, 63, 0.5);
   border-radius: 999px;
@@ -44,8 +45,81 @@
 
 .player-info {
   min-width: 0;
-  max-width: 130px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
+
+/* 재생 위치 줄: 0:42 ━━━○──── 3:15 */
+.seek-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.seek-row .time {
+  flex-shrink: 0;
+  min-width: 2.4em;
+  font-family: var(--font-ui);
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.seek-row .time-total { text-align: right; }
+
+.seek-bar {
+  --p: 0%;
+  flex: 1;
+  min-width: 0;
+  height: 14px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.seek-bar:disabled { cursor: default; opacity: 0.5; }
+
+.seek-bar::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brass-bright) var(--p), rgba(239, 227, 200, 0.2) var(--p));
+}
+
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--brass-bright);
+  box-shadow: 0 0 6px rgba(228, 198, 115, 0.6);
+}
+
+.seek-bar::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(239, 227, 200, 0.2);
+}
+
+.seek-bar::-moz-range-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--brass-bright);
+}
+
+.seek-bar::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: var(--brass-bright);
+}
+
+.seek-bar:focus-visible { outline: 2px solid var(--brass-bright); outline-offset: 2px; border-radius: 4px; }
 
 .track-title {
   display: block;
@@ -176,7 +250,7 @@
 }
 
 @media (max-width: 480px) {
-  .player-info { max-width: 78px; }
+  .player-info { width: 128px; }
 }
 
 /* 페이지가 플레이어를 숨길 때 (예: 세 개의 미래 영어·일본어판) */

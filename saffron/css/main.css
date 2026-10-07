@@ -10,7 +10,9 @@
   align-items: center;
   justify-content: center;
   gap: clamp(1rem, 3vw, 3rem);
-  padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+  --header-pad: clamp(1rem, 4vw, 2.5rem);
+  /* Safe 버튼 자리만큼 양쪽을 똑같이 비워서 Saffron이 정가운데 오게 함 */
+  padding: 0.9rem calc(var(--header-pad) + 7.5rem);
   background:
     linear-gradient(180deg, rgba(20, 16, 13, 0.2), rgba(20, 16, 13, 0.85) 70%),
     repeating-linear-gradient(180deg, var(--walnut) 0 3px, var(--walnut-light) 3px 4px);
@@ -27,10 +29,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-.genre-nav.right { justify-content: flex-end; align-items: center; }
+/* 장르는 Saffron 바로 왼쪽·오른쪽에 붙임 */
+.genre-nav:not(.right) { justify-content: flex-end; }
+.genre-nav.right { justify-content: flex-start; align-items: center; }
 
 .genre-nav a { transition: color 0.2s ease; white-space: nowrap; }
 .genre-nav a:hover { color: var(--brass-bright); }
@@ -58,6 +63,10 @@
   font-size: var(--step-1);
   color: var(--parchment);
   flex-shrink: 0;
+  position: absolute;
+  right: var(--header-pad);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .safe-toggle .dot {
@@ -398,8 +407,9 @@
 .spread-close:hover { opacity: 1; }
 
 @media (max-width: 620px) {
-  .site-header { flex-wrap: wrap; row-gap: 0.6rem; }
-  .genre-nav { flex: 1 1 100%; justify-content: center; order: 3; }
+  .site-header { flex-wrap: wrap; row-gap: 0.6rem; padding: 0.9rem var(--header-pad); }
+  .site-header .genre-nav { flex: 1 1 100%; justify-content: center; order: 3; }
+  .safe-toggle { position: static; transform: none; }
   .book-spread { grid-template-columns: 1fr; }
   .book-spread::before { display: none; }
 }

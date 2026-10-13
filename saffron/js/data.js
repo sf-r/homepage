@@ -60,13 +60,13 @@ export const BOOKS = [
   },
   {
     id: "rebloom",
-    title: "신세계 프로젝트 마법숙녀 Re:Bloom",
-    spineTitle: "마법숙녀 Re:Bloom",
+    title: "신세계 프로젝트 마법숙녀 Re:Bloomlution",
+    spineTitle: "마법숙녀 Re:Bloomlution",
     genre: "현대 판타지",
     safe: true,
     hideWhenSafe: true,
     langs: ["ko"],
-    spine: { bg: "#5a2a5e", emblem: "✿", height: 230, width: 46 },
+    spine: { bg: "#5a2a5e", emblem: "✿", height: 250, width: 46 },
     cover: null,
     description: "몇 번이나 무너졌는지 모를 도시, 신세계특별시. 다섯 마법숙녀는 저마다 비밀을 품었고, 그중 한 명은 모든 것을 꾸민 흑막이다. 종말 시계가 다 돌기 전에, 흑막을 지목하라.",
     detailUrl: "pages/rebloom/index.html"

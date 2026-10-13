@@ -147,4 +147,4 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 - `langs: ["ko"]` — 그 언어로 볼 때만 책장에 나옴 (없으면 모든 언어)
 - `spineTitle` — 책등에 쓸 짧은 제목, `cover: null` — 펼쳤을 때 표지 이미지 숨김
 
-예: 「신세계 프로젝트 마법숙녀 Re:Bloom」(`pages/rebloom/`)은 한국어 + Safe OFF일 때만 보이는 한국어판 전용 작품입니다.
+예: 「신세계 프로젝트 마법숙녀 Re:Bloomlution」(`pages/rebloom/`)은 한국어 + Safe OFF일 때만 보이는 한국어판 전용 작품입니다.

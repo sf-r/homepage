@@ -1,5 +1,5 @@
 /* ==========================================================================
-   「신세계 프로젝트 마법숙녀 Re:Bloom」 테마
+   「신세계 프로젝트 마법숙녀 Re:Bloomlution」 테마
    몇 번이고 무너졌다 다시 피어나는 도시. 보랏빛 밤하늘에 다섯 마법숙녀의 색을 한
    꽃잎이 흩날리고, 가운데에는 세계가 끝날 때마다 나타나는 하얀 빛이 피어 있다.
    레이아웃은 세 개의 미래 테마와 같은 구조다. 배경 이미지가 생기면
@@ -402,7 +402,7 @@
   .char-sublist .sublist-label { align-self: center; padding: 0 0.2rem 0 0.6rem; white-space: nowrap; }
 }
 
-/* ---------- Re:Bloom 전용 ---------- */
+/* ---------- Re:Bloomlution 전용 ---------- */
 
 /* 흩날리는 꽃잎 */
 .petals { position: absolute; inset: 0; overflow: hidden; }

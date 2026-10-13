@@ -49,9 +49,10 @@
   /* 인물이 많아 목록이 화면보다 길어지면 사이드바 안에서 스크롤 */
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(184, 146, 63, 0.35) transparent;
+  scrollbar-width: none;  /* 스크롤은 되지만 스크롤바는 숨김 */
 }
+
+.detail-sidebar::-webkit-scrollbar { display: none; }
 
 .detail-sidebar nav > ul {
   list-style: none;

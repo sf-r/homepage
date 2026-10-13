@@ -22,26 +22,47 @@ function createPortrait(character) {
   return card;
 }
 
-/* 부품: 버튼을 눌러야 열리는 비밀. when이 있으면 조건 → 내용 2단계로 연다 */
-function createSecret(title, when, body) {
-  const details = el("details", "secret");
-  const summary = el("summary", null, when ? `${title} · 조건 보기` : `${title} · 비밀 보기`);
+/* 부품: 인물 하나의 숨김 버튼 (약점 · 비밀 단계 · 기타 비밀을 하나로 묶는다).
+   비밀 단계는 조건까지만 보이고, 내용은 단계마다 '내용 보기'를 한 번 더 눌러야 열린다. */
+function createSecretBox(character) {
+  const weak = character.weak || [];
+  const stages = character.stages || [];
+  const notes = character.notes || [];
+  if (weak.length + stages.length + notes.length === 0) return null;
+
+  const details = el("details", "secret char-secret");
+  details.appendChild(el("summary", null, `${character.name} · 비밀 보기`));
   const box = el("div", "secret-body");
 
-  const paragraphs = body.map((text) => el("p", null, text));
-  if (when) {
-    box.appendChild(el("p", "secret-when", "드러나는 때 · " + when));
-    const inner = el("details", "secret inner");
-    inner.appendChild(el("summary", null, "내용 보기"));
-    const innerBox = el("div", "secret-body");
-    innerBox.append(...paragraphs);
-    inner.appendChild(innerBox);
-    box.appendChild(inner);
-  } else {
-    box.append(...paragraphs);
+  if (weak.length > 0) {
+    box.appendChild(el("h4", "secret-heading", "몸의 약점"));
+    const dl = el("dl", "secret-facts");
+    for (const [k, v] of weak) dl.append(el("dt", null, k), el("dd", null, v));
+    box.appendChild(dl);
   }
 
-  details.append(summary, box);
+  if (stages.length > 0) {
+    box.appendChild(el("h4", "secret-heading", "감춰 둔 것"));
+    stages.forEach((stage, i) => {
+      const item = el("div", "secret-stage");
+      item.appendChild(el("p", "secret-stage-title", `${i + 1}단계`));
+      item.appendChild(el("p", "secret-when", "드러나는 때 · " + stage.when));
+      const inner = el("details", "secret inner");
+      inner.appendChild(el("summary", null, "내용 보기"));
+      const innerBox = el("div", "secret-body");
+      innerBox.append(...stage.body.map((t) => el("p", null, t)));
+      inner.appendChild(innerBox);
+      item.appendChild(inner);
+      box.appendChild(item);
+    });
+  }
+
+  for (const note of notes) {
+    box.appendChild(el("h4", "secret-heading", note.title));
+    box.append(...note.body.map((t) => el("p", null, t)));
+  }
+
+  details.appendChild(box);
   return details;
 }
 
@@ -61,12 +82,8 @@ function createCharSection(character) {
 
   body.appendChild(el("p", null, character.desc));
 
-  (character.stages || []).forEach((stage, i) => {
-    body.appendChild(createSecret(`비밀 ${i + 1}단계`, stage.when, stage.body));
-  });
-  for (const note of character.notes || []) {
-    body.appendChild(createSecret(note.title, null, note.body));
-  }
+  const secretBox = createSecretBox(character);
+  if (secretBox) body.appendChild(secretBox);
 
   section.append(createPortrait(character), body);
   return section;

@@ -521,3 +521,24 @@
   .region-card dl { grid-template-columns: 1fr; gap: 0.15rem; }
   .region-card dd { margin-bottom: 0.5rem; }
 }
+.region-card .secret.motif { margin: 0 0 0.9rem; }
+.region-card .secret.motif .secret-body { margin-top: 0.5rem; padding: 0.5rem 0.8rem; }
+.region-card .secret.motif .secret-body p { font-family: var(--font-ui); font-size: 0.85rem !important; color: var(--c); }
+
+/* 인물 숨김 버튼 (하나로 합친 것) */
+.char-secret > .secret-body { padding: 1rem 1.1rem; }
+.secret-heading {
+  margin: 0.2rem 0 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--c, var(--work-accent-bright));
+}
+.secret-heading:not(:first-child) { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px dashed color-mix(in srgb, var(--c, var(--work-accent-bright)) 30%, transparent); }
+.secret-facts { display: grid; grid-template-columns: 4.5em 1fr; gap: 0.4rem 0.8rem; margin: 0; font-size: 0.95rem; }
+.secret-facts dt { font-family: var(--font-ui); font-size: 0.82rem; color: var(--muted); padding-top: 0.15rem; }
+.secret-facts dd { margin: 0; color: var(--parchment); line-height: 1.7; }
+.secret-stage { padding: 0.6rem 0 0.2rem; }
+.secret-stage + .secret-stage { border-top: 1px solid rgba(242, 167, 216, 0.08); }
+.secret-stage-title { margin: 0 0 0.2rem !important; font-family: var(--font-ui); font-size: 0.85rem !important; font-weight: 600; color: var(--c, var(--work-accent-bright)) !important; }
+.secret-stage .secret.inner { margin-top: 0.5rem; }

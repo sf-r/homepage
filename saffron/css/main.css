@@ -291,7 +291,7 @@
   filter: saturate(0.35) brightness(0.7);
 }
 
-.book-spine .spine-title { max-height: 100%; overflow: hidden; }
+.book-spine .spine-title { max-height: 100%; overflow: hidden; white-space: pre-line; }
 
 .book-spine .spine-emblem {
   position: absolute;

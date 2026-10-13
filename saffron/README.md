@@ -139,3 +139,12 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 - '세 개의 미래에서 온 그녀들' 인물은 언어판마다 이름·장소가 달라서 파일이 나뉘어 있습니다:
   `characters-data.js`(한국어, 서울) · `characters-data.en.js`(영어, 뉴욕) · `characters-data.ja.js`(일본어, 도쿄).
   세 파일은 같은 id·같은 구조이니, 인물을 고치면 세 파일을 함께 고쳐 주세요.
+
+## 책장 표시 옵션 (`js/data.js`)
+
+- `safe: true` — Safe ON이면 제목이 가려지고 뽑을 수 없음
+- `hideWhenSafe: true` — Safe ON이면 책장에서 아예 사라짐
+- `langs: ["ko"]` — 그 언어로 볼 때만 책장에 나옴 (없으면 모든 언어)
+- `spineTitle` — 책등에 쓸 짧은 제목, `cover: null` — 펼쳤을 때 표지 이미지 숨김
+
+예: 「신세계 프로젝트 마법숙녀 Re:Bloom」(`pages/rebloom/`)은 한국어 + Safe OFF일 때만 보이는 한국어판 전용 작품입니다.

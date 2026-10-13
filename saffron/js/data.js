@@ -1,5 +1,8 @@
 // Saffron — 책장에 꽂힐 작품 데이터.
 // safe: true 인 책은 safe 모드가 켜져 있으면 제목이 가려지고 뽑을 수 없다.
+// hideWhenSafe: true 인 책은 safe 모드가 켜져 있으면 책장에서 아예 사라진다.
+// langs: ["ko"] 처럼 적으면 그 언어로 볼 때만 책장에 나온다 (없으면 모든 언어).
+// spineTitle 이 있으면 책등에는 그걸 쓴다 ("\n"으로 줄을 직접 나눌 수 있다). cover 가 null 이면 표지 이미지를 숨긴다.
 // detailUrl 이 없으면 아직 상세 페이지가 준비되지 않은 예시 항목.
 
 // 장르 이름은 언어별로 적습니다.
@@ -54,5 +57,18 @@ export const BOOKS = [
         description: "三十日後、東京の空に開く時間の裂け目。その前でのあなたの選択が、三つの未来のうちひとつを確定させる。三つの未来はそれぞれ一人ずつ回帰者を送り込み、三人は互いの存在を知らなかった。"
       }
     }
+  },
+  {
+    id: "rebloom",
+    title: "신세계 프로젝트 마법숙녀 Re:Bloomlution",
+    spineTitle: "신세계 프로젝트\n마법숙녀 Re:Bloomlution",
+    genre: "현대 판타지",
+    safe: true,
+    hideWhenSafe: true,
+    langs: ["ko"],
+    spine: { bg: "#5a2a5e", emblem: "✿", height: 250, width: 54 },
+    cover: null,
+    description: "몇 번이나 무너졌는지 모를 도시, 신세계특별시. 다섯 마법숙녀는 저마다 비밀을 품었고, 그중 한 명은 모든 것을 꾸민 흑막이다. 종말 시계가 다 돌기 전에, 흑막을 지목하라.",
+    detailUrl: "pages/rebloom/index.html"
   }
 ];

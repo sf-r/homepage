@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>등장인물 — 신세계 프로젝트 마법숙녀 Re:Bloomlution — Saffron</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="rebloom-theme.css">
+</head>
+<body>
+
+<!-- 한국어판 전용 페이지 (다국어 전환 없음). 성인 이용자 대상 작품이라 메인 책장에서는 Safe OFF일 때만 보인다. -->
+<div class="sky-backdrop" aria-hidden="true">
+  <div class="sky-stars"></div>
+  <div class="petals">
+    <span style="left:8%;--pc:#c9d3e6;--d:19s;--delay:-3s"></span>
+    <span style="left:22%;--pc:#b99bff;--d:23s;--delay:-11s"></span>
+    <span style="left:37%;--pc:#e3d6b4;--d:17s;--delay:-6s"></span>
+    <span style="left:51%;--pc:#5fd8c8;--d:21s;--delay:-15s"></span>
+    <span style="left:66%;--pc:#f4f1ea;--d:25s;--delay:-2s"></span>
+    <span style="left:79%;--pc:#f2a7d8;--d:20s;--delay:-9s"></span>
+    <span style="left:91%;--pc:#b99bff;--d:24s;--delay:-17s"></span>
+  </div>
+  <div class="sky-rift"></div>
+</div>
+
+<header class="detail-header">
+  <a href="../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title">신세계 프로젝트 마법숙녀 Re:Bloomlution</span>
+</header>
+
+<div class="detail-layout">
+  <aside class="detail-sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item" data-nav="world"><a href="index.html#world">세계관</a></li>
+        <li class="nav-item" data-nav="factions"><a href="index.html#factions">세력</a></li>
+        <li class="nav-item" data-nav="regions"><a href="index.html#regions">지역과 건축</a></li>
+        <li class="nav-item" data-nav="voids"><a href="index.html#voids">공백체</a></li>
+        <li class="nav-item" data-nav="stories"><a href="index.html#stories">시작 스토리</a></li>
+        <li class="nav-item" data-nav="play"><a href="index.html#play">플레이 방식</a></li>
+        <li class="nav-item" data-nav="truth"><a href="index.html#truth">진상과 결말</a></li>
+        <li class="nav-item active">
+          <button data-toggle-sublist aria-controls="char-sublist" aria-expanded="true">등장인물</button>
+          <ul id="char-sublist" class="char-sublist expanded"></ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="detail-content" id="char-list">
+    <!-- characters.js 가 이 안에 인물 카드를 채워 넣습니다 -->
+  </div>
+</div>
+
+<script type="module" src="characters.js"></script>
+</body>
+</html>

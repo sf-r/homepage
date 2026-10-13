@@ -41,7 +41,7 @@ function createBookSpine(book, safeOn) {
 
     const title = document.createElement("span");
     title.className = "spine-title";
-    title.textContent = book.title;
+    title.textContent = book.spineTitle || book.title;
     btn.appendChild(title);
 
     btn.addEventListener("click", () => openSpread(book));
@@ -63,7 +63,12 @@ function renderShelves(safeOn) {
   const root = document.getElementById("shelf-rows");
   root.innerHTML = "";
 
-  const rows = [BOOKS.slice(0, 3), BOOKS.slice(3)];
+  // 언어(langs)와 safe 상태(hideWhenSafe)에 맞는 책만 꽂는다
+  const lang = getLang();
+  const books = BOOKS.filter(
+    (b) => (!b.langs || b.langs.includes(lang)) && !(b.hideWhenSafe && safeOn)
+  );
+  const rows = [books.slice(0, 3), books.slice(3)];
   for (const row of rows) {
     if (row.length === 0) continue;
     const shelfRow = document.createElement("div");
@@ -87,8 +92,10 @@ function renderShelves(safeOn) {
 function openSpread(book) {
   const overlay = document.getElementById("spread-overlay");
   overlay.querySelector(".spread-title").textContent = book.title;
-  overlay.querySelector(".spread-cover").src = book.cover;
-  overlay.querySelector(".spread-cover").alt = ui("coverAlt", { title: book.title });
+  const cover = overlay.querySelector(".spread-cover");
+  cover.hidden = !book.cover;
+  if (book.cover) cover.src = book.cover;
+  cover.alt = ui("coverAlt", { title: book.title });
   overlay.querySelector(".spread-desc").textContent = book.description;
 
   const link = overlay.querySelector(".detail-link");

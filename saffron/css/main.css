@@ -291,7 +291,7 @@
   filter: saturate(0.35) brightness(0.7);
 }
 
-.book-spine .spine-title { max-height: 100%; overflow: hidden; }
+.book-spine .spine-title { max-height: 100%; overflow: hidden; white-space: pre-line; }
 
 .book-spine .spine-emblem {
   position: absolute;
@@ -378,6 +378,9 @@
   margin-bottom: 0.9rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
+
+/* 표지가 없는 책(cover: null)은 이미지 칸을 숨긴다 */
+.spread-page.right img[hidden] { display: none; }
 
 .spread-page.right p {
   font-family: var(--font-ui);

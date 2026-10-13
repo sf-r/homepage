@@ -542,3 +542,27 @@
 .secret-stage + .secret-stage { border-top: 1px solid rgba(242, 167, 216, 0.08); }
 .secret-stage-title { margin: 0 0 0.2rem !important; font-family: var(--font-ui); font-size: 0.85rem !important; font-weight: 600; color: var(--c, var(--work-accent-bright)) !important; }
 .secret-stage .secret.inner { margin-top: 0.5rem; }
+
+/* 공백체 특수 개체 카드 */
+.void-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0 0.4rem;
+}
+.void-card {
+  --c: #b7a3d6;
+  position: relative;
+  padding: 1rem 1.1rem 1rem;
+  border: 1px solid rgba(183, 163, 214, 0.28);
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, rgba(60, 30, 80, 0.45), rgba(18, 10, 28, 0.7));
+}
+.void-card h3 { margin: 0 2.4rem 0.3rem 0; font-size: var(--step-2); color: var(--parchment); }
+.void-no { position: absolute; top: 0.8rem; right: 1rem; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); }
+.void-type { display: inline-block; margin-bottom: 0.5rem; font-family: var(--font-ui); font-size: 0.74rem; color: var(--c); }
+.void-card p { font-size: 0.93rem !important; line-height: 1.7; margin: 0 0 0.5rem; }
+.void-counter { font-family: var(--font-ui); font-size: 0.84rem !important; color: var(--parchment); opacity: 0.85; }
+.void-counter strong { color: var(--c); margin-right: 0.3rem; }
+.secret-list { margin: 0; padding-left: 1.1rem; font-size: 0.92rem; line-height: 1.7; color: var(--parchment); }
+@media (max-width: 620px) { .void-cards { grid-template-columns: 1fr; } }

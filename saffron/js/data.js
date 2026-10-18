@@ -1,6 +1,5 @@
 // Saffron — 책장에 꽂힐 작품 데이터.
 // safe: true 인 책은 safe 모드가 켜져 있으면 제목이 가려지고 뽑을 수 없다.
-// hideWhenSafe: true 인 책은 safe 모드가 켜져 있으면 책장에서 아예 사라진다.
 // langs: ["ko"] 처럼 적으면 그 언어로 볼 때만 책장에 나온다 (없으면 모든 언어).
 // spineTitle 이 있으면 책등에는 그걸 쓴다 ("\n"으로 줄을 직접 나눌 수 있다). cover 가 null 이면 표지 이미지를 숨긴다.
 // detailUrl 이 없으면 아직 상세 페이지가 준비되지 않은 예시 항목.
@@ -64,7 +63,6 @@ export const BOOKS = [
     spineTitle: "신세계 프로젝트\n마법숙녀 Re:Bloomlution",
     genre: "현대 판타지",
     safe: true,
-    hideWhenSafe: true,
     langs: ["ko"],
     spine: { bg: "#5a2a5e", emblem: "✿", height: 250, width: 54 },
     cover: null,
@@ -77,7 +75,6 @@ export const BOOKS = [
     spineTitle: "Arcana\nThe Witch's Fate",
     genre: "로맨스 판타지",
     safe: true,
-    hideWhenSafe: true,
     langs: ["ko"],
     spine: { bg: "#4a2050", emblem: "☾", height: 236, width: 50 },
     cover: "https://saffran.kr/lulu/pro.webp",

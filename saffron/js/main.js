@@ -63,10 +63,10 @@ function renderShelves(safeOn) {
   const root = document.getElementById("shelf-rows");
   root.innerHTML = "";
 
-  // 언어(langs)와 safe 상태(hideWhenSafe)에 맞는 책만 꽂는다
+  // 현재 언어(langs)에 맞는 책만 꽂는다
   const lang = getLang();
   const books = BOOKS.filter(
-    (b) => (!b.langs || b.langs.includes(lang)) && !(b.hideWhenSafe && safeOn)
+    (b) => !b.langs || b.langs.includes(lang)
   );
   const rows = [books.slice(0, 3), books.slice(3)];
   for (const row of rows) {

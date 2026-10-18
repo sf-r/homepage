@@ -108,7 +108,7 @@ export const BOOKS = [
     safe: false,
     langs: ["ko"],
     spine: { bg: "#e48aa6", emblem: "♡", height: 220, width: 46 },
-    cover: null,
+    cover: "https://saffran.kr/Thumbnail/69ef15f03a704f07a29bb017_ko.gif",
     description: "1:1, 메스가키. 귀여워서 차마 참교육 하지 못하는 메스가키 하루비와의 일상.",
     detailUrl: "pages/harubi/index.html"
   }

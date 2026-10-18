@@ -36,6 +36,18 @@ function createGenreList(ids, alignRight) {
   return ul;
 }
 
+// 장르가 많아 양옆 버튼(언어 · Safe)이나 서로와 겹치면 장르를 아랫줄로 내린다
+function fitGenreNav() {
+  const header = document.querySelector(".site-header");
+  header.classList.remove("genres-wrap");
+  const overlaps = (a, b) => a && b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+  const boxes = [...header.querySelectorAll(".genre-nav li")].map((li) => li.getBoundingClientRect());
+  const others = ["#lang-slot", "#safe-toggle", ".wordmark"]
+    .map((sel) => header.querySelector(sel)?.getBoundingClientRect());
+  const clipped = [...header.querySelectorAll(".genre-nav")].some((ul) => ul.scrollWidth > ul.clientWidth + 1);
+  if (clipped || boxes.some((box) => others.some((o) => overlaps(box, o)))) header.classList.add("genres-wrap");
+}
+
 /* ---------- 장르 강조 ---------- */
 // 장르를 누르면 그 장르의 책이 튀어나와 빛나고, 나머지는 어두워진다. 다시 누르면 풀림.
 let activeGenre = null;
@@ -207,6 +219,9 @@ function init() {
   const half = Math.ceil(genres.length / 2);
   document.getElementById("genre-left").replaceWith(createGenreList(genres.slice(0, half), false));
   document.getElementById("genre-right").replaceWith(createGenreList(genres.slice(half), true));
+  fitGenreNav();
+  window.addEventListener("resize", fitGenreNav);
+  document.fonts?.ready.then(fitGenreNav);
 
   initSafeToggle();
 

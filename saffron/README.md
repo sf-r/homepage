@@ -148,3 +148,14 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 - `spineTitle` — 책등에 쓸 짧은 제목, `cover: null` — 펼쳤을 때 표지 이미지 숨김
 
 예: 「신세계 프로젝트 마법숙녀 Re:Bloomlution」(`pages/rebloom/`)은 한국어 + Safe OFF일 때만 보이는 한국어판 전용 작품입니다.
+
+## 아카라이브 전용 페이지 (Cloudflare Worker)
+
+`pages/rebloom/gallery/`(Re:Bloomlution 캐릭터 이미지 미리보기)는 **아카라이브(arca.live)에서 링크를 눌러 들어온 경우에만** 열립니다.
+
+- 검사 코드는 저장소 루트의 `src/worker.js`, 검사할 경로는 `wrangler.jsonc`의 `run_worker_first`.
+- 아카라이브에서 들어오면 1시간짜리 입장 쿠키가 생겨, 그동안은 새로고침·이미지 보기가 됩니다.
+- 주소를 직접 치거나 다른 곳에서 공유된 링크로 오면 안내 페이지(403)가 뜹니다.
+- 이미지는 `pages/rebloom/gallery/img/`에 넣고 `gallery-data.js`에 `img/파일이름`으로 적어야 같은 보호를 받습니다.
+- 사이트 안 다른 페이지에서 이 페이지로 링크하면 막히니, 링크는 아카라이브 글에만 겁니다.
+- 선택: Cloudflare 대시보드 → Workers → homepage → Settings → Variables and Secrets에 `GALLERY_SECRET`(아무 긴 문자열)을 넣으면 쿠키 서명 키로 씁니다.

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>캐릭터 이미지 미리보기 — 신세계 프로젝트 마법숙녀 Re:Bloomlution — Saffron</title>
+<link rel="stylesheet" href="../../../css/tokens.css">
+<link rel="stylesheet" href="../../../css/detail.css">
+<link rel="stylesheet" href="../rebloom-theme.css">
+<link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+<!-- 아카라이브에서 링크로 들어온 사람만 볼 수 있는 페이지 (검사: 저장소 루트 src/worker.js).
+     사이트 안 다른 페이지에서는 이 페이지로 링크하지 않는다. -->
+<div class="sky-backdrop" aria-hidden="true">
+  <div class="sky-stars"></div>
+  <div class="petals">
+    <span style="left:12%;--pc:#c9d3e6;--d:21s;--delay:-4s"></span>
+    <span style="left:34%;--pc:#b99bff;--d:24s;--delay:-12s"></span>
+    <span style="left:58%;--pc:#5fd8c8;--d:19s;--delay:-7s"></span>
+    <span style="left:81%;--pc:#f2a7d8;--d:23s;--delay:-15s"></span>
+  </div>
+</div>
+
+<header class="detail-header">
+  <a href="../../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title">신세계 프로젝트 마법숙녀 Re:Bloomlution · 캐릭터 이미지 미리보기</span>
+</header>
+
+<main class="gallery-page">
+  <div class="gallery-intro">
+    <span class="rift-badge"><span class="mark">✿</span> 아카라이브 채널 전용 미리보기</span>
+    <p>이미지를 누르면 크게 볼 수 있어요. 이 페이지는 채널 글의 링크로 들어왔을 때만 열리고, 입장 후 1시간 동안 유지됩니다.</p>
+  </div>
+  <div id="gallery"></div>
+</main>
+
+<div id="viewer" class="viewer" hidden>
+  <button class="viewer-close" type="button" aria-label="닫기">&times;</button>
+  <figure>
+    <img alt="">
+    <figcaption class="viewer-caption"></figcaption>
+  </figure>
+</div>
+
+<script type="module" src="gallery.js"></script>
+</body>
+</html>

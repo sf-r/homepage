@@ -70,5 +70,18 @@ export const BOOKS = [
     cover: null,
     description: "몇 번이나 무너졌는지 모를 도시, 신세계특별시. 다섯 마법숙녀는 저마다 비밀을 품었고, 그중 한 명은 모든 것을 꾸민 흑막이다. 종말 시계가 다 돌기 전에, 흑막을 지목하라.",
     detailUrl: "pages/rebloom/index.html"
+  },
+  {
+    id: "arcana",
+    title: "Arcana: The Witch's Fate",
+    spineTitle: "Arcana\nThe Witch's Fate",
+    genre: "로맨스 판타지",
+    safe: true,
+    hideWhenSafe: true,
+    langs: ["ko"],
+    spine: { bg: "#4a2050", emblem: "☾", height: 236, width: 50 },
+    cover: "https://saffran.kr/lulu/pro.webp",
+    description: "순애와 NTR 모드 선택 가능, 마녀의 운명을 결정하라.",
+    detailUrl: "pages/arcana/index.html"
   }
 ];

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+<!-- 하루비의 고양이 머리끈 스티커: 고양이 얼굴 둘레로 하트·별이 도는 원 -->
+<circle cx="500" cy="500" r="330" stroke="#ffb3c7" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="14 18"/>
+<circle cx="500" cy="500" r="250" stroke="#9fe3c8" stroke-opacity="0.4" stroke-width="2"/>
+<path d="M370 470 L380 330 L460 400 Q500 390 540 400 L620 330 L630 470 Q640 610 500 620 Q360 610 370 470 Z" stroke="#fff2f6" stroke-opacity="0.6" stroke-width="5" stroke-linejoin="round"/>
+<ellipse cx="455" cy="490" rx="14" ry="20" fill="#9fe3c8" fill-opacity="0.7"/><ellipse cx="545" cy="490" rx="14" ry="20" fill="#9fe3c8" fill-opacity="0.7"/>
+<path d="M485 540 Q500 555 515 540" stroke="#ffb3c7" stroke-opacity="0.8" stroke-width="4" stroke-linecap="round"/>
+<g stroke="#fff2f6" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round"><path d="M400 530 L330 520"/><path d="M400 550 L335 560"/><path d="M600 530 L670 520"/><path d="M600 550 L665 560"/></g>
+<path transform="translate(903.7711787350053 571.1957528434415) scale(1.6)" d="M0 8 C -10 -6, -26 4, 0 26 C 26 4, 10 -6, 0 8 Z" fill="#ffb3c7" fill-opacity="0.55"/>
+<polygon points="735.2,813.9 741.0,827.8 756.1,829.1 744.6,838.9 748.1,853.7 735.2,845.8 722.2,853.7 725.8,838.9 714.2,829.1 729.3,827.8" fill="#9fe3c8" fill-opacity="0.5"/>
+<path transform="translate(428.8042471565586 903.7711787350053) scale(1.6)" d="M0 8 C -10 -6, -26 4, 0 26 C 26 4, 10 -6, 0 8 Z" fill="#ffb3c7" fill-opacity="0.55"/>
+<polygon points="164.1,713.2 170.0,727.2 185.1,728.4 173.6,738.2 177.1,753.0 164.1,745.1 151.2,753.0 154.7,738.2 143.2,728.4 158.3,727.2" fill="#9fe3c8" fill-opacity="0.5"/>
+<path transform="translate(96.22882126499474 428.8042471565585) scale(1.6)" d="M0 8 C -10 -6, -26 4, 0 26 C 26 4, 10 -6, 0 8 Z" fill="#ffb3c7" fill-opacity="0.55"/>
+<polygon points="264.8,142.1 270.7,156.1 285.8,157.3 274.2,167.2 277.8,181.9 264.8,174.0 251.9,181.9 255.4,167.2 243.9,157.3 259.0,156.1" fill="#9fe3c8" fill-opacity="0.5"/>
+<path transform="translate(571.1957528434413 96.22882126499468) scale(1.6)" d="M0 8 C -10 -6, -26 4, 0 26 C 26 4, 10 -6, 0 8 Z" fill="#ffb3c7" fill-opacity="0.55"/>
+<polygon points="835.9,242.8 841.7,256.8 856.8,258.0 845.3,267.9 848.8,282.6 835.9,274.7 822.9,282.6 826.4,267.9 814.9,258.0 830.0,256.8" fill="#9fe3c8" fill-opacity="0.5"/>
+</svg>

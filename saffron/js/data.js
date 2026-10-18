@@ -15,7 +15,8 @@ export const GENRES = {
   "magical-girl": { ko: "마법소녀", en: "Magical Girl", ja: "魔法少女" },
   adventure: { ko: "모험", en: "Adventure", ja: "冒険" },
   training: { ko: "조교", en: "Training", ja: "調教" },
-  "slice-of-life": { ko: "일상", en: "Slice of Life", ja: "日常" }
+  "slice-of-life": { ko: "일상", en: "Slice of Life", ja: "日常" },
+  school: { ko: "학원", en: "School", ja: "学園" }
 };
 
 // 각 책의 i18n 안에 en / ja 번역을 두면, 그 언어로 볼 때 덮어씁니다.
@@ -99,5 +100,16 @@ export const BOOKS = [
     cover: "https://saffran.kr/Thumbnail/6a2aa2d7a88847abc92517bb_ko.webp",
     description: "nsfw, 등장인물: 두 명의 고양이 수인",
     detailUrl: "pages/cats/nsfw.html"
+  },
+  {
+    id: "harubi",
+    title: "참교육 못하는 메스가키",
+    genres: ["school", "comedy"],
+    safe: false,
+    langs: ["ko"],
+    spine: { bg: "#e48aa6", emblem: "♡", height: 220, width: 46 },
+    cover: "https://saffran.kr/Thumbnail/69ef15f03a704f07a29bb017_ko.gif",
+    description: "1:1, 메스가키. 귀여워서 차마 참교육 하지 못하는 메스가키 하루비와의 일상.",
+    detailUrl: "pages/harubi/index.html"
   }
 ];

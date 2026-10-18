@@ -115,8 +115,8 @@ function renderShelves(safeOn) {
   const root = document.getElementById("shelf-rows");
   root.innerHTML = "";
 
-  // 현재 언어(langs)에 맞는 책만 꽂는다
-  const books = shelfBooks();
+  // 현재 언어(langs)에 맞는 책만 꽂고, Safe ON에서도 볼 수 있는 책(safe: false)을 맨 윗줄 앞쪽에 둔다
+  const books = shelfBooks().sort((a, b) => Number(!!a.safe) - Number(!!b.safe));
   const rows = [books.slice(0, 3), books.slice(3)];
   for (const row of rows) {
     if (row.length === 0) continue;

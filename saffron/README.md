@@ -20,11 +20,9 @@ saffron/
 │   ├── music-player.js     음악 플레이어 공통 로직 (initMusicPlayer(tracks))
 │   └── music-data.js       메인 페이지 전용 재생목록
 └── pages/
-    └── gongnyeo/            '참교육 못하는 공녀님' 상세페이지
-        ├── index.html       세계관 + 모드 (한 페이지, 스크롤)
-        ├── characters.html  등장인물 (한 페이지, 스크롤)
-        ├── characters.js
-        ├── characters-data.js
+    └── gongnyeo/            '참교육 못하는 공녀님' 상세페이지 (한국어 전용, 성인)
+        ├── index.html       소개 · 세계관 · 실비아 · 주변 인물 · 저택의 하루 · 모드 · 조교와 변화 · 업적
+        ├── crest.svg        배경에서 천천히 도는 공작가 장미창
         ├── music-data.js    이 작품 전용 재생목록 (메인 페이지와 다른 목록)
         └── gongnyeo-theme.css   이 작품만의 색/장식
 ```
@@ -94,7 +92,7 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 {
   id: "new-book",
   title: "작품 제목",
-  genre: "장르명",
+  genres: ["romance-fantasy"],   // GENRES 의 키, 여러 개 가능
   safe: false,               // true면 safe 모드 켜졌을 때 가려짐
   spine: { bg: "#3a5f4a", emblem: "❧", height: 200, width: 42 },
   cover: "https://.../표지이미지.jpg",   // 외부 이미지 URL
@@ -103,14 +101,16 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 }
 ```
 
-헤더의 장르 목록은 `js/data.js` 상단의 `GENRES_LEFT` / `GENRES_RIGHT` 배열에서
-관리합니다.
+헤더의 장르 목록은 지금 책장에 꽂힌 책들의 `genres` 로 자동으로 채워집니다.
+장르 이름(언어별)과 순서는 `js/data.js` 상단의 `GENRES` 에서 관리합니다.
+헤더에서 장르를 누르면 그 장르의 책이 강조되고, 다시 누르면 풀립니다.
+Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 여전히 가려지고 펼쳐지지 않음).
 
 ## 새 작품의 상세페이지 만들기
 
-1. `pages/새작품이름/` 폴더를 만들고 `pages/gongnyeo/` 의 `index.html`,
-   `characters.html`, `characters.js`, `characters-data.js`, `music-data.js`
-   를 복사해 내용을 바꿉니다. (`css/detail.css`, `js/music-player.js` 는 그대로
+1. `pages/새작품이름/` 폴더를 만들고 비슷한 작품 폴더(예: 등장인물 페이지가
+   따로 있는 `pages/three-futures/`, 한 페이지짜리 `pages/gongnyeo/`)의 파일을
+   복사해 내용을 바꿉니다. (`css/detail.css`, `js/music-player.js` 는 그대로
    재사용됩니다.)
 2. `gongnyeo-theme.css` 처럼 그 작품만의 `테마이름-theme.css` 를 새로 만들어
    `--work-bg`, `--work-header-bg`, `--work-accent`, `--work-accent-bright`

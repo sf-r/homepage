@@ -1,4 +1,4 @@
-import { GENRES_LEFT, GENRES_RIGHT, BOOKS as RAW_BOOKS } from "./data.js";
+import { GENRES, BOOKS as RAW_BOOKS } from "./data.js";
 import { ui, loc, getLang, applyPageText, mountLangSwitcher } from "./i18n.js";
 
 const BOOKS = RAW_BOOKS.map(loc);
@@ -6,18 +6,57 @@ const BOOKS = RAW_BOOKS.map(loc);
 const SAFE_KEY = "saffron-safe";
 
 /* ---------- 부품: 장르 리스트 ---------- */
-function createGenreList(items, alignRight) {
+// 지금 언어로 책장에 꽂히는 책들의 장르만, GENRES 에 적힌 순서대로
+function shelfBooks() {
+  const lang = getLang();
+  return BOOKS.filter((b) => !b.langs || b.langs.includes(lang));
+}
+
+function usedGenres() {
+  const used = new Set(shelfBooks().flatMap((b) => b.genres || []));
+  return Object.keys(GENRES).filter((id) => used.has(id));
+}
+
+function createGenreList(ids, alignRight) {
   const ul = document.createElement("ul");
   ul.className = "genre-nav" + (alignRight ? " right" : "");
-  for (const g of items) {
+  for (const id of ids) {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = "#";
-    a.textContent = g[getLang()] || g.ko;
+    a.dataset.genre = id;
+    a.textContent = GENRES[id][getLang()] || GENRES[id].ko;
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      setActiveGenre(activeGenre === id ? null : id);
+    });
     li.appendChild(a);
     ul.appendChild(li);
   }
   return ul;
+}
+
+/* ---------- 장르 강조 ---------- */
+// 장르를 누르면 그 장르의 책이 튀어나와 빛나고, 나머지는 어두워진다. 다시 누르면 풀림.
+let activeGenre = null;
+
+function setActiveGenre(id) {
+  activeGenre = id;
+  document.querySelectorAll(".genre-nav a").forEach((a) => {
+    const on = a.dataset.genre === id;
+    a.classList.toggle("active", on);
+    a.setAttribute("aria-pressed", String(on));
+  });
+  applyGenreHighlight();
+}
+
+function applyGenreHighlight() {
+  const root = document.getElementById("shelf-rows");
+  root.classList.toggle("genre-filtering", activeGenre !== null);
+  root.querySelectorAll(".book-spine").forEach((btn) => {
+    const genres = (btn.dataset.genres || "").split(" ");
+    btn.classList.toggle("genre-hit", activeGenre !== null && genres.includes(activeGenre));
+  });
 }
 
 /* ---------- 부품: 책 한 권(책등) ---------- */
@@ -31,6 +70,7 @@ function createBookSpine(book, safeOn) {
   btn.style.height = book.spine.height + "px";
   btn.style.width = book.spine.width + "px";
   btn.disabled = hidden;
+  btn.dataset.genres = (book.genres || []).join(" ");
   btn.setAttribute("aria-label", hidden ? ui("hiddenBook") : book.title);
 
   if (!hidden) {
@@ -64,10 +104,7 @@ function renderShelves(safeOn) {
   root.innerHTML = "";
 
   // 현재 언어(langs)에 맞는 책만 꽂는다
-  const lang = getLang();
-  const books = BOOKS.filter(
-    (b) => !b.langs || b.langs.includes(lang)
-  );
+  const books = shelfBooks();
   const rows = [books.slice(0, 3), books.slice(3)];
   for (const row of rows) {
     if (row.length === 0) continue;
@@ -86,6 +123,7 @@ function renderShelves(safeOn) {
     shelfRow.append(spines, plank);
     root.appendChild(shelfRow);
   }
+  applyGenreHighlight();
 }
 
 /* ---------- 책 펼치기(스프레드) ---------- */
@@ -164,8 +202,11 @@ const PAGE_TEXT = {
 function init() {
   applyPageText(PAGE_TEXT);
   mountLangSwitcher(document.getElementById("lang-slot"));
-  document.getElementById("genre-left").replaceWith(createGenreList(GENRES_LEFT, false));
-  document.getElementById("genre-right").replaceWith(createGenreList(GENRES_RIGHT, true));
+  // 장르를 워드마크 양옆으로 반씩 나눠 단다
+  const genres = usedGenres();
+  const half = Math.ceil(genres.length / 2);
+  document.getElementById("genre-left").replaceWith(createGenreList(genres.slice(0, half), false));
+  document.getElementById("genre-right").replaceWith(createGenreList(genres.slice(half), true));
 
   initSafeToggle();
 

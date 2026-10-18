@@ -1,84 +1,228 @@
 /* ==========================================================================
-   '참교육 못하는 공녀님' 테마
-   공작가의 격식(짙은 자두색 + 놋쇠 금장)에 메스가키의 장난스러움(장밋빛 포인트,
-   비뚤어진 인장 배지)을 섞는다. 다른 작품 상세페이지는 이 색을 그대로 쓰지 않는다.
+   「참교육 못하는 공녀님」 테마
+   아르젠텔 공작가의 밤. 짙은 자줏빛 바탕에 실비아의 은발(은빛)과 바이올렛 눈(보랏빛),
+   가운데에는 천천히 도는 공작가 장미창(crest.svg). 레이아웃은 Arcana 테마와 같은 구조를 쓴다.
    ========================================================================== */
 
 :root {
-  --work-bg: #241019;
-  --work-header-bg: linear-gradient(180deg, #2f1420, #1c0c14);
-  --work-accent: #b8467d;
-  --work-accent-bright: #ff7fb8;
+  --sky-image: none;            /* 예: url("https://saffran.kr/...webp") */
+  --rift-display: block;
+  --work-bg: #130d19;
+  --work-header-bg: linear-gradient(180deg, rgba(34, 22, 48, 0.94), rgba(19, 13, 25, 0.94));
+  --work-accent: #8f7ac8;
+  --work-accent-bright: #d9dcf0;
+  --ash: #a7a29a;
+  --gold: #e4c673;
+  --blue: #7fb2ff;
+  --rose: #f29bc0;        /* 공녀님의 장밋빛 장난기 */
+  --silver: #d9dcf0;    /* 은발 · 공작가의 은빛 */
+  /* (Re:Bloomlution 테마에서 이어받은 색 이름) */
+  --c-silver: #c9d3e6;   /* 설윤 · 실버 하울 */
+  --c-violet: #b99bff;   /* 아야네 · 하쿠후 */
+  --c-shadow: #e3d6b4;   /* 멜리노에 · 녹턴 베일 (백금발) */
+  --c-teal: #5fd8c8;     /* 놀웬 · 아쿠아 다후트 No.7 */
+  --c-rune: #f4f1ea;     /* 리브 · 룬라이트 */
 }
 
-.detail-content { position: relative; }
+/* ---------- 하늘 배경 (화면에 고정) ---------- */
+.sky-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    var(--sky-image) center top / cover no-repeat,
+    radial-gradient(ellipse 120% 70% at 50% 110%, #2e1a45 0%, transparent 60%),
+    linear-gradient(180deg, #08060f 0%, #160f26 45%, #24163a 75%, #120c1d 100%);
+}
 
-/* 공작가 문장을 흉내낸 코너 장식 */
-.content-section h2 {
+/* 별 */
+.sky-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 27% 42%, #cfd8ff, transparent),
+    radial-gradient(1.5px 1.5px at 38% 9%, #fff, transparent),
+    radial-gradient(1px 1px at 63% 31%, #fff, transparent),
+    radial-gradient(1px 1px at 71% 12%, #dfe6ff, transparent),
+    radial-gradient(1.5px 1.5px at 84% 46%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 61%, #cfd8ff, transparent),
+    radial-gradient(1px 1px at 47% 66%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 72%, #fff, transparent),
+    radial-gradient(1px 1px at 19% 84%, #dfe6ff, transparent),
+    radial-gradient(1px 1px at 56% 88%, #fff, transparent);
+  background-size: 640px 520px;
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+/* 하늘에 뚫린 구멍 (rift.svg) — 화면 위쪽 가운데에 떠 있다 */
+.sky-rift {
+  display: var(--rift-display);
+  position: absolute;
+  top: -4vh;
+  left: 50%;
+  width: min(92vw, 1100px);
+  aspect-ratio: 1000 / 660;
+  translate: -50% 0;
+  background: url("crest.svg") center / contain no-repeat;
+  animation: rift-breathe 160s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes twinkle { from { opacity: 0.4; } to { opacity: 0.9; } }
+@keyframes rift-breathe {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-stars, .sky-rift { animation: none; }
+}
+
+/* 본문은 하늘 위에 뜨도록 */
+.detail-header { position: sticky; z-index: 40; backdrop-filter: blur(6px); }
+.detail-layout { position: relative; z-index: 1; background: transparent; }
+.detail-sidebar { background: rgba(19, 13, 25, 0.55); backdrop-filter: blur(4px); }
+/* 위쪽은 균열이 보이도록 비우고, 글이 시작되는 곳부터 어둡게 깔아 읽기 쉽게 */
+.detail-content {
   position: relative;
-  display: inline-block;
+  padding-top: clamp(14rem, 34vw, 24rem);
+}
+.detail-content > * {
+  position: relative;
+}
+.detail-content::before {
+  content: "";
+  position: absolute;
+  inset: clamp(12rem, 30vw, 21rem) 0 0;
+  background: linear-gradient(180deg, transparent, rgba(19, 13, 25, 0.82) 8rem);
+  pointer-events: none;
 }
 
+/* ---------- 본문 장식 ---------- */
+.content-section h2 { position: relative; display: inline-block; }
 .content-section h2::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -0.35rem;
-  width: 2.4rem;
+  width: 3rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--work-accent-bright), transparent);
+  background: linear-gradient(90deg, var(--rose), var(--silver));
 }
 
-/* 장난스러운 인장 배지 */
-.duchess-seal {
-  display: inline-flex;
+.content-section h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--parchment);
+  margin: 2.4rem 0 0.8rem;
+}
+
+.content-section .lead { font-size: var(--step-3); line-height: 1.7; opacity: 1; }
+
+.rift-badge {
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.4rem;
   padding: 0.4rem 0.9rem 0.4rem 0.6rem;
-  border: 1px solid var(--work-accent);
+  border: 1px solid var(--work-accent-bright);
   border-radius: 999px;
-  transform: rotate(-2deg);
   font-family: var(--font-ui);
   font-size: 0.82rem;
   color: var(--work-accent-bright);
+  box-shadow: 0 0 14px rgba(206, 198, 240, 0.25);
 }
 
-.duchess-seal .crest { font-size: 1rem; }
+.rule-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-family: var(--font-body);
+  font-size: var(--step-2);
+  line-height: 1.85;
+  color: var(--parchment);
+  max-width: 68ch;
+}
+.rule-list li::marker { color: var(--work-accent-bright); }
 
-.hero-caption {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: var(--work-accent-bright);
-  opacity: 0.8;
-  margin-top: -1rem;
-  margin-bottom: 1.6rem;
+/* 세 미래 카드 */
+.future-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.6rem;
 }
 
-/* 등장인물 카드 (등장인물 목록 펼쳤을 때 미리보기용, characters.html에서도 재사용) */
+.future-card {
+  --c: var(--blue);
+  position: relative;
+  padding: 1.4rem 1.2rem 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-top: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 12%, transparent), rgba(19, 13, 25, 0.6));
+}
+.future-card.ash { --c: var(--ash); }
+.future-card.gold { --c: var(--gold); }
+.future-card.blue { --c: var(--blue); }
+.future-card.bureau { --c: #d9b26a; }
+.future-card.sky { --c: #e8e2ff; }
+.future-card.under { --c: #a7a29a; }
+.future-card.sea { --c: var(--c-teal); }
+.future-card.void { --c: var(--c-rune); }
+
+.future-card h3 { margin: 0.2rem 0 0.6rem; color: var(--c); font-size: var(--step-3); }
+.future-card p { font-size: 0.95rem; line-height: 1.7; margin: 0 0 0.7rem; }
+.future-year { font-family: var(--font-ui); font-size: 0.8rem; letter-spacing: 0.12em; color: var(--muted); }
+.future-choice { font-style: italic; color: var(--c) !important; opacity: 1 !important; }
+.future-sender { font-family: var(--font-ui); font-size: 0.82rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+@media (max-width: 900px) {
+  .future-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- 등장인물 ---------- */
 .char-section {
+  --c: var(--blue);
   scroll-margin-top: calc(var(--detail-header-h) + 20px);
   padding-top: clamp(3rem, 6vw, 5rem);
-  border-top: 1px solid rgba(255, 127, 184, 0.15);
+  border-top: 1px solid rgba(206, 198, 240, 0.15);
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 2rem;
 }
+.char-section.ash { --c: var(--ash); }
+.char-section.gold { --c: var(--gold); }
+.char-section.blue { --c: var(--blue); }
+.char-section:first-child { border-top: none; }
 
 @media (max-width: 760px) {
-  .char-section {
-    scroll-margin-top: calc(var(--detail-header-h) + 3.4rem);
-  }
+  .char-section { scroll-margin-top: calc(var(--detail-header-h) + 3.4rem); }
 }
-
-.char-section:first-child { border-top: none; }
 
 .char-portrait {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 4px;
-  border: 1px solid rgba(255, 127, 184, 0.3);
+  border: 1px solid color-mix(in srgb, var(--c) 50%, transparent);
+}
+
+.char-monogram {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--c);
+  background:
+    radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--c) 30%, transparent), transparent 70%),
+    rgba(19, 13, 25, 0.7);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--c) 60%, transparent);
 }
 
 .char-section h2 {
@@ -91,9 +235,20 @@
 .char-role {
   font-family: var(--font-ui);
   font-size: 0.85rem;
-  color: var(--work-accent-bright);
+  color: var(--c);
   margin: 0 0 1rem;
 }
+
+.char-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0 0 1.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+.char-facts dt { color: var(--muted); }
+.char-facts dd { margin: 0; color: var(--parchment); }
 
 .char-section p {
   font-family: var(--font-body);
@@ -107,4 +262,468 @@
 @media (max-width: 620px) {
   .char-section { grid-template-columns: 1fr; }
   .char-portrait { max-width: 220px; }
+  .sky-rift { width: 140vw; top: 2vh; }
 }
+
+/* ---------- 미래 카드: 그 미래의 당신 ---------- */
+.future-you { font-size: 0.88rem !important; color: var(--parchment); opacity: 0.75 !important; }
+
+/* ---------- 숨김 비밀 (버튼을 눌러야 열림) ---------- */
+.secret {
+  margin: 1rem 0 0;
+  max-width: 68ch;
+}
+
+.secret > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed color-mix(in srgb, var(--c, var(--work-accent-bright)) 70%, transparent);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--c, var(--work-accent-bright));
+  background: rgba(19, 13, 25, 0.6);
+  transition: background 0.2s ease;
+}
+.secret > summary::-webkit-details-marker { display: none; }
+.secret > summary::before { content: "🔒"; font-size: 0.8rem; }
+.secret[open] > summary::before { content: "🔓"; }
+.secret > summary:hover { background: color-mix(in srgb, var(--c, var(--work-accent-bright)) 14%, rgba(19, 13, 25, 0.6)); }
+.secret > summary:focus-visible { outline: 2px solid var(--work-accent-bright); outline-offset: 2px; }
+
+.secret-body {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--c, var(--work-accent-bright));
+  background: rgba(19, 13, 25, 0.55);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  animation: secret-open 0.35s var(--ease-open);
+}
+.secret-body p { font-size: 0.98rem !important; margin: 0 0 0.6rem; }
+.secret-body p:last-child { margin-bottom: 0; }
+.secret .secret-when { font-family: var(--font-ui); font-size: 0.82rem !important; color: var(--muted) !important; opacity: 1 !important; }
+.secret.inner { margin-top: 0.9rem; }
+
+@keyframes secret-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+.secret-hint { font-family: var(--font-ui); font-size: 0.85rem !important; color: var(--muted) !important; }
+
+/* 진실 조각 */
+.piece-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.4rem 0 1.6rem;
+}
+.piece-group {
+  --c: var(--blue);
+  padding: 1.1rem 1.1rem 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  border-top: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: rgba(19, 13, 25, 0.55);
+}
+.piece-group.ash { --c: var(--ash); }
+.piece-group.gold { --c: var(--gold); }
+.piece-group.blue { --c: var(--blue); }
+.piece-group.silver { --c: var(--c-silver); }
+.piece-group.violet { --c: var(--c-violet); }
+.piece-group.shadow { --c: var(--c-shadow); }
+.piece-group.teal { --c: var(--c-teal); }
+.piece-group.rune { --c: var(--c-rune); }
+.piece-group h3 { margin: 0 0 0.4rem; color: var(--c); font-size: var(--step-2); }
+.piece-who { color: var(--muted); font-family: var(--font-ui); font-size: 0.85rem; }
+.piece-group .secret-body { padding: 0.8rem 0.9rem; }
+
+.piece-cond {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.piece-cond dt { color: var(--c, var(--work-accent-bright)); }
+.piece-cond dd { margin: 0; color: var(--parchment); }
+
+.hidden-path { --c: var(--parchment); }
+
+@media (max-width: 900px) {
+  .piece-groups { grid-template-columns: 1fr; }
+}
+
+/* ---------- 등장인물 칸 ---------- */
+.char-group { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.char-group:first-child { padding-top: 0; }
+.char-group + .char-group { border-top: 1px solid rgba(206, 198, 240, 0.25); }
+
+.char-group-title {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--work-accent-bright);
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.04em;
+}
+.char-group-desc {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+.char-group-desc + .char-section { border-top: none; padding-top: 2rem; }
+.char-section.local { --c: #d9b8a0; }
+
+.char-section.silver { --c: var(--c-silver); }
+.char-section.violet { --c: var(--c-violet); }
+.char-section.shadow { --c: var(--c-shadow); }
+.char-section.teal { --c: var(--c-teal); }
+.char-section.rune { --c: var(--c-rune); }
+.char-section.bureau { --c: #d9b26a; }   /* 성휘청: 결재 도장 */
+.char-section.sky { --c: #e8e2ff; }      /* 아마츠카미: 흰 날개 */
+.char-section.ash { --c: #a7a29a; }      /* 티탄: 잿빛 가면 */
+
+/* 사이드바 인물 목록의 칸 이름 */
+.char-sublist .sublist-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  opacity: 0.8;
+  padding: 0.6rem 0 0.15rem 0.8rem;
+}
+.char-sublist .sublist-label:first-child { padding-top: 0.2rem; }
+
+@media (max-width: 760px) {
+  .char-sublist .sublist-label { align-self: center; padding: 0 0.2rem 0 0.6rem; white-space: nowrap; }
+}
+
+/* ---------- Re:Bloomlution 전용 ---------- */
+
+/* 흩날리는 꽃잎 */
+.petals { position: absolute; inset: 0; overflow: hidden; }
+.petals span {
+  position: absolute;
+  top: -5vh;
+  width: 10px;
+  height: 14px;
+  border-radius: 80% 0 80% 0;
+  background: var(--pc, #f2a7d8);
+  opacity: 0.4;
+  animation: petal-fall var(--d, 18s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes petal-fall {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6vw, 55vh) rotate(200deg); }
+  100% { transform: translate(-4vw, 112vh) rotate(420deg); }
+}
+@media (prefers-reduced-motion: reduce) { .petals span { animation: none; display: none; } }
+
+/* 표 (시작 스토리 · 업적) */
+.bloom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+.bloom-table th, .bloom-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid rgba(206, 198, 240, 0.15);
+  color: var(--parchment);
+}
+.bloom-table th { color: var(--work-accent-bright); font-weight: 600; white-space: nowrap; }
+.bloom-table td.muted { color: var(--muted); }
+.bloom-table .locked { color: var(--muted); letter-spacing: 0.1em; }
+@media (max-width: 620px) {
+  .bloom-table { font-size: 0.84rem; }
+  .bloom-table th, .bloom-table td { padding: 0.5rem 0.4rem; }
+}
+
+.mode-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--parchment);
+}
+.mode-list li {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(206, 198, 240, 0.2);
+  border-radius: var(--radius-m);
+  background: rgba(19, 13, 25, 0.55);
+  line-height: 1.55;
+}
+.mode-list strong { color: var(--work-accent-bright); font-weight: 600; }
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.truth-list { display: flex; flex-direction: column; gap: 0.2rem; }
+.rule-list strong { color: var(--work-accent-bright); font-weight: 600; }
+.secret.mini { margin-top: 0.4rem; }
+.secret.mini > summary { padding: 0.25rem 0.7rem; font-size: 0.78rem; }
+.bloom-table td .muted { display: block; color: var(--muted); font-size: 0.82rem; }
+.content-section code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(206, 198, 240, 0.12);
+  color: var(--work-accent-bright);
+}
+
+/* 지역과 건축 */
+.region-cards { display: flex; flex-direction: column; gap: 1rem; margin: 1.4rem 0 1.2rem; }
+.region-card {
+  --c: var(--work-accent-bright);
+  padding: 1.2rem 1.3rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  border-left: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--c) 10%, transparent), rgba(19, 13, 25, 0.6) 45%);
+}
+.region-card.bureau { --c: #d9b26a; }
+.region-card.sky { --c: #e8e2ff; }
+.region-card.sea { --c: var(--c-teal); }
+.region-card.under { --c: #a7a29a; }
+.region-card.void { --c: #9a9ab0; }
+.region-card.rune { --c: var(--c-rune); }
+.region-card h3 { margin: 0 0 0.35rem; color: var(--c); font-size: var(--step-3); }
+.region-motif {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--c, var(--work-accent-bright)) 45%, transparent);
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  color: var(--c, var(--work-accent-bright));
+}
+.region-card dl {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  gap: 0.55rem 1rem;
+  margin: 0;
+}
+.region-card dt { font-family: var(--font-ui); font-size: 0.82rem; color: var(--c); padding-top: 0.2rem; }
+.region-card dd { margin: 0; font-family: var(--font-body); font-size: 0.96rem; line-height: 1.75; color: var(--parchment); }
+@media (max-width: 620px) {
+  .region-card dl { grid-template-columns: 1fr; gap: 0.15rem; }
+  .region-card dd { margin-bottom: 0.5rem; }
+}
+.region-card .secret.motif { margin: 0 0 0.9rem; }
+.region-card .secret.motif .secret-body { margin-top: 0.5rem; padding: 0.5rem 0.8rem; }
+.region-card .secret.motif .secret-body p { font-family: var(--font-ui); font-size: 0.85rem !important; color: var(--c); }
+
+/* 인물 숨김 버튼 (하나로 합친 것) */
+.char-secret > .secret-body { padding: 1rem 1.1rem; }
+.secret-heading {
+  margin: 0.2rem 0 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--c, var(--work-accent-bright));
+}
+.secret-heading:not(:first-child) { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px dashed color-mix(in srgb, var(--c, var(--work-accent-bright)) 30%, transparent); }
+.secret-facts { display: grid; grid-template-columns: 4.5em 1fr; gap: 0.4rem 0.8rem; margin: 0; font-size: 0.95rem; }
+.secret-facts dt { font-family: var(--font-ui); font-size: 0.82rem; color: var(--muted); padding-top: 0.15rem; }
+.secret-facts dd { margin: 0; color: var(--parchment); line-height: 1.7; }
+.secret-stage { padding: 0.6rem 0 0.2rem; }
+.secret-stage + .secret-stage { border-top: 1px solid rgba(206, 198, 240, 0.08); }
+.secret-stage-title { margin: 0 0 0.2rem !important; font-family: var(--font-ui); font-size: 0.85rem !important; font-weight: 600; color: var(--c, var(--work-accent-bright)) !important; }
+.secret-stage .secret.inner { margin-top: 0.5rem; }
+
+/* 공백체 특수 개체 카드 */
+.void-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0 0.4rem;
+}
+.void-card {
+  --c: #b7a3d6;
+  position: relative;
+  padding: 1rem 1.1rem 1rem;
+  border: 1px solid rgba(183, 163, 214, 0.28);
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, rgba(60, 30, 80, 0.45), rgba(19, 13, 25, 0.7));
+}
+.void-card h3 { margin: 0 2.4rem 0.3rem 0; font-size: var(--step-2); color: var(--parchment); }
+.void-no { position: absolute; top: 0.8rem; right: 1rem; font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); }
+.void-type { display: inline-block; margin-bottom: 0.5rem; font-family: var(--font-ui); font-size: 0.74rem; color: var(--c); }
+.void-card p { font-size: 0.93rem !important; line-height: 1.7; margin: 0 0 0.5rem; }
+.void-counter { font-family: var(--font-ui); font-size: 0.84rem !important; color: var(--parchment); opacity: 0.85; }
+.void-counter strong { color: var(--c); margin-right: 0.3rem; }
+.secret-list { margin: 0; padding-left: 1.1rem; font-size: 0.92rem; line-height: 1.7; color: var(--parchment); }
+@media (max-width: 620px) { .void-cards { grid-template-columns: 1fr; } }
+
+/* ---------- 공녀님 전용 ---------- */
+.sky-rift { aspect-ratio: 1; width: min(80vw, 760px); top: -6vh; }
+
+/* 소개: 은테를 두른 섬네일 */
+.work-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: clamp(1.2rem, 3vw, 2.2rem);
+  align-items: center;
+}
+.hero-card {
+  position: relative;
+  padding: 10px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #2c1f44, #130d19);
+  border: 1px solid rgba(206, 198, 240, 0.6);
+  box-shadow: 0 0 0 4px rgba(19, 13, 25, 0.9), 0 0 0 5px rgba(206, 198, 240, 0.35), 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.hero-card img { display: block; width: 100%; height: auto; min-height: 120px; border-radius: 8px; }
+.hero-card .hero-label {
+  display: block; margin-top: 8px; text-align: center;
+  font-family: var(--font-wordmark); font-style: italic; letter-spacing: 0.12em;
+  color: var(--silver); font-size: 0.95rem;
+}
+.work-tagline { font-family: var(--font-display); font-size: var(--step-3); color: var(--parchment); line-height: 1.6; margin: 0 0 1rem; }
+.work-tagline strong { color: var(--rose); font-weight: 600; }
+.genre-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+.genre-tags li {
+  padding: 0.2rem 0.65rem; border-radius: 999px;
+  border: 1px solid rgba(206, 198, 240, 0.4);
+  font-family: var(--font-ui); font-size: 0.78rem; color: var(--silver);
+}
+.creator-note {
+  padding: 0.9rem 1.1rem; border-left: 2px solid var(--rose);
+  background: rgba(19, 13, 25, 0.6); border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  font-family: var(--font-ui); font-size: 0.9rem; line-height: 1.7; color: var(--parchment);
+}
+@media (max-width: 700px) {
+  .work-hero { grid-template-columns: 1fr; }
+  .hero-card { max-width: 260px; margin: 0 auto; }
+}
+
+/* 실비아 */
+.heroine-card { --c: var(--rose); }
+.heroine-card .char-portrait { object-position: top; }
+.quote-list { list-style: none; margin: 0.6rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.quote-list li {
+  font-family: var(--font-body); font-size: 0.96rem; line-height: 1.7; color: var(--parchment);
+  padding: 0.55rem 0.8rem; border-radius: var(--radius-m);
+  background: rgba(19, 13, 25, 0.55); border: 1px solid rgba(242, 155, 192, 0.18);
+}
+.quote-list .when { display: block; font-family: var(--font-ui); font-size: 0.75rem; color: var(--rose); margin-bottom: 0.15rem; }
+
+/* 표정 모음 */
+.face-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.face-grid figure { margin: 0; text-align: center; }
+.face-grid img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top;
+  border-radius: 6px; border: 1px solid rgba(242, 155, 192, 0.3); background: #160f26;
+}
+.face-grid figcaption { margin-top: 0.25rem; font-family: var(--font-ui); font-size: 0.75rem; color: var(--muted); }
+
+/* 모드 카드 */
+.mode-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; margin-top: 1.2rem; }
+.mode-card {
+  --c: var(--silver);
+  padding: 1rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  border-top: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: rgba(19, 13, 25, 0.65);
+}
+.mode-card.lewd { --c: #f07aa6; }
+.mode-card.female { --c: #c79bff; }
+
+.mode-card h3 { margin: 0 0 0.4rem; color: var(--c); font-size: var(--step-2); }
+.mode-card p { font-size: 0.93rem !important; line-height: 1.7; margin: 0 0 0.5rem; }
+
+/* 상태 표시 예시 */
+.info-block {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  border: 1px solid rgba(206, 198, 240, 0.25);
+  background: rgba(9, 6, 15, 0.75);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--parchment);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* 실비아 표정 크게 보기 */
+.face-grid img { cursor: zoom-in; transition: transform 0.2s, border-color 0.2s; }
+.face-grid img:hover { transform: translateY(-2px); border-color: rgba(242, 155, 192, 0.7); }
+.face-viewer {
+  border: none; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh;
+  width: 100%; height: 100%; overflow: hidden;
+}
+.face-viewer::backdrop { background: rgba(8, 4, 10, 0.88); backdrop-filter: blur(3px); }
+.face-viewer .viewer-inner {
+  height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.8rem; padding: 48px 16px 24px; box-sizing: border-box; cursor: zoom-out;
+}
+.face-viewer img {
+  max-width: min(92vw, 720px); max-height: calc(100vh - 140px); object-fit: contain;
+  border-radius: 10px; border: 1px solid rgba(206, 198, 240, 0.5); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+.face-viewer .viewer-caption { font-family: var(--font-display); color: var(--parchment); font-size: 1.05rem; }
+.face-viewer button {
+  position: absolute; background: rgba(19, 13, 25, 0.8); color: var(--silver);
+  border: 1px solid rgba(206, 198, 240, 0.5); border-radius: 999px; width: 44px; height: 44px;
+  font-size: 1.3rem; cursor: pointer;
+}
+.face-viewer .viewer-close { top: 12px; right: 12px; }
+.face-viewer .viewer-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.face-viewer .viewer-next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+/* 실비아의 두 얼굴 */
+.future-card.mesu { --c: var(--rose); }
+.future-card.crack { --c: #a9b8ff; }
+
+/* 프롤로그 */
+.prologue {
+  margin: 1rem 0 0;
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--radius-m);
+  border: 1px solid rgba(206, 198, 240, 0.22);
+  background: rgba(19, 13, 25, 0.7);
+}
+.prologue p { margin: 0 0 0.55rem; font-size: 0.95rem !important; line-height: 1.75; }
+.prologue .stamp { font-family: var(--font-ui); font-size: 0.8rem !important; color: var(--muted) !important; letter-spacing: 0.06em; }
+.prologue .say { padding-left: 0.8rem; border-left: 2px solid rgba(206, 198, 240, 0.25); }
+.prologue .say.sy { border-color: var(--rose); }
+.prologue .say b { font-family: var(--font-ui); font-size: 0.8rem; color: var(--silver); margin-right: 0.35rem; }
+.prologue .say.sy b { color: var(--rose); }
+.prologue img { display: block; width: min(220px, 60%); margin: 0.7rem 0; border-radius: 8px; border: 1px solid rgba(242, 155, 192, 0.3); }
+
+/* 주변 인물: 이미지 대신 이니셜 */
+.people-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; margin-top: 1.2rem; }
+.person-card {
+  --c: var(--silver);
+  padding: 1rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+  border-left: 3px solid var(--c);
+  border-radius: var(--radius-m);
+  background: rgba(19, 13, 25, 0.65);
+}
+.person-card.rival { --c: #e0596f; }
+.person-card.duke { --c: #b9a5e8; }
+.person-card h3 { margin: 0 0 0.15rem; color: var(--c); font-size: var(--step-2); }
+.person-card .char-role { margin-bottom: 0.5rem; }
+.person-card p { font-size: 0.93rem !important; line-height: 1.7; margin: 0 0 0.5rem; }

@@ -39,6 +39,12 @@
 
 .genre-nav a { transition: color 0.2s ease; white-space: nowrap; }
 .genre-nav a:hover { color: var(--brass-bright); }
+.genre-nav a { position: relative; }
+.genre-nav a.active { color: var(--brass-bright); text-shadow: 0 0 12px rgba(228, 198, 115, 0.55); }
+.genre-nav a.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  border-radius: 2px; background: var(--brass-bright); box-shadow: 0 0 8px rgba(228, 198, 115, 0.8);
+}
 
 .wordmark {
   font-family: var(--font-wordmark);
@@ -289,6 +295,26 @@
 .book-spine:disabled {
   cursor: default;
   filter: saturate(0.35) brightness(0.7);
+}
+
+/* 헤더에서 장르를 누르면: 해당 책은 튀어나와 빛나고, 나머지는 어두워진다 */
+.book-spine { transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, opacity 0.25s ease; }
+.genre-filtering .book-spine:not(.genre-hit) { filter: saturate(0.4) brightness(0.55); opacity: 0.7; }
+.genre-filtering .book-spine:disabled:not(.genre-hit) { filter: saturate(0.2) brightness(0.45); }
+.book-spine.genre-hit {
+  transform: translateY(-16px);
+  z-index: 1;
+  box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.35), inset 3px 0 4px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(240, 214, 140, 0.9), 0 0 22px 4px rgba(240, 214, 140, 0.55), 0 14px 22px rgba(0, 0, 0, 0.5);
+  animation: genre-glow 1.8s ease-in-out infinite;
+}
+.book-spine.genre-hit:hover { transform: translateY(-20px); }
+@keyframes genre-glow {
+  0%, 100% { filter: brightness(1.05); }
+  50% { filter: brightness(1.25); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-spine.genre-hit { animation: none; }
 }
 
 .book-spine .spine-title { max-height: 100%; overflow: hidden; white-space: pre-line; }

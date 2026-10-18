@@ -50,7 +50,7 @@
       <h2>Arcana: The Witch's Fate</h2>
       <div class="arcana-hero">
         <div class="tarot-card">
-          <img src="https://saffran.kr/lulu/pro.webp" alt="의뢰 창구 앞의 루루">
+          <img src="https://saffran.kr/Thumbnail/6a867a39dc4c071093b3f38c_ko.gif" alt="Arcana: The Witch's Fate 섬네일">
           <span class="tarot-label">The Witch</span>
         </div>
         <div>
@@ -198,6 +198,16 @@
   </div>
 </div>
 
+<dialog class="face-viewer" id="face-viewer" aria-label="루루 표정 크게 보기">
+  <div class="viewer-inner">
+    <img alt="">
+    <span class="viewer-caption"></span>
+  </div>
+  <button type="button" class="viewer-close" aria-label="닫기">✕</button>
+  <button type="button" class="viewer-prev" aria-label="이전 표정">‹</button>
+  <button type="button" class="viewer-next" aria-label="다음 표정">›</button>
+</dialog>
+
 <script type="module">
   import { initScrollSpy } from "../../js/detail.js";
   initScrollSpy([
@@ -209,6 +219,31 @@
     { id: "fate", navItemSelector: '[data-nav="fate"]' },
     { id: "achievements", navItemSelector: '[data-nav="achievements"]' }
   ]);
+  // 루루 표정: 누르면 크게 보기 (←/→ 로 넘기고 Esc·바깥 클릭으로 닫기)
+  const faces = [...document.querySelectorAll(".face-grid figure")];
+  const viewer = document.getElementById("face-viewer");
+  const big = viewer.querySelector("img");
+  const caption = viewer.querySelector(".viewer-caption");
+  let current = 0;
+  function show(i) {
+    current = (i + faces.length) % faces.length;
+    const img = faces[current].querySelector("img");
+    big.src = img.src;
+    big.alt = img.alt;
+    caption.textContent = faces[current].querySelector("figcaption").textContent;
+  }
+  faces.forEach((fig, i) => fig.querySelector("img").addEventListener("click", () => {
+    show(i);
+    viewer.showModal();
+  }));
+  viewer.querySelector(".viewer-close").addEventListener("click", () => viewer.close());
+  viewer.querySelector(".viewer-prev").addEventListener("click", () => show(current - 1));
+  viewer.querySelector(".viewer-next").addEventListener("click", () => show(current + 1));
+  viewer.querySelector(".viewer-inner").addEventListener("click", (e) => { if (e.target !== big) viewer.close(); });
+  viewer.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
 </script>
 </body>
 </html>

@@ -13,7 +13,8 @@ export const GENRES = {
   comedy: { ko: "코미디", en: "Comedy", ja: "コメディ" },
   regression: { ko: "회귀", en: "Regression", ja: "回帰" },
   "magical-girl": { ko: "마법소녀", en: "Magical Girl", ja: "魔法少女" },
-  adventure: { ko: "모험", en: "Adventure", ja: "冒険" }
+  adventure: { ko: "모험", en: "Adventure", ja: "冒険" },
+  training: { ko: "조교", en: "Training", ja: "調教" }
 };
 
 // 각 책의 i18n 안에 en / ja 번역을 두면, 그 언어로 볼 때 덮어씁니다.
@@ -22,7 +23,7 @@ export const BOOKS = [
   {
     id: "gongnyeo",
     title: "참교육 못하는 공녀님",
-    genres: ["romance-fantasy", "comedy"],
+    genres: ["romance-fantasy", "comedy", "training"],
     safe: true,
     langs: ["ko"],
     spine: { bg: "#7a2038", emblem: "❦", height: 210, width: 46 },
@@ -54,7 +55,7 @@ export const BOOKS = [
     id: "rebloom",
     title: "신세계 프로젝트 마법숙녀 Re:Bloomlution",
     spineTitle: "신세계 프로젝트\n마법숙녀 Re:Bloomlution",
-    genres: ["urban-fantasy", "magical-girl", "mystery"],
+    genres: ["urban-fantasy", "magical-girl", "mystery", "training"],
     safe: true,
     langs: ["ko"],
     spine: { bg: "#5a2a5e", emblem: "✿", height: 250, width: 54 },

@@ -77,7 +77,7 @@ export const BOOKS = [
     safe: true,
     langs: ["ko"],
     spine: { bg: "#4a2050", emblem: "☾", height: 236, width: 50 },
-    cover: "https://saffran.kr/lulu/pro.webp",
+    cover: "https://saffran.kr/Thumbnail/6a867a39dc4c071093b3f38c_ko.gif",
     description: "순애와 NTR 모드 선택 가능, 마녀의 운명을 결정하라.",
     detailUrl: "pages/arcana/index.html"
   }

@@ -94,7 +94,7 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 {
   id: "new-book",
   title: "작품 제목",
-  genre: "장르명",
+  genres: ["romance-fantasy"],   // GENRES 의 키, 여러 개 가능
   safe: false,               // true면 safe 모드 켜졌을 때 가려짐
   spine: { bg: "#3a5f4a", emblem: "❧", height: 200, width: 42 },
   cover: "https://.../표지이미지.jpg",   // 외부 이미지 URL
@@ -103,8 +103,10 @@ HTML 맨 아래 스크립트에서 `import { TRACKS } from "./music-data.js"` �
 }
 ```
 
-헤더의 장르 목록은 `js/data.js` 상단의 `GENRES_LEFT` / `GENRES_RIGHT` 배열에서
-관리합니다.
+헤더의 장르 목록은 지금 책장에 꽂힌 책들의 `genres` 로 자동으로 채워집니다.
+장르 이름(언어별)과 순서는 `js/data.js` 상단의 `GENRES` 에서 관리합니다.
+헤더에서 장르를 누르면 그 장르의 책이 강조되고, 다시 누르면 풀립니다.
+Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 여전히 가려지고 펼쳐지지 않음).
 
 ## 새 작품의 상세페이지 만들기
 

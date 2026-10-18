@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- 마녀의 마법진. 가운데 육각별(🔯)은 고대 마녀의 상징. arcana-theme.css의 .sky-rift가 사용 -->
+  <defs>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff3d6" stop-opacity=".55"/>
+      <stop offset=".35" stop-color="#f3a6c8" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="500" cy="500" r="480" fill="url(#core)"/>
+  <g fill="none" stroke="#e9c97a" stroke-opacity=".8" filter="url(#glow)">
+    <circle cx="500" cy="500" r="440" stroke-width="3"/>
+    <circle cx="500" cy="500" r="420" stroke-width="1.2"/>
+    <circle cx="500" cy="500" r="350" stroke-width="1.2"/>
+    <circle cx="500" cy="500" r="300" stroke-width="2.4" stroke="#f3a6c8" stroke-opacity=".7"/>
+    <circle cx="500" cy="500" r="120" stroke-width="2"/>
+    <polygon points="500.0,200.0 759.8,650.0 240.2,650.0" stroke-width="2.2"/>
+    <polygon points="500.0,800.0 240.2,350.0 759.8,350.0" stroke-width="2.2"/>
+    <polygon points="850.0,500.0 803.1,675.0 675.0,803.1 500.0,850.0 325.0,803.1 196.9,675.0 150.0,500.0 196.9,325.0 325.0,196.9 500.0,150.0 675.0,196.9 803.1,325.0" stroke-width="1" stroke-opacity=".5"/>
+    <polygon points="673.0,500.0 586.5,649.8 413.5,649.8 327.0,500.0 413.5,350.2 586.5,350.2" stroke-width="1.4" stroke="#f3a6c8"/>
+  </g>
+  <g font-family="serif" font-size="30" fill="#e9c97a" fill-opacity=".85" text-anchor="middle" dominant-baseline="middle">
+    <text x="500.0" y="115.0" transform="rotate(0.0 500.0 115.0)">ᚠ</text><text x="599.6" y="128.1" transform="rotate(15.0 599.6 128.1)">ᚢ</text><text x="692.5" y="166.6" transform="rotate(30.0 692.5 166.6)">ᚦ</text><text x="772.2" y="227.8" transform="rotate(45.0 772.2 227.8)">ᚨ</text><text x="833.4" y="307.5" transform="rotate(60.0 833.4 307.5)">ᚱ</text><text x="871.9" y="400.4" transform="rotate(75.0 871.9 400.4)">ᚲ</text><text x="885.0" y="500.0" transform="rotate(90.0 885.0 500.0)">ᚷ</text><text x="871.9" y="599.6" transform="rotate(105.0 871.9 599.6)">ᚹ</text><text x="833.4" y="692.5" transform="rotate(120.0 833.4 692.5)">ᚺ</text><text x="772.2" y="772.2" transform="rotate(135.0 772.2 772.2)">ᚾ</text><text x="692.5" y="833.4" transform="rotate(150.0 692.5 833.4)">ᛁ</text><text x="599.6" y="871.9" transform="rotate(165.0 599.6 871.9)">ᛃ</text><text x="500.0" y="885.0" transform="rotate(180.0 500.0 885.0)">ᛇ</text><text x="400.4" y="871.9" transform="rotate(195.0 400.4 871.9)">ᛈ</text><text x="307.5" y="833.4" transform="rotate(210.0 307.5 833.4)">ᛉ</text><text x="227.8" y="772.2" transform="rotate(225.0 227.8 772.2)">ᛊ</text><text x="166.6" y="692.5" transform="rotate(240.0 166.6 692.5)">ᛏ</text><text x="128.1" y="599.6" transform="rotate(255.0 128.1 599.6)">ᛒ</text><text x="115.0" y="500.0" transform="rotate(270.0 115.0 500.0)">ᛖ</text><text x="128.1" y="400.4" transform="rotate(285.0 128.1 400.4)">ᛗ</text><text x="166.6" y="307.5" transform="rotate(300.0 166.6 307.5)">ᛚ</text><text x="227.8" y="227.8" transform="rotate(315.0 227.8 227.8)">ᛜ</text><text x="307.5" y="166.6" transform="rotate(330.0 307.5 166.6)">ᛞ</text><text x="400.4" y="128.1" transform="rotate(345.0 400.4 128.1)">ᛟ</text>
+  </g>
+  <circle cx="800.0" cy="500.0" r="6" fill="#f3a6c8"/><circle cx="759.8" cy="650.0" r="3" fill="#f3a6c8"/><circle cx="650.0" cy="759.8" r="3" fill="#f3a6c8"/><circle cx="500.0" cy="800.0" r="6" fill="#f3a6c8"/><circle cx="350.0" cy="759.8" r="3" fill="#f3a6c8"/><circle cx="240.2" cy="650.0" r="3" fill="#f3a6c8"/><circle cx="200.0" cy="500.0" r="6" fill="#f3a6c8"/><circle cx="240.2" cy="350.0" r="3" fill="#f3a6c8"/><circle cx="350.0" cy="240.2" r="3" fill="#f3a6c8"/><circle cx="500.0" cy="200.0" r="6" fill="#f3a6c8"/><circle cx="650.0" cy="240.2" r="3" fill="#f3a6c8"/><circle cx="759.8" cy="350.0" r="3" fill="#f3a6c8"/>
+  <circle cx="500" cy="500" r="10" fill="#fff3d6"/>
+</svg>

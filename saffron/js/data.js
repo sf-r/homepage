@@ -27,7 +27,7 @@ export const BOOKS = [
     safe: true,
     langs: ["ko"],
     spine: { bg: "#7a2038", emblem: "❦", height: 210, width: 46 },
-    cover: "https://saffran.kr/Thumbnail/6a410b6471b40c3c42220f7c_ko.gif",
+    cover: "https://saffran.kr/Thumbnail/6a410b6471b40c3c42220f7c_ko.jfif",
     description: "1:1, 메스가키, 공녀님, 여캐플 존재.",
     detailUrl: "pages/gongnyeo/index.html"
   },

@@ -23,21 +23,12 @@ export const BOOKS = [
     id: "gongnyeo",
     title: "참교육 못하는 공녀님",
     genres: ["romance-fantasy", "comedy"],
-    safe: false,
+    safe: true,
+    langs: ["ko"],
     spine: { bg: "#7a2038", emblem: "❦", height: 210, width: 46 },
-    cover: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&q=80",
-    description: "공작가의 공녀는 오늘도 참교육에 실패한다. 사고뭉치 집안을 어떻게든 굴려보려는 공녀와, 그런 그녀를 놀리는 데 도가 튼 사람들의 이야기.",
-    detailUrl: "pages/gongnyeo/index.html",
-    i18n: {
-      en: {
-        title: "The Lady Who Can't Set Anyone Straight",
-        description: "The duke's daughter fails, yet again, to set her household straight. The story of a young lady trying to keep a disaster of a family in line, and the people who have perfected the art of teasing her for it."
-      },
-      ja: {
-        title: "しつけができない公女様",
-        description: "公爵家の公女は、今日もしつけに失敗する。騒がしい一族をどうにか立て直そうとする公女と、そんな彼女をからかうことにかけては右に出る者のいない人々の物語。"
-      }
-    }
+    cover: "https://saffran.kr/Thumbnail/6a410b6471b40c3c42220f7c_ko.gif",
+    description: "1:1, 메스가키, 공녀님, 여캐플 존재.",
+    detailUrl: "pages/gongnyeo/index.html"
   },
   {
     id: "three-futures",

@@ -14,7 +14,8 @@ export const GENRES = {
   regression: { ko: "회귀", en: "Regression", ja: "回帰" },
   "magical-girl": { ko: "마법소녀", en: "Magical Girl", ja: "魔法少女" },
   adventure: { ko: "모험", en: "Adventure", ja: "冒険" },
-  training: { ko: "조교", en: "Training", ja: "調教" }
+  training: { ko: "조교", en: "Training", ja: "調教" },
+  "slice-of-life": { ko: "일상", en: "Slice of Life", ja: "日常" }
 };
 
 // 각 책의 i18n 안에 en / ja 번역을 두면, 그 언어로 볼 때 덮어씁니다.
@@ -74,5 +75,29 @@ export const BOOKS = [
     cover: "https://saffran.kr/Thumbnail/6a867a39dc4c071093b3f38c_ko.gif",
     description: "순애와 NTR 모드 선택 가능, 마녀의 운명을 결정하라.",
     detailUrl: "pages/arcana/index.html"
+  },
+  {
+    id: "cats",
+    title: "고양이 수인 둘이 집에 눌러앉았다",
+    spineTitle: "고양이 수인 둘이\n집에 눌러앉았다",
+    genres: ["urban-fantasy", "slice-of-life", "comedy"],
+    safe: false,
+    langs: ["ko"],
+    spine: { bg: "#b8862e", emblem: "ฅ", height: 240, width: 54 },
+    cover: "https://saffran.kr/Thumbnail/6a2aa2d7a88847abc92517bb_ko.webp",
+    description: "등장인물: 2명의 고양이 수인",
+    detailUrl: "pages/cats/index.html"
+  },
+  {
+    id: "cats-nsfw",
+    title: "😺고양이 수인 둘이 집에 눌러앉았다",
+    spineTitle: "😺고양이 수인 둘이\n집에 눌러앉았다",
+    genres: ["urban-fantasy", "slice-of-life", "comedy"],
+    safe: true,
+    langs: ["ko"],
+    spine: { bg: "#a8456f", emblem: "ฅ", height: 240, width: 54 },
+    cover: "https://saffran.kr/Thumbnail/6a2aa2d7a88847abc92517bb_ko.webp",
+    description: "nsfw, 등장인물: 두 명의 고양이 수인",
+    detailUrl: "pages/cats/nsfw.html"
   }
 ];

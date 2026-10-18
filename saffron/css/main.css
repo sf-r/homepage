@@ -451,6 +451,11 @@
   .site-header .genre-nav { flex: 0 1 auto; justify-content: center; order: 3; flex-wrap: wrap; row-gap: 0.3rem; }
 }
 
+/* 장르가 많아서 넓은 화면에서도 양옆과 겹치면 main.js 가 genres-wrap 을 붙인다 */
+.site-header.genres-wrap { flex-wrap: wrap; row-gap: 0.6rem; padding: 0.9rem var(--header-pad); }
+.site-header.genres-wrap::after { content: ""; flex-basis: 100%; order: 2; }
+.site-header.genres-wrap .genre-nav { flex: 0 1 auto; justify-content: center; order: 3; flex-wrap: wrap; row-gap: 0.3rem; }
+
 @media (max-width: 1400px) {
   :root:not([lang="ko"]) .site-header { flex-wrap: wrap; row-gap: 0.6rem; padding: 0.9rem var(--header-pad); }
   :root:not([lang="ko"]) .site-header::after { content: ""; flex-basis: 100%; order: 2; }

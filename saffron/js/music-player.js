@@ -6,6 +6,10 @@
 //   import { initMusicPlayer } from "../../js/music-player.js";
 //   import { TRACKS } from "./music-data.js";
 //   initMusicPlayer(TRACKS);
+//
+// 트랙에 character: "인물 id" 를 적으면, 그 id를 가진 등장인물 카드(.char-section)의
+// 이름 아래에 '테마곡 재생하기' 버튼이 붙는다. 누르면 소리를 켜고 그 곡을 바로 튼다.
+// 한 인물에 곡이 여럿이면 themeLabel(예: "ver.1")로 버튼을 구분한다.
 
 import { ui } from "./i18n.js";
 
@@ -192,6 +196,48 @@ export function initMusicPlayer(tracks) {
   window.addEventListener("resize", () => {
     if (currentIndex !== -1) setTrackTitle(tracks[currentIndex].title);
   });
+
+  /* 등장인물 카드 아래 '테마곡 재생하기' 버튼: 소리를 켜고 그 곡을 바로 재생 */
+  function playThemeTrack(index) {
+    if (audio.volume === 0) {
+      audio.volume = 0.7;
+      volumeSlider.value = 70;
+    }
+    setMuted(false);
+    playTrack(index);
+  }
+
+  function mountThemeButtons() {
+    document.querySelectorAll(".char-section[id]").forEach((section) => {
+      if (section.querySelector(".theme-buttons")) return;
+      const themes = tracks
+        .map((track, index) => ({ track, index }))
+        .filter(({ track }) => track.character === section.id);
+      if (themes.length === 0) return;
+
+      const wrap = document.createElement("div");
+      wrap.className = "theme-buttons";
+      for (const { track, index } of themes) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "theme-play";
+        btn.textContent = "♪ " + ui("playTheme") + (track.themeLabel ? ` · ${track.themeLabel}` : "");
+        btn.title = track.title;
+        btn.addEventListener("click", () => playThemeTrack(index));
+        wrap.appendChild(btn);
+      }
+      // 이름 · 역할 바로 아래에 둔다
+      const role = section.querySelector(".char-role");
+      if (role) role.after(wrap);
+      else section.querySelector("h2")?.after(wrap);
+    });
+  }
+
+  // 인물 카드는 다른 스크립트가 나중에 그릴 수 있으니, 카드가 생길 때마다 다시 붙인다
+  if (tracks.some((track) => track.character)) {
+    mountThemeButtons();
+    new MutationObserver(mountThemeButtons).observe(document.body, { childList: true, subtree: true });
+  }
 
   setTrackTitle(tracks.length ? ui("pickTrack") : ui("noTracks"));
   renderPlaylist();

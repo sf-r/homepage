@@ -53,6 +53,10 @@ saffron/
 
 - 메인 페이지 재생목록 → `js/music-data.js`
 - '참교육 못하는 공녀님' 재생목록 → `pages/gongnyeo/music-data.js`
+- 곡에 `character: "인물 id"` 를 적으면 등장인물 페이지의 그 인물 이름 아래에 '♪ 테마곡 재생하기'
+  버튼이 생깁니다. 누르면 소리를 켜고 그 곡을 바로 재생합니다. 한 인물에 곡이 여럿이면
+  `themeLabel: "ver.1"` 처럼 버튼 이름을 구분합니다. (예: `pages/three-futures/music-data.js`,
+  `pages/rebloom/music-data.js`)
   (`index.html`과 `characters.html`이 같은 목록을 공유합니다)
 
 새 작품 상세페이지를 만들 때도 그 폴더 안에 `music-data.js`를 하나 만들고,

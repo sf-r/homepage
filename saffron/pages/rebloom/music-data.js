@@ -14,5 +14,11 @@ export const TRACKS = [
     character: "seolyun",
     title: "초침의 은빛 (Silver Howl) (강설윤의 테마곡)",
     src: "https://music.saffran.kr/%EC%B4%88%EC%B9%A8%EC%9D%98%20%EC%9D%80%EB%B9%9B%20(Silver%20Howl).m4a"
+  },
+  {
+    id: "melinoe-theme",
+    character: "melinoe",
+    title: "빛 없는 방의 노래 (Nocturne Veil) (멜리노에의 테마곡)",
+    src: "https://music.saffran.kr/%EB%B9%9B%20%EC%97%86%EB%8A%94%20%EB%B0%A9%EC%9D%98%20%EB%85%B8%EB%9E%98%20(Nocturne%20Veil).m4a"
   }
 ];

@@ -20,5 +20,11 @@ export const TRACKS = [
     character: "melinoe",
     title: "빛 없는 방의 노래 (Nocturne Veil) (멜리노에의 테마곡)",
     src: "https://music.saffran.kr/%EB%B9%9B%20%EC%97%86%EB%8A%94%20%EB%B0%A9%EC%9D%98%20%EB%85%B8%EB%9E%98%20(Nocturne%20Veil).m4a"
+  },
+  {
+    id: "nolwenn-theme",
+    character: "nolwenn",
+    title: "실적은 바다 밑에서 (Aqua Dahut No.7) (놀웬의 테마곡)",
+    src: "https://music.saffran.kr/%EC%8B%A4%EC%A0%81%EC%9D%80%20%EB%B0%94%EB%8B%A4%20%EB%B0%91%EC%97%90%EC%84%9C%20(Aqua%20Dahut%20No.7).m4a"
   }
 ];

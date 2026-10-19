@@ -10,6 +10,8 @@
 // 트랙에 character: "인물 id" 를 적으면, 그 id를 가진 등장인물 카드(.char-section)의
 // 이름 아래에 '테마곡 재생하기' 버튼이 붙는다. 누르면 소리를 켜고 그 곡을 바로 튼다.
 // 한 인물에 곡이 여럿이면 themeLabel(예: "ver.1")로 버튼을 구분한다.
+// 인물이 아닌 곳에 두려면 after: "CSS 선택자" 와 button: "버튼 문구" 를 적는다.
+// 그 요소 바로 아래에 버튼이 붙는다. (예: 작품 설명 아래의 전체 테마곡)
 
 import { ui } from "./i18n.js";
 
@@ -207,7 +209,18 @@ export function initMusicPlayer(tracks) {
     playTrack(index);
   }
 
+  function createThemeButton(track, index, label) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "theme-play";
+    btn.textContent = "♪ " + label;
+    btn.title = track.title;
+    btn.addEventListener("click", () => playThemeTrack(index));
+    return btn;
+  }
+
   function mountThemeButtons() {
+    // 인물 카드: 이름 · 역할 바로 아래
     document.querySelectorAll(".char-section[id]").forEach((section) => {
       if (section.querySelector(".theme-buttons")) return;
       const themes = tracks
@@ -218,23 +231,35 @@ export function initMusicPlayer(tracks) {
       const wrap = document.createElement("div");
       wrap.className = "theme-buttons";
       for (const { track, index } of themes) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "theme-play";
-        btn.textContent = "♪ " + ui("playTheme") + (track.themeLabel ? ` · ${track.themeLabel}` : "");
-        btn.title = track.title;
-        btn.addEventListener("click", () => playThemeTrack(index));
-        wrap.appendChild(btn);
+        const label = ui("playTheme") + (track.themeLabel ? ` · ${track.themeLabel}` : "");
+        wrap.appendChild(createThemeButton(track, index, label));
       }
-      // 이름 · 역할 바로 아래에 둔다
       const role = section.querySelector(".char-role");
       if (role) role.after(wrap);
       else section.querySelector("h2")?.after(wrap);
     });
+
+    // 그 밖의 곳: after 로 적은 요소 바로 아래 (같은 곳을 가리키는 곡은 한 줄에 모은다)
+    const bySelector = new Map();
+    tracks.forEach((track, index) => {
+      if (!track.after) return;
+      if (!bySelector.has(track.after)) bySelector.set(track.after, []);
+      bySelector.get(track.after).push({ track, index });
+    });
+    for (const [selector, themes] of bySelector) {
+      const target = document.querySelector(selector);
+      if (!target || target.nextElementSibling?.classList.contains("theme-buttons")) continue;
+      const wrap = document.createElement("div");
+      wrap.className = "theme-buttons";
+      for (const { track, index } of themes) {
+        wrap.appendChild(createThemeButton(track, index, track.button || ui("playTheme")));
+      }
+      target.after(wrap);
+    }
   }
 
   // 인물 카드는 다른 스크립트가 나중에 그릴 수 있으니, 카드가 생길 때마다 다시 붙인다
-  if (tracks.some((track) => track.character)) {
+  if (tracks.some((track) => track.character || track.after)) {
     mountThemeButtons();
     new MutationObserver(mountThemeButtons).observe(document.body, { childList: true, subtree: true });
   }

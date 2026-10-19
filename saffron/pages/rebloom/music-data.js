@@ -5,6 +5,8 @@
 export const TRACKS = [
   {
     id: "main-theme",
+    after: "#world > .lead",
+    button: "전체 테마곡 재생하기",
     title: "Re:Bloom - Re:volution - Re:bloomlution (전체 테마곡)",
     src: "https://music.saffran.kr/Re_Bloom%20-%20Re_volution%20-%20Re_bloomlution.m4a"
   },
@@ -40,11 +42,15 @@ export const TRACKS = [
   },
   {
     id: "bid-bid-o-en",
+    after: "#region-lifthrasir dl",
+    button: "비드비드 오엔 전곡 듣기",
     title: "리프트라시르의 옛 노래 (Bid Bid, O En) (비드비드 오엔 전곡)",
     src: "https://music.saffran.kr/%EB%A6%AC%ED%94%84%ED%8A%B8%EB%9D%BC%EC%8B%9C%EB%A5%B4%EC%9D%98%20%EC%98%9B%20%EB%85%B8%EB%9E%98%20(Bid%20Bid%2C%20O%20En).m4a"
   },
   {
     id: "bid-bid-o-en-meaning",
+    after: "#region-lifthrasir dl",
+    button: "비드비드 오엔 해석 듣기",
     title: "리프트라시르의 옛 노래 (Bid Bid, O En) (비드비드 오엔 해석)",
     src: "https://music.saffran.kr/%EB%A6%AC%ED%94%84%ED%8A%B8%EB%9D%BC%EC%8B%9C%EB%A5%B4%EC%9D%98%20%EC%98%9B%20%EB%85%B8%EB%9E%98%20(Bid%20Bid%2C%20O%20En)(%EB%9C%BB%ED%95%B4%EC%84%9D).m4a"
   }

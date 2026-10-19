@@ -4,6 +4,13 @@
 
 export const TRACKS = [
   {
+    id: "main-theme",
+    after: "#world > .lead",
+    button: "전체 테마곡 재생하기",
+    title: "Re:Bloom - Re:volution - Re:bloomlution (전체 테마곡)",
+    src: "https://music.saffran.kr/Re_Bloom%20-%20Re_volution%20-%20Re_bloomlution.m4a"
+  },
+  {
     id: "ayane-theme",
     character: "ayane",
     title: "새장 속의 하늘바람 (Hakufū) (아야네의 테마곡)",
@@ -26,5 +33,25 @@ export const TRACKS = [
     character: "nolwenn",
     title: "실적은 바다 밑에서 (Aqua Dahut No.7) (놀웬의 테마곡)",
     src: "https://music.saffran.kr/%EC%8B%A4%EC%A0%81%EC%9D%80%20%EB%B0%94%EB%8B%A4%20%EB%B0%91%EC%97%90%EC%84%9C%20(Aqua%20Dahut%20No.7).m4a"
+  },
+  {
+    id: "liv-theme",
+    character: "liv",
+    title: "룬 그리는 아이 (Runelight) (리브의 테마곡)",
+    src: "https://music.saffran.kr/%EB%A3%AC%20%EA%B7%B8%EB%A6%AC%EB%8A%94%20%EC%95%84%EC%9D%B4%20(Runelight).m4a"
+  },
+  {
+    id: "bid-bid-o-en",
+    after: "#region-lifthrasir dl",
+    button: "비드비드 오엔 전곡 듣기",
+    title: "리프트라시르의 옛 노래 (Bid Bid, O En) (비드비드 오엔 전곡)",
+    src: "https://music.saffran.kr/%EB%A6%AC%ED%94%84%ED%8A%B8%EB%9D%BC%EC%8B%9C%EB%A5%B4%EC%9D%98%20%EC%98%9B%20%EB%85%B8%EB%9E%98%20(Bid%20Bid%2C%20O%20En).m4a"
+  },
+  {
+    id: "bid-bid-o-en-meaning",
+    after: "#region-lifthrasir dl",
+    button: "비드비드 오엔 해석 듣기",
+    title: "리프트라시르의 옛 노래 (Bid Bid, O En) (비드비드 오엔 해석)",
+    src: "https://music.saffran.kr/%EB%A6%AC%ED%94%84%ED%8A%B8%EB%9D%BC%EC%8B%9C%EB%A5%B4%EC%9D%98%20%EC%98%9B%20%EB%85%B8%EB%9E%98%20(Bid%20Bid%2C%20O%20En)(%EB%9C%BB%ED%95%B4%EC%84%9D).m4a"
   }
 ];

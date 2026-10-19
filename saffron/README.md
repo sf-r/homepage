@@ -55,7 +55,10 @@ saffron/
 - '참교육 못하는 공녀님' 재생목록 → `pages/gongnyeo/music-data.js`
 - 곡에 `character: "인물 id"` 를 적으면 등장인물 페이지의 그 인물 이름 아래에 '♪ 테마곡 재생하기'
   버튼이 생깁니다. 누르면 소리를 켜고 그 곡을 바로 재생합니다. 한 인물에 곡이 여럿이면
-  `themeLabel: "ver.1"` 처럼 버튼 이름을 구분합니다. (예: `pages/three-futures/music-data.js`,
+  `themeLabel: "ver.1"` 처럼 버튼 이름을 구분합니다.
+  인물이 아닌 곳에 두려면 `after: "CSS 선택자"` 와 `button: "버튼 문구"` 를 적습니다.
+  그 요소 바로 아래에 버튼이 붙습니다. (예: Re:Bloomlution 전체 테마곡은 세계관 첫 문단 아래,
+  비드비드 오엔은 리프트라시르 마을 카드 안) (예: `pages/three-futures/music-data.js`,
   `pages/rebloom/music-data.js`)
   (`index.html`과 `characters.html`이 같은 목록을 공유합니다)
 

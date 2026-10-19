@@ -6,5 +6,10 @@ export const TRACKS = [
     id: "ayane-theme",
     title: "새장 속의 하늘바람 (Hakufū) (아야네의 테마곡)",
     src: "https://music.saffran.kr/%EC%83%88%EC%9E%A5%20%EC%86%8D%EC%9D%98%20%ED%95%98%EB%8A%98%EB%B0%94%EB%9E%8C%20(Hakuf%C5%AB).m4a"
+  },
+  {
+    id: "seolyun-theme",
+    title: "초침의 은빛 (Silver Howl) (강설윤의 테마곡)",
+    src: "https://music.saffran.kr/%EC%B4%88%EC%B9%A8%EC%9D%98%20%EC%9D%80%EB%B9%9B%20(Silver%20Howl).m4a"
   }
 ];

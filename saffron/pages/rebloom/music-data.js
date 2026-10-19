@@ -26,5 +26,11 @@ export const TRACKS = [
     character: "nolwenn",
     title: "실적은 바다 밑에서 (Aqua Dahut No.7) (놀웬의 테마곡)",
     src: "https://music.saffran.kr/%EC%8B%A4%EC%A0%81%EC%9D%80%20%EB%B0%94%EB%8B%A4%20%EB%B0%91%EC%97%90%EC%84%9C%20(Aqua%20Dahut%20No.7).m4a"
+  },
+  {
+    id: "liv-theme",
+    character: "liv",
+    title: "룬 그리는 아이 (Runelight) (리브의 테마곡)",
+    src: "https://music.saffran.kr/%EB%A3%AC%20%EA%B7%B8%EB%A6%AC%EB%8A%94%20%EC%95%84%EC%9D%B4%20(Runelight).m4a"
   }
 ];

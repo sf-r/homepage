@@ -579,3 +579,11 @@
   font-family: var(--font-ui); font-size: 0.75rem;
 }
 .portrait-tab.active { color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent); }
+
+/* 리프트라시르의 옛 노래 가사 (원래 말 · 뜻) */
+.lyrics section { margin: 0 0 1rem; }
+.lyrics section:last-child { margin-bottom: 0; }
+.lyrics h4 { margin: 0 0 0.35rem; font-family: var(--font-ui); font-size: 0.82rem; letter-spacing: 0.06em; color: var(--c-rune); }
+.lyrics .ly-o { margin: 0 !important; font-style: italic; color: var(--parchment) !important; }
+.lyrics .ly-m { margin: 0 0 0.45rem !important; font-size: 0.88rem !important; color: var(--muted) !important; }
+.lyrics-lock { margin-top: 0.6rem; }

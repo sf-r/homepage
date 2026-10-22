@@ -30,14 +30,15 @@ saffron/
 ## 배포 방법 (GitHub + Cloudflare Pages)
 
 - 저장소: `sf-r/homepage`
-- 서비스 도메인: `homepage.saffran.kr`
+- 서비스 도메인: `www.homepage.saffran.kr` (Cloudflare Workers `homepage`)
 
 1. 이 `saffron` 폴더 전체 내용을 `sf-r/homepage` 저장소 루트에 커밋·푸시합니다.
 2. Cloudflare 대시보드 → **Workers & Pages → Pages → Create → Connect to Git**
    에서 `sf-r/homepage` 저장소를 선택합니다.
 3. 빌드 설정: **Build command는 비워두고, Output directory는 `/`** 로 지정합니다
    (빌드 과정이 없는 순수 정적 사이트라서 그대로 서빙됩니다).
-4. 배포된 Pages 프로젝트의 **Custom domains**에서 `homepage.saffran.kr`을 연결합니다.
+4. 배포된 프로젝트의 **Custom domains**에서 `www.homepage.saffran.kr`을 연결합니다.
+   (지금은 Workers로 배포합니다. 루트의 `wrangler.jsonc` 참고)
 
 ## 음악 플레이어 (R2 버킷)
 
@@ -159,6 +160,10 @@ Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 �
 
 `pages/rebloom/gallery/`(Re:Bloomlution 캐릭터 이미지 미리보기)는 **아카라이브(arca.live)에서 링크를 눌러 들어온 경우에만** 열립니다.
 
+- 주소: `https://www.homepage.saffran.kr/pages/rebloom/gallery`
+- 들어가는 길: 아카라이브 채널 글 <https://arca.live/b/saffron/186726112> 의 링크를 눌러서.
+  (브라우저는 보통 출처 사이트 주소만 넘겨줘서, 검사는 '아카라이브에서 왔는지'까지만 봅니다.
+  같은 채널의 다른 글에 링크를 걸어도 열립니다.)
 - 검사 코드는 저장소 루트의 `src/worker.js`, 검사할 경로는 `wrangler.jsonc`의 `run_worker_first`.
 - 아카라이브에서 들어오면 1시간짜리 입장 쿠키가 생겨, 그동안은 새로고침·이미지 보기가 됩니다.
 - 주소를 직접 치거나 다른 곳에서 공유된 링크로 오면 안내 페이지(403)가 뜹니다.

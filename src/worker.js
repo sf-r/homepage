@@ -5,12 +5,18 @@
 // 아카라이브(arca.live)에서 링크를 타고 들어온 사람에게만 보여 준다.
 //
 // 동작
-//  1. 아카라이브에서 넘어온 요청(Referer가 arca.live) → 1시간짜리 입장 쿠키를 주고 보여 준다.
-//  2. 입장 쿠키가 있는 요청(새로고침, 페이지 안의 이미지·스크립트) → 보여 준다.
-//  3. 그 밖(주소 직접 입력, 다른 사이트에서 온 링크, 이미지 주소만 복사) → 안내 페이지 / 403.
+//  1. 입장 키가 붙은 링크(…/gallery?k=입장키)로 온 요청 → 1시간짜리 입장 쿠키를 주고,
+//     주소창에 키가 남지 않게 키를 뺀 주소로 바로 넘긴다.
+//     아카라이브는 바깥 링크에 출처(Referer)를 보내지 않아서, 채널 글에는 이 링크를 건다.
+//  2. 아카라이브에서 넘어온 요청(Referer가 arca.live) → 같은 쿠키를 주고 보여 준다.
+//  3. 입장 쿠키가 있는 요청(새로고침, 페이지 안의 이미지·스크립트) → 보여 준다.
+//  4. 그 밖(주소 직접 입력, 키 없는 링크, 이미지 주소만 복사) → 안내 페이지 / 403.
 //
-// 한계: Referer 헤더는 마음먹고 조작하면 속일 수 있다. "링크를 공유하거나 주소를 직접
-// 쳐서는 볼 수 없게" 하는 정도의 장치다.
+// 입장 키: Cloudflare 대시보드 → Workers → homepage → Settings → Variables and Secrets에
+// GALLERY_KEY(비밀값)로 넣는다. 저장소가 공개라서 코드에는 적지 않는다. 키를 바꾸면
+// 예전 링크는 더 이상 열리지 않으니, 채널 글의 링크도 새 키로 고친다.
+//
+// 한계: 키가 붙은 링크를 통째로 복사해 퍼뜨리면 그 링크로는 들어올 수 있다. 그럴 땐 키를 바꾼다.
 //
 // 쿠키 서명 키: Cloudflare 대시보드 → Workers → homepage → Settings → Variables에
 // GALLERY_SECRET(비밀값)을 넣으면 그 값을 쓴다. 넣지 않으면 아래 기본값을 쓴다.
@@ -35,6 +41,25 @@ export default {
     if (!gate) return env.ASSETS.fetch(request);
 
     const secret = env.GALLERY_SECRET || DEFAULT_SECRET;
+
+    // 입장 키가 맞으면 쿠키를 주고 키를 뺀 주소로 넘긴다
+    const key = url.searchParams.get("k");
+    if (key !== null) {
+      url.searchParams.delete("k");
+      if (env.GALLERY_KEY && (await sameSecret(key, env.GALLERY_KEY, secret))) {
+        const value = await makePass(gate.ttlSeconds, secret);
+        return new Response(null, {
+          status: 302,
+          headers: {
+            Location: url.pathname + url.search,
+            "Cache-Control": "no-store",
+            "Referrer-Policy": "no-referrer",
+            "Set-Cookie": `${gate.cookie}=${value}; Path=${gate.prefix}; Max-Age=${gate.ttlSeconds}; HttpOnly; Secure; SameSite=Lax`
+          }
+        });
+      }
+    }
+
     const fromAllowed = isFromAllowedReferrer(request, gate.allowedReferrerHosts);
     const hasPass = !fromAllowed && (await verifyPass(request, gate.cookie, secret));
 
@@ -63,6 +88,11 @@ function isFromAllowedReferrer(request, hosts) {
   let host;
   try { host = new URL(referer).hostname.toLowerCase(); } catch { return false; }
   return hosts.some((h) => host === h || host.endsWith("." + h));
+}
+
+/* 입장 키 비교: 서명끼리 비교해서 글자 하나씩 맞춰 보는 추측을 어렵게 */
+async function sameSecret(given, expected, secret) {
+  return (await sign("key:" + given, secret)) === (await sign("key:" + expected, secret));
 }
 
 /* 입장 쿠키: "만료시각.서명" — 서명이 맞고 만료 전이어야 통과 */

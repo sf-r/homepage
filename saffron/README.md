@@ -162,8 +162,12 @@ Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 �
 
 - 주소: `https://www.homepage.saffran.kr/pages/rebloom/gallery`
 - 들어가는 길: 아카라이브 채널 글 <https://arca.live/b/saffron/186726112> 의 링크를 눌러서.
-  (브라우저는 보통 출처 사이트 주소만 넘겨줘서, 검사는 '아카라이브에서 왔는지'까지만 봅니다.
-  같은 채널의 다른 글에 링크를 걸어도 열립니다.)
+  아카라이브는 바깥 링크에 출처(Referer)를 보내지 않으므로, 채널 글에는 **입장 키가 붙은 링크**
+  `https://www.homepage.saffran.kr/pages/rebloom/gallery?k=입장키` 를 겁니다.
+  키가 맞으면 1시간 입장 쿠키를 주고 주소창에서 키를 지운 주소로 넘어갑니다.
+- 입장 키는 Cloudflare 대시보드 → Workers → homepage → Settings → Variables and Secrets에
+  `GALLERY_KEY`(Secret)로 넣습니다. 저장소가 공개라 코드에는 적지 않습니다.
+  링크가 밖으로 퍼지면 키를 바꾸고 채널 글의 링크도 새 키로 고칩니다.
 - 검사 코드는 저장소 루트의 `src/worker.js`, 검사할 경로는 `wrangler.jsonc`의 `run_worker_first`.
 - 아카라이브에서 들어오면 1시간짜리 입장 쿠키가 생겨, 그동안은 새로고침·이미지 보기가 됩니다.
 - 주소를 직접 치거나 다른 곳에서 공유된 링크로 오면 안내 페이지(403)가 뜹니다.

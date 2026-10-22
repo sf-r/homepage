@@ -9,17 +9,50 @@ function el(tag, className, text) {
   return node;
 }
 
-/* 부품: 초상화 (이미지가 없으면 이름 끝 글자 카드) */
-function createPortrait(character) {
-  if (character.portrait) {
-    const img = el("img", "char-portrait");
-    img.src = character.portrait;
-    img.alt = character.name + " 초상 이미지";
-    return img;
-  }
+/* 부품: 이름 끝 글자 카드 (이미지가 없거나 못 불러올 때) */
+function createMonogram(character) {
   const card = el("div", "char-portrait char-monogram", character.name.slice(-1));
   card.setAttribute("aria-hidden", "true");
   return card;
+}
+
+/* 부품: 초상화. portraits 가 여럿이면 아래 버튼(평상복 · 변신, 인간형, TS 등)으로 바꿔 볼 수 있다.
+   첫 이미지를 못 불러오면 이름 끝 글자 카드로 대신한다. */
+function createPortrait(character) {
+  const portraits = character.portraits || [];
+  if (portraits.length === 0) return createMonogram(character);
+
+  const wrap = el("div", "char-portrait-wrap");
+  const img = el("img", "char-portrait");
+  img.loading = "lazy";
+  const show = (p) => {
+    img.src = p.src;
+    img.alt = `${character.name} · ${p.label}`;
+  };
+  show(portraits[0]);
+  img.addEventListener("error", () => {
+    if (img.getAttribute("src") === portraits[0].src) wrap.replaceWith(createMonogram(character));
+  });
+  wrap.appendChild(img);
+
+  if (portraits.length > 1) {
+    const tabs = el("div", "portrait-tabs");
+    portraits.forEach((p, i) => {
+      const btn = el("button", "portrait-tab" + (i === 0 ? " active" : ""), p.label);
+      btn.type = "button";
+      btn.setAttribute("aria-pressed", String(i === 0));
+      btn.addEventListener("click", () => {
+        show(p);
+        tabs.querySelectorAll(".portrait-tab").forEach((b) => {
+          b.classList.toggle("active", b === btn);
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+      });
+      tabs.appendChild(btn);
+    });
+    wrap.appendChild(tabs);
+  }
+  return wrap;
 }
 
 /* 부품: 인물 하나의 숨김 버튼 (약점 · 비밀 단계 · 기타 비밀을 하나로 묶는다).

@@ -162,6 +162,11 @@ Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 �
 - 검사 코드는 저장소 루트의 `src/worker.js`, 검사할 경로는 `wrangler.jsonc`의 `run_worker_first`.
 - 아카라이브에서 들어오면 1시간짜리 입장 쿠키가 생겨, 그동안은 새로고침·이미지 보기가 됩니다.
 - 주소를 직접 치거나 다른 곳에서 공유된 링크로 오면 안내 페이지(403)가 뜹니다.
-- 이미지는 `pages/rebloom/gallery/img/`에 넣고 `gallery-data.js`에 `img/파일이름`으로 적어야 같은 보호를 받습니다.
+- 갤러리는 캔버스와 같은 규칙으로 `https://saffran.kr/blo/(캐릭터)-(의상)-(코드).webp` 를 불러옵니다.
+  의상 탭은 👚 a · 🪄 m · 💥 d · 🔓 r · 🍑 n, 코드는 표정 · 행동 · 🔞 성인(버튼을 눌러야 펼쳐짐) 전부이고,
+  없는 이미지는 칸에서 자동으로 빠집니다. 💥 d · 🔓 r 은 지금 '준비 중'이라, 이미지를 올린 뒤
+  `gallery-data.js` 의 `CLOTHES` 에서 `ready: true` 로 바꾸면 열립니다.
+- 이 이미지는 바깥 주소라 입장 검사를 받지 않습니다. 같은 보호를 받게 하려면 `pages/rebloom/gallery/img/`에
+  넣고 `BASE` 를 `img/` 로 바꾸면 됩니다.
 - 사이트 안 다른 페이지에서 이 페이지로 링크하면 막히니, 링크는 아카라이브 글에만 겁니다.
 - 선택: Cloudflare 대시보드 → Workers → homepage → Settings → Variables and Secrets에 `GALLERY_SECRET`(아무 긴 문자열)을 넣으면 쿠키 서명 키로 씁니다.

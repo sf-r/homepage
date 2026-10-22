@@ -49,7 +49,8 @@ export const TRACKS = [
   },
   {
     id: "bid-bid-o-en-meaning",
-    after: "#region-lifthrasir dl",
+    // 캔버스처럼 멜리노에 비밀 4단계에 묶인 곡: 버튼은 잠긴 칸(🔒) 안에 둔다
+    after: "#bid-meaning-anchor",
     button: "비드비드 오엔 해석 듣기",
     title: "리프트라시르의 옛 노래 (Bid Bid, O En) (비드비드 오엔 해석)",
     src: "https://music.saffran.kr/%EB%A6%AC%ED%94%84%ED%8A%B8%EB%9D%BC%EC%8B%9C%EB%A5%B4%EC%9D%98%20%EC%98%9B%20%EB%85%B8%EB%9E%98%20(Bid%20Bid%2C%20O%20En)(%EB%9C%BB%ED%95%B4%EC%84%9D).m4a"

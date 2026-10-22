@@ -262,6 +262,7 @@
 @media (max-width: 620px) {
   .char-section { grid-template-columns: 1fr; }
   .char-portrait { max-width: 220px; }
+  .char-portrait-wrap { max-width: 220px; }
   .sky-rift { width: 140vw; top: 2vh; }
 }
 
@@ -566,3 +567,15 @@
 .void-counter strong { color: var(--c); margin-right: 0.3rem; }
 .secret-list { margin: 0; padding-left: 1.1rem; font-size: 0.92rem; line-height: 1.7; color: var(--parchment); }
 @media (max-width: 620px) { .void-cards { grid-template-columns: 1fr; } }
+
+/* 초상화 묶음: 평상복 · 변신 / 인간형 / TS 버튼으로 바꿔 보기 */
+.char-portrait-wrap { align-self: start; }
+.char-portrait-wrap .char-portrait { display: block; background: rgba(18, 10, 28, 0.6); }
+.portrait-tabs { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+.portrait-tab {
+  padding: 0.2rem 0.6rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  background: transparent; color: var(--muted);
+  font-family: var(--font-ui); font-size: 0.75rem;
+}
+.portrait-tab.active { color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent); }

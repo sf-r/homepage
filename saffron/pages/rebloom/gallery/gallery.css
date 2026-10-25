@@ -33,7 +33,14 @@
 .gallery-card.shadow { --c: var(--c-shadow); }
 .gallery-card.teal { --c: var(--c-teal); }
 .gallery-card.rune { --c: var(--c-rune); }
-.gallery-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.gallery-head {
+  display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; width: 100%;
+  padding: 0; border: none; background: none; text-align: left; cursor: pointer; color: inherit;
+}
+.gallery-card.open .gallery-head { margin-bottom: 0.9rem; }
+.gallery-fold { margin-left: auto; font-family: var(--font-ui); font-size: 0.78rem; color: var(--muted); }
+.gallery-fold::after { content: " ▾"; }
+.gallery-card.open .gallery-fold::after { content: " ▴"; }
 .gallery-head h2 { margin: 0; font-family: var(--font-display); font-size: var(--step-3); color: var(--parchment); }
 .gallery-sub { font-family: var(--font-ui); font-size: 0.82rem; color: var(--c); }
 
@@ -116,3 +123,21 @@
 }
 .viewer-prev { left: 0.8rem; }
 .viewer-next { right: 0.8rem; }
+
+/* 검색 */
+.gallery-search { position: sticky; top: calc(var(--detail-header-h, 56px) + 0.5rem); z-index: 5; margin: 1.2rem 0 0.4rem; }
+.gallery-search input {
+  width: 100%; box-sizing: border-box; padding: 0.7rem 1rem; border-radius: 999px;
+  border: 1px solid rgba(242, 167, 216, 0.45); background: rgba(18, 10, 28, 0.92); color: var(--parchment);
+  font-family: var(--font-ui); font-size: 0.95rem;
+}
+.gallery-search input:focus { outline: 2px solid rgba(242, 167, 216, 0.6); outline-offset: 2px; }
+.gallery-results { margin-top: 1rem; }
+.gallery-result-count { font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); margin: 0 0 0.8rem; }
+.gallery-thumb.silver { --c: var(--c-silver); } .gallery-thumb.violet { --c: var(--c-violet); }
+.gallery-thumb.shadow { --c: var(--c-shadow); } .gallery-thumb.teal { --c: var(--c-teal); } .gallery-thumb.rune { --c: var(--c-rune); }
+.gallery-more {
+  display: block; margin: 1rem auto 0; padding: 0.5rem 1.2rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(242, 167, 216, 0.45); background: transparent; color: var(--parchment); font-family: var(--font-ui);
+}
+.gallery-more[hidden] { display: none; }

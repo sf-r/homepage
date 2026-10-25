@@ -33,9 +33,13 @@
 <main class="gallery-page">
   <div class="gallery-intro">
     <span class="rift-badge"><span class="mark">✿</span> 아카라이브 채널 전용 미리보기</span>
-    <p>마법숙녀마다 의상(👚 평상복 · 🪄 변신 · 💥 변신 의상 파괴 · 🔓 강제 해제 · 🍑 누드)을 고르면 표정 · 행동 · 성인 코드별 이미지가 나와요. 이미지를 누르면 크게 볼 수 있고, ←/→ 로 넘길 수 있어요. 아직 없는 이미지는 칸에서 빠집니다.</p>
+    <p>이름을 눌러 펼치고, 의상(👚 평상복 · 🪄 변신 · 💥 변신 의상 파괴 · 🔓 강제 해제 · 🍑 누드)을 고르면 표정 · 행동 · 성인 코드별 이미지가 나와요. 위 검색창에 이름 · 의상 · 표정이나 코드 번호를 적으면 한꺼번에 찾아 줘요. 이미지를 누르면 크게 볼 수 있고, ←/→ 로 넘길 수 있어요. 아직 없는 이미지는 칸에서 빠집니다.</p>
     <p>이 페이지는 채널 글의 링크로 들어왔을 때만 열리고, 입장 후 1시간 동안 유지됩니다.</p>
   </div>
+  <div class="gallery-search">
+    <input id="gallery-search" type="search" placeholder="검색 · 예) 설윤 웃음 · 누드 키스 · 105" aria-label="이미지 검색" autocomplete="off">
+  </div>
+  <div id="gallery-results" class="gallery-results" hidden></div>
   <div id="gallery"></div>
 </main>
 

@@ -101,49 +101,151 @@ function createClothesPane(character, clothes) {
   return pane;
 }
 
-/* 부품: 캐릭터 카드 (의상 탭 · 선택한 의상만 불러온다) */
+/* 부품: 캐릭터 카드. 머리를 누르면 접고 펼친다(기본은 접힘).
+   처음 펼칠 때 의상 탭을 만들고, 고른 의상의 이미지만 불러온다 */
 function createCard(character) {
   const card = el("section", "gallery-card " + character.color);
   card.id = character.id;
-  const head = el("div", "gallery-head");
-  head.append(el("h2", null, character.name), el("span", "gallery-sub", character.sub));
+  const head = el("button", "gallery-head");
+  head.type = "button";
+  head.setAttribute("aria-expanded", "false");
+  head.append(el("h2", null, character.name), el("span", "gallery-sub", character.sub), el("span", "gallery-fold", "펼치기"));
   card.appendChild(head);
 
-  const tabs = el("div", "gallery-tabs");
-  const body = el("div", "gallery-body");
-  const panes = new Map();
+  const inner = el("div", "gallery-inner");
+  inner.hidden = true;
+  card.appendChild(inner);
 
-  const select = (clothes, btn) => {
-    tabs.querySelectorAll(".gallery-tab").forEach((b) => {
-      b.classList.toggle("active", b === btn);
-      b.setAttribute("aria-pressed", String(b === btn));
-    });
-    if (!panes.has(clothes.code)) panes.set(clothes.code, createClothesPane(character, clothes));
-    body.replaceChildren(panes.get(clothes.code));
+  let built = false;
+  const build = () => {
+    const tabs = el("div", "gallery-tabs");
+    const body = el("div", "gallery-body");
+    const panes = new Map();
+    const select = (clothes, btn) => {
+      tabs.querySelectorAll(".gallery-tab").forEach((b) => {
+        b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
+      if (!panes.has(clothes.code)) panes.set(clothes.code, createClothesPane(character, clothes));
+      body.replaceChildren(panes.get(clothes.code));
+    };
+    let first = null;
+    for (const clothes of CLOTHES) {
+      const btn = el("button", "gallery-tab", `${clothes.mark} ${clothes.name}`);
+      btn.type = "button";
+      if (!clothes.ready) {
+        btn.disabled = true;
+        btn.title = "준비 중";
+        btn.appendChild(el("span", "gallery-soon", "준비 중"));
+      } else {
+        btn.addEventListener("click", () => select(clothes, btn));
+        if (!first) first = () => select(clothes, btn);
+      }
+      tabs.appendChild(btn);
+    }
+    inner.append(tabs, body);
+    if (first) first();
   };
 
-  let first = null;
-  for (const clothes of CLOTHES) {
-    const btn = el("button", "gallery-tab", `${clothes.mark} ${clothes.name}`);
-    btn.type = "button";
-    if (!clothes.ready) {
-      btn.disabled = true;
-      btn.title = "준비 중";
-      btn.appendChild(el("span", "gallery-soon", "준비 중"));
-    } else {
-      btn.addEventListener("click", () => select(clothes, btn));
-      if (!first) first = () => select(clothes, btn);
-    }
-    tabs.appendChild(btn);
-  }
-  card.append(tabs, body);
-  if (first) first();
+  const setOpen = (open) => {
+    if (open && !built) { build(); built = true; }
+    inner.hidden = !open;
+    card.classList.toggle("open", open);
+    head.setAttribute("aria-expanded", String(open));
+    head.querySelector(".gallery-fold").textContent = open ? "접기" : "펼치기";
+  };
+  head.addEventListener("click", () => setOpen(inner.hidden));
+  card.setOpen = setOpen;
   return card;
+}
+
+/* 검색: 이름 · 의상 · 표정/행위 이름 · 코드 번호를 띄어쓰기로 이어 찾는다 (예: "설윤 웃음", "누드 키스", "105").
+   모든 낱말이 들어간 조합만 보여 주고, 없는 이미지는 빠진다 */
+const SEARCH_PAGE = 60;
+function searchItems(query) {
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const items = [];
+  for (const character of CHARACTERS) {
+    for (const clothes of CLOTHES) {
+      if (!clothes.ready) continue;
+      for (const group of CODE_GROUPS) {
+        for (const { code, name } of group.codes) {
+          const label = [character.name, character.sub, character.code, clothes.name, clothes.mark, clothes.code, group.title, name, String(code)].join(" ").toLowerCase();
+          if (words.every((w) => label.includes(w))) {
+            items.push({
+              src: imageUrl(character, clothes, code),
+              caption: `${character.name} · ${clothes.name}${clothes.mark} · ${name}`,
+              short: `${character.name} · ${clothes.mark} ${code} · ${name}`,
+              color: character.color
+            });
+          }
+        }
+      }
+    }
+  }
+  return items;
+}
+
+function renderSearch(query) {
+  const box = document.getElementById("gallery-results");
+  box.replaceChildren();
+  const q = query.trim();
+  box.hidden = !q;
+  document.getElementById("gallery").hidden = !!q;
+  if (!q) return;
+
+  const items = searchItems(q);
+  const head = el("p", "gallery-result-count");
+  box.appendChild(head);
+  if (items.length === 0) { head.textContent = "맞는 조합이 없어요."; return; }
+
+  const grid = el("div", "gallery-grid");
+  box.appendChild(grid);
+  let shownCount = 0;
+  const thumbs = [];
+  const update = () => { head.textContent = `‘${q}’ 검색 결과 · 조합 ${items.length}개 중 이미지가 있는 것만 보여요`; };
+  const more = el("button", "gallery-more");
+  more.type = "button";
+  const addPage = () => {
+    for (const item of items.slice(shownCount, shownCount + SEARCH_PAGE)) {
+      const btn = el("button", "gallery-thumb " + item.color);
+      btn.type = "button";
+      const image = el("img");
+      image.alt = item.caption;
+      image.loading = "lazy";
+      image.draggable = false;
+      image.addEventListener("error", () => btn.remove(), { once: true });
+      image.src = item.src;
+      btn.append(image, el("span", "gallery-caption", item.short));
+      const entry = { src: item.src, caption: item.caption, btn };
+      thumbs.push(entry);
+      btn.addEventListener("click", () => {
+        const live = thumbs.filter((t) => t.btn.isConnected);
+        openViewer(live, live.indexOf(entry));
+      });
+      grid.appendChild(btn);
+    }
+    shownCount = Math.min(items.length, shownCount + SEARCH_PAGE);
+    more.hidden = shownCount >= items.length;
+    more.textContent = `더 보기 (${items.length - shownCount}개 남음)`;
+  };
+  more.addEventListener("click", addPage);
+  box.appendChild(more);
+  update();
+  addPage();
 }
 
 const root = document.getElementById("gallery");
 root.appendChild(el("h2", "gallery-group", "마법숙녀"));
 for (const c of CHARACTERS) root.appendChild(createCard(c));
+
+const searchInput = document.getElementById("gallery-search");
+let searchTimer = 0;
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => renderSearch(searchInput.value), 200);
+});
+document.getElementById("gallery-results").addEventListener("contextmenu", (e) => { if (e.target.tagName === "IMG") e.preventDefault(); });
 
 // 이미지 우클릭 저장·끌어서 저장을 조금 번거롭게 (완벽한 방지는 아님)
 root.addEventListener("contextmenu", (e) => { if (e.target.tagName === "IMG") e.preventDefault(); });

@@ -42,16 +42,31 @@ export default {
 
     const secret = env.GALLERY_SECRET || DEFAULT_SECRET;
 
-    // 입장 키가 맞으면 쿠키를 주고 키를 뺀 주소로 넘긴다
-    const key = url.searchParams.get("k");
+    // 입장 키가 맞으면 쿠키를 주고 키를 뺀 주소로 넘긴다.
+    // 키는 …/gallery?k=키 또는 …/gallery/enter/키 어느 쪽으로 와도 된다.
+    let key = url.searchParams.get("k");
+    let landing = null;
     if (key !== null) {
       url.searchParams.delete("k");
-      if (env.GALLERY_KEY && (await sameSecret(key, env.GALLERY_KEY, secret))) {
+      landing = url.pathname + url.search;
+    } else {
+      const m = url.pathname.match(/\/enter\/([^/]+)\/?$/);
+      if (m && url.pathname.startsWith(gate.prefix + "/enter/")) {
+        try { key = decodeURIComponent(m[1]); } catch { key = m[1]; }
+        landing = gate.prefix + "/";
+      }
+    }
+    let reason = "";
+    if (key !== null) {
+      const expected = (env.GALLERY_KEY || "").trim();
+      if (!expected) reason = "서버에 입장 키(GALLERY_KEY)가 아직 설정되지 않았어요.";
+      else if (!(await sameSecret(key.trim(), expected, secret))) reason = "입장 키가 맞지 않아요.";
+      else {
         const value = await makePass(gate.ttlSeconds, secret);
         return new Response(null, {
           status: 302,
           headers: {
-            Location: url.pathname + url.search,
+            Location: landing,
             "Cache-Control": "no-store",
             "Referrer-Policy": "no-referrer",
             "Set-Cookie": `${gate.cookie}=${value}; Path=${gate.prefix}; Max-Age=${gate.ttlSeconds}; HttpOnly; Secure; SameSite=Lax`
@@ -63,7 +78,7 @@ export default {
     const fromAllowed = isFromAllowedReferrer(request, gate.allowedReferrerHosts);
     const hasPass = !fromAllowed && (await verifyPass(request, gate.cookie, secret));
 
-    if (!fromAllowed && !hasPass) return denied(request, gate);
+    if (!fromAllowed && !hasPass) return denied(request, gate, reason || "입장 키 없이 들어왔어요.");
 
     const assetResponse = await env.ASSETS.fetch(request);
     const response = new Response(assetResponse.body, assetResponse);
@@ -118,7 +133,7 @@ async function sign(text, secret) {
   return btoa(String.fromCharCode(...new Uint8Array(mac))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
-function denied(request, gate) {
+function denied(request, gate, reason) {
   const accept = request.headers.get("Accept") || "";
   const headers = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" };
   if (!accept.includes("text/html")) return new Response("Forbidden", { status: 403, headers });
@@ -132,10 +147,12 @@ function denied(request, gate) {
   .mark { font-size: 2rem; color: #f2a7d8; }
   h1 { font-size: 1.25rem; margin: 0.8rem 0; }
   p { color: #b8a9a0; line-height: 1.7; font-size: 0.95rem; }
+  .why { margin-top: 1.6rem; font-size: 0.75rem; color: #7d7068; }
   a { display: inline-block; margin-top: 1rem; padding: 0.5rem 1.1rem; border: 1px solid #f2a7d8;
     border-radius: 999px; color: #f2a7d8; text-decoration: none; font-size: 0.9rem; }
 </style></head>
 <body><main><div class="mark">✿</div><h1>${gate.deniedTitle}</h1><p>${gate.deniedText}</p>
-<a href="/index.html">Saffron 서재로</a></main></body></html>`;
+<a href="/index.html">Saffron 서재로</a>
+<p class="why">${reason} · gate v3</p></main></body></html>`;
   return new Response(html, { status: 403, headers: { ...headers, "Content-Type": "text/html; charset=utf-8" } });
 }

@@ -165,6 +165,9 @@ Safe ON으로 가려진 책도 까만 책 그대로 강조됩니다 (제목은 �
   아카라이브는 바깥 링크에 출처(Referer)를 보내지 않으므로, 채널 글에는 **입장 키가 붙은 링크**
   `https://www.homepage.saffran.kr/pages/rebloom/gallery?k=입장키` 를 겁니다.
   키가 맞으면 1시간 입장 쿠키를 주고 주소창에서 키를 지운 주소로 넘어갑니다.
+  `?k=` 가 안 통하면 `…/pages/rebloom/gallery/enter/입장키` 형태로 걸어도 됩니다.
+- 막혔을 때 안내 화면 맨 아래 작은 글씨가 이유를 알려 줍니다(입장 키 없음 / 키가 맞지 않음 /
+  서버에 키가 아직 없음). 끝의 `gate v3` 이 안 보이면 새 코드가 아직 배포되지 않은 것입니다.
 - 입장 키는 Cloudflare 대시보드 → Workers → homepage → Settings → Variables and Secrets에
   `GALLERY_KEY`(Secret)로 넣습니다. 저장소가 공개라 코드에는 적지 않습니다.
   링크가 밖으로 퍼지면 키를 바꾸고 채널 글의 링크도 새 키로 고칩니다.

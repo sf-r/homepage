@@ -59,7 +59,11 @@ export default {
     let reason = "";
     if (key !== null) {
       const expected = (env.GALLERY_KEY || "").trim();
-      if (!expected) reason = "서버에 입장 키(GALLERY_KEY)가 아직 설정되지 않았어요.";
+      if (!expected) {
+        // 값은 보여 주지 않고, 이 Worker가 실제로 받은 변수 이름만 알려 준다 (설정 위치 확인용)
+        const names = Object.keys(env).filter((n) => n !== "ASSETS").sort();
+        reason = "서버에 입장 키(GALLERY_KEY)가 아직 설정되지 않았어요. 이 Worker가 받은 변수: " + (names.length ? names.join(", ") : "없음");
+      }
       else if (!(await sameSecret(key.trim(), expected, secret))) reason = "입장 키가 맞지 않아요.";
       else {
         const value = await makePass(gate.ttlSeconds, secret);

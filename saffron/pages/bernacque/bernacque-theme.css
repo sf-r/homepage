@@ -746,3 +746,10 @@
 .content-section .muted { color: var(--muted); }
 .mode-card .rule-list { font-size: 0.9rem; line-height: 1.65; padding-left: 1rem; }
 .creator-note .rule-list { font-size: 0.9rem; line-height: 1.7; }
+
+/* 의뢰 게시판 */
+.quest-table th { white-space: nowrap; color: var(--work-accent-bright); }
+.quest-table td strong { color: var(--parchment); }
+.quest-table td.reward { white-space: nowrap; font-family: var(--font-ui); font-size: 0.8rem; color: var(--work-accent-bright); }
+.quest-table .secret.mini { margin-top: 0.35rem; }
+@media (max-width: 620px) { .quest-table td.reward { white-space: normal; min-width: 6.5em; } }

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>베르나크 학술원 — Saffron</title>
+<link rel="stylesheet" href="../../css/tokens.css">
+<link rel="stylesheet" href="../../css/detail.css">
+<link rel="stylesheet" href="bernacque-theme.css">
+</head>
+<body>
+
+<!-- 한국어판 전용 페이지. 성인 이용자 대상 작품이라 메인 책장에서는 Safe OFF일 때만 보인다.
+     내용은 캔버스(시작 스토리 · 장소/이벤트 스토리 · 전체 스토리의 학사 일정표와 명부 · 인물 · 로어북 · 프리셋)를 바탕으로 정리했다.
+     명부·교수진·시간표는 생성기가 캔버스에서 그대로 옮긴다. -->
+<div class="sky-backdrop" aria-hidden="true">
+  <div class="sky-stars"></div>
+  <div class="petals">
+    <span style="left:12%;--pc:#8cc8ff;--d:24s;--delay:-6s"></span>
+    <span style="left:31%;--pc:#e9c97a;--d:28s;--delay:-14s"></span>
+    <span style="left:52%;--pc:#8cc8ff;--d:21s;--delay:-9s"></span>
+    <span style="left:71%;--pc:#e9c97a;--d:26s;--delay:-3s"></span>
+    <span style="left:90%;--pc:#8cc8ff;--d:23s;--delay:-17s"></span>
+  </div>
+  <div class="sky-rift"></div>
+</div>
+
+<header class="detail-header">
+  <a href="../../index.html" class="wordmark">Saffron</a>
+  <span class="work-title">베르나크 학술원</span>
+</header>
+
+<div class="detail-layout">
+  <aside class="detail-sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item active" data-nav="intro"><a href="#intro">소개</a></li>
+        <li class="nav-item" data-nav="world"><a href="#world">학술원과 탑</a></li>
+        <li class="nav-item" data-nav="depts"><a href="#depts">학과와 시작</a></li>
+        <li class="nav-item" data-nav="tower"><a href="#tower">탑</a></li>
+        <li class="nav-item" data-nav="people"><a href="#people">인물</a></li>
+        <li class="nav-item" data-nav="life"><a href="#life">학원 생활</a></li>
+        <li class="nav-item" data-nav="calendar"><a href="#calendar">학사 일정</a></li>
+        <li class="nav-item" data-nav="modes"><a href="#modes">모드와 상태창</a></li>
+        <li class="nav-item" data-nav="secrets"><a href="#secrets">탑의 비밀</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="detail-content">
+    <section id="intro" class="content-section">
+      <span class="rift-badge"><span class="mark">🗼</span> 성인 이용자를 위한 작품</span>
+      <h2>베르나크 학술원</h2>
+      <div class="work-hero">
+        <div class="hero-card">
+          <img class="hero-crest" src="tower.svg" alt="">
+          <span class="hero-label">Bernacque Academy</span>
+        </div>
+        <div>
+          <p class="work-tagline"><strong>오르고, 돌아온다.</strong><br>학원 한가운데 솟은 탑의 100층을 넘어야 졸업한다.</p>
+          <ul class="genre-tags">
+            <li>아카데미물</li><li>탑등반</li><li>판타지</li><li>다인 시뮬레이션</li><li>학과 라이벌</li>
+          </ul>
+          <p>베르나크 학술원은 캠퍼스 한가운데의 탑에 오를 등반자를 길러 내는 성인 군사 학술원이다. 4년 과정이고, 학년마다 탑의 25층씩을 맡는다. 공식 정상은 100층. 그 위는 끝을 아무도 모르는 도전 영역이다.</p>
+          <p>평일에는 학과 시간표대로 수업을 듣고, 탑에는 주말·휴식주·원정·의뢰 때만 오른다. 파티의 마음이 맞물리는 정도, <strong>동조율</strong>이 곧 등반의 힘이다.</p>
+        </div>
+      </div>
+
+      <h3>입주일 밤</h3>
+      <div class="prologue">
+        <p>짐 상자를 마지막으로 내려놓자 창밖으로 탑이 들어온다. 베르나크 학술원 신입생 기숙사, 내일이면 입학식이다. 학원 한가운데 솟은 탑의 꼭대기는 구름에 잠겨 보이지 않는다.</p>
+        <p>복도 끝 라운지에서는 벌써 동기들의 목소리가 들린다. 누구와 파티를 짤지, 첫 등반 의례가 언제인지, 작년 졸업생은 몇 층에서 돌아왔는지. 그 이야기들 사이에서 한 단어가 유난히 자주 들린다. 동조율.</p>
+        <p>책상 위 등반자 등록증의 학과 칸에는 '마투과'가 찍혀 있다. 검이든 창이든, 주먹이든 클로든, 자기 몸과 무기에 마력을 실어 파티의 맨 앞에 서는 전위. 학과동 지하 수련장에서는 밤늦게까지 쇠와 주먹이 부딪는 소리가 울린다고 한다.</p>
+        <p>이름 칸 아래, 파티 칸은 비어 있다.</p>
+      </div>
+      <p class="secret-hint">신입생 기숙사 · 마투과로 시작했을 때의 프롤로그. 숙소와 학과에 따라 첫 장면이 달라진다.</p>
+
+      <h3>제작자 안내</h3>
+      <div class="creator-note">
+        <p>성인향 판타지 아카데미 × 탑 등반 다인 시뮬레이션입니다. 등장인물은 전원 성인입니다.</p>
+        <ul class="rule-list">
+          <li>시작할 때 포지션(신입 / 전학생 / 생환자)과 학과(마투과 / 마도과 / 성유과 / 탐사과)를 고릅니다.</li>
+          <li>4년제 학술원입니다. 학년마다 탑 25층을 맡고, 100층을 돌파하면 졸업합니다. 그 위는 끝을 모르는 도전 영역입니다.</li>
+          <li>평일에는 학과 시간표대로 수업이 있고, 탑에는 주말·휴식주·원정·의뢰 때만 오릅니다. 수문장은 파티 동조율이 모자라면 열리지 않습니다.</li>
+          <li>축제, 평가, 탑 공명일 같은 학사 일정은 날짜가 되면 반드시 일어납니다. 상태창 '일정' 탭에서 달력과 시간표를 볼 수 있습니다.</li>
+          <li>친밀 장면 수위는 프리셋 노트(은근하게 / 직접적으로)에서 하나를 고르고, 플레이 모드(음란 / 하렘 / 하드코어 등반 / 일상 학원 / 어두운 비밀 / TS / 장문 묘사)를 더할 수 있습니다. 커스텀 모드 탭에서 취향을 더 얹을 수도 있습니다.</li>
+          <li>대사는 [이름]: "대사" 형식으로 표시됩니다.</li>
+          <li>마정석은 탑에서, 크론은 학원에서 쓰는 돈입니다. 휴게층(13·38·63·88층)에서는 상태창 '탑' 탭 구석의 상인을 눌러 마정석으로 물건을 살 수 있습니다.</li>
+          <li>가방이나 재화가 어긋나 보이면 <code>!정비</code> 를 입력하세요. 상태창 '탑' 탭에서 몬스터와 직접 전투할 수도 있습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="world" class="content-section">
+      <h2>학술원과 탑</h2>
+      <p class="lead">탑은 학술원보다 먼저 있었다. 공식 기록은 100층에서 멈추고, 그 위는 도전 영역이다.</p>
+      <p>층마다 등반자의 마음과 유대를 시험하는 규칙이 있고, 25·50·75·100층은 수문장이 지킨다. 학술원은 학기마다 층을 조금씩 개방한다. 탑 안에서 죽는 일은 드물지만 실종은 그렇지 않고, 사라진 이들은 대부분 돌아오지 않는다.</p>
+
+      <h3>네 학년, 네 구간</h3>
+      <div class="table-scroll">
+        <table class="bloom-table">
+          <tbody>
+            <tr><th>1학년</th><td>저층 1~25층 · 수문장 <strong>철문의 기사</strong> · 동조율 40 이상</td></tr>
+            <tr><th>2학년</th><td>중층 26~50층 · 수문장 <strong>쌍두룡</strong> · 동조율 55 이상</td></tr>
+            <tr><th>3학년</th><td>고층 51~75층 · 수문장 <strong>심판의 거인</strong> · 동조율 70 이상</td></tr>
+            <tr><th>4학년</th><td>최상층 76~100층 · 수문장 <strong>탑의 그림자</strong> · 동조율 85 이상. 돌파하면 곧바로 졸업</td></tr>
+            <tr><th>졸업 후</th><td>도전 영역 101층~ · 100층을 넘은 이만 들어갈 수 있고, 알려진 꼭대기가 없다</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>학년말 평가에서 그 학년의 수문장을 넘었으면 다음 학년도에 한 학년 올라가고, 넘지 못하면 그 학년을 다시 다닌다. 동기들은 앞서 가고, 후배가 같은 반이 된다.</p>
+
+      <h3>동조</h3>
+      <p>모든 사람의 마력에는 결이 있다. 몸과 마음의 신뢰와 가까움이 그 결을 맞물리게 한다. 동조된 파티는 마력을 나누고, 서로의 위치와 감정을 희미하게 느낀다. 훈련장과 평가장의 <strong>동조석</strong>은 그것을 빛으로 보여 준다. 동조는 강요할 수 없고, 한쪽이 마음을 닫는 순간 흔들린다.</p>
+      <ul class="rule-list">
+        <li><strong>동조율</strong>(0~100)은 파티의 마력 공명, 곧 등반의 힘이다. 신뢰와 친밀함이 올리고, 갈등·불신·배신이 내린다. 30 아래에서는 연계가 자주 실패하고, 50 이상이면 동료끼리 기술을 이어 연계기를 낼 수 있다.</li>
+        <li>성별이나 연애와 상관없이 어느 두 사람 사이에서든 오른다. 전우애, 함께 넘긴 위기, 발맞춘 훈련, 털어놓은 비밀, 라이벌의 존중. 파티원 사이의 친밀 장면도 동조율을 올릴 수 있다.</li>
+        <li>파티는 당신을 포함해 5명까지. 탑 입구에서만 꾸리거나 바꿀 수 있다.</li>
+      </ul>
+
+      <h3>호감</h3>
+      <p>이름 있는 인물(학생과 교수)마다 0~99의 호감이 있다. 0~29는 거리, 30~59는 신뢰, 60~84는 깊은 친밀, 85~99는 동조 파트너. 호감이 40 이상인 인물은 당신이 다른 사람과 가까워지면 저마다의 방식으로 반응한다.</p>
+      <details class="secret mini"><summary>친밀 장면과 연애의 규칙 보기</summary><div class="secret-body">
+        <ul class="rule-list">
+          <li>친밀(성적) 장면은 호감 60 이상, 분명한 상호 합의가 있을 때만. 묘사 강도는 켜 둔 프리셋 노트를 따른다. 당신이 거절하면 그 즉시 멈춘다.</li>
+          <li>남성끼리는 연애·추파·성적 내용이 없다. 남성인 당신과 남성 인물 사이도 마찬가지로, 남자들 사이의 유대는 우정·라이벌·형제애·사제로 남는다. 여성끼리는 같은 규칙 아래 연애와 친밀함이 가능하다.</li>
+          <li>판단은 지금의 몸 기준이다. TS 모드에서는 TS 인물을 여성으로 본다.</li>
+        </ul>
+      </div></details>
+
+      <h3>학과 평판과 재화</h3>
+      <ul class="rule-list">
+        <li><strong>학과 평판</strong>(0~99)은 네 학과가 각각 당신을 어떻게 보는지다. 소속 학과는 높게 시작한다(60, 나머지 50). 한 학과를 돕거나 꺾으면 ±1~3(행사에서는 ±5까지) 움직인다. 20 이하면 적대, 70 이상이면 그 학과가 당신 편에 선다.</li>
+        <li><strong>마정석</strong>은 탑의 화폐. 수호자 전리품과 의뢰 보상으로 얻고, 탑의 상인에게서만 쓴다. <strong>크론</strong>은 학원의 돈. 월요일마다 주급 30이 들어오고, 상점과 매점에서 쓴다. 시작은 마정석 10 · 크론 100.</li>
+        <li>가방은 둘. <strong>탑 가방</strong>(포션, 두루마리, 열쇠)은 탑 안에서만, <strong>학원 가방</strong>(선물, 책, 간식)은 바깥에서 쓴다.</li>
+      </ul>
+    </section>
+
+    <section id="depts" class="content-section">
+      <h2>학과와 시작</h2>
+      <p class="lead">학과는 곧 파티에서의 역할이다. 네 학과는 저마다 다른 학과와 해묵은 금이 가 있다.</p>
+      <div class="future-cards four">
+        <article class="future-card matu">
+          <span class="future-year">전위</span>
+          <h3>마투과</h3>
+          <p class="future-choice">검이든 창이든, 주먹이든 클로든</p>
+          <p>자기 몸과 무기에 마력을 실어 파티의 맨 앞에 서는 전위. 학과동 지하 수련장에서는 밤늦게까지 쇠와 주먹이 부딪는 소리가 울린다고 한다. 남들은 마투과를 뜨겁고 자존심 센 학과로 본다. 첫 한 방을 받아 내고, 마지막 한 방의 공은 자기가 갖고 싶어 한다.</p>
+          <p class="dept-rival"><strong>마도과</strong>와는 누가 파티를 이끄는지, 수문장의 공이 누구 것인지를 두고 맞서는 최대 라이벌. <strong>탐사과</strong>는 무모하다 하고 마투과는 겁쟁이라 한다. <strong>성유과</strong>는 상처를 꿰매 주며 잔소리하는, 쉬운 친구이자 때로는 그 이상.</p>
+          <p class="future-sender">학과장 아르민 그라프 · 금요일 학과 대련으로 학과 안의 서열이 정해진다</p>
+        </article>
+        <article class="future-card mado">
+          <span class="future-year">후위</span>
+          <h3>마도과</h3>
+          <p class="future-choice">원소를 엮어 파티의 화력을 책임진다</p>
+          <p>첨탑 모양의 학과동은 밤에도 영창 연습 소리로 웅웅거린다. 남들은 마도과를 엘리트에 책벌레로 본다. 화력을 쥐고 있으니, 앞줄이 자기 타이밍에 맞추길 바란다.</p>
+          <p class="dept-rival"><strong>마투과</strong>와는 서로 경멸하는 척 서로가 필요한 사이. <strong>성유과</strong>는 치유사를 탈진시키는 과다 영창을 원망한다. <strong>탐사과</strong>가 표적을 넘겨주지만 정보를 쌓아 두고, 마도과는 그 지도를 고맙다는 말 없이 쓴다.</p>
+          <p class="future-sender">학과장 세라핀 노아 · 대항전의 동조 겨루기는 마도과의 독무대</p>
+        </article>
+        <article class="future-card seong">
+          <span class="future-year">지원</span>
+          <h3>성유과</h3>
+          <p class="future-choice">상처를 닫고 저주를 씻는 마지막 보루</p>
+          <p>파티의 동조를 끌어올리는 치유사이자 정화자, 동조 증폭자. 온실 같은 학과동의 선배들은 신뢰가 곧 실력이라고 말한다. 남들은 성유과를 다정한 중재자로, 때로는 도구로 본다. 동조 증폭 때문에 치유사가 파티와 얼마나 가까운지에 대한 소문이 돈다.</p>
+          <p class="dept-rival"><strong>마도과</strong>와는 무모한 영창과 부상의 책임을 두고 삐걱댄다. <strong>탐사과</strong>는 목숨을 구할 수 있었던 비밀을 쥐고 있다. <strong>마투과</strong>는 단골 환자이자 쉽게 따뜻해지는 사이, 잦은 추파.</p>
+          <p class="future-sender">학과장 그레고르 세인 · 신입 영입전에서 모든 학과가 성유과 1학년을 노린다</p>
+        </article>
+        <article class="future-card tam">
+          <span class="future-year">정찰</span>
+          <h3>탐사과</h3>
+          <p class="future-choice">함정을 읽고 길을 찾는다</p>
+          <p>층의 규칙을 가장 먼저 꿰뚫어 보는 사람. 학과동 벽은 손으로 그린 탑 지도로 빈틈이 없다. 남들은 탐사과를 교활하고 쌀쌀맞다고 본다. 층을 가장 먼저 읽고, 가장 나중에 믿음을 얻는다.</p>
+          <p class="dept-rival"><strong>마투과</strong>는 정찰이 끝나기도 전에 돌격한다. <strong>성유과</strong>는 비밀주의라 하지만, 정보는 탐사과의 화폐다. <strong>마도과</strong>는 지도를 쓰고 공은 가져간다.</p>
+          <p class="future-sender">학과장 빅토르 강 · 대항전과 기록전에서는 힘이 아니라 경로와 정보로 이긴다</p>
+        </article>
+      </div>
+
+      <h3>세 가지 포지션</h3>
+      <p>어느 포지션이든 812학년도 1학년으로 시작한다. 입주일은 0812년 3월 1일 일요일 밤 9시, 다음 날이 입학식이다.</p>
+      <div class="mode-cards">
+        <article class="mode-card">
+          <h3>신입 · 신입생 기숙사</h3>
+          <p>갓 들어온 1학년. 함께 쓰는 1학년 기숙사의 복도와 라운지는 동기들로 가득하고, 개인실에서는 둘만의 이야기도 나눌 수 있다. 벽은 얇고 소문은 빠르다.</p>
+        </article>
+        <article class="mode-card">
+          <h3>전학생 · 외부 편입생 별관</h3>
+          <p>다른 학술원에서 옮겨 와 1학년부터 다시 시작한다. 서쪽 숲길 끝의 조용한 별관에는 몇 안 되는 편입생과 관리인뿐. 본관 학생들은 호기심과 의심으로 지켜보고, 예전 학술원의 습관이 이곳 규칙과 부딪친다.</p>
+          <p class="secret-hint">"전에 있던 학술원에도 탑은 있었지만, 이렇게 학원 한가운데 박혀 있지는 않았다."</p>
+        </article>
+        <article class="mode-card">
+          <h3>생환자 · 탑 관리국 관찰동</h3>
+          <p>탑에서 실종됐다가 홀로 돌아왔다. 탑 안의 기억 일부가 비어 있고, 1학년으로 다시 입학해 관찰을 받는다. 탑의 그림자 속 떨어진 건물에 관리국 요원들이 드나들고, 밤이면 탑의 울림이 벽을 타고 스민다. 방에 기록 장치가 있다는 소문이 있다.</p>
+          <p class="secret-hint">"함께 올랐던 사람들에 대해서는 아무도 말해 주지 않았다." 비어 있는 기억은 당신이 직접 밝혀낼 때까지 채워지지 않는다.</p>
+        </article>
+      </div>
+
+      <h3>시간표</h3>
+      <p>평일은 07:00 기상, 1교시 09:00부터 4교시 16:10까지, 16:30 훈련, 23:00 숙소 통금. 요일마다 모양이 다르고, 하루에 공강이 적어도 한 번 있다. 저학년은 이론이, 고학년은 실습과 현장이 많다. <span class="muted">*</span> 합반은 네 학과가 함께 듣는 수업으로, 학과가 섞이고 부딪는 곳이다.</p>
+      <div class="tt-switch" id="tt-dept" role="group" aria-label="학과">
+        <button type="button" data-dept="마투과" aria-pressed="true" style="--c:var(--dept-matu)">마투과</button>
+        <button type="button" data-dept="마도과" aria-pressed="false" style="--c:var(--dept-mado)">마도과</button>
+        <button type="button" data-dept="성유과" aria-pressed="false" style="--c:var(--dept-seong)">성유과</button>
+        <button type="button" data-dept="탐사과" aria-pressed="false" style="--c:var(--dept-tam)">탐사과</button>
+      </div>
+      <div class="tt-switch" id="tt-year" role="group" aria-label="학년">
+        <button type="button" data-year="1" aria-pressed="true">1학년</button>
+        <button type="button" data-year="2" aria-pressed="false">2학년</button>
+        <button type="button" data-year="3" aria-pressed="false">3학년</button>
+        <button type="button" data-year="4" aria-pressed="false">4학년</button>
+      </div>
+      <div class="table-scroll">
+        <table class="roster-table tt-table">
+          <thead><tr><th></th><th>1교시<span class="sub">09:00</span></th><th>2교시<span class="sub">10:40</span></th><th>3교시<span class="sub">13:00</span></th><th>4교시<span class="sub">14:40</span></th><th>훈련<span class="sub">16:30</span></th></tr></thead>
+          <tbody id="tt-body"></tbody>
+        </table>
+      </div>
+      <p class="secret-hint">(이) 강의동 이론 · (실) 훈련장 실습 · (현) 교수가 이끄는 탑 현장 수업, 탑 입구 집합 · 파란 글씨 = 합반</p>
+    </section>
+
+    <section id="tower" class="content-section">
+      <h2>탑</h2>
+      <p class="lead">층마다 규칙이 있다. 누가 설명하기 전에, 환경이 먼저 그 규칙을 보여 준다.</p>
+      <p>뒤틀린 기하학, 엉뚱한 방향의 중력, 출처 없는 빛, 있어서는 안 될 소리. 시련을 넘어야 한 층을 오르고, 한 번에 한 층 넘게는 오르지 못한다. 시련 하나에 두세 시간쯤 걸린다.</p>
+
+      <h3>언제 오를 수 있나</h3>
+      <ul class="rule-list">
+        <li>주말, 휴식주, 공식 원정, [현장] 수업, 진행 중인 의뢰의 허가가 있을 때. 평일은 수업이다. 탑 입구 접수대는 08:00~20:00.</li>
+        <li>층은 단계별로 열린다. 학기마다의 <strong>개방식</strong>과 <strong>탑 공명일</strong>에 세 층씩, 학년마다 봄 4층에서 겨울 공명일의 25층까지. 열린 층 위로는 오를 수 없다.</li>
+        <li>행사 날(의식, 축제, 대항전, 추모일, 졸업식)이 시작되면 탑이 모든 등반자를 탑 입구로 내던지고, 행사가 끝날 때까지 문을 봉한다. 첫 등반 의례, 하계 합동 원정, 탑 공명일, 평가 주간의 파티 등반만은 예외로 탑 안에서 치러진다.</li>
+      </ul>
+
+      <h3>구간별 분위기</h3>
+      <div class="mode-cards">
+        <article class="mode-card">
+          <h3>저층 1~25</h3>
+          <p>기본과 신뢰. 진실, 접촉, 어둠, 발맞추기, 서로에게 기대기.</p>
+          <ul class="rule-list"><li><strong>진실의 층</strong> — 진실만. 거짓말을 하면 한 시간 동안 목소리를 잃는다.</li><li><strong>손잡기 회랑</strong> — 파티원과 닿아 있지 않은 사람의 발밑이 무너진다.</li><li><strong>무광층</strong> — 완전한 어둠. 목소리와 손길만이 길잡이.</li><li><strong>이름의 문</strong> — 누군가 한 번도 쓴 적 없는 이름으로 파티원을 부르면 열린다.</li><li><strong>메아리 미로</strong> — 벽이 마지막 말을 되풀이한다. 다정한 말이 벽을 연다.</li></ul>
+        </article>
+        <article class="mode-card">
+          <h3>중층 26~50</h3>
+          <p>힘보다 마음. 눈가리개, 바뀐 목소리와 역할, 잉크로 드러나는 거짓, 욕망의 거울.</p>
+          <ul class="rule-list"><li><strong>눈가리개 행군</strong> — 가장 믿는 사람이 눈을 가리고 앞장서고, 나머지는 목소리로만 이끈다.</li><li><strong>거짓의 잉크</strong> — 모든 거짓말이 말한 사람의 피부에 잉크로 떠오른다.</li><li><strong>역할 교환</strong> — 파티원끼리 학과 능력이 뒤바뀐다.</li><li><strong>10분 반복</strong> — 파티가 실수 하나를 바로잡을 때까지 같은 10분이 되풀이된다.</li></ul>
+        </article>
+        <article class="mode-card">
+          <h3>고층 51~75</h3>
+          <p>진짜 대가. 형체를 얻은 두려움, 남겨지는 사람, 저울에 오른 비밀, 동조로 잠긴 문, 배신자 복제.</p>
+          <ul class="rule-list"><li><strong>남는 자</strong> — 한 명이 뒤에 남아야 한다. 다음 날 돌아오지만, 달라져 있다.</li><li><strong>비밀의 저울</strong> — 각자 비밀을 고백하고, 문이 그 진실을 잰다.</li><li><strong>배신자</strong> — 파티원 하나가 완벽한 복제로 바뀌었다. 찾아내라.</li></ul>
+        </article>
+        <article class="mode-card">
+          <h3>최상층 76~100</h3>
+          <p>탑은 힘보다 마음을 시험한다. 다시 겪는 최악의 날, 거울 속 자신, 망각, 서약.</p>
+          <ul class="rule-list"><li><strong>최악의 날</strong> — 각자 가장 나빴던 날을 다시 겪고, 다른 이들이 그 안으로 들어가 닿아야 한다.</li><li><strong>거울 자신</strong> — 내 비밀을 다 아는 완벽한 거울상과 싸운다.</li><li><strong>망각</strong> — 한 명이 파티 전체를 잊는다. 되찾아 와라.</li></ul>
+        </article>
+        <article class="mode-card">
+          <h3>도전 영역 101~</h3>
+          <p>기록이 없다. 규칙은 더 기이하고, 층 한가운데서 바뀌기도 한다. 휴게층은 없고, 열 층마다 이름을 새기는 기록석이 있다.</p>
+          <ul class="rule-list"><li><strong>규칙 서술</strong> — 파티가 그 층의 규칙을 직접 써야 하고, 탑은 그대로 지키게 한다.</li><li><strong>실종자 조우</strong> — 사라진 이들이 여기 살아 있고, 떠나고 싶지 않을지도 모른다.</li><li><strong>끝없는 계단</strong> — 층은 없고 계단뿐. 걸음이 아니라 맺은 유대로 나아간다.</li></ul>
+        </article>
+      </div>
+      <details class="secret"><summary>성애 층 · 보기</summary><div class="secret-body">
+        <p>층마다 정해진 성애 층이 있다(🍑 음란 모드에서는 다른 층에서도 변주로 나온다). 규칙이 몰아붙여도 각자 자기답게 고른다. 호감 60 이상이면 응할 수 있고, 그보다 낮으면 거절하거나 흥정하거나 덜한 것을 청한다. 거절하면 언제나 더 힘든 출구가 열린다. 하루 동안 갇히거나, 혹독한 시련을 치르거나, 보상을 잃는다. 남성끼리는 없고, 규칙이 여성 파티원과 당신을 겨냥하면 남성 파티원은 대기실에서 기다리거나 장막 뒤에서 잠든다.</p>
+        <ul class="rule-list">
+          <li><strong>저층(가볍게)</strong> 5·9·12·15·18층 — 입맞춤의 문, 고백의 방, 맨살을 맞대야 버티는 체온의 층, 손길을 나눠 느끼는 감각 공유 회랑, 틀릴 때마다 옷을 벗는 탈의 수수께끼.</li>
+          <li><strong>중층</strong> 29·33·36·40·43층 — 미약의 안개, 2인실뿐인 하룻밤 객실, 욕망의 거울, 맞닿은 춤, 탈의 체스.</li>
+          <li><strong>고층(강하게)</strong> 53·57·62·65층 — 맺음의 방, 서약의 침상, 쾌락의 시계, 밤의 거래.</li>
+          <li><strong>최상층</strong> 78·82·86·94층.</li>
+          <li><strong>도전 영역</strong> — 쾌락의 층, 몸 바꾸기, 무한의 밤, 연인의 서약.</li>
+          <li><strong>이면층</strong> — 입맞춤의 문 → 금욕의 문, 맺음의 방 → 거절의 방, 욕망의 거울 → 고백의 거울.</li>
+        </ul>
+      </div></details>
+
+      <h3>수문장</h3>
+      <div class="table-scroll">
+        <table class="bloom-table">
+          <tbody>
+            <tr><th>25층 · 철문의 기사</th><td>탑 방패를 든 강철 기사. 혼자 움직이는 사람을 벌하고, 파티의 연계만이 그를 깬다. 동조율 40 이상. 24층은 대기실.</td></tr>
+            <tr><th>50층 · 쌍두룡</th><td>불과 얼음의 머리 둘 달린 용. 동조된 두 사람이 같은 순간에 두 머리를 쳐야 한다. 동조율 55 이상.</td></tr>
+            <tr><th>75층 · 심판의 거인</th><td>유대를 심판하는 거인. 파티가 가장 믿지 않는 사람을 친다. 동조율 70 이상. 고트프리트 베버의 파티가 여기서 두 번 쓰러졌다.</td></tr>
+            <tr><th>100층 · 탑의 그림자</th><td>파티 전체를 한꺼번에 비추는 그림자. 하나의 마음으로 움직이는 파티만 지나갈 수 있다. 동조율 85 이상. 넘으면 졸업.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="secret-hint">상태창 '탑' 탭에서 몬스터와 직접 싸울 수 있고, 그 결과를 [전투 결과]로 보내면 이야기가 그대로 이어받아 보상과 부상을 반영한다.</p>
+
+      <h3>휴게층</h3>
+      <p>시련도 규칙도 없다. 마력 온천, 잠자리 벽감, 모닥불 둘레의 홀. 경계가 풀리고, 고백과 화해와 친밀한 장면이 쉽게 찾아온다. 다른 파티가 야영하기도 한다(하계 합동 원정 때는 전부).</p>
+      <ul class="rule-list">
+        <li><strong>13층 · 첫 쉼터</strong> — 따뜻한 샘, 모닥불 돌, 등반자끼리 쪽지를 남기는 메시지 벽.</li>
+        <li><strong>38층 · 등불 여관</strong> — 말 없는 유령 주인이 지키는 텅 빈 여관. 뜨거운 목욕, 푹신한 침대, 꺼지지 않는 등불.</li>
+        <li><strong>63층 · 고요한 쉼터</strong> — 이상할 만큼 조용한 쉼터.</li>
+        <li><strong>88층 · 마지막 쉼터</strong> — 꼭대기 가까이, 창문으로 저 아래 학술원 전체가 보인다. 마지막 구간을 앞두고 등반자들이 여기 이름을 새긴다.</li>
+      </ul>
+      <p>네 휴게층 구석에는 언제나 <strong>두건 쓴 탑의 상인</strong>이 앉아 있다. 네 곳 모두 같은 자인데, 그 사이를 걸어 다니는 모습을 본 사람은 없다. 층마다 정해진 물건을 마정석으로만 팔고, 말수가 적고, 값을 깎아 주지 않고, 등반자를 이름으로 안다. 사람인지는 아무도 모른다.</p>
+
+      <h3>이면층</h3>
+      <p>한 학년의 수문장이 쓰러지면, 그 학년의 층들을 탑 입구에서 뒤쪽으로 들어갈 수 있게 된다. 구조는 같고, 모든 규칙이 뒤집혀 더 가혹하다. 같은 층이 잘못 만들어진 듯, 거울처럼 뒤집히고 더 차갑고 조용하고 적대적이다. 봉인된 방에는 실종자의 기록과, 공식 층에서는 주지 않는 보상이 있다. 상급생들은 이곳을 진짜 시험으로 여긴다.</p>
+      <ul class="rule-list">
+        <li>진실의 층 → <strong>거짓의 층</strong>: 거짓만 말할 수 있다. 진실을 말하면 목이 탄다.</li>
+        <li>손잡기 회랑 → <strong>고립 회랑</strong>: 누군가와 닿으면 다른 방으로 끌려간다.</li>
+        <li>무광층 → <strong>백광층</strong>: 눈부신 빛. 눈을 감고 있어야 한다.</li>
+        <li>동조문 → <strong>역동조</strong>: 두 파티원이 진심으로 싸워야만 문이 열린다.</li>
+        <li>남는 자 → <strong>돌아온 자</strong>: 여기 있어서는 안 될 누군가가 걸어 나와 파티를 맞는다.</li>
+      </ul>
+      <p>수문장은 뒤틀린 메아리로 돌아온다. 보상은 큰 동조율 상승, 봉인된 방, 실종자의 기록, 그리고 생환자의 과거에 대한 실마리.</p>
+
+      <h3>탑 의뢰</h3>
+      <p>학원 광장 게시판과 탑 입구에 교수, 관리국, 상점, 다른 파티가 의뢰를 붙인다. 재료 채집, 조난 파티 구조, 후배 호위, 기록 경주, 이미 깬 층의 봉인된 방 열기. 한 번에 하나만 받을 수 있고, 받은 의뢰는 평일에도(수업 뒤) 그 일을 위한 탑 출입을 허가한다. 보상은 동조율, 호감, 물건, 평판.</p>
+      <p>가끔 파티가 제때 돌아오지 않는다. 탑 입구에 긴급 구조 의뢰가 붙고, 응한 사람은 요일과 상관없이 허가를 받는다. 구조는 라이벌이 서로에게 평생 빚지는 곳이다. 이따금 조난 파티가 명단에 없던 누군가를 하나 더 데리고 발견된다.</p>
+    </section>
+
+    <section id="people" class="content-section">
+      <h2>인물</h2>
+      <p class="lead">이름 있는 학생은 학과마다, 기수마다 딱 다섯 명. 809기부터 815기까지, 그리고 교수진 마흔여덟 명.</p>
+      <p>학생마다 입학 연도(기수)가 정해져 있다. 812기는 812학년도에 1학년이고, 해가 바뀌면 다 같이 한 학년씩 오른다. 5학년이 되면 졸업해 저마다의 졸업 후 자리로 가고, 813~815기는 입학하는 해부터 나타난다. 모든 인물은 학생과 교수를 막론하고 성인이다. 학생들은 교수를 '(성) 교수님'이라 부른다.</p>
+
+      <h3>812기 · 주요 동기</h3>
+      <section class="char-section matu" id="liese">
+        <div class="char-portrait char-monogram" aria-hidden="true">리</div>
+        <div>
+          <h2>리세 발트하임</h2>
+          <p class="char-role">Liese Waldheim · 812기 마투과 · 주요 인물 · 클로 격투가</p>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>무기</dt><dd>마력 건틀릿 위에 낀 강철 클로. 빠르고 낮고 끈질긴 격투가</dd><dt>외모</dt><dd>짧고 부스스한 구릿빛 머리, 호박색 눈, 코와 어깨의 주근깨, 작지만 다부진 근육질, 붕대 감은 주먹, 늘 걷어 올린 소매, 웃으면 보이는 이 빠진 앞니</dd><dt>말투</dt><dd>빠른 반말, 느낌표, 운동선수 같은 도발. 상처받으면 조용하고 짧아진다. 당신을 첫날부터 이름으로 부른다.</dd></dl>
+          <p>시끄럽고 쾌활한 다혈질. 자기보다 강한 사람에게는 누구든 덤비고, 남들 앞에서는 지고도 웃어넘기다가 혼자서만 삐친다. 가장 강해지려고 오른다고 말한다.</p>
+          <p>고드릭 반스를 우상으로 여기고, 노엘 아르장(마도과)과는 보자마자 라이벌, 시온 블랙우드(탐사과)와는 자꾸 부딪친다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"야, 너 강해? 강하면 나랑 붙자! 약해도 붙자! 붙어 보면 알 거 아냐!"</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「강철 발톱 연격」</span>자세를 낮추고 양손 클로로 네 번 연달아 할퀸다. 한 번 칠 때마다 마력이 더 깊이 박힌다.</li><li><span class="tech-name">「들개 돌진」</span>웅크린 자세에서 눈으로 좇기 힘든 속도로 튀어나가 가드 밑으로 파고들어 다리를 친다.</li><li><span class="tech-name">「안 물러서기」</span>한 대를 물러서지 않고 정면으로 받는다. 건틀릿에 마력이 타오르고 다음 일격의 위력이 두 배가 된다.</li><li class="ult"><span class="tech-name">★ 「71층의 발톱」</span>모든 것을 건틀릿에 쏟아 클로가 구릿빛으로 달아오르면, 상대가 쓰러질 때까지 멈추지 않는 단 한 번의 돌진으로 꿰뚫는다.<span class="cost">대가 · 주먹 붕대가 갈가리 찢기고 손에서 피가 난다. 이름은 어머니와의 약속이고, 탑에 대한 두려움이 이 기술을 흔든다.</span></li></ul>
+          <details class="secret char-secret"><summary>리세 · 숨겨진 사정 보기</summary><div class="secret-body"><p>진짜로 오르는 이유는 71층에 닿기 위해서다. 열두 살 때, 이름난 등반자였던 어머니가 외삼촌(헤더 맥클레인의 아버지)과 함께 71층에서 실종됐다. 대장간 2층에서 외숙모 손에 사촌 헤더와 함께 자랐다.</p><p>꿈속에서는 탑이 무섭다. 아무에게도 말하지 않는다. 금 간 어머니의 등반자 배지를 건틀릿 안쪽에 꿰매 두었고, 잠들기 전에는 어머니의 자장가를 흥얼거린다.</p><p>헤더 맥클레인(810기 탐사과)을 언니라고 부르며 자매처럼 자랐다. 언니가 71층에 대해 말하는 것보다 더 많이 알고 있다고 의심한다.</p><p>연애에는 서툴고 직설적이다. 대련을 신청하는 걸로 고백하고, 새빨개졌다가, 그 뒤로는 고집스럽게 한결같다. 스킨십은 쉽고 말은 어렵다.</p><p class="secret-hint">졸업 후에는 71층 위에서 어머니의 흔적을 찾는 도전 영역 파티에 들어간다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section matu" id="cedric">
+        <div class="char-portrait char-monogram" aria-hidden="true">세</div>
+        <div>
+          <h2>세드릭 그라프</h2>
+          <p class="char-role">Cedric Graff · 812기 마투과 · 주요 인물 · 대검 · 그라프 가의 후계자</p>
+          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>무기</dt><dd>옛 그라프식 대검. 무겁고 정확하며 수비적</dd><dt>외모</dt><dd>큰 키에 넓은 어깨, 목덜미에서 낮게 묶은 검은 머리, 강철빛 회색 눈, 턱선의 가는 흉터, 단추를 끝까지 채운 흐트러짐 없는 교복, 가문의 인장 반지</dd><dt>말투</dt><dd>절제된 존댓말, 완결된 문장, 드문 건조한 농담. 정말 믿는 사람에게만 무뚝뚝한 반말로 바뀐다. 가까워지기 전까지 당신을 &#x27;(이름) 씨&#x27;라고 부른다.</dd></dl>
+          <p>금욕적이고 책임감 강하며 지나칠 만큼 예의 바르다. 따뜻함을 격식 밑에 숨긴다. 학과 대표가 되어 동기 중 누구보다 먼저 100층에 닿기를 기대받는다.</p>
+          <p>학과장 아르민 그라프를 집안 어른으로 존경하고, 리더 자리를 두고 노엘 아르장과 맞선다. 하린 문을 조용히 지킨다. 캠퍼스에서는 종조부를 &#x27;교수님&#x27;이라 불러야 하고, 특혜를 받는다고 보일까 두려워한다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"그라프 가의 검은 물러서지 않습니다. …다만, 당신 뒤라면 한 걸음쯤은 물러서도 괜찮겠군요."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「그라프식 내려베기」</span>옛 그라프식 위에서 내려베기. 가드와 방패를 부수는 무겁고 정확한 대검의 일격.</li><li><span class="tech-name">「철벽 자세」</span>대검을 세워 벽처럼 든다. 공격은 칼날 면을 미끄러지고, 그는 전열을 지킨다.</li><li><span class="tech-name">「수호의 걸음」</span>생각할 틈도 없이 동료와 공격 사이로 들어가 칼로 받아낸다.</li><li class="ult"><span class="tech-name">★ 「그라프 가의 검」</span>가문의 비기. 대검이 은빛으로 빛나고, 십 초 동안 모든 일격이 삼대의 무게로 떨어져 바위를 가른다.<span class="cost">대가 · 어깨에 큰 무리가 간다. 이 기술을 쓰는 것이 곧 아버지가 바라는 사람이 되는 것일까 두렵다.</span></li></ul>
+          <details class="secret char-secret"><summary>세드릭 · 숨겨진 사정 보기</summary><div class="secret-body"><p>사실은 스스로 고른 삶을 원한다. 시를 쓰고 요리를 사랑한다. 시와 레시피를 적은 공책을 방의 헐거운 마룻장 밑에 숨겨 두었다.</p><p>어떤 수문장보다 아버지를 실망시키는 것이 더 두렵다.</p><p>연애에서는 궁정식으로 느리다. 요리하고, 지키고, 사소한 것을 기억하는 행동으로 사랑을 표현한다. 마침내 격식을 내려놓으면 놀랄 만큼 솔직하고 독점적이다.</p><p class="secret-hint">졸업 후 그라프 가를 이을 것으로 기대받지만, 용기를 낸다면 탑 근처에 작은 여관을 열지도 모른다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section mado" id="noel">
+        <div class="char-portrait char-monogram" aria-hidden="true">노</div>
+        <div>
+          <h2>노엘 아르장</h2>
+          <p class="char-role">Noël Argent · 812기 마도과 · 주요 인물 · 화염 마법의 천재</p>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>마법</dt><dd>화염 마법. 엄청난 출력, 스트레스를 받으면 무너지는 제어</dd><dt>외모</dt><dd>턱선에서 날카롭게 자른 백금발 단발, 진홍색 눈, 아주 흰 피부, 가냘픈 체구, 늘 끼는 얇은 검은 장갑, 몸에 맞춰 지은 티 없는 교복</dd><dt>말투</dt><dd>도도한 반말, 비꼬기, &quot;흥&quot;. 칭찬받으면 말을 더듬는다. 당신을 코웃음 섞인 &quot;너&quot;로 부르다가, 나중에는 이름으로 부른다.</dd></dl>
+          <p>독설가인 오만한 천재. 아무도 안 본다고 생각할 때 츤데레 같은 다정함이 새어 나온다. 다음 시대의 위대한 술사가 될 거라는 말을 들으며 자랐다.</p>
+          <p>리세 발트하임, 세드릭 그라프와 라이벌. 이모인 학과장 세라핀 노아는 위대함을 기대하고, 엘로이즈 마르탱은 그녀의 출력이 튀는 것을 눈치챘다. 이모의 기대를 갈망하면서도 원망하고, 이모라는 호칭은 둘만 있을 때만 쓴다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"흥, 내 불꽃 옆에 서고 싶다면 그 정도 각오는 하고 와. …다치면 안 되니까, 내 뒤에 있어."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「홍련탄」</span>1학년이 쓸 수 있는 수준을 훨씬 넘는 불덩이.</li><li><span class="tech-name">「불꽃 장벽」</span>복도 하나를 막아서는 불의 벽.</li><li><span class="tech-name">「장갑 속 불씨」</span>장갑 낀 손바닥에서 튀는 불씨. 탈 수 있는 것이면 무엇이든 불붙인다.</li><li class="ult"><span class="tech-name">★ 「은빛 화산」</span>전 출력을 하얗게 달아오른 불기둥으로 풀어, 바위를 녹이고 앞길의 모든 것을 지운다.<span class="cost">대가 · 스트레스를 받으면 제어가 무너져 손바닥이 다시 타고, 아군을 덮칠 수도 있다. 이모가 금지한 기술이다.</span></li></ul>
+          <details class="secret char-secret"><summary>노엘 · 숨겨진 사정 보기</summary><div class="secret-body"><p>당황하면 힘이 제멋대로 치솟는다. 열다섯 살에 자기 손을 태웠고, 봉인될까 두려워 그 사실을 숨긴다. 장갑은 손바닥의 화상 흉터를 가린다.</p><p>어릴 때 낯선 사람이 준 진정 부적을 지니고 다닌다. (당신이 생환자라면, 그것이 당신의 과거일지도 모른다. 확정되지 않는다.)</p><p>흉터 난 맨손을 누군가에게 맡기는 것이 그녀의 전환점이다.</p><p>감정은 큰 소리로 부정하고는, &quot;우연히&quot; 간식을 들고 나타난다. 한번 마음을 정하면 지독하게 충실하고 질투가 많으며, 당황하면 불꽃이 확 일어난다.</p><p class="secret-hint">졸업 후 이모의 뒤를 이을 것으로 기대받지만, 마력 제어 연구를 택할 수도 있다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section seong" id="cecilia">
+        <div class="char-portrait char-monogram" aria-hidden="true">실</div>
+        <div>
+          <h2>세실리아 모로</h2>
+          <p class="char-role">Cecilia Moreau · 812기 성유과 · 주요 인물 · 타고난 증폭자</p>
+          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>능력</dt><dd>치유와 동조 증폭. 보기 드문 타고난 증폭자</dd><dt>외모</dt><dd>보통 반만 묶는 긴 웨이브 밤색 머리, 부드러운 초록 눈, 왼쪽 눈 밑의 작은 점, 교복 위 크림색 카디건, 은바늘 모양 머리핀</dd><dt>말투</dt><dd>부드러운 존댓말, 신중한 말씨, 갑작스러운 단호함. 당신을 다정한 격식을 담아 이름으로 부른다.</dd></dl>
+          <p>다정하고 눈치 빠르며, 조용한 강단이 있다. 목소리를 높이는 법이 없고, 좀처럼 물러서지도 않는다. 시골 의사의 딸로, 죽어 가던 환자가 그녀의 손길에 회복하면서 증폭의 재능이 드러났다.</p>
+          <p>신입 영입전에서 모든 학과가 그녀를 두고 다툰다. 로잘린 비에가 이끌어 주고, 아델 벨루아는 그녀를 의심한다. 사촌 사무엘 노블(809기 성유과)을 &#x27;사무엘 오빠&#x27;라 부르며, 그의 70층의 죄책감을 느낀다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"괜찮아요, 제가 볼게요. …다만 당신이 아픈 걸 숨기면, 저도 화낼 줄 알아요."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「치유의 손길」</span>상처를 닫는 부드러운 손길. 환자는 묘하게 차분해지고 그녀에게 마음이 기운다.</li><li><span class="tech-name">「천연 증폭」</span>동료 곁에 서 있기만 해도 동조가 오른다. 애쓰지 않아도 그렇게 된다.</li><li><span class="tech-name">「은바늘 봉합」</span>마력을 꿴 은바늘 머리핀으로 깊은 상처를 정확히 꿰맨다.</li><li class="ult"><span class="tech-name">★ 「기적의 공명」</span>죽어 가는 동료를 안고 타고난 증폭의 재능을 파티 전체에 쏟는다. 상처가 닫히고 모두의 동조가 일 분 동안 정점으로 치솟는다.<span class="cost">대가 · 기절할 듯 열이 오른다. 이 기술을 쓸 때마다 관리국이 큰 관심을 보인다.</span></li></ul>
+          <details class="secret char-secret"><summary>세실리아 · 숨겨진 사정 보기</summary><div class="secret-body"><p>탑 관리국이 몰래 그녀를 포섭해 학생들, 특히 생환자에 대해 보고하게 한다. 그 일이 싫지만, 그것이 가족에게 주는 보호가 필요하다.</p><p>매주 관리국 담당관에게 보고서를 쓴다. 아끼는 사람들에 대해서는 내용을 빼기 시작했다. 사무엘 오빠에게만은 무슨 일이 있어도 숨긴다.</p><p>순종적인 정보원에서 자기 편을 고르는 사람으로. 당신에게 이 비밀을 털어놓는 순간이 전환점이다.</p><p>인내심 있고 세심하다. 사랑은 보살핌으로, 그리고 당신의 건강을 향한 조용한 독점욕으로 드러난다. 믿음이 진짜일 때 그녀와의 동조는 가파르게 오르고, 믿음을 배신하거나 그녀의 보고서를 알게 되면 무너질 수 있다.</p><p class="secret-hint">졸업 후 관리국 최고의 치유사가 되거나, 관리국과 갈라서서 요나스 하트 곁으로 간다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section seong" id="raphael">
+        <div class="char-portrait char-monogram" aria-hidden="true">라</div>
+        <div>
+          <h2>라파엘 윈터스</h2>
+          <p class="char-role">Raphael Winters · 812기 성유과 · 주요 인물 · 치유와 결계</p>
+          <dl class="char-facts"><dt>나이</dt><dd>22세 (812학년도)</dd><dt>능력</dt><dd>치유와 결계. 우아하고 효율적이며 화려하다</dd><dt>외모</dt><dd>어깨까지 오는 은백색 머리, 얼음빛 푸른 눈, 크고 마른 체격, 편한 미소, 크리스털 귀걸이 한 쪽, 넥타이를 푼 채 헐렁하게 입은 교복</dd><dt>말투</dt><dd>능청스러운 반말, 놀리는 칭찬, 농담으로 피하기. 하루 만에 당신을 애칭으로 부른다.</dd></dl>
+          <p>추파를 던지는 매력남. 인기 많고 장난스럽고, 모두를 특별한 사람처럼 느끼게 하며, 피로를 농담 뒤에 숨긴다. 쉬지 않고 의뢰를 돌며 돈을 번다.</p>
+          <p>줄리안 페어의 번아웃을 그대로 닮아 가고, 줄리안은 그를 걱정한다. 아이샤 칸과는 음악 파트너다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"다쳤어? 이리 와, 내가 고쳐 줄게. 대가는… 음, 미소 하나면 충분해."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「우아한 치유」</span>은빛 춤처럼 보이는, 효율적이고 화려한 치유 마법.</li><li><span class="tech-name">「수정 결계」</span>그의 귀걸이 한 쪽을 닮은, 맑은 크리스털 결계.</li><li><span class="tech-name">「윙크」</span>적의 주의를 흩고 아군을 당황하게 하는 매력적인 윙크.</li><li class="ult"><span class="tech-name">★ 「겨울의 가호」</span>파티 전체를 서리빛 은색 결계로 감싼다. 결계가 버티는 동안 상처가 낫는다.<span class="cost">대가 · 엄청난 마력이 든다. 그는 미소 뒤에 탈진을 숨기고 여동생을 생각한다.</span></li></ul>
+          <details class="secret char-secret"><summary>라파엘 · 숨겨진 사정 보기</summary><div class="secret-body"><p>고향의 여동생이 쇠약해지는 병을 앓는다. 장학금과 의뢰 보상 때문에 입학했다. 무리하고, 마력을 태우고, 괜찮다고 거짓말한다.</p><p>고향에서 온 편지에는 한 번도 솔직하게 답하지 않았다. 빚 장부를 가지고 다닌다.</p><p>모든 걸 혼자 짊어지던 사람에서 도움을 받아들이는 사람으로. 의뢰 중 쓰러지는 것이 그 계기가 되는 위기다.</p><p>누구에게나 추파를 던지지만, 사랑하는 사람 앞에서는 조용하고 서툴고 진지해진다. 보살핌이 필요하면서도 그것을 거부한다.</p><p class="secret-hint">여동생이 살아 있다면 무료 진료소를 연다. 그렇지 않다면 도전 영역으로 사라진다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section tam" id="sion">
+        <div class="char-portrait char-monogram" aria-hidden="true">시</div>
+        <div>
+          <h2>시온 블랙우드</h2>
+          <p class="char-role">Sion Blackwood · 812기 탐사과 · 주요 인물 · 추적과 투척 단검</p>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>능력</dt><dd>추적, 은신, 투척 단검</dd><dt>외모</dt><dd>회색 눈 위로 흐트러진 검은 머리, 마르고 창백함, 교복 위 어두운 후드 망토, 늘 붕대를 감은 왼팔, 소리 없는 걸음</dd><dt>말투</dt><dd>짧은 반말, 낮은 목소리, 빈정거림. 처음에는 당신을 성으로 부른다.</dd></dl>
+          <p>냉담하고 예리하며 건조하다. 질문에 질문으로 답하고, 한번 사람을 들이면 충실하다. 2년 전 형이 70층 아래 파티 등반 중 탑에서 실종됐다.</p>
+          <p>시안 로크가 이끌어 주고, 요나스 하트와 기록을 주고받으며, 리세 발트하임과 부딪친다. 동생 엘리 블랙우드(813기)에게 입학하지 말라고 빌었고, 두 번째 형제를 잃을까 두려워 과보호하며 퉁명스럽게 군다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"…따라오지 마. 아니, 따라올 거면 발소리 좀 죽여."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「투척 단검」</span>관절이든 밧줄이든 빗나가지 않는 투척 단검.</li><li><span class="tech-name">「그림자 추적」</span>희미한 마력의 흔적으로 누구든 추적한다.</li><li><span class="tech-name">「질문으로 답하기」</span>질문으로 주의를 돌린다. 적이 집중을 잃는다.</li><li class="ult"><span class="tech-name">★ 「그림자 매듭」</span>단검으로 적의 그림자를 꿰어 그 자리에 얼려 둔다.<span class="cost">대가 · 숨겨 둔 왼팔의 표식이 있어야 하고, 쓸 때마다 그를 아프게 한다.</span></li></ul>
+          <details class="secret char-secret"><summary>시온 · 숨겨진 사정 보기</summary><div class="secret-body"><p>형을 찾으려고 입학했고, 관리국이 더 많이 안다고 의심한다. 당신이 생환자라면, 당신이 형과 함께 올랐을지도 모른다고 믿는다.</p><p>붕대 밑에는 형의 파티 표식과 같은 문신이 있다. 기록 보관실에서 옮겨 적은 이름 목록을 지니고 다닌다.</p><p>처음엔 거리를 두다가, 이내 지독하게 보호하려 든다. 애정은 조용한 존재감으로 드러난다. 늘 가까이 있지만, 이유는 말하지 않는다. 말을 얻기는 어렵고, 행동으로는 읽기 쉽다.</p><p class="secret-hint">무엇을 찾아내느냐에 따라 관리국 수색대원이 되거나, 관리국의 가장 날카로운 비판자가 된다.</p></div></details>
+        </div>
+      </section>
+
+      <h3>학과장</h3>
+      <section class="char-section matu">
+        <div class="char-portrait char-monogram" aria-hidden="true">아</div>
+        <div>
+          <h2>아르민 그라프</h2>
+          <p class="char-role">마투과 학과장 · 61세 · '그라프 교수님' · 학생을 '제자'라 부른다</p>
+          <p>칼로든 맨손으로든 견줄 자가 없는 무투가. 움직임보다 먼저 의도를 읽는다. 4학년 오의 과목을 맡고 평가 위원회에 앉는다. 말수가 적고, 경구와 긴 침묵으로 말한다.</p>
+          <p>학생들이 살아서 졸업하기를 바란다. 도전 영역이 자신을 불렀듯 학생들을 부를까 두렵다.</p>
+          <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「오의: 불살」</span>베기로 고른 것만 벤다. 저주든 무기든 층의 규칙이든, 사람은 결코 베지 않는다. 한 달에 한 번만 쓸 수 있고, 무엇을 대가로 치르는지는 말하지 않는다.</li></ul>
+          <details class="secret char-secret"><summary>아르민 · 과거 보기</summary><div class="secret-body"><p>그라프 가의 작은아들로, 가문을 떠나 탑에 올랐다. 지금의 마도과 학과장 세라핀 노아와 파트너이자 라이벌로 100층까지 올랐고, 100층 위의 무언가가 둘의 동행을 끝냈다. 그곳에서 본 것이 그를 학생들의 야망을 막아서는 사람으로 만들었다. 세드릭 그라프는 돌아가신 형의 손자로, 공개적으로는 여느 학생처럼 대하고 사적으로는 가까이 지켜본다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section mado">
+        <div class="char-portrait char-monogram" aria-hidden="true">세</div>
+        <div>
+          <h2>세라핀 노아</h2>
+          <p class="char-role">마도과 학과장 · 58세 · '노아 교수님' · 학생을 성과 이름으로 부른다</p>
+          <p>금기 마도와 고위 마도의 대가이자 교수 회의를 쥐락펴락하는 정치가. 4학년 고위 마도와 통제된 금기 마도를 가르친다. 우아한 존댓말로 날카로운 질문을 던진다.</p>
+          <p>마도과가 누구보다 먼저 도전 영역에 닿기를 바란다. 그것을 바란 자신이 틀렸을까 두렵다.</p>
+          <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「금기 해방」</span>세계를 비트는 힘의 금기 주문을 풀어놓는다. 대가는 말하지 않는다. 그녀가 이것을 쓸 때, 100층 위의 무언가가 지켜본다.</li></ul>
+          <details class="secret char-secret"><summary>세라핀 · 과거 보기</summary><div class="secret-body"><p>아르민 그라프와 100층까지 함께 오른 파트너이자 라이벌. 100층 위에서 그녀는 더 가려 했고 그는 거부했다. 답은 100층 위에 있었다고 여전히 믿으며, 자신을 붙잡은 남자를 원망한다. 노엘 아르장은 세상을 떠난 언니의 딸로, 위대함을 요구하면서 노엘의 출력이 튀는 것을 두려워하는 마음은 숨긴다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section seong">
+        <div class="char-portrait char-monogram" aria-hidden="true">그</div>
+        <div>
+          <h2>그레고르 세인</h2>
+          <p class="char-role">성유과 학과장 · 63세 · '세인 교수님' · 학생을 '아이'라 부른다</p>
+          <p>성유의 비전을 다루는 치유사이자 학과 사이의 중재자. 곁에 있는 것만으로 사람을 진정시킨다. 4학년 성유 비전을 가르치고 평가 위원회에 앉는다. 부드러운 존댓말과 비유로 말한다.</p>
+          <p>학과 사이의 평화, 그리고 더는 잃는 학생이 없기를 바란다. 비밀이 잘못된 방식으로 드러날까 두렵다.</p>
+          <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「성유의 기적」</span>죽음의 문턱에 선 생명을 되돌린다. 자기 수명의 몇 년을 대가로 치른다.</li></ul>
+          <details class="secret char-secret"><summary>그레고르 · 과거 보기</summary><div class="secret-body"><p>100층 등반을 마친 아르민 그라프와 세라핀 노아를 치료하며, 둘이 본 것을 들었다. 그 비밀을 짊어지면서 신중한 중재자가 되었다. 비밀을 가볍게 밝히지 않지만, 대놓고 거짓말도 하지 않는다. 생환자 학생의 기억이 그에게 평화와 진실 중 하나를 고르게 할지도 모른다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section tam">
+        <div class="char-portrait char-monogram" aria-hidden="true">빅</div>
+        <div>
+          <h2>빅토르 강</h2>
+          <p class="char-role">탐사과 학과장 · 60세 · '강 교수님' · 학생을 '녀석들'이라 부른다</p>
+          <p>미지 영역 탐사와 바뀌는 규칙 속 지도 제작의 대가. 4학년 미지 영역론과 도전 영역 탐사를 가르친다. 거친 반말과 빈정거림. 학원에는 냉소적이고 학생에게는 충실하다.</p>
+          <p>봉인된 지도가 공개되기를 바란다. 100층 위에서 학생을 잃을까 두렵다.</p>
+          <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「끝없는 길」</span>길이 없는 곳에서 길을 찾는다. 그 길은 늘 예상치 못한 곳으로 이어진다.</li></ul>
+          <details class="secret char-secret"><summary>빅토르 · 과거 보기</summary><div class="secret-body"><p>파티와 함께 101~104층의 지도를 그렸고, 둘은 돌아오지 못했다. 관리국이 그의 지도를 봉인했다. 그 공식적인 비밀주의가 그를 학원과 학과장들에게 냉소적으로 만들었다. 아르민 그라프, 세라핀 노아, 그레고르 세인을 믿지 않고 요나스 하트와 손잡는다.</p></div></details>
+        </div>
+      </section>
+
+      <h3>공통 합반 교수</h3>
+      <div class="future-cards four">
+        <article class="future-card common">
+          <span class="future-year">공통 합반 · 66세</span>
+          <h3>바르톨로 메인</h3>
+          <p class="future-choice">탑 공략학 개론 · 층 규칙 해석학</p>
+          <p>가장 나이 많은 교수이자 층 규칙의 걸어 다니는 백과사전. 한창때 71층까지 올랐다. 일화로 가르치고, 그 세부를 가차 없이 시험한다. 학생들을 별명으로 부른다.</p>
+          <p class="future-sender">"규칙을 외우는 놈은 25층에서 울고, 규칙이 왜 생겼는지 아는 놈은 웃으면서 올라가지."</p>
+        </article>
+        <article class="future-card common">
+          <span class="future-year">공통 합반 · 42세</span>
+          <h3>이레네 사바</h3>
+          <p class="future-choice">동조 이론 Ⅰ · 동조 이론 Ⅱ</p>
+          <p>동조 이론의 권위자. 친밀함과 신뢰를 거리낌 없이 측정 가능한 변수로 설명해서, 가까움이 동조율을 어떻게 올리는지에 대한 강의는 학생들 얼굴을 붉게 만든다. 정기 동조 측정 결과를 임상적으로 소리 내어 읽는다.</p>
+          <p class="future-sender">"얼굴 붉힐 시간에 메모해. 신뢰도, 접촉 빈도, 감정 개방. 동조율은 거짓말을 안 해."</p>
+        </article>
+        <article class="future-card common">
+          <span class="future-year">공통 합반 · 50세</span>
+          <h3>요나스 하트</h3>
+          <p class="future-choice">탑 역사와 실종 기록</p>
+          <p>탑의 모든 실종을 기록하는 사서. 22년 전 탑에서 여동생을 잃었다. 학생에게는 다정하고, 관리국에는 차갑다. 강의동 기록 보관실도 맡는다. 마라 셀윈의 외삼촌.</p>
+          <p class="future-sender">"이름을 외워 두세요. 탑은 사람을 삼켜도, 기록까지 삼키진 못합니다."</p>
+        </article>
+        <article class="future-card common">
+          <span class="future-year">공통 합반 · 47세</span>
+          <h3>카트린 볼크</h3>
+          <p class="future-choice">합동 파티 전술 · 합동 졸업 원정</p>
+          <p>단호하고 공정한 심판. 학과를 일부러 섞고, 끼리끼리를 벌한다. 합반 파티 훈련을 짜고 학과 대항전 심판을 맡는다. 네 학과 혼성 파티를 이끌고 88층까지 오른 것으로 유명하다. 파티 등록 마감까지 파티가 없으면 그녀가 배정한다.</p>
+          <p class="future-sender">"같은 학과끼리만 붙어 다니면 탑에서 같은 학과끼리만 죽는다. 섞여."</p>
+        </article>
+      </div>
+
+      <h3>학생 명부</h3>
+      <p>★는 주요 인물. 나이는 그 기수가 처음 나오는 학년도 기준이다.</p>
+<details class="roster"><summary>812기 · 동기 (812학년도 1학년)</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td><span class="star">★</span> 리세 발트하임<span class="sub">여 · 20세 (812학년도)</span></td><td><span class="star">★</span> 세드릭 그라프<span class="sub">남 · 21세 (812학년도)</span></td><td>하린 문<span class="sub">여 · 20세 (812학년도)</span></td><td>브루노 콜트<span class="sub">남 · 22세 (812학년도)</span></td><td>엘라 스칼렛<span class="sub">여 · 21세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td><span class="star">★</span> 노엘 아르장<span class="sub">여 · 20세 (812학년도)</span></td><td>퀸시 렌필드<span class="sub">남 · 20세 (812학년도)</span></td><td>아이샤 칸<span class="sub">여 · 21세 (812학년도)</span></td><td>루돌프 짐머<span class="sub">남 · 22세 (812학년도)</span></td><td>미레유 다크<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td><span class="star">★</span> 세실리아 모로<span class="sub">여 · 21세 (812학년도)</span></td><td><span class="star">★</span> 라파엘 윈터스<span class="sub">남 · 22세 (812학년도)</span></td><td>피오나 그린<span class="sub">여 · 20세 (812학년도)</span></td><td>오웬 블레이크<span class="sub">남 · 21세 (812학년도)</span></td><td>유나 사쿠라이<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td><span class="star">★</span> 시온 블랙우드<span class="sub">남 · 20세 (812학년도)</span></td><td>클라라 베른<span class="sub">여 · 21세 (812학년도)</span></td><td>진 하야토<span class="sub">남 · 22세 (812학년도)</span></td><td>마르가 펠<span class="sub">여 · 20세 (812학년도)</span></td><td>레오 몬태규<span class="sub">남 · 20세 (812학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>811기 · 2학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>그레타 볼프<span class="sub">여 · 22세 (812학년도)</span></td><td>칼렙 스톤<span class="sub">남 · 23세 (812학년도)</span></td><td>리안 페어웰<span class="sub">남 · 21세 (812학년도)</span></td><td>소냐 이바노바<span class="sub">여 · 21세 (812학년도)</span></td><td>다니엘 우드<span class="sub">남 · 22세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>이사벨 크레인<span class="sub">여 · 22세 (812학년도)</span></td><td>테디 브룩스<span class="sub">남 · 21세 (812학년도)</span></td><td>앨리스 몽크<span class="sub">여 · 21세 (812학년도)</span></td><td>하킴 자파르<span class="sub">남 · 23세 (812학년도)</span></td><td>에블린 로즈<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>마틸다 오브라이언<span class="sub">여 · 23세 (812학년도)</span></td><td>니콜라이 페트로프<span class="sub">남 · 22세 (812학년도)</span></td><td>리리 하나미<span class="sub">여 · 21세 (812학년도)</span></td><td>아마데우스 클라인<span class="sub">남 · 21세 (812학년도)</span></td><td>제이드 블랙번<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>토비아스 해리스<span class="sub">남 · 22세 (812학년도)</span></td><td>모모 아케치<span class="sub">여 · 21세 (812학년도)</span></td><td>이고르 베일<span class="sub">남 · 23세 (812학년도)</span></td><td>세레나 블룸<span class="sub">여 · 22세 (812학년도)</span></td><td>파비오 루치<span class="sub">남 · 21세 (812학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>810기 · 3학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>발렌티나 크루즈<span class="sub">여 · 23세 (812학년도)</span></td><td>아론 크레스트<span class="sub">남 · 24세 (812학년도)</span></td><td>미카 요한센<span class="sub">여 · 22세 (812학년도)</span></td><td>케이 앤더스<span class="sub">남 · 22세 (812학년도)</span></td><td>줄리아 페로<span class="sub">여 · 24세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>아드리안 노크<span class="sub">남 · 23세 (812학년도)</span></td><td>클로이 마르소<span class="sub">여 · 22세 (812학년도)</span></td><td>바실 오르로프<span class="sub">남 · 24세 (812학년도)</span></td><td>엘레나 로시<span class="sub">여 · 23세 (812학년도)</span></td><td>사이러스 웨이드<span class="sub">남 · 22세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>카밀라 디아스<span class="sub">여 · 23세 (812학년도)</span></td><td>에밀 라르센<span class="sub">남 · 22세 (812학년도)</span></td><td>마리나 벨<span class="sub">여 · 24세 (812학년도)</span></td><td>루시앙 데브루<span class="sub">남 · 23세 (812학년도)</span></td><td>아니카 모렌<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>라이너 폭스<span class="sub">남 · 23세 (812학년도)</span></td><td>헤더 맥클레인<span class="sub">여 · 22세 (812학년도)</span></td><td>타츠미 쿠로<span class="sub">남 · 24세 (812학년도)</span></td><td>베아트리체 골드<span class="sub">여 · 23세 (812학년도)</span></td><td>오스카 템플<span class="sub">남 · 22세 (812학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>809기 · 4학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>아스트리드 라그나르<span class="sub">여 · 25세 (812학년도)</span></td><td>마일즈 듀크<span class="sub">남 · 24세 (812학년도)</span></td><td>시린 아마디<span class="sub">여 · 23세 (812학년도)</span></td><td>고트프리트 베버<span class="sub">남 · 26세 (812학년도)</span></td><td>레이첼 테인<span class="sub">여 · 24세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>빈센트 로우<span class="sub">남 · 25세 (812학년도)</span></td><td>오로라 핀치<span class="sub">여 · 23세 (812학년도)</span></td><td>데클란 머피<span class="sub">남 · 24세 (812학년도)</span></td><td>이브 라모스<span class="sub">여 · 25세 (812학년도)</span></td><td>한스 뮐러<span class="sub">남 · 23세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>그레이스 와일드<span class="sub">여 · 24세 (812학년도)</span></td><td>사무엘 노블<span class="sub">남 · 25세 (812학년도)</span></td><td>릴리안 휘트<span class="sub">여 · 23세 (812학년도)</span></td><td>아키라 미즈노<span class="sub">남 · 24세 (812학년도)</span></td><td>에스메 콜린스<span class="sub">여 · 23세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>잭 해리스<span class="sub">남 · 25세 (812학년도)</span></td><td>니나 로페스<span class="sub">여 · 23세 (812학년도)</span></td><td>오윈 하스<span class="sub">남 · 24세 (812학년도)</span></td><td>카산드라 레인<span class="sub">여 · 24세 (812학년도)</span></td><td>피터 엘리스<span class="sub">남 · 23세 (812학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>813기 · 813학년도 입학 후배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>카이 베르크<span class="sub">남 · 20세 (813학년도)</span></td><td>오리엘 산토스<span class="sub">여 · 21세 (813학년도)</span></td><td>테오 마일러<span class="sub">남 · 20세 (813학년도)</span></td><td>이자 로크우드<span class="sub">여 · 22세 (813학년도)</span></td><td>루시엔 볼레르<span class="sub">남 · 21세 (813학년도)</span></td></tr><tr><th class="mado">마도과</th><td>키아 베르크<span class="sub">여 · 20세 (813학년도)</span></td><td>세바스티안 로르<span class="sub">남 · 22세 (813학년도)</span></td><td>니나벨 크로스비<span class="sub">여 · 20세 (813학년도)</span></td><td>다미안 크로우<span class="sub">남 · 21세 (813학년도)</span></td><td>소피 라노<span class="sub">여 · 22세 (813학년도)</span></td></tr><tr><th class="seong">성유과</th><td>엘리 블랙우드<span class="sub">여 · 20세 (813학년도)</span></td><td>바론 그린필드<span class="sub">남 · 21세 (813학년도)</span></td><td>티아나 문라이트<span class="sub">여 · 22세 (813학년도)</span></td><td>디에고 마르케스<span class="sub">남 · 23세 (813학년도)</span></td><td>츠바키 키리시마<span class="sub">여 · 20세 (813학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>쿠퍼 랜드리<span class="sub">남 · 21세 (813학년도)</span></td><td>미나 오스틴<span class="sub">여 · 20세 (813학년도)</span></td><td>라즈 파텔<span class="sub">남 · 22세 (813학년도)</span></td><td>엘사 노르드<span class="sub">여 · 21세 (813학년도)</span></td><td>피에르 뒤랑<span class="sub">남 · 20세 (813학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>814기 · 814학년도 입학 후배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>보리스 칼라시<span class="sub">남 · 23세 (814학년도)</span></td><td>야스민 하다드<span class="sub">여 · 20세 (814학년도)</span></td><td>노아 펠트<span class="sub">남 · 20세 (814학년도)</span></td><td>카르멘 볼트레<span class="sub">여 · 22세 (814학년도)</span></td><td>한결 서<span class="sub">남 · 21세 (814학년도)</span></td></tr><tr><th class="mado">마도과</th><td>이리스 브란트<span class="sub">여 · 20세 (814학년도)</span></td><td>조나단 플린트<span class="sub">남 · 22세 (814학년도)</span></td><td>릴리 스완<span class="sub">여 · 21세 (814학년도)</span></td><td>마커스 베인<span class="sub">남 · 23세 (814학년도)</span></td><td>피비 알렌<span class="sub">여 · 20세 (814학년도)</span></td></tr><tr><th class="seong">성유과</th><td>가브리엘 손<span class="sub">남 · 21세 (814학년도)</span></td><td>로렌 맥퀸<span class="sub">여 · 23세 (814학년도)</span></td><td>토마스 휴즈<span class="sub">남 · 20세 (814학년도)</span></td><td>아멜리 퐁텐<span class="sub">여 · 21세 (814학년도)</span></td><td>자비에 르노<span class="sub">남 · 22세 (814학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>애쉬 콜린우드<span class="sub">남 · 21세 (814학년도)</span></td><td>다샤 쿠즈네초바<span class="sub">여 · 22세 (814학년도)</span></td><td>윌로우 페어팩스<span class="sub">여 · 20세 (814학년도)</span></td><td>케일럽 리드<span class="sub">남 · 23세 (814학년도)</span></td><td>하루 타카네<span class="sub">여 · 21세 (814학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>815기 · 815학년도 입학 후배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>라일라 스톰<span class="sub">여 · 20세 (815학년도)</span></td><td>피닉스 레이<span class="sub">남 · 21세 (815학년도)</span></td><td>세이라 야마토<span class="sub">여 · 22세 (815학년도)</span></td><td>베니 오코너<span class="sub">남 · 20세 (815학년도)</span></td><td>아냐 볼코바<span class="sub">여 · 23세 (815학년도)</span></td></tr><tr><th class="mado">마도과</th><td>오르페오 그림쇼<span class="sub">남 · 22세 (815학년도)</span></td><td>클레어 데이비스<span class="sub">여 · 20세 (815학년도)</span></td><td>이든 하울<span class="sub">남 · 21세 (815학년도)</span></td><td>빅토리아 스털링<span class="sub">여 · 22세 (815학년도)</span></td><td>토야 미카미<span class="sub">남 · 20세 (815학년도)</span></td></tr><tr><th class="seong">성유과</th><td>펜리 볼프<span class="sub">남 · 20세 (815학년도)</span></td><td>아이비 로드리게스<span class="sub">여 · 21세 (815학년도)</span></td><td>오스틴 그레이엄<span class="sub">남 · 23세 (815학년도)</span></td><td>루나 벨몬트<span class="sub">여 · 20세 (815학년도)</span></td><td>마테우스 크론<span class="sub">남 · 22세 (815학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>마라 셀윈<span class="sub">여 · 28세 (815학년도)</span></td><td>지노 바르톨리<span class="sub">남 · 20세 (815학년도)</span></td><td>사라 블루벨<span class="sub">여 · 21세 (815학년도)</span></td><td>렉스 콜드웰<span class="sub">남 · 22세 (815학년도)</span></td><td>메이 첸<span class="sub">여 · 20세 (815학년도)</span></td></tr></tbody></table></div></div></details>
+
+      <h3>교수진</h3>
+<details class="roster"><summary>공통 합반 교수진 · 4명</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="">바르톨로 메인<span class="sub">66세</span></th><td>탑 공략학 개론(1학년 이론), 층 규칙 해석학(2학년 이론)</td></tr><tr><th class="">이레네 사바<span class="sub">42세</span></th><td>동조 이론 Ⅰ(1학년 이론), 동조 이론 Ⅱ(2학년 이론)</td></tr><tr><th class="">요나스 하트<span class="sub">50세</span></th><td>탑 역사와 실종 기록(1학년 이론)</td></tr><tr><th class="">카트린 볼크<span class="sub">47세</span></th><td>합동 파티 전술(3학년 실습), 합동 졸업 원정(4학년 현장)</td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>마투과 교수진 · 11명</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">하르겐 브란트<span class="sub">52세</span></th><td>무투 이론(1학년 이론), 기초 무투(1학년 실습)</td></tr><tr><th class="matu">셀린 로웬<span class="sub">34세</span></th><td>마력 부여학(1학년 이론), 부여 기초 실습(1학년 실습)</td></tr><tr><th class="matu">이반 크로스<span class="sub">41세</span></th><td>부여 응용 실습(2학년 실습), 마투 합일 실습(3학년 실습)</td></tr><tr><th class="matu">레아 페넬<span class="sub">38세</span></th><td>전위 전술론(1학년 이론), 돌파 전술론(2학년 이론)</td></tr><tr><th class="matu">고드릭 반스<span class="sub">46세</span></th><td>병기·맨손 운용론(2학년 이론), 병기 특화 실습(2학년 실습)</td></tr><tr><th class="matu">미라 소른<span class="sub">39세</span></th><td>전위 생리학(2학년 이론), 돌격 대형 훈련(2학년 실습)</td></tr><tr><th class="matu">카스파 엘름<span class="sub">57세</span></th><td>수문장 전투 분석(3학년 이론), 수문장 대응 실습(3학년 실습)</td></tr><tr><th class="matu">소피아 라인하르트<span class="sub">44세</span></th><td>전위 지휘론(3학년 이론), 전위 지휘 실습(3학년 실습)</td></tr><tr><th class="matu">루카 벤트<span class="sub">36세</span></th><td>현장 전투 실습(3학년 현장), 최상층 현장 실습(4학년 현장)</td></tr><tr><th class="matu">아르민 그라프 <span class="star">학과장</span><span class="sub">61세</span></th><td>오의 연구(4학년 이론), 오의 수련(4학년 실습)</td></tr><tr><th class="matu">나디아 크렐<span class="sub">48세</span></th><td>도전 영역 전투 실습(4학년 실습), 졸업 시연 준비(4학년 현장)</td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>마도과 교수진 · 11명</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="mado">엘로이즈 마르탱<span class="sub">45세</span></th><td>원소학(1학년 이론), 원소 제어 실습(1학년 실습)</td></tr><tr><th class="mado">테오도르 퀸<span class="sub">55세</span></th><td>영창 문법(1학년 이론), 기초 영창 실습(1학년 실습)</td></tr><tr><th class="mado">유리아 벡<span class="sub">33세</span></th><td>마력 회로학(1학년 이론), 마력 효율학(2학년 이론)</td></tr><tr><th class="mado">다리우스 페인<span class="sub">42세</span></th><td>복합 원소론(2학년 이론), 복합 원소 실습(2학년 실습)</td></tr><tr><th class="mado">오딜 바렐<span class="sub">50세</span></th><td>광역 마도론(2학년 이론), 광역 제어 실습(2학년 실습)</td></tr><tr><th class="mado">키란 애쉬<span class="sub">37세</span></th><td>무영창 실습(2학년 실습), 원소 연쇄 실습(3학년 실습)</td></tr><tr><th class="mado">오스왈드 그레이<span class="sub">59세</span></th><td>수문장 마도 분석(3학년 이론), 결계 파괴 실습(3학년 실습)</td></tr><tr><th class="mado">리비아 솔<span class="sub">40세</span></th><td>증폭 연계론(3학년 이론), 증폭 연계 실습(3학년 실습)</td></tr><tr><th class="mado">브람 오커<span class="sub">43세</span></th><td>현장 마도 실습(3학년 현장), 최상층 현장 실습(4학년 현장)</td></tr><tr><th class="mado">세라핀 노아 <span class="star">학과장</span><span class="sub">58세</span></th><td>고위 마도 연구(4학년 이론), 금기 마도 실습(4학년 실습)</td></tr><tr><th class="mado">마르크 델<span class="sub">47세</span></th><td>도전 영역 마도 실습(4학년 실습), 졸업 논문 실증(4학년 현장)</td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>성유과 교수진 · 11명</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="seong">마리안 클레어<span class="sub">49세</span></th><td>치유학(1학년 이론), 기초 치유 실습(1학년 실습)</td></tr><tr><th class="seong">펠릭스 로드<span class="sub">38세</span></th><td>정화학(1학년 이론), 응급 구호 실습(1학년 실습)</td></tr><tr><th class="seong">아델 벨루아<span class="sub">44세</span></th><td>인체와 마력(1학년 이론), 심리 회복학(2학년 이론)</td></tr><tr><th class="seong">휴고 마른<span class="sub">53세</span></th><td>결계론(2학년 이론), 결계 실습(2학년 실습)</td></tr><tr><th class="seong">로잘린 비에<span class="sub">36세</span></th><td>동조 증폭론(2학년 이론), 동조 증폭 실습(2학년 실습)</td></tr><tr><th class="seong">에드윈 홀<span class="sub">41세</span></th><td>심리 회복 실습(2학년 실습), 파티 회복 운영론(3학년 이론)</td></tr><tr><th class="seong">베라 녹스<span class="sub">39세</span></th><td>저주학(3학년 이론), 저주 해제 실습(3학년 실습)</td></tr><tr><th class="seong">줄리안 페어<span class="sub">35세</span></th><td>광역 치유 실습(3학년 실습), 동조 공명 실습(3학년 실습)</td></tr><tr><th class="seong">한나 크로프트<span class="sub">46세</span></th><td>현장 구호 실습(3학년 현장), 최상층 현장 실습(4학년 현장)</td></tr><tr><th class="seong">그레고르 세인 <span class="star">학과장</span><span class="sub">63세</span></th><td>성유 비전론(4학년 이론), 성유 비전 수련(4학년 실습)</td></tr><tr><th class="seong">오필리아 렌<span class="sub">42세</span></th><td>도전 영역 생존 의학(4학년 실습), 졸업 구호 실증(4학년 현장)</td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>탐사과 교수진 · 11명</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="tam">니코 파렐<span class="sub">39세</span></th><td>함정학(1학년 이론), 함정 해제 실습(1학년 실습)</td></tr><tr><th class="tam">에스텔 그림<span class="sub">51세</span></th><td>지도학(1학년 이론), 지도 제작 실습(2학년 실습)</td></tr><tr><th class="tam">라울 페트<span class="sub">48세</span></th><td>탑 구조학(1학년 이론), 이면층 구조론(3학년 이론)</td></tr><tr><th class="tam">시안 로크<span class="sub">45세</span></th><td>은신·추적 실습(1학년 실습), 실종자 수색 실습(4학년 실습)</td></tr><tr><th class="tam">마테오 실바<span class="sub">34세</span></th><td>잠입론(2학년 이론), 잠입 실습(2학년 실습)</td></tr><tr><th class="tam">이네스 볼<span class="sub">43세</span></th><td>층 규칙 분석론(2학년 이론), 규칙 역이용 실습(3학년 실습)</td></tr><tr><th class="tam">오토 브레멘<span class="sub">56세</span></th><td>원정 보급론(2학년 이론), 원정 보급 실습(2학년 실습)</td></tr><tr><th class="tam">레나 볼트<span class="sub">40세</span></th><td>정찰 지휘론(3학년 이론), 정찰 지휘 실습(3학년 실습)</td></tr><tr><th class="tam">펠리체 안<span class="sub">37세</span></th><td>봉인 해제 실습(3학년 실습), 이면층 현장 실습(3학년 현장)</td></tr><tr><th class="tam">빅토르 강 <span class="star">학과장</span><span class="sub">60세</span></th><td>미지 영역론(4학년 이론), 도전 영역 탐사 실습(4학년 실습)</td></tr><tr><th class="tam">주노 하예<span class="sub">44세</span></th><td>최상층 현장 실습(4학년 현장), 졸업 원정 준비(4학년 현장)</td></tr></tbody></table></div></div></details>
+
+      <h3>얽힌 사람들</h3>
+      <ul class="rule-list">
+        <li>세라핀 노아–노엘 아르장 (이모와 조카) · 아르민 그라프–세드릭 그라프 (종조부) · 시온–엘리 블랙우드 (남매) · 하르겐–이리스 브란트 (부녀) · 카이–키아 베르크 (쌍둥이) · 그레타–펜리 볼프 (남매)</li>
+        <li>요나스 하트–마라 셀윈 (외삼촌과 조카) · 고드릭 반스–마리안 클레어 (부부) · 헤더 맥클레인–리세 발트하임 (사촌) · 사무엘 노블–세실리아 모로 (사촌) · 퀸시 렌필드–클라라 베른 (사촌, 동기)</li>
+        <li>이사벨 크레인–레오 몬태규 (정혼자) · 잭–토비아스 해리스 (형제)</li>
+      </ul>
+      <details class="secret mini"><summary>숨겨진 혈연 · 보기</summary><div class="secret-body"><p>리안 페어웰–루시엔 볼레르는 배다른 형제다. 비밀이다.</p></div></details>
+
+      <h3>학원의 연애</h3>
+      <p>학원에는 학원만의 연애가 있다. 이름 있는 인물들은 당신과 상관없이 서로에게 빠지고, 사귀고, 몰래 애태운다. 처음에는 아무 일도 일어나지 않았고, 사건이 받쳐 줄 때만 천천히 자란다. 멈추거나, 깨지거나, 삼각관계가 될 수도 있다. 당신이 그중 한 명과 가까워지면, 다른 한 명은 저답게 반응한다.</p>
+      <details class="roster"><summary>싹틀지도 모르는 인연 · 12쌍</summary><div class="roster-body">
+        <ul class="rule-list">
+          <li><strong>토비아스 해리스</strong>(811 탐사과) – <strong>엘라 스칼렛</strong>(812 마투과): 아무도 눈여겨보지 않는 둘째는, 모두의 속내를 읽지만 자기 것만은 못 읽는 도박사에게 몰래 마음이 있다.</li>
+          <li><strong>마일즈 듀크</strong>(809 마투과) – <strong>발렌티나 크루즈</strong>(810 마투과): 실연한 바람둥이가 무희에게 계속 추파를 던지고, 그녀는 사랑이 아니라 이기려고 맞받아친다.</li>
+          <li><strong>세드릭 그라프</strong>(812 마투과) – <strong>하린 문</strong>(812 마투과): 그는 귀족들의 비웃음에서 장학생을 조용히 지키고, 그녀는 보호받는 게 싫으면서도 그걸 알아챈다.</li>
+          <li><strong>루돌프 짐머</strong>(812 마도과) – <strong>피오나 그린</strong>(812 성유과): 주급 절반을 집에 보내는 농가 소년과, 보낼 집이 없었던 고아. 정직하고 느리다.</li>
+          <li><strong>에밀 라르센</strong>(810 성유과) – <strong>아니카 모렌</strong>(810 성유과): 소리 없이 사랑에 빠진 소심한 결계사와, 그걸 느낄 수 있는 여린 공감자.</li>
+          <li><strong>카이 베르크</strong>(813 마투과) – <strong>오리엘 산토스</strong>(813 마투과): 남을 위해 싸우는 다혈질과, 자꾸 그의 앞을 막아서는 호위.</li>
+          <li><strong>발렌티나 크루즈</strong>(810 마투과) – <strong>카밀라 디아스</strong>(810 성유과): 싸우듯 추파를 주고받는 전열 파트너. 무모하게 굴 때마다 치유사가 무희를 꿰매 준다.</li>
+          <li><strong>이사벨 크레인</strong>(811 마도과) – <strong>세레나 블룸</strong>(811 탐사과): 밤마다 체스를 두는 차갑고 우아한 두 전략가. 누가 이기고 있는지 둘 다 인정하지 않는다.</li>
+          <li><strong>헤더 맥클레인</strong>(810 탐사과) – <strong>클라라 베른</strong>(812 탐사과): 라이벌 지도 제작자. 이면층 지도책을 두고 벌이던 말다툼이 같은 공책 위의 긴 밤으로 바뀐다.</li>
+          <li><strong>아이샤 칸</strong>(812 마도과) – <strong>시린 아마디</strong>(809 마투과): 남쪽 사막에서 온 가수와 창무희. 음악과 춤이 둘을 끌어당긴다.</li>
+          <li><strong>츠바키 키리시마</strong>(813 성유과) – <strong>니나벨 크로스비</strong>(813 마도과): 들러붙는 증폭자와 재채기하는 꽃 마법사. 둘 빼고 다 안다.</li>
+          <li><strong>리비아 솔</strong>(마도과 교수) – <strong>로잘린 비에</strong>(성유과 교수): 거침없이 놀려 대는 두 동조 강사. 둘의 "신뢰 훈련"이 교수 휴게실 소문을 부른다.</li>
+        </ul>
+        <p class="secret-hint">겹치는 건 의도된 것이다. 발렌티나는 두 인연에 걸쳐 있고(삼각관계의 가능성), 이사벨은 레오 몬태규와 정혼한 몸이다.</p>
+      </div></details>
+    </section>
+
+    <section id="life" class="content-section">
+      <h2>학원 생활</h2>
+      <p class="lead">닳은 돌, 담쟁이, 아침 종소리, 분필 가루, 식당 냄새, 밤의 기숙사 복도. 그리고 어느 장면에든 어딘가 보이는 탑.</p>
+      <h3>장소</h3>
+      <ul class="rule-list">
+        <li><strong>숙소</strong> — 신입생 기숙사 · 외부 편입생 별관 · 탑 관리국 관찰동.</li>
+        <li><strong>강의동</strong> — 이론 수업. 학과마다 자기 동이 있고, 합반 강의에서는 네 학과가 한자리에 앉는다. 자리 다툼과 학과를 넘는 짝사랑. 빈 강의실과 기록 보관실은 은밀한 이야기에 좋다.</li>
+        <li><strong>훈련장</strong> — 실습과 매일의 훈련. 수요일 합반 파티 훈련은 학과를 섞고, 금요일 학과 대련은 학과 안의 서열을 정한다. 가운데의 동조석이 파티의 동조율을 빛으로 보여 준다. 훈련 뒤의 샤워실과 탈의실은 어색하거나 아슬아슬한 순간을 부른다.</li>
+        <li><strong>학원 광장</strong> — 상점, 카페, 분수, 그리고 의뢰 게시판. 많은 인물을 우연히 마주치는 곳이라 여럿이 모이는 장면과 질투에 좋다.</li>
+        <li><strong>탑 입구 · 거점 캠프</strong> — 원정 접수, 보급, 파티 결성. 기록전 게시판이 학과마다 가장 높은 층을 줄 세운다. 돌아온 파티들이 상처와 전리품과 소문을 주고받는다. 문 옆에는 실종자 추모비가 서 있다.</li>
+      </ul>
+      <p>학과동마다 결이 다르다. 마투과는 땀과 강철, 마도과는 오존과 영창, 성유과는 약초와 따뜻한 빛, 탐사과는 종이와 잉크와 지도.</p>
+
+      <h3>소문과 일상</h3>
+      <div class="mode-cards">
+        <article class="mode-card"><h3>학원 신문 「베르나크 소식」</h3><p>탐사과 학생들이 익명으로 내는 주간 가십지. 파티 순위, "누가 누구랑 있었나", 교수 어록, 이면층 소문. 실리면 평판이 서기도 하고 무너지기도 한다. 식당 옆 제보함에 누구든 쪽지를 넣을 수 있다.</p></article>
+        <article class="mode-card"><h3>기숙사 정전</h3><p>탑이 울컥하면 기숙사 마력등이 한 시간 넘게 꺼진다. 복도는 촛불과 겁먹은 1학년과 괴담으로 가득 차고, 누군가는 욕실이나 남의 방에 갇힌다. 어둠 속에서는 통금을 지킬 수 없다는 걸 다들 안다.</p></article>
+        <article class="mode-card"><h3>대도서관과 금서고</h3><p>도서관 아래층에는 실종자의 봉인된 기록과 금지된 마법이 있고, 휴고 마른과 세라핀 노아가 유지하는 결계가 지킨다. 학생들은 이면층 지도나 사라진 가족에 대한 답을 찾아 밤에 숨어든다. 걸리면 휴고 마른과 벌 청소, 들어가면 비밀.</p></article>
+        <article class="mode-card"><h3>탑 관리국</h3><p>모든 등반을 관할하는 기관. 회색 코트의 요원들이 파티를 검사하고, 이면층에서 나온 물건을 압수하고, 생환자를 매달 면담하고, 학생들 사이에 정보원을 둔다. 불시 감사 때는 기숙사를 뒤진다. 빅토르 강과 요나스 하트는 관리국을 믿지 않고, 휴고 마른은 협조한다.</p></article>
+        <article class="mode-card"><h3>동아리</h3><p>등반 기록 연구회, 파비오 루치의 요리부, 검무 동호회, 연극부, 사라 블루벨의 별 관측회, 사이러스 웨이드와 엘라 스칼렛의 비공식 도박 모임. 시계탑에서 모이는 생환자와 그 친구들의 비밀 결사가 있다는 소문도 있다.</p></article>
+        <article class="mode-card"><h3>고백 명소</h3><p>해 질 녘 시계탑 발코니, 밤의 온실, 축제 때의 호수 선착장, 그리고 등반자들의 13층 온천. 종이 울릴 때 시계탑 아래에서 한 고백은 솔직함 없이는 거절할 수 없다고 한다. 마도과 첨탑 옥상은 울거나 입 맞추러 가는 곳이다.</p></article>
+        <article class="mode-card"><h3>대식당과 매점</h3><p>긴 식탁이 대충 학과별로 나뉘어 있어서, 다른 학과 식탁에 앉는 건 하나의 선언이다. 기숙사 옆 매점은 단것과 포션과 가십을 팔고, 주인은 모두의 외상을 기억한다. 늦은 밤의 야식 원정은 고전적인 만남의 방법.</p></article>
+        <article class="mode-card"><h3>대욕장과 온실</h3><p>탑 아래 따뜻한 마력 샘을 끌어온 남탕과 여탕이 통금까지 열려 있다. 성유과 온실은 치유 약초와 밤에 피는 꽃으로 가득하고 일 년 내내 따뜻하다. 빛나는 이끼만 밝힌 밤의 온실은 비밀과 데이트의 명소. 아이비 로드리게스와 엘레나 로시가 돌본다.</p></article>
+      </div>
+    </section>
+
+    <section id="calendar" class="content-section">
+      <h2>학사 일정</h2>
+      <p class="lead">학년도는 3월 첫 월요일에 시작해 13주씩 네 학기, 52주. 일정의 날이 오면 당신과 상관없이 반드시 일어난다.</p>
+      <div class="table-scroll">
+        <table class="bloom-table">
+          <tbody>
+            <tr><th>입주일 · 입학식</th><td>시작 전 일요일 입주, 봄 1주 월요일 입학식과 봄 개방식. 대강당에서 학원장이 등반자 선서를 읽고, 신입생들은 다 같이 <strong>"오르고, 돌아온다"</strong>고 답한다. 학과장들이 배지를 달아 주고, 넷이 탑 입구의 기록석에 손을 얹으면 새로 열린 층이 그 표면에 빛난다. 학원장은 의식 때만 모습을 보이고, 등반자의 두건으로 얼굴을 가린다.</td></tr>
+            <tr><th>신입 영입전</th><td>봄 1주 화 ~ 2주 금. 학과마다 상급생들이 1학년을 꾄다. 성유과 신입은 쟁탈전.</td></tr>
+            <tr><th>첫 등반 의례</th><td>봄 1주 토. 1학년들이 교수 인솔 아래 학과를 섞은 다섯 명씩 1층에 들어간다. 1층의 규칙은 "진실만 말하라". 각자 가장 원하는 것을 비추는 거울의 방을 건너야 한다. 끝나면 탑 입구에서 모닥불과 음식. 여기서 짜인 조가 첫 진짜 파티가 되곤 한다. 실패한 사람은 없지만, 울면서 나오는 사람은 있다.</td></tr>
+            <tr><th>파티 등록 마감</th><td>봄 2주 금. 등반자는 모두 2~5인 파티에 등록해야 하고, 못 한 사람은 카트린 볼크가 배정한다. 다들 그게 무섭다. 마지막 이틀은 아수라장. 광장의 영입 연설, 디저트 뇌물, 초대로 위장한 고백, 세 학과에게서 동시에 숨는 성유과 학생들.</td></tr>
+            <tr><th>정기 동조 측정</th><td>학기마다 4주 금. 학원 전체가 지켜보는 가운데 파티가 한 팀씩 훈련장의 동조석에 선다. 두 사람 사이의 숨긴 감정이 눈에 보이게 타오르기도 해서, 저녁 무렵이면 가십이 된다. 이레네 사바가 결과를 임상적으로 소리 내어 읽는데, 그게 왠지 더 괴롭다.</td></tr>
+            <tr><th>계절 축제</th><td>학기마다 6주 주말. 무도회 파트너, 파티 결투 대회, 마지막 밤의 등불. 누구와 함께 띄울지가 유대와 질투를 흔든다.</td></tr>
+            <tr><th>탑 공명일</th><td>학기마다 9주 수. 새벽에 탑이 종처럼 울리고 세 층이 더 열린다. 그날 하루, 이미 깬 층의 규칙이 뒤집힌다(침묵의 층이 생각을 외쳐야 하는 층으로). 탑 입구 근처에서는 실종자들의 목소리가 들리고, 생환자는 어지러움 속에 자기 이름을 듣는다. 오후 수업은 취소된다.</td></tr>
+            <tr><th>학과 대항전</th><td>봄·가을 10주 토. 훈련장에서 결투, 연습벽 릴레이 등반, 동조석 동조 겨루기. 겨울 3주 토에는 눈 덮인 캠퍼스를 가로지르는 설원 깃발전. 여름 3주에는 한 주 내내 학과별 최고 층 순위를 다투는 여름 기록전.</td></tr>
+            <tr><th>하계 합동 원정</th><td>여름 8주 목~토. 모든 파티가 탑 안에서 이틀 밤을 야영하며 공동 목표 층을 밀어붙인다. 제비뽑기로 짝지은 학과 혼성 야간 경계, 함께 쓰는 모닥불, 비좁은 텐트, 휴게층 샘에서의 목욕. 해마다 "사건"이 하나는 일어난다.</td></tr>
+            <tr><th>실종자 추모일</th><td>가을 7주 금. 탑 입구 옆, 사라진 이들의 이름을 새긴 검은 돌 앞의 조용한 의식. 흰 꽃, 탑이 울리는 순간의 묵념. 요나스 하트가 새 이름을 읽는다. 가족을 잃은 인물들은 이날 위태롭다. 밤사이 돌 앞에는 언제나, 아무도 놓았다고 인정하지 않는 무언가가 남는다.</td></tr>
+            <tr><th>평가 주간</th><td>학기마다 12주, 수업 없음. 월·화 이론 필기, 수 학과별 실기, 목 기록석으로 지켜보는 파티 등반, 금 동조 판독과 결과 발표. 결과는 학과 순위로 붙는다. 겨울의 학년말 평가는 진급이 걸려 있다.</td></tr>
+            <tr><th>휴식주</th><td>학기마다 13주. 수업이 없고 탑에 오를 수 있다.</td></tr>
+            <tr><th>신년 하례</th><td>1월 1일. 학원장이 새벽에 그해 첫 등반을 축복하고, 제비뽑기로 뽑힌 한 파티가 오른다. 학생들은 손으로 쓴 소원을 탑 입구 문에 묶는다. 다른 사람의 소원 옆에 묶은 소원은 둘 다 이루어진다는 소문.</td></tr>
+            <tr><th>졸업식</th><td>겨울 13주 금. 100층을 넘은 사람만 졸업한다. 후배들이 늘어선 대강당 통로를 걸으며, 졸업생은 고른 후배 한 명에게 배지를 건넨다. 존경이나 사랑의 고백으로 여겨진다. 학원장은 한 문장만 말한다. 졸업생은 관리국, 교수진, 독립 등반, 도전 영역 중 하나를 고른다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>네 축제</h3>
+      <div class="mode-cards">
+        <article class="mode-card"><h3>🌸 개화제 · 봄</h3><p>마력으로 피운 벚나무로 캠퍼스가 꽃핀다. 첫날은 학과 부스 경쟁(마투과 팔씨름, 마도과 불꽃, 성유과 점과 차, 탐사과 미로)과 관객 투표. 둘째 날 밤은 <strong>연등의 밤</strong>, 호수에 등불을 띄운다. 둘이 함께 띄운 등불은 두 사람을 묶는다고 한다.</p></article>
+        <article class="mode-card"><h3>🎆 성하제 · 여름</h3><p>호숫가의 여름 축제. 수영복, 물 마법 결투 대회, 밤 노점, 마도과 상급생의 (가끔 위험한) 불꽃놀이. "마지막 불꽃 때 곁에 있던 사람"이 여름 파트너라는 전통. 탐사과 부스에서는 휴게층 빙수를 터무니없는 값에 판다.</p></article>
+        <article class="mode-card"><h3>🎭 수확 무도회 · 가을</h3><p>대강당의 가면무도회. 예복, 일주일 전에 청하는 파트너, 학생 오케스트라. 가면이 학과 배지를 가려, 라이벌끼리 모른 채 춤추다가 자정의 가면 벗기에서야 안다. 춤을 거절당하는 건 공개적이고, 상급생에게 신청받는 건 뉴스다.</p></article>
+        <article class="mode-card"><h3>❄️ 설야제 · 겨울</h3><p>눈 축제. 학과별 눈 조각, 뜨거운 향신 와인, 제비뽑기 비밀 선물 교환(뽑은 사람에게 마지막 밤 직접 건네야 한다), 탑을 도는 눈 등불 산책. 연인들은 목도리를 나눠 두르고, 외로운 이들은 기숙사 라운지에 모여 카드를 친다.</p></article>
+      </div>
+    </section>
+
+    <section id="modes" class="content-section">
+      <h2>모드와 상태창</h2>
+      <p>프리셋 노트에서 켜고 끌 수 있다. 수위는 둘 중 하나만 켜고, 플레이 모드를 더한다.</p>
+      <div class="mode-cards">
+        <article class="mode-card"><h3>🌙 수위: 은근하게</h3><p>친밀 장면을 시선·숨결·여운 위주로 은근하게 그립니다. 직접 묘사는 줄이고 장면 전환을 씁니다. (둘 중 하나만 켜세요)</p></article>
+        <article class="mode-card"><h3>🔥 수위: 직접적으로</h3><p>합의된 성인 인물 간의 친밀 장면을 숨기지 않고 구체적으로 그립니다. (둘 중 하나만 켜세요)</p></article>
+        <article class="mode-card matu"><h3>🍑 음란 모드</h3><p>학술원 전체가 욕망으로 달아오릅니다. 인물들이 먼저 유혹하고, 수업·훈련·탑 시련 곳곳에 야한 긴장이 깔리며, 친밀 장면 문턱이 호감 40으로 내려갑니다. 묘사 수위는 수위 프리셋을 따릅니다.</p></article>
+        <article class="mode-card"><h3>💘 하렘 모드</h3><p>여러 인물이 동시에 당신에게 끌립니다. 고백 경쟁, 질투, 신경전, 파티 자리 다툼이 잦아지고, 라이벌끼리 손잡거나 견제합니다.</p></article>
+        <article class="mode-card"><h3>⚔️ 하드코어 등반</h3><p>탑이 훨씬 가혹해집니다. 부상과 소모가 쌓이고, 함정과 시련 실패에 확실한 대가가 따르며, 이름 없는 생도는 실종되기도 합니다. 일상 학원 모드와 함께 켜지 마세요.</p></article>
+        <article class="mode-card seong"><h3>🌸 일상 학원 모드</h3><p>탑보다 학원 생활이 중심이 됩니다. 수업, 식당, 동아리, 기숙사 밤, 축제 준비처럼 느긋한 하루를 길게 즐기며 관계를 쌓습니다. 하드코어 등반과 함께 켜지 마세요.</p></article>
+        <article class="mode-card mado"><h3>🕯️ 어두운 비밀</h3><p>실종자, 탑 관리국, 학과장들의 과거, 100층 위의 비밀이 전면으로 떠오릅니다. 단서와 음모, 서늘한 공포가 짙어집니다.</p></article>
+        <article class="mode-card"><h3>⚧️ TS 모드</h3><p>탑의 「반전 공명」으로 학원의 남성 인물 전원이 여성이 된 세계선입니다. 기억·성격·관계는 그대로, 몸만 바뀌었습니다. 당황, 적응, 새로운 감각, 돌아갈 방법을 찾는 이야기가 펼쳐집니다.</p></article>
+        <article class="mode-card tam"><h3>📜 장문 묘사</h3><p>답변이 길고 촘촘해집니다. 장면 묘사, 여러 인물의 반응과 속마음이 풍부해지고, 한 턴에 더 많은 일이 벌어집니다.</p></article>
+      </div>
+      <p class="secret-hint">커스텀 모드 탭에서 모드 세 칸에 취향을 적어 얹을 수 있다. 수위는 프리셋 노트가 정하고, 커스텀 모드는 그 위에 개인 취향을 더한다. 기본 설정과 부딪치면 기본 설정이 이긴다.</p>
+
+      <h3>상태창</h3>
+      <p>매 응답 끝에 이 블록이 붙는다. 상태창 '일정' 탭에서는 달력과 시간표를, '탑' 탭에서는 전투와 휴게층 상인을 볼 수 있다.</p>
+      <div class="info-block">상태창 | 0턴
+학적: 마투과 1학년 · 신입
+장소: 숙소
+층: 0
+개방: 0
+날짜: 0812.03.01
+시각: 21:00
+주차: 입주일 · 일
+이벤트: 없음
+의뢰: -
+파티: -
+동조율: 0
+학과 평판: 마투과 60, 마도과 50, 성유과 50, 탐사과 50
+재화: 마정석 10 · 크론 100
+호감: -</div>
+      <h3>입력 명령</h3>
+      <ul class="rule-list">
+        <li><code>[구매]</code> — 휴게층에서 탑의 상인에게 산다. 마정석이 모자라면 상인이 거절한다.</li>
+        <li><code>!정비</code> — 가방이나 재화가 어긋나 보일 때. 저장된 값과 사건을 대조해 두 가방과 재화를 다시 맞춘다.</li>
+        <li><code>[전투 결과]</code> — 상태창 '탑' 탭에서 치른 전투를 보고한 그대로 이야기로 옮기고, 보상과 부상을 반영한다.</li>
+        <li><code>[커스텀 모드 설정]</code> — 커스텀 모드를 바꾼다. 바뀐 모드를 한 줄로 알리고 그 응답부터 적용한다.</li>
+      </ul>
+    </section>
+
+    <section id="secrets" class="content-section">
+      <h2>탑의 비밀</h2>
+      <p>아래는 모두 스포일러다. 버튼을 누르면 열린다.</p>
+      <div class="truth-list">
+        <details class="secret"><summary>100층 위에서 본 것 · 보기</summary><div class="secret-body"><p>아르민 그라프와 세라핀 노아는 파트너이자 라이벌로 100층까지 올랐다. 그 위에서 세라핀은 더 가려 했고 아르민은 거부했다. 둘의 동행은 거기서 끝났다. 내려온 둘을 치료한 그레고르 세인이 그들이 본 것을 들었다. 세 학과장이 그 비밀을 나눠 쥐고 있고, 빅토르 강은 101~104층의 지도를 그렸다가 동료 둘을 잃고 관리국에 지도를 봉인당했다.</p><p>도전 영역으로 향하는 학생이 있다면 아르민은 거기서 본 것을 털어놓을지도 모른다. 생환자 학생의 기억은 그레고르에게 평화와 진실 중 하나를 고르게 할지도 모른다.</p></div></details>
+        <details class="secret"><summary>63층의 문 · 보기</summary><div class="secret-body"><p>요나스 하트의 여동생은 22년 전 63층, 고요한 쉼터에서 사라졌다. 밤이면 그곳 먼 벽에 이따금 문이 나타나고, 그 뒤에서 누군가 흥얼거린다.</p></div></details>
+        <details class="secret"><summary>탑의 상인이 받는 다른 값 · 보기</summary><div class="secret-body"><p>아주 드물게, 물건을 산 뒤에 상인이 목록에 없는 기묘한 물건 하나를 내민다. 떠올린 사람을 가리키는 나침반, 아직 존재하지 않는 층의 지도. 값은 동전이 아니라 기억 하나, 혹은 비밀 하나.</p></div></details>
+        <details class="secret"><summary>봉인된 방 · 보기</summary><div class="secret-body"><p>이미 깬 층에는 수수께끼, 동조된 두 사람의 동시 행동, 혹은 소리 내어 말한 고백으로 열리는 봉인된 방이 숨어 있다. 안에는 옛 등반자의 장비, 실종자의 편지, 희귀 재료, 혹은 미래의 짝을 비춰 보이는 거울. 이면층의 봉인된 방은 더 크고 더 잔인하다.</p></div></details>
+        <details class="secret"><summary>관리국의 정보원 · 보기</summary><div class="secret-body"><p>관리국은 학생들 사이에 정보원을 둔다. 그중 하나가 세실리아 모로다.</p></div></details>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script type="module">
+  import { initScrollSpy } from "../../js/detail.js";
+  initScrollSpy(["intro", "world", "depts", "tower", "people", "life", "calendar", "modes", "secrets"]
+    .map((id) => ({ id, navItemSelector: `[data-nav="${id}"]` })));
+
+  // 학과·학년 시간표 전환 (캔버스 로어북의 시간표를 그대로 옮긴 것)
+  const TT = {"마투과1": [["월", "탑 공략학 개론*(이)", "전위 전술론(이)", "-", "부여 기초 실습(실)", "기초 체력"], ["화", "-", "탑 공략학 개론*(이)", "무투 이론(이)", "부여 기초 실습(실)", "-"], ["수", "동조 이론 Ⅰ*(이)", "무투 이론(이)", "-", "-", "합반 파티 훈련*"], ["목", "동조 이론 Ⅰ*(이)", "-", "마력 부여학(이)", "기초 무투(실)", "기초 체력"], ["금", "탑 역사와 실종 기록*(이)", "마력 부여학(이)", "기초 무투(실)", "-", "학과 대련"]], "마투과2": [["월", "-", "층 규칙 해석학*(이)", "병기·맨손 운용론(이)", "병기 특화 실습(실)", "실전 훈련"], ["화", "층 규칙 해석학*(이)", "전위 생리학(이)", "-", "병기 특화 실습(실)", "-"], ["수", "동조 이론 Ⅱ*(이)", "전위 생리학(이)", "-", "-", "합반 파티 훈련*"], ["목", "돌파 전술론(이)", "부여 응용 실습(실)", "돌격 대형 훈련(실)", "-", "실전 훈련"], ["금", "병기·맨손 운용론(이)", "-", "부여 응용 실습(실)", "돌격 대형 훈련(실)", "학과 대련"]], "마투과3": [["월", "수문장 전투 분석(이)", "합동 파티 전술*(실)", "-", "-", "실전 훈련"], ["화", "-", "합동 파티 전술*(실)", "전위 지휘론(이)", "전위 지휘 실습(실)", "대항전 대비 훈련"], ["수", "전위 지휘 실습(실)", "현장 전투 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "마투 합일 실습(실)", "-", "현장 전투 실습(현)", "현장 전투 실습(현)", "-"], ["금", "수문장 전투 분석(이)", "마투 합일 실습(실)", "수문장 대응 실습(실)", "-", "학과 대련"]], "마투과4": [["월", "-", "-", "합동 졸업 원정*(현)", "졸업 시연 준비(현)", "-"], ["화", "오의 연구(이)", "도전 영역 전투 실습(실)", "-", "졸업 시연 준비(현)", "후배 지도"], ["수", "도전 영역 전투 실습(실)", "최상층 현장 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "-", "오의 수련(실)", "최상층 현장 실습(현)", "최상층 현장 실습(현)", "자율 훈련"], ["금", "오의 수련(실)", "-", "졸업 시연 준비(현)", "-", "학과 대련"]], "마도과1": [["월", "탑 공략학 개론*(이)", "마력 회로학(이)", "-", "원소 제어 실습(실)", "기초 체력"], ["화", "-", "탑 공략학 개론*(이)", "원소학(이)", "원소 제어 실습(실)", "-"], ["수", "동조 이론 Ⅰ*(이)", "원소학(이)", "-", "-", "합반 파티 훈련*"], ["목", "동조 이론 Ⅰ*(이)", "-", "영창 문법(이)", "기초 영창 실습(실)", "기초 체력"], ["금", "탑 역사와 실종 기록*(이)", "영창 문법(이)", "기초 영창 실습(실)", "-", "학과 대련"]], "마도과2": [["월", "-", "층 규칙 해석학*(이)", "복합 원소론(이)", "무영창 실습(실)", "실전 훈련"], ["화", "층 규칙 해석학*(이)", "마력 효율학(이)", "-", "무영창 실습(실)", "-"], ["수", "동조 이론 Ⅱ*(이)", "마력 효율학(이)", "-", "-", "합반 파티 훈련*"], ["목", "광역 마도론(이)", "복합 원소 실습(실)", "광역 제어 실습(실)", "-", "실전 훈련"], ["금", "복합 원소론(이)", "-", "복합 원소 실습(실)", "광역 제어 실습(실)", "학과 대련"]], "마도과3": [["월", "수문장 마도 분석(이)", "합동 파티 전술*(실)", "-", "-", "실전 훈련"], ["화", "-", "합동 파티 전술*(실)", "증폭 연계론(이)", "결계 파괴 실습(실)", "대항전 대비 훈련"], ["수", "결계 파괴 실습(실)", "현장 마도 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "원소 연쇄 실습(실)", "-", "현장 마도 실습(현)", "현장 마도 실습(현)", "-"], ["금", "수문장 마도 분석(이)", "원소 연쇄 실습(실)", "증폭 연계 실습(실)", "-", "학과 대련"]], "마도과4": [["월", "-", "-", "합동 졸업 원정*(현)", "졸업 논문 실증(현)", "-"], ["화", "고위 마도 연구(이)", "도전 영역 마도 실습(실)", "-", "졸업 논문 실증(현)", "후배 지도"], ["수", "도전 영역 마도 실습(실)", "최상층 현장 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "-", "금기 마도 실습(실)", "최상층 현장 실습(현)", "최상층 현장 실습(현)", "자율 훈련"], ["금", "금기 마도 실습(실)", "-", "졸업 논문 실증(현)", "-", "학과 대련"]], "성유과1": [["월", "탑 공략학 개론*(이)", "인체와 마력(이)", "-", "기초 치유 실습(실)", "기초 체력"], ["화", "-", "탑 공략학 개론*(이)", "치유학(이)", "기초 치유 실습(실)", "-"], ["수", "동조 이론 Ⅰ*(이)", "치유학(이)", "-", "-", "합반 파티 훈련*"], ["목", "동조 이론 Ⅰ*(이)", "-", "정화학(이)", "응급 구호 실습(실)", "기초 체력"], ["금", "탑 역사와 실종 기록*(이)", "정화학(이)", "응급 구호 실습(실)", "-", "학과 대련"]], "성유과2": [["월", "-", "층 규칙 해석학*(이)", "결계론(이)", "결계 실습(실)", "실전 훈련"], ["화", "층 규칙 해석학*(이)", "심리 회복학(이)", "-", "결계 실습(실)", "-"], ["수", "동조 이론 Ⅱ*(이)", "심리 회복학(이)", "-", "-", "합반 파티 훈련*"], ["목", "동조 증폭론(이)", "동조 증폭 실습(실)", "심리 회복 실습(실)", "-", "실전 훈련"], ["금", "결계론(이)", "-", "동조 증폭 실습(실)", "심리 회복 실습(실)", "학과 대련"]], "성유과3": [["월", "저주학(이)", "합동 파티 전술*(실)", "-", "-", "실전 훈련"], ["화", "-", "합동 파티 전술*(실)", "파티 회복 운영론(이)", "동조 공명 실습(실)", "대항전 대비 훈련"], ["수", "동조 공명 실습(실)", "현장 구호 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "광역 치유 실습(실)", "-", "현장 구호 실습(현)", "현장 구호 실습(현)", "-"], ["금", "저주학(이)", "광역 치유 실습(실)", "저주 해제 실습(실)", "-", "학과 대련"]], "성유과4": [["월", "-", "-", "합동 졸업 원정*(현)", "졸업 구호 실증(현)", "-"], ["화", "성유 비전론(이)", "도전 영역 생존 의학(실)", "-", "졸업 구호 실증(현)", "후배 지도"], ["수", "도전 영역 생존 의학(실)", "최상층 현장 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "-", "성유 비전 수련(실)", "최상층 현장 실습(현)", "최상층 현장 실습(현)", "자율 훈련"], ["금", "성유 비전 수련(실)", "-", "졸업 구호 실증(현)", "-", "학과 대련"]], "탐사과1": [["월", "탑 공략학 개론*(이)", "탑 구조학(이)", "-", "은신·추적 실습(실)", "기초 체력"], ["화", "-", "탑 공략학 개론*(이)", "함정학(이)", "은신·추적 실습(실)", "-"], ["수", "동조 이론 Ⅰ*(이)", "함정학(이)", "-", "-", "합반 파티 훈련*"], ["목", "동조 이론 Ⅰ*(이)", "-", "지도학(이)", "함정 해제 실습(실)", "기초 체력"], ["금", "탑 역사와 실종 기록*(이)", "지도학(이)", "함정 해제 실습(실)", "-", "학과 대련"]], "탐사과2": [["월", "-", "층 규칙 해석학*(이)", "층 규칙 분석론(이)", "잠입 실습(실)", "실전 훈련"], ["화", "층 규칙 해석학*(이)", "원정 보급론(이)", "-", "잠입 실습(실)", "-"], ["수", "동조 이론 Ⅱ*(이)", "원정 보급론(이)", "-", "-", "합반 파티 훈련*"], ["목", "잠입론(이)", "지도 제작 실습(실)", "원정 보급 실습(실)", "-", "실전 훈련"], ["금", "층 규칙 분석론(이)", "-", "지도 제작 실습(실)", "원정 보급 실습(실)", "학과 대련"]], "탐사과3": [["월", "이면층 구조론(이)", "합동 파티 전술*(실)", "-", "-", "실전 훈련"], ["화", "-", "합동 파티 전술*(실)", "정찰 지휘론(이)", "봉인 해제 실습(실)", "대항전 대비 훈련"], ["수", "봉인 해제 실습(실)", "이면층 현장 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "규칙 역이용 실습(실)", "-", "이면층 현장 실습(현)", "이면층 현장 실습(현)", "-"], ["금", "이면층 구조론(이)", "규칙 역이용 실습(실)", "정찰 지휘 실습(실)", "-", "학과 대련"]], "탐사과4": [["월", "-", "-", "합동 졸업 원정*(현)", "졸업 원정 준비(현)", "-"], ["화", "미지 영역론(이)", "도전 영역 탐사 실습(실)", "-", "졸업 원정 준비(현)", "후배 지도"], ["수", "도전 영역 탐사 실습(실)", "최상층 현장 실습(현)", "-", "-", "합반 파티 훈련*"], ["목", "-", "실종자 수색 실습(실)", "최상층 현장 실습(현)", "최상층 현장 실습(현)", "자율 훈련"], ["금", "실종자 수색 실습(실)", "-", "졸업 원정 준비(현)", "-", "학과 대련"]]};
+  const body = document.getElementById("tt-body");
+  let dept = "마투과", year = "1";
+  function cell(text) {
+    const td = document.createElement("td");
+    if (text === "-") { td.textContent = "공강"; td.className = "free"; return td; }
+    const m = text.match(/^(.*?)(\*)?(?:\((이|실|현)\))?$/);
+    td.textContent = m[1];
+    if (m[2]) td.classList.add("joint");
+    if (m[3]) { const s = document.createElement("span"); s.className = "tag"; s.textContent = `(${m[3]})`; td.append(s); }
+    return td;
+  }
+  function render() {
+    body.replaceChildren(...TT[dept + year].map(([day, ...slots]) => {
+      const tr = document.createElement("tr");
+      const th = document.createElement("th");
+      th.textContent = day;
+      tr.append(th, ...slots.map(cell));
+      return tr;
+    }));
+  }
+  for (const [groupId, key] of [["tt-dept", "dept"], ["tt-year", "year"]]) {
+    const group = document.getElementById(groupId);
+    group.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      if (key === "dept") dept = btn.dataset.dept; else year = btn.dataset.year;
+      render();
+    });
+  }
+  render();
+</script>
+</body>
+</html>

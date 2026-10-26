@@ -39,9 +39,11 @@
         <li class="nav-item" data-nav="depts"><a href="#depts">학과와 시작</a></li>
         <li class="nav-item" data-nav="tower"><a href="#tower">탑</a></li>
         <li class="nav-item" data-nav="people"><a href="#people">인물</a></li>
+        <li class="nav-item" data-nav="city"><a href="#city">베르나크 시</a></li>
         <li class="nav-item" data-nav="life"><a href="#life">학원 생활</a></li>
         <li class="nav-item" data-nav="calendar"><a href="#calendar">학사 일정</a></li>
         <li class="nav-item" data-nav="modes"><a href="#modes">모드와 상태창</a></li>
+        <li class="nav-item" data-nav="ending"><a href="#ending">엔딩과 업적</a></li>
         <li class="nav-item" data-nav="secrets"><a href="#secrets">탑의 비밀</a></li>
       </ul>
     </nav>
@@ -80,12 +82,17 @@
         <p>성인향 판타지 아카데미 × 탑 등반 다인 시뮬레이션입니다. 등장인물은 전원 성인입니다.</p>
         <ul class="rule-list">
           <li>시작할 때 포지션(신입 / 전학생 / 생환자)과 학과(마투과 / 마도과 / 성유과 / 탐사과)를 고릅니다.</li>
+          <li>2~4학년으로 시작하려면 첫 입력으로 <code>!학년 3</code> 처럼 보내세요(상태창 '선택지' 탭 버튼도 있음). 812기 동기들과 함께 진급한 해로 넘어갑니다. <code>!학년 3 선배</code> 로 보내면 지금 해(812학년도)의 3학년이 되고 812기는 후배가 됩니다.</li>
           <li>4년제 학술원입니다. 학년마다 탑 25층을 맡고, 100층을 돌파하면 졸업합니다. 그 위는 끝을 모르는 도전 영역입니다.</li>
           <li>평일에는 학과 시간표대로 수업이 있고, 탑에는 주말·휴식주·원정·의뢰 때만 오릅니다. 수문장은 파티 동조율이 모자라면 열리지 않습니다.</li>
           <li>축제, 평가, 탑 공명일 같은 학사 일정은 날짜가 되면 반드시 일어납니다. 상태창 '일정' 탭에서 달력과 시간표를 볼 수 있습니다.</li>
           <li>친밀 장면 수위는 프리셋 노트(은근하게 / 직접적으로)에서 하나를 고르고, 플레이 모드(음란 / 하렘 / 하드코어 등반 / 일상 학원 / 어두운 비밀 / TS / 장문 묘사)를 더할 수 있습니다. 커스텀 모드 탭에서 취향을 더 얹을 수도 있습니다.</li>
           <li>대사는 [이름]: "대사" 형식으로 표시됩니다.</li>
-          <li>마정석은 탑에서, 크론은 학원에서 쓰는 돈입니다. 휴게층(13·38·63·88층)에서는 상태창 '탑' 탭 구석의 상인을 눌러 마정석으로 물건을 살 수 있습니다.</li>
+          <li>마정석은 탑에서, 크론은 학원에서 쓰는 돈입니다. 상태창 '탑' 탭 구석의 가게를 누르면 휴게층(13·38·63·88층)에서는 탑의 상인(마정석), 학원 광장에서는 상점가, 베르나크 시에서는 구역마다 다른 가게, 숙소에서는 매점(크론), 탑 입구에서는 관리국 매입소(마정석 → 크론 환전)를 쓸 수 있습니다.</li>
+          <li>크론은 월요일 용돈, 아르바이트, 의뢰 보상, 대항전 상금, 환전으로 법니다. 학원 가방의 물건을 인물에게 선물하면 취향에 따라 호감이 달라집니다.</li>
+          <li>상태창 버튼(구매·환전·전투·선택지·커스텀 모드)은 매 턴 바뀌는 인증 코드를 함께 보냅니다. 직접 입력한 [구매]·[전투 결과]·[커스텀 모드 설정]은 인정되지 않습니다.</li>
+          <li>베르나크 시(대도시, 9개 구역)는 상태창 '탑' 탭의 도시 지도로 구역을 옮겨 다닙니다. 투기장 경기, 경매, 시세 환전, 아지트 임대, 환락가 카지노(크론을 배율로 불리기)를 상태창에서 할 수 있고, 명성이 오르면 할인과 출입처가 늘어납니다.</li>
+          <li>100층을 넘은 뒤 <code>!엔딩</code> (원하면 종류: 동반자/개척자/학술원/실종/여정)을 입력하면 졸업 이후의 엔딩이 펼쳐집니다.</li>
           <li>가방이나 재화가 어긋나 보이면 <code>!정비</code> 를 입력하세요. 상태창 '탑' 탭에서 몬스터와 직접 전투할 수도 있습니다.</li>
         </ul>
       </div>
@@ -131,8 +138,11 @@
       <h3>학과 평판과 재화</h3>
       <ul class="rule-list">
         <li><strong>학과 평판</strong>(0~99)은 네 학과가 각각 당신을 어떻게 보는지다. 소속 학과는 높게 시작한다(60, 나머지 50). 한 학과를 돕거나 꺾으면 ±1~3(행사에서는 ±5까지) 움직인다. 20 이하면 적대, 70 이상이면 그 학과가 당신 편에 선다.</li>
-        <li><strong>마정석</strong>은 탑의 화폐. 수호자 전리품과 의뢰 보상으로 얻고, 탑의 상인에게서만 쓴다. <strong>크론</strong>은 학원의 돈. 월요일마다 주급 30이 들어오고, 상점과 매점에서 쓴다. 시작은 마정석 10 · 크론 100.</li>
+        <li><strong>마정석</strong>은 탑의 화폐. 수호자 전리품과 의뢰 보상으로 얻고, 탑의 상인에게 쓴다. <strong>크론</strong>은 학원의 돈. 시작은 마정석 10 · 크론 100.</li>
+        <li>크론 버는 법 — 월요일마다 주급 30, 의뢰 보상, 대항전·평가 상금(우승자 +20~50), 그리고 <strong>아르바이트</strong>. 저녁이나 주말에 2~3시간, 매점 계산대·대식당 주방·도서관 서가 정리·온실 돌보기·도시의 빵집·선술집·부두·클럽에서 일하면 15~25 크론. 그곳에서 일하거나 들른 누군가와 마주칠 기회이기도 하다.</li>
+        <li><strong>환전</strong> — 탑 입구의 관리국 매입소는 마정석 1개를 6 크론에 사 준다(한 방향만). 도시 상업 지구의 환전상은 날마다 시세가 바뀐다.</li>
         <li>가방은 둘. <strong>탑 가방</strong>(포션, 두루마리, 열쇠)은 탑 안에서만, <strong>학원 가방</strong>(선물, 책, 간식)은 바깥에서 쓴다.</li>
+        <li><strong>선물</strong> — 학원 가방의 물건을 그 자리에 있는 인물에게 건네면 그 사람의 선물 취향에 따라 호감이 움직인다. 좋아하는 종류 +3~+5, 최애 +6, 무난하면 +1~+2, 싫어하면 −1~−3. 같은 날 같은 사람에게 두 번째 선물은 +0~1.</li>
       </ul>
     </section>
 
@@ -176,6 +186,7 @@
 
       <h3>세 가지 포지션</h3>
       <p>어느 포지션이든 812학년도 1학년으로 시작한다. 입주일은 0812년 3월 1일 일요일 밤 9시, 다음 날이 입학식이다.</p>
+      <p>2~4학년으로 시작할 수도 있다. 1학년이고 날짜가 0812.03.08 이전일 때 <code>!학년 n</code>(n은 2~4)을 보내면, 앞선 학년들은 화면 밖에서 지나간 것으로 하고 812기 동기들과 함께 진급한 해(학년도 811+n)의 같은 날로 넘어간다. <code>선배</code>를 붙이면 812학년도에 그대로 남아 n학년이 되고, 812기가 후배가 된다. 포지션은 그대로, 개방은 n×25층, 아래 층들은 이미 깬 상태이고, 옛 동기들의 호감은 10~30에서 시작한다.</p>
       <div class="mode-cards">
         <article class="mode-card">
           <h3>신입 · 신입생 기숙사</h3>
@@ -302,14 +313,24 @@
       </ul>
       <p>수문장은 뒤틀린 메아리로 돌아온다. 보상은 큰 동조율 상승, 봉인된 방, 실종자의 기록, 그리고 생환자의 과거에 대한 실마리.</p>
 
+      <h3>도전 영역</h3>
+      <p>100층을 넘은 이만 들어갈 수 있고, 공식 기록이 없다. 층의 규칙은 올 때마다 바뀌지만, 몇몇 층에는 변하지 않는 이정표가 있다.</p>
+      <details class="secret"><summary>도전 영역의 이정표 · 보기</summary><div class="secret-body">
+<ul class="rule-list"><li><strong>101층 · 첫 번째 계단참</strong> — 졸업생들의 이름이 새겨진 금 간 기록석, 그리고 누구의 글씨인지 모를 한 줄. &quot;여기서부터는 탑이 너희를 기억한다.&quot; 규칙은 올 때마다 바뀌고, 대개 아래에서 깬 층의 변주다. 졸업생 대부분은 왔다는 걸 증명하려고 한 번 여기까지 왔다가 돌아간다.</li><li><strong>102층 · 거꾸로 쌓인 교실</strong> — 거꾸로 뒤집힌 강의동 교실. 어떤 교수도 쓴 적 없다는 분필 강의가 칠판에 있고, 학생들의 자리에는 잃어버린 것들이 새겨져 있다. 칠판의 강의를 끝내야 하는데, 그 주제는 파티원 누군가의 비밀이다.</li><li><strong>103층 · 선택하지 않은 길</strong> — 복도마다 학술원 없이 살았을 삶이 보인다. 나가려면 왜 여전히 이 길을 고르는지 각자 소리 내어 말해야 한다. 누군가는 떠나고 싶지 않을지도 모른다.</li><li><strong>104층 · 잃어버린 파티의 야영지</strong> — 수십 년 전 사라진 파티가 식사하다 남긴 야영지. 식은 불, 일기들, 어느 인물 가문의 배지. 일기는 모두 같은 문장으로 끝난다. 무엇이든 집어 들면 야영지의 주인들이 속삭이기 시작한다.</li><li><strong>105층 · 탑의 시장</strong> <span class="sub">수호자 · 얼굴 없는 상인장</span> — 얼굴 없는 이들이 지키는 고요한 시장. 동전이 아니라 기억과 비밀과 약속으로만 거래한다. 물건은 진짜이고, 100층 위에서만 듣는다. 흥정은 되지만 거짓말은 안 된다.</li><li><strong>106층 · 두 개의 달</strong> — 끝없는 들판 위 두 개의 달. 한쪽 달빛 아래서는 서로의 감정이 전부 느껴지고, 다른 쪽에서는 아무것도 느껴지지 않는다. 함께 한쪽 빛에서 다른 쪽 빛으로 걸어가야 건넌다.</li><li><strong>107층 · 이름을 먹는 안개</strong> <span class="sub">수호자 · 이름 포식자</span> — 이름을 먹는 안개. 한 시간 동안 이름이 불리지 않은 사람은 자기가 누구인지 잊는다. 파티는 서로를 계속 불러야 하고, 누가 누구를 먼저 부르는지 알게 된다.</li><li><strong>108층 · 역류하는 시간</strong> — 떠나는 순간부터 거꾸로 흐르는 시간. 파티는 지친 채 도착해 갈수록 생생해지고, 시작보다 끝을 먼저 기억한다.</li><li><strong>109층 · 심장 박동의 다리</strong> — 걷는 이들의 심장 박동이 맞을 때만 버티는 빛의 다리. 둘씩 손을 잡고 건너고, 둘 사이의 거짓이나 두려움은 다리를 깜빡이게 한다.</li><li><strong>110층 · 첫 번째 기록석</strong> — 거대한 기록석의 홀. 여기 닿은 모든 등반자의 이름이 새겨져 있다. 존재한 적 없는 사람의 이름도 있고, 아래에 아직 살아 있는 아는 사람의 이름도 하나 있다.</li><li><strong>115층 · 거울 도시</strong> — 건물마다 학술원 어딘가를 비추는 거울인 도시. 그 반영 속에는 다른 선택을 한 학생들이 산다. 그중 하나가 자리를 바꾸자고 한다.</li><li><strong>120층 · 이름 없는 계단</strong> — 층이 끝나고 이름이 늘어선 끝없는 나선 계단이 된다. 걸음이 아니라 고백으로 나아간다. 파티원끼리 진실을 하나 말할 때마다 한 바퀴 오른다. 이곳의 기록석은 손에 따뜻하다.</li><li><strong>130층 · 실종자들의 마을</strong> <span class="sub">수호자 · 마을을 지키는 자</span> — 늙지 않은 채 살아 있는 실종자들의 조용한 마을. 시간이 흘렀다는 걸 믿지 않는다. 학술원 인물의 가족도 있다. 떠나고 싶어 하지 않을 수도 있고, 탑은 모두를 보내 주지 않는다.</li><li><strong>140층 · 규칙을 쓰는 방</strong> — 파티가 이 층의 규칙을 책에 써야 하는 서재. 탑은 빈틈까지 쓰인 그대로 집행한다. 잔인한 규칙을 써도 통하지만, 쓴 사람을 바꿔 놓는다.</li><li><strong>150층 · 탑의 두 번째 심장</strong> <span class="sub">수호자 · 두 번째 심장</span> — 학술원 전체의 마력으로 뛰는 심장 모양의 방. 학과장들이 이곳을 보고 오르기를 멈췄다. 수호자는 각 파티원이 가장 믿는 사람의 얼굴을 한 탑 그 자체다.</li><li><strong>175층 · 별의 정원</strong> <span class="sub">수호자 · 별의 정원사</span> — 모르는 별로 가득한 하늘에 열린 정원. 공기가 희박해 오래 머물 수 없다. 여기 기록은 &quot;탑을 지은 이들&quot;이 이 문으로 떠났다고 말한다.</li><li><strong>200층 · 끝이 보이는 층</strong> <span class="sub">수호자 · 문지기</span> — 소문뿐이다. 빛이 새어 나오는 문, 그리고 지나가려면 무엇을 두고 가겠느냐고 등반자마다 묻는 목소리. 그 너머에서 돌아온 사람은 알려진 바 없다.</li></ul>
+      </div></details>
+
       <h3>탑 의뢰</h3>
       <p>학원 광장 게시판과 탑 입구에 교수, 관리국, 상점, 다른 파티가 의뢰를 붙인다. 재료 채집, 조난 파티 구조, 후배 호위, 기록 경주, 이미 깬 층의 봉인된 방 열기. 한 번에 하나만 받을 수 있고, 받은 의뢰는 평일에도(수업 뒤) 그 일을 위한 탑 출입을 허가한다. 보상은 동조율, 호감, 물건, 평판.</p>
+      <p><code>[의뢰 수락]</code>으로 학원 광장이나 탑 입구에서 받고, 상태창 의뢰 줄에 그 이름이 적힌다. 끝내면 적힌 보상을 한 번 받는다. <code>[의뢰 포기]</code>하면 보상은 없고, 의뢰인은 그 일을 기억한다. 열린 층보다 위의 탑 의뢰는 접수대에서 거절된다. 게시판이 바닥나면 같은 결의 새 의뢰가 붙는다.</p>
+      <details class="roster"><summary>지금 붙어 있는 의뢰 · 28건</summary><div class="roster-body">
+<div class="table-scroll"><table class="roster-table quest-table"><thead><tr><th>구분</th><th>의뢰</th><th>보상</th></tr></thead><tbody><tr><th>학원</th><td><strong>분실된 실습 노트</strong><span class="sub">이레네 사바 교수 · 강의동 · 대도서관</span>합반 강의 뒤 사라진 동조 측정 노트를 관리국보다 먼저 찾는다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>어떤 학생이 자기 수치를 조작하려고 &quot;빌려 갔다&quot;. 조용히 돌려놓아도, 폭로해도 대가가 따른다.</p></div></details></td><td class="reward">크론 25 · 이레네 호감 +3</td></tr><tr><th>학원</th><td><strong>온실의 밤 당번</strong><span class="sub">엘레나 로시 · 성유과 온실</span>밤에 피는 달빛초를 사흘 밤 지킨다. 도둑들이 사랑의 부적으로 팔아넘긴다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>도둑은 사랑에 빠진 학생. 따뜻한 온실에서 파트너와 보내는 이틀 밤은 조용해진다.</p></div></details></td><td class="reward">크론 30 · 함께한 인물 호감 +3</td></tr><tr><th>학원</th><td><strong>매점 대신 지키기</strong><span class="sub">매점 주인 · 숙소 · 기숙사 매점</span>주인이 없는 저녁 한나절 매점 계산대를 맡고 장부를 맞춘다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>아는 사람이 전부 들르고, 누군가는 자기 간식을 당신 외상으로 달려고 한다.</p></div></details></td><td class="reward">크론 20 · 매점 할인 소문</td></tr><tr><th>1학년</th><td><strong>이끼 정원 채집</strong><span class="sub">셀린 로웬 교수 · 2층 이끼 정원</span>덩굴 올가미를 깨우지 않고 세 가지 색의 빛나는 이끼 열 개를 가져온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>한 가지 색은 두 사람이 일 분 동안 가까이 서 있는 곳에서만 자란다.</p></div></details></td><td class="reward">마정석 4 · 크론 20</td></tr><tr><th>1학년</th><td><strong>메아리 미로의 목소리</strong><span class="sub">도서관 기록계 · 4층 메아리 미로</span>미로 벽에 아직 갇혀 있는 가장 오래된 메아리를 소리 결정에 담아 온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그 메아리는 실종된 등반자의 마지막 말이고, 살아 있는 누군가의 이름을 부른다.</p></div></details></td><td class="reward">마정석 5 · 동조율 +3</td></tr><tr><th>1학년</th><td><strong>신입 파티 호위</strong><span class="sub">카트린 볼크 교수 · 1~8층</span>첫 등반 뒤 길을 잃은 신입 1학년 셋을 문까지 데려온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그 파티의 리더는 당신 파티의 누군가에게 반해 있고, 나머지 둘은 말다툼을 멈추지 않는다.</p></div></details></td><td class="reward">마정석 6 · 학과 평판 +2</td></tr><tr><th>1학년</th><td><strong>무광층 횃불 보급</strong><span class="sub">탑 입구 보급소 · 7층 무광층</span>완전한 어둠 속에서 꺼지지 않는 횃불 스무 개를 7층 쉼터까지 나른다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>빛 마법이 듣지 않아, 파티는 가는 내내 손을 잡고 있어야 한다.</p></div></details></td><td class="reward">마정석 6 · 크론 15</td></tr><tr><th>1학년</th><td><strong>거꾸로 숲의 알</strong><span class="sub">빅토르 강 교수 · 14층 거꾸로 숲</span>뿔 달린 부엉이 짐승의 알 하나를 깨뜨리지 않고 가져온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>어미가 돌아온다. 싸우거나 흥정하거나.</p></div></details></td><td class="reward">마정석 8 · 크론 30</td></tr><tr><th>2학년</th><td><strong>목소리를 돌려줘</strong><span class="sub">2학년 성유과 생도 · 27층 목소리 교환</span>27층을 떠난 뒤에도 바뀐 채인 선배의 목소리를 되찾아 준다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>지금 그녀의 목소리는 라이벌의 것이고, 라이벌은 돌려줄 생각이 없다.</p></div></details></td><td class="reward">마정석 10 · 크론 30 · 의뢰인 호감 +4</td></tr><tr><th>2학년</th><td><strong>모래의 바다 지도</strong><span class="sub">에스텔 그림 교수 · 32층 모래의 바다</span>기록을 고칠 수 있도록 움직이는 모래 언덕을 꼬박 하루 지도에 옮긴다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>유일하게 안전한 길 위에 모래 와이번의 둥지가 있다.</p></div></details></td><td class="reward">마정석 12 · 크론 25</td></tr><tr><th>2학년</th><td><strong>가면 연회 잠입</strong><span class="sub">탑 관리국 · 42층 가면의 연회장</span>유령 손님들 사이에서 실종된 관리국 요원이 어느 가면 뒤에 있는지 찾는다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>요원은 떠나고 싶어 하지 않는다. 그 안에서 누군가를 만났다.</p></div></details></td><td class="reward">마정석 14 · 관리국 신용</td></tr><tr><th>2학년</th><td><strong>실거미 비단 수확</strong><span class="sub">광장 재단사 · 37층 거미줄 첨탑</span>여왕을 깨우지 않고 거미줄 첨탑에서 비단 다섯 필을 잘라 온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>비단을 쥔 채 거짓말을 하면 비단이 그 사람을 묶는다.</p></div></details></td><td class="reward">마정석 10 · 크론 40</td></tr><tr><th>2학년</th><td><strong>조난 파티 구조 (중층)</strong><span class="sub">탑 입구 긴급 게시 · 26~50층</span>30~40층 어딘가에서 여섯 시간째 돌아오지 않는 2학년 파티를 찾는다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그들은 34층의 같은 10분 안에 갇혀 맴돌고 있고, 바깥 사람만 그 고리를 끊을 수 있다.</p></div></details></td><td class="reward">마정석 15 · 동조율 +4 · 구조된 파티 호감 +5</td></tr><tr><th>3학년</th><td><strong>남겨진 자의 편지</strong><span class="sub">요나스 하트 교수 · 52층 남는 자</span>이번에 층이 남겨 두는 사람에게 편지를 전하고 답장을 받아 온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>남겨진 사람은 이십 년 전에 사라진 파티의 일원이다.</p></div></details></td><td class="reward">마정석 18 · 요나스 호감 +5</td></tr><tr><th>3학년</th><td><strong>독 안개 정화</strong><span class="sub">줄리안 페어 교수 · 56층 독 안개</span>연구팀이 안개를 채취하는 세 시간 동안 정화 결계를 버틴다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>안개는 결계를 든 사람의 동조에 반응한다.</p></div></details></td><td class="reward">마정석 20 · 크론 40</td></tr><tr><th>3학년</th><td><strong>피의 계약 해지</strong><span class="sub">익명의 생도 · 64층 피의 계약</span>지난 학기 겁에 질려 맺은 학생의 피의 계약을 푼다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>계약을 깨려면 그를 사랑하는 누군가가 새 계약을 맺어야 한다.</p></div></details></td><td class="reward">마정석 22 · 의뢰인 호감 +6</td></tr><tr><th>4학년</th><td><strong>선대의 기록 회수</strong><span class="sub">아르민 그라프 학과장 · 97층 선대의 기록</span>수십 년 전 학과장들의 파티가 남긴 봉인된 항해 일지를 가져온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>읽으면 그들이 100층 위에서 무엇을 봤는지, 왜 멈췄는지 드러난다.</p></div></details></td><td class="reward">마정석 35 · 학과장 신뢰</td></tr><tr><th>4학년</th><td><strong>시간의 무덤 탈출 호위</strong><span class="sub">탑 관리국 · 85층 시간의 무덤</span>한 시간마다 한 살씩 늙는 들판을 가로질러 관리국 연구원을 호위한다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그는 무언가를 이해할 만큼 늙을 때까지 남고 싶어 한다.</p></div></details></td><td class="reward">마정석 30 · 크론 60</td></tr><tr><th>4학년</th><td><strong>별 없는 바다의 등대</strong><span class="sub">주노 하예 교수 · 87층 별 없는 바다</span>검은 바다 한가운데 꺼진 등대에 다시 불을 붙인다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>배 위의 두 사람이 두려운 것을 고백해야만 불이 붙는다.</p></div></details></td><td class="reward">마정석 28 · 동조율 +5</td></tr><tr><th>이면층</th><td><strong>이면층 봉인실 조사</strong><span class="sub">휴고 마른 교수 · 이면층 (개방된 구간)</span>뒤집힌 층의 봉인된 방 하나를 지도로 그리고 벽의 기록을 베껴 온다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>기록에 당신의 이름, 혹은 당신이 잃은 누군가의 이름이 나온다.</p></div></details></td><td class="reward">마정석 25 · 기록 단서</td></tr><tr><th>도시</th><td><strong>귀족 무도회 호위</strong><span class="sub">그라프 가 집사 · 귀족 구역</span>그라프 가 겨울 무도회에서 하룻밤 동안, 아무도 눈치채지 못하게 사교계 데뷔 영애를 지킨다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>위협은 경쟁 가문의 퇴짜 맞은 구혼자. 세드릭도 그 자리에 있고, 몹시 격식을 차린다.</p></div></details></td><td class="reward">크론 60 · 명성 +3</td></tr><tr><th>도시</th><td><strong>항구 밀수 조사</strong><span class="sub">관리국 본청 서기 · 항구</span>어느 창고가 등록되지 않은 이면층 유물을 밀수하는지 찾는다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>밀수꾼들은 실종자 가족을 먹여 살리는 전직 등반자들이다.</p></div></details></td><td class="reward">크론 70 · 명성 +3</td></tr><tr><th>도시</th><td><strong>클럽 「심연」 실종 사건</strong><span class="sub">클럽 「심연」 지배인 · 환락가</span>댄스 플로어에서 사라진 단골이 어디로 갔는지 밝힌다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그는 클럽 벽의 거울로 걸어 들어갔고, 그 거울은 이면층 같은 곳으로 이어진다.</p></div></details></td><td class="reward">크론 80 · 명성 +4</td></tr><tr><th>도시</th><td><strong>신전 유물 운반</strong><span class="sub">대신전 사제장 · 대신전 → 탑 입구</span>새벽 전에 봉인된 성유물함을 신전에서 탑 문까지 나른다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>두드리면 안에서 무언가가 되두드린다.</p></div></details></td><td class="reward">크론 40 · 명성 +2</td></tr><tr><th>도시</th><td><strong>투기장 대리 출전</strong><span class="sub">부상당한 투사 브락 · 투기장</span>그가 계약을 지킬 수 있도록 그의 이름으로 리그 한 경기를 뛴다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>상대는 바꿔치기를 알고, 당신이 지는 쪽에 건다.</p></div></details></td><td class="reward">크론 50 · 명성 +3</td></tr><tr><th>도시</th><td><strong>경매장 위작 감정</strong><span class="sub">경매장 감정사 · 상업 지구</span>오늘 밤 경매 전에 &quot;90층 유물&quot; 셋 중 무엇이 진짜인지 가려낸다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>진짜는 저주받았고, 가짜들은 무해하다.</p></div></details></td><td class="reward">크론 60 · 명성 +2</td></tr><tr><th>도시</th><td><strong>빈민가 아이들 수업</strong><span class="sub">항구 고아원장 · 항구</span>사흘 저녁 동안 빈민가 아이 여섯에게 마력의 기초를 가르친다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>그중 하나에게 관리국이 탐낼 재능이 있다.</p></div></details></td><td class="reward">크론 25 · 명성 +3 · 함께한 인물 호감 +3</td></tr><tr><th>도시</th><td><strong>호수궁 연회 통역</strong><span class="sub">호수궁 지배인 · 호숫가</span>호숫가 연회 내내 외국 사절의 통역과 수행을 맡는다.<details class="secret mini"><summary>반전 보기</summary><div class="secret-body"><p>사절은 당신 학년의 가장 뛰어난 등반자들을 다른 탑으로 데려가려 한다.</p></div></details></td><td class="reward">크론 70 · 명성 +3</td></tr></tbody></table></div>
+      </div></details>
       <p>가끔 파티가 제때 돌아오지 않는다. 탑 입구에 긴급 구조 의뢰가 붙고, 응한 사람은 요일과 상관없이 허가를 받는다. 구조는 라이벌이 서로에게 평생 빚지는 곳이다. 이따금 조난 파티가 명단에 없던 누군가를 하나 더 데리고 발견된다.</p>
     </section>
 
     <section id="people" class="content-section">
       <h2>인물</h2>
-      <p class="lead">이름 있는 학생은 학과마다, 기수마다 딱 다섯 명. 809기부터 815기까지, 그리고 교수진 마흔여덟 명.</p>
+      <p class="lead">이름 있는 학생은 학과마다, 기수마다 다섯 명. 812기 탐사과에만 아카네 시노노메가 여섯 번째로 있다. 809기부터 815기까지, 그리고 교수진 마흔여덟 명.</p>
       <p>학생마다 입학 연도(기수)가 정해져 있다. 812기는 812학년도에 1학년이고, 해가 바뀌면 다 같이 한 학년씩 오른다. 5학년이 되면 졸업해 저마다의 졸업 후 자리로 가고, 813~815기는 입학하는 해부터 나타난다. 모든 인물은 학생과 교수를 막론하고 성인이다. 학생들은 교수를 '(성) 교수님'이라 부른다.</p>
 
       <h3>812기 · 주요 동기</h3>
@@ -318,7 +339,7 @@
         <div>
           <h2>리세 발트하임</h2>
           <p class="char-role">Liese Waldheim · 812기 마투과 · 주요 인물 · 클로 격투가</p>
-          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>무기</dt><dd>마력 건틀릿 위에 낀 강철 클로. 빠르고 낮고 끈질긴 격투가</dd><dt>외모</dt><dd>짧고 부스스한 구릿빛 머리, 호박색 눈, 코와 어깨의 주근깨, 작지만 다부진 근육질, 붕대 감은 주먹, 늘 걷어 올린 소매, 웃으면 보이는 이 빠진 앞니</dd><dt>말투</dt><dd>빠른 반말, 느낌표, 운동선수 같은 도발. 상처받으면 조용하고 짧아진다. 당신을 첫날부터 이름으로 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>무기</dt><dd>마력 건틀릿 위에 낀 강철 클로. 빠르고 낮고 끈질긴 격투가</dd><dt>외모</dt><dd>짧고 부스스한 구릿빛 머리, 호박색 눈, 코와 어깨의 주근깨, 작지만 다부진 근육질, 붕대 감은 주먹, 늘 걷어 올린 소매, 웃으면 보이는 이 빠진 앞니</dd><dt>말투</dt><dd>빠른 반말, 느낌표, 운동선수 같은 도발. 상처받으면 조용하고 짧아진다. 당신을 첫날부터 이름으로 부른다.</dd><dt>선물</dt><dd>좋아함: 간식, 훈련 용품 (최애: 야식 꼬치) / 싫어함: 향</dd></dl>
           <p>시끄럽고 쾌활한 다혈질. 자기보다 강한 사람에게는 누구든 덤비고, 남들 앞에서는 지고도 웃어넘기다가 혼자서만 삐친다. 가장 강해지려고 오른다고 말한다.</p>
           <p>고드릭 반스를 우상으로 여기고, 노엘 아르장(마도과)과는 보자마자 라이벌, 시온 블랙우드(탐사과)와는 자꾸 부딪친다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"야, 너 강해? 강하면 나랑 붙자! 약해도 붙자! 붙어 보면 알 거 아냐!"</li></ul>
@@ -332,7 +353,7 @@
         <div>
           <h2>세드릭 그라프</h2>
           <p class="char-role">Cedric Graff · 812기 마투과 · 주요 인물 · 대검 · 그라프 가의 후계자</p>
-          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>무기</dt><dd>옛 그라프식 대검. 무겁고 정확하며 수비적</dd><dt>외모</dt><dd>큰 키에 넓은 어깨, 목덜미에서 낮게 묶은 검은 머리, 강철빛 회색 눈, 턱선의 가는 흉터, 단추를 끝까지 채운 흐트러짐 없는 교복, 가문의 인장 반지</dd><dt>말투</dt><dd>절제된 존댓말, 완결된 문장, 드문 건조한 농담. 정말 믿는 사람에게만 무뚝뚝한 반말로 바뀐다. 가까워지기 전까지 당신을 &#x27;(이름) 씨&#x27;라고 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>무기</dt><dd>옛 그라프식 대검. 무겁고 정확하며 수비적</dd><dt>외모</dt><dd>큰 키에 넓은 어깨, 목덜미에서 낮게 묶은 검은 머리, 강철빛 회색 눈, 턱선의 가는 흉터, 단추를 끝까지 채운 흐트러짐 없는 교복, 가문의 인장 반지</dd><dt>말투</dt><dd>절제된 존댓말, 완결된 문장, 드문 건조한 농담. 정말 믿는 사람에게만 무뚝뚝한 반말로 바뀐다. 가까워지기 전까지 당신을 &#x27;(이름) 씨&#x27;라고 부른다.</dd><dt>선물</dt><dd>좋아함: 커피·차, 책 (최애: 홍차 틴) / 싫어함: 술</dd></dl>
           <p>금욕적이고 책임감 강하며 지나칠 만큼 예의 바르다. 따뜻함을 격식 밑에 숨긴다. 학과 대표가 되어 동기 중 누구보다 먼저 100층에 닿기를 기대받는다.</p>
           <p>학과장 아르민 그라프를 집안 어른으로 존경하고, 리더 자리를 두고 노엘 아르장과 맞선다. 하린 문을 조용히 지킨다. 캠퍼스에서는 종조부를 &#x27;교수님&#x27;이라 불러야 하고, 특혜를 받는다고 보일까 두려워한다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"그라프 가의 검은 물러서지 않습니다. …다만, 당신 뒤라면 한 걸음쯤은 물러서도 괜찮겠군요."</li></ul>
@@ -346,7 +367,7 @@
         <div>
           <h2>노엘 아르장</h2>
           <p class="char-role">Noël Argent · 812기 마도과 · 주요 인물 · 화염 마법의 천재</p>
-          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>마법</dt><dd>화염 마법. 엄청난 출력, 스트레스를 받으면 무너지는 제어</dd><dt>외모</dt><dd>턱선에서 날카롭게 자른 백금발 단발, 진홍색 눈, 아주 흰 피부, 가냘픈 체구, 늘 끼는 얇은 검은 장갑, 몸에 맞춰 지은 티 없는 교복</dd><dt>말투</dt><dd>도도한 반말, 비꼬기, &quot;흥&quot;. 칭찬받으면 말을 더듬는다. 당신을 코웃음 섞인 &quot;너&quot;로 부르다가, 나중에는 이름으로 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>마법</dt><dd>화염 마법. 엄청난 출력, 스트레스를 받으면 무너지는 제어</dd><dt>외모</dt><dd>턱선에서 날카롭게 자른 백금발 단발, 진홍색 눈, 아주 흰 피부, 가냘픈 체구, 늘 끼는 얇은 검은 장갑, 몸에 맞춰 지은 티 없는 교복</dd><dt>말투</dt><dd>도도한 반말, 비꼬기, &quot;흥&quot;. 칭찬받으면 말을 더듬는다. 당신을 코웃음 섞인 &quot;너&quot;로 부르다가, 나중에는 이름으로 부른다.</dd><dt>선물</dt><dd>좋아함: 단 것, 책 (최애: 꿀 마카롱 상자) / 싫어함: 향</dd></dl>
           <p>독설가인 오만한 천재. 아무도 안 본다고 생각할 때 츤데레 같은 다정함이 새어 나온다. 다음 시대의 위대한 술사가 될 거라는 말을 들으며 자랐다.</p>
           <p>리세 발트하임, 세드릭 그라프와 라이벌. 이모인 학과장 세라핀 노아는 위대함을 기대하고, 엘로이즈 마르탱은 그녀의 출력이 튀는 것을 눈치챘다. 이모의 기대를 갈망하면서도 원망하고, 이모라는 호칭은 둘만 있을 때만 쓴다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"흥, 내 불꽃 옆에 서고 싶다면 그 정도 각오는 하고 와. …다치면 안 되니까, 내 뒤에 있어."</li></ul>
@@ -360,7 +381,7 @@
         <div>
           <h2>세실리아 모로</h2>
           <p class="char-role">Cecilia Moreau · 812기 성유과 · 주요 인물 · 타고난 증폭자</p>
-          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>능력</dt><dd>치유와 동조 증폭. 보기 드문 타고난 증폭자</dd><dt>외모</dt><dd>보통 반만 묶는 긴 웨이브 밤색 머리, 부드러운 초록 눈, 왼쪽 눈 밑의 작은 점, 교복 위 크림색 카디건, 은바늘 모양 머리핀</dd><dt>말투</dt><dd>부드러운 존댓말, 신중한 말씨, 갑작스러운 단호함. 당신을 다정한 격식을 담아 이름으로 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>능력</dt><dd>치유와 동조 증폭. 보기 드문 타고난 증폭자</dd><dt>외모</dt><dd>보통 반만 묶는 긴 웨이브 밤색 머리, 부드러운 초록 눈, 왼쪽 눈 밑의 작은 점, 교복 위 크림색 카디건, 은바늘 모양 머리핀</dd><dt>말투</dt><dd>부드러운 존댓말, 신중한 말씨, 갑작스러운 단호함. 당신을 다정한 격식을 담아 이름으로 부른다.</dd><dt>선물</dt><dd>좋아함: 꽃, 커피·차 (최애: 들꽃 다발) / 싫어함: 술</dd></dl>
           <p>다정하고 눈치 빠르며, 조용한 강단이 있다. 목소리를 높이는 법이 없고, 좀처럼 물러서지도 않는다. 시골 의사의 딸로, 죽어 가던 환자가 그녀의 손길에 회복하면서 증폭의 재능이 드러났다.</p>
           <p>신입 영입전에서 모든 학과가 그녀를 두고 다툰다. 로잘린 비에가 이끌어 주고, 아델 벨루아는 그녀를 의심한다. 사촌 사무엘 노블(809기 성유과)을 &#x27;사무엘 오빠&#x27;라 부르며, 그의 70층의 죄책감을 느낀다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"괜찮아요, 제가 볼게요. …다만 당신이 아픈 걸 숨기면, 저도 화낼 줄 알아요."</li></ul>
@@ -374,7 +395,7 @@
         <div>
           <h2>라파엘 윈터스</h2>
           <p class="char-role">Raphael Winters · 812기 성유과 · 주요 인물 · 치유와 결계</p>
-          <dl class="char-facts"><dt>나이</dt><dd>22세 (812학년도)</dd><dt>능력</dt><dd>치유와 결계. 우아하고 효율적이며 화려하다</dd><dt>외모</dt><dd>어깨까지 오는 은백색 머리, 얼음빛 푸른 눈, 크고 마른 체격, 편한 미소, 크리스털 귀걸이 한 쪽, 넥타이를 푼 채 헐렁하게 입은 교복</dd><dt>말투</dt><dd>능청스러운 반말, 놀리는 칭찬, 농담으로 피하기. 하루 만에 당신을 애칭으로 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>22세 (812학년도)</dd><dt>능력</dt><dd>치유와 결계. 우아하고 효율적이며 화려하다</dd><dt>외모</dt><dd>어깨까지 오는 은백색 머리, 얼음빛 푸른 눈, 크고 마른 체격, 편한 미소, 크리스털 귀걸이 한 쪽, 넥타이를 푼 채 헐렁하게 입은 교복</dd><dt>말투</dt><dd>능청스러운 반말, 놀리는 칭찬, 농담으로 피하기. 하루 만에 당신을 애칭으로 부른다.</dd><dt>선물</dt><dd>좋아함: 음악·공예, 커피·차 (최애: 원두 커피) / 싫어함: 단 것</dd></dl>
           <p>추파를 던지는 매력남. 인기 많고 장난스럽고, 모두를 특별한 사람처럼 느끼게 하며, 피로를 농담 뒤에 숨긴다. 쉬지 않고 의뢰를 돌며 돈을 번다.</p>
           <p>줄리안 페어의 번아웃을 그대로 닮아 가고, 줄리안은 그를 걱정한다. 아이샤 칸과는 음악 파트너다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"다쳤어? 이리 와, 내가 고쳐 줄게. 대가는… 음, 미소 하나면 충분해."</li></ul>
@@ -388,13 +409,27 @@
         <div>
           <h2>시온 블랙우드</h2>
           <p class="char-role">Sion Blackwood · 812기 탐사과 · 주요 인물 · 추적과 투척 단검</p>
-          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>능력</dt><dd>추적, 은신, 투척 단검</dd><dt>외모</dt><dd>회색 눈 위로 흐트러진 검은 머리, 마르고 창백함, 교복 위 어두운 후드 망토, 늘 붕대를 감은 왼팔, 소리 없는 걸음</dd><dt>말투</dt><dd>짧은 반말, 낮은 목소리, 빈정거림. 처음에는 당신을 성으로 부른다.</dd></dl>
+          <dl class="char-facts"><dt>나이</dt><dd>20세 (812학년도)</dd><dt>능력</dt><dd>추적, 은신, 투척 단검</dd><dt>외모</dt><dd>회색 눈 위로 흐트러진 검은 머리, 마르고 창백함, 교복 위 어두운 후드 망토, 늘 붕대를 감은 왼팔, 소리 없는 걸음</dd><dt>말투</dt><dd>짧은 반말, 낮은 목소리, 빈정거림. 처음에는 당신을 성으로 부른다.</dd><dt>선물</dt><dd>좋아함: 문구, 커피·차 (최애: 원두 커피) / 싫어함: 단 것</dd></dl>
           <p>냉담하고 예리하며 건조하다. 질문에 질문으로 답하고, 한번 사람을 들이면 충실하다. 2년 전 형이 70층 아래 파티 등반 중 탑에서 실종됐다.</p>
           <p>시안 로크가 이끌어 주고, 요나스 하트와 기록을 주고받으며, 리세 발트하임과 부딪친다. 동생 엘리 블랙우드(813기)에게 입학하지 말라고 빌었고, 두 번째 형제를 잃을까 두려워 과보호하며 퉁명스럽게 군다.</p>
           <ul class="quote-list"><li><span class="when">예시 대사</span>"…따라오지 마. 아니, 따라올 거면 발소리 좀 죽여."</li></ul>
           <h3>기술과 필살기</h3>
           <ul class="tech-list"><li><span class="tech-name">「투척 단검」</span>관절이든 밧줄이든 빗나가지 않는 투척 단검.</li><li><span class="tech-name">「그림자 추적」</span>희미한 마력의 흔적으로 누구든 추적한다.</li><li><span class="tech-name">「질문으로 답하기」</span>질문으로 주의를 돌린다. 적이 집중을 잃는다.</li><li class="ult"><span class="tech-name">★ 「그림자 매듭」</span>단검으로 적의 그림자를 꿰어 그 자리에 얼려 둔다.<span class="cost">대가 · 숨겨 둔 왼팔의 표식이 있어야 하고, 쓸 때마다 그를 아프게 한다.</span></li></ul>
           <details class="secret char-secret"><summary>시온 · 숨겨진 사정 보기</summary><div class="secret-body"><p>형을 찾으려고 입학했고, 관리국이 더 많이 안다고 의심한다. 당신이 생환자라면, 당신이 형과 함께 올랐을지도 모른다고 믿는다.</p><p>붕대 밑에는 형의 파티 표식과 같은 문신이 있다. 기록 보관실에서 옮겨 적은 이름 목록을 지니고 다닌다.</p><p>처음엔 거리를 두다가, 이내 지독하게 보호하려 든다. 애정은 조용한 존재감으로 드러난다. 늘 가까이 있지만, 이유는 말하지 않는다. 말을 얻기는 어렵고, 행동으로는 읽기 쉽다.</p><p class="secret-hint">무엇을 찾아내느냐에 따라 관리국 수색대원이 되거나, 관리국의 가장 날카로운 비판자가 된다.</p></div></details>
+        </div>
+      </section>
+      <section class="char-section tam" id="akane">
+        <div class="char-portrait char-monogram" aria-hidden="true">아</div>
+        <div>
+          <h2>아카네 시노노메</h2>
+          <p class="char-role">Akane Shinonome · 812기 탐사과 · 시노노메 가의 마지막 수련생</p>
+          <dl class="char-facts"><dt>나이</dt><dd>21세 (812학년도)</dd><dt>무기</dt><dd>쿠나이와 마력을 꿴 와이어. 그림자를 묶는 시노비술</dd><dt>외모</dt><dd>빨간 긴 리본으로 높이 묶은 긴 흑발 포니테일, 붉은 눈. 교복 대신 가문의 흰색·붉은색 시노비 전투복을 입는다(학원은 일주일 만에 포기했다). 높은 깃, 드러난 어깨·배·다리, 붉은 리본이 늘어진 비치는 후리소데 소매, 허리 뒤의 커다란 붉은 리본. 등반할 때는 맨발이나 지카타비, 학원 배지는 하네스에 단다</dd><dt>말투</dt><dd>격식 있고 조금 예스러운 존댓말. 사람을 성과 이름에 &#x27;님&#x27;을 붙여 부르고, 옷차림은 담담하게 설명한다. 당황하면 &#x27;~이옵니다&#x27;가 튀어나온다.</dd><dt>선물</dt><dd>좋아함: 간식, 무기 손질 (최애: 찹쌀 경단) / 싫어함: 향</dd></dl>
+          <p>침착하고 예의 바르며 말을 곧이곧대로 받아들인다. 자기의 건조한 말이 웃기다는 걸 모른다. 지켜보기만 하도록 길러진 평범한 학생 생활이 궁금하다. 서까래와 창틀에 나타나 &#x27;평범한 학생의 행동&#x27;을 받아 적고, 지붕 위에서 혼자 찹쌀 경단을 먹는다. 위기에는 침착하고 치명적이며, 적을 묶고 파티의 퇴각을 엄호한다.</p>
+          <p>시온 블랙우드를 말없이 인정하는 라이벌로 여기고, 진 하야토는 그녀의 기술을 훔치려 든다. 노엘 아르장은 그녀의 옷차림에 기겁하고, 같은 동쪽 출신인 세이라 야마토(815기)에게 끌린다.</p>
+          <ul class="quote-list"><li><span class="when">예시 대사</span>"이 옷 말입니까? 바람을 피부로 읽어야 하니 가릴 수가 없습니다. …그렇게 빤히 보시면 바람이 흐트러집니다."</li></ul>
+          <h3>기술과 필살기</h3>
+          <ul class="tech-list"><li><span class="tech-name">「그림자 꿰매기」</span>마력을 꿴 쿠나이로 적의 그림자를 꿰어, 한 호흡 동안 그 자리에 얼린다.</li><li><span class="tech-name">「바람 읽기」</span>맨살로 공기의 흐름을 읽어 숨은 적과 함정, 비밀 문을 감지한다.</li><li><span class="tech-name">「연막 분신」</span>서 있던 자리에 연기 분신을 남기고 연기 속으로 사라진다.</li><li class="ult"><span class="tech-name">★ 「홍련 결계」</span>방 전체에 붉은 와이어를 둘러 모든 적의 그림자를 한꺼번에 묶고, 파티에게 결정적인 한 순간을 내준다.<span class="cost">대가 · 와이어와 마력을 전부 쓴다. 그날은 더 숨을 수도, 그림자 꿰매기를 쓸 수도 없다.</span></li></ul>
+          <details class="secret char-secret"><summary>아카네 · 숨겨진 사정 보기</summary><div class="secret-body"><p>동쪽 섬의 시노비 가문, 한때 관리국 동부 지부의 숨은 호위였던 시노노메 가의 마지막 수련생. 공식적으로는 탑을 연구하러, 몰래는 38층에서 돌아오지 않은 스승이 잃어버린 가문의 가장 오래된 두루마리를 되찾으러 왔다.</p><p>어릴 때부터 살지 말고 지켜보라고 길러졌다. 소리 없는 수련, 지붕 위의 불침번, 결코 들키지 말라는 규칙. 함께 웃어 준 유일한 사람이 스승이었다. 기숙사의 소음과 가십과 동기들이 당황스럽고도 근사하다. 이름 붙이지 않은 외로움과 평범한 것에 대한 허기.</p><p>가문이 인내심을 잃고 불러들이기 전에 두루마리를 찾아야 한다. 그런데 남고 싶어지기 시작했다. 38층에서 두루마리를 찾으면 돌아갈지 남을지 골라야 한다.</p><p>연애도 처음엔 임무처럼 다룬다. 관찰하고, 접근을 계획하고, 감정을 격식 있는 문장으로 보고한다. 진짜가 되면 당황해서 예스러워진다. 부탁받지 않아도 그림자 속에서 당신을 지키고, 당신이 찾을 곳에 접은 종이학을 놓아둔다.</p><p class="secret-hint">졸업 후 시노노메 가의 가주로 섬에 돌아가거나, 남아서 가문의 기술을 학술원에 연다.</p></div></details>
         </div>
       </section>
 
@@ -406,6 +441,7 @@
           <p class="char-role">마투과 학과장 · 61세 · '그라프 교수님' · 학생을 '제자'라 부른다</p>
           <p>칼로든 맨손으로든 견줄 자가 없는 무투가. 움직임보다 먼저 의도를 읽는다. 4학년 오의 과목을 맡고 평가 위원회에 앉는다. 말수가 적고, 경구와 긴 침묵으로 말한다.</p>
           <p>학생들이 살아서 졸업하기를 바란다. 도전 영역이 자신을 불렀듯 학생들을 부를까 두렵다.</p>
+          <dl class="char-facts"><dt>선물</dt><dd>좋아함: 커피·차, 책 (최애: 홍차 틴) / 싫어함: 단 것</dd></dl>
           <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「오의: 불살」</span>베기로 고른 것만 벤다. 저주든 무기든 층의 규칙이든, 사람은 결코 베지 않는다. 한 달에 한 번만 쓸 수 있고, 무엇을 대가로 치르는지는 말하지 않는다.</li></ul>
           <details class="secret char-secret"><summary>아르민 · 과거 보기</summary><div class="secret-body"><p>그라프 가의 작은아들로, 가문을 떠나 탑에 올랐다. 지금의 마도과 학과장 세라핀 노아와 파트너이자 라이벌로 100층까지 올랐고, 100층 위의 무언가가 둘의 동행을 끝냈다. 그곳에서 본 것이 그를 학생들의 야망을 막아서는 사람으로 만들었다. 세드릭 그라프는 돌아가신 형의 손자로, 공개적으로는 여느 학생처럼 대하고 사적으로는 가까이 지켜본다.</p></div></details>
         </div>
@@ -417,6 +453,7 @@
           <p class="char-role">마도과 학과장 · 58세 · '노아 교수님' · 학생을 성과 이름으로 부른다</p>
           <p>금기 마도와 고위 마도의 대가이자 교수 회의를 쥐락펴락하는 정치가. 4학년 고위 마도와 통제된 금기 마도를 가르친다. 우아한 존댓말로 날카로운 질문을 던진다.</p>
           <p>마도과가 누구보다 먼저 도전 영역에 닿기를 바란다. 그것을 바란 자신이 틀렸을까 두렵다.</p>
+          <dl class="char-facts"><dt>선물</dt><dd>좋아함: 장신구, 커피·차 (최애: 은 머리핀) / 싫어함: 간식</dd></dl>
           <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「금기 해방」</span>세계를 비트는 힘의 금기 주문을 풀어놓는다. 대가는 말하지 않는다. 그녀가 이것을 쓸 때, 100층 위의 무언가가 지켜본다.</li></ul>
           <details class="secret char-secret"><summary>세라핀 · 과거 보기</summary><div class="secret-body"><p>아르민 그라프와 100층까지 함께 오른 파트너이자 라이벌. 100층 위에서 그녀는 더 가려 했고 그는 거부했다. 답은 100층 위에 있었다고 여전히 믿으며, 자신을 붙잡은 남자를 원망한다. 노엘 아르장은 세상을 떠난 언니의 딸로, 위대함을 요구하면서 노엘의 출력이 튀는 것을 두려워하는 마음은 숨긴다.</p></div></details>
         </div>
@@ -428,6 +465,7 @@
           <p class="char-role">성유과 학과장 · 63세 · '세인 교수님' · 학생을 '아이'라 부른다</p>
           <p>성유의 비전을 다루는 치유사이자 학과 사이의 중재자. 곁에 있는 것만으로 사람을 진정시킨다. 4학년 성유 비전을 가르치고 평가 위원회에 앉는다. 부드러운 존댓말과 비유로 말한다.</p>
           <p>학과 사이의 평화, 그리고 더는 잃는 학생이 없기를 바란다. 비밀이 잘못된 방식으로 드러날까 두렵다.</p>
+          <dl class="char-facts"><dt>선물</dt><dd>좋아함: 커피·차, 향 (최애: 홍차 틴) / 싫어함: 술</dd></dl>
           <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「성유의 기적」</span>죽음의 문턱에 선 생명을 되돌린다. 자기 수명의 몇 년을 대가로 치른다.</li></ul>
           <details class="secret char-secret"><summary>그레고르 · 과거 보기</summary><div class="secret-body"><p>100층 등반을 마친 아르민 그라프와 세라핀 노아를 치료하며, 둘이 본 것을 들었다. 그 비밀을 짊어지면서 신중한 중재자가 되었다. 비밀을 가볍게 밝히지 않지만, 대놓고 거짓말도 하지 않는다. 생환자 학생의 기억이 그에게 평화와 진실 중 하나를 고르게 할지도 모른다.</p></div></details>
         </div>
@@ -439,6 +477,7 @@
           <p class="char-role">탐사과 학과장 · 60세 · '강 교수님' · 학생을 '녀석들'이라 부른다</p>
           <p>미지 영역 탐사와 바뀌는 규칙 속 지도 제작의 대가. 4학년 미지 영역론과 도전 영역 탐사를 가르친다. 거친 반말과 빈정거림. 학원에는 냉소적이고 학생에게는 충실하다.</p>
           <p>봉인된 지도가 공개되기를 바란다. 100층 위에서 학생을 잃을까 두렵다.</p>
+          <dl class="char-facts"><dt>선물</dt><dd>좋아함: 술, 커피·차 (최애: 과실주 한 병) / 싫어함: 단 것</dd></dl>
           <ul class="tech-list"><li class="ult"><span class="tech-name">★ 「끝없는 길」</span>길이 없는 곳에서 길을 찾는다. 그 길은 늘 예상치 못한 곳으로 이어진다.</li></ul>
           <details class="secret char-secret"><summary>빅토르 · 과거 보기</summary><div class="secret-body"><p>파티와 함께 101~104층의 지도를 그렸고, 둘은 돌아오지 못했다. 관리국이 그의 지도를 봉인했다. 그 공식적인 비밀주의가 그를 학원과 학과장들에게 냉소적으로 만들었다. 아르민 그라프, 세라핀 노아, 그레고르 세인을 믿지 않고 요나스 하트와 손잡는다.</p></div></details>
         </div>
@@ -478,7 +517,7 @@
 
       <h3>학생 명부</h3>
       <p>★는 주요 인물. 나이는 그 기수가 처음 나오는 학년도 기준이다.</p>
-<details class="roster"><summary>812기 · 동기 (812학년도 1학년)</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td><span class="star">★</span> 리세 발트하임<span class="sub">여 · 20세 (812학년도)</span></td><td><span class="star">★</span> 세드릭 그라프<span class="sub">남 · 21세 (812학년도)</span></td><td>하린 문<span class="sub">여 · 20세 (812학년도)</span></td><td>브루노 콜트<span class="sub">남 · 22세 (812학년도)</span></td><td>엘라 스칼렛<span class="sub">여 · 21세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td><span class="star">★</span> 노엘 아르장<span class="sub">여 · 20세 (812학년도)</span></td><td>퀸시 렌필드<span class="sub">남 · 20세 (812학년도)</span></td><td>아이샤 칸<span class="sub">여 · 21세 (812학년도)</span></td><td>루돌프 짐머<span class="sub">남 · 22세 (812학년도)</span></td><td>미레유 다크<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td><span class="star">★</span> 세실리아 모로<span class="sub">여 · 21세 (812학년도)</span></td><td><span class="star">★</span> 라파엘 윈터스<span class="sub">남 · 22세 (812학년도)</span></td><td>피오나 그린<span class="sub">여 · 20세 (812학년도)</span></td><td>오웬 블레이크<span class="sub">남 · 21세 (812학년도)</span></td><td>유나 사쿠라이<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td><span class="star">★</span> 시온 블랙우드<span class="sub">남 · 20세 (812학년도)</span></td><td>클라라 베른<span class="sub">여 · 21세 (812학년도)</span></td><td>진 하야토<span class="sub">남 · 22세 (812학년도)</span></td><td>마르가 펠<span class="sub">여 · 20세 (812학년도)</span></td><td>레오 몬태규<span class="sub">남 · 20세 (812학년도)</span></td></tr></tbody></table></div></div></details>
+<details class="roster"><summary>812기 · 동기 (812학년도 1학년)</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td><span class="star">★</span> 리세 발트하임<span class="sub">여 · 20세 (812학년도)</span></td><td><span class="star">★</span> 세드릭 그라프<span class="sub">남 · 21세 (812학년도)</span></td><td>하린 문<span class="sub">여 · 20세 (812학년도)</span></td><td>브루노 콜트<span class="sub">남 · 22세 (812학년도)</span></td><td>엘라 스칼렛<span class="sub">여 · 21세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td><span class="star">★</span> 노엘 아르장<span class="sub">여 · 20세 (812학년도)</span></td><td>퀸시 렌필드<span class="sub">남 · 20세 (812학년도)</span></td><td>아이샤 칸<span class="sub">여 · 21세 (812학년도)</span></td><td>루돌프 짐머<span class="sub">남 · 22세 (812학년도)</span></td><td>미레유 다크<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td><span class="star">★</span> 세실리아 모로<span class="sub">여 · 21세 (812학년도)</span></td><td><span class="star">★</span> 라파엘 윈터스<span class="sub">남 · 22세 (812학년도)</span></td><td>피오나 그린<span class="sub">여 · 20세 (812학년도)</span></td><td>오웬 블레이크<span class="sub">남 · 21세 (812학년도)</span></td><td>유나 사쿠라이<span class="sub">여 · 20세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td><span class="star">★</span> 시온 블랙우드<span class="sub">남 · 20세 (812학년도)</span></td><td>클라라 베른<span class="sub">여 · 21세 (812학년도)</span></td><td>진 하야토<span class="sub">남 · 22세 (812학년도)</span></td><td>마르가 펠<span class="sub">여 · 20세 (812학년도)</span></td><td>레오 몬태규<span class="sub">남 · 20세 (812학년도)</span></td><td>아카네 시노노메<span class="sub">여 · 21세 (812학년도)</span></td></tr></tbody></table></div></div></details>
 <details class="roster"><summary>811기 · 2학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>그레타 볼프<span class="sub">여 · 22세 (812학년도)</span></td><td>칼렙 스톤<span class="sub">남 · 23세 (812학년도)</span></td><td>리안 페어웰<span class="sub">남 · 21세 (812학년도)</span></td><td>소냐 이바노바<span class="sub">여 · 21세 (812학년도)</span></td><td>다니엘 우드<span class="sub">남 · 22세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>이사벨 크레인<span class="sub">여 · 22세 (812학년도)</span></td><td>테디 브룩스<span class="sub">남 · 21세 (812학년도)</span></td><td>앨리스 몽크<span class="sub">여 · 21세 (812학년도)</span></td><td>하킴 자파르<span class="sub">남 · 23세 (812학년도)</span></td><td>에블린 로즈<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>마틸다 오브라이언<span class="sub">여 · 23세 (812학년도)</span></td><td>니콜라이 페트로프<span class="sub">남 · 22세 (812학년도)</span></td><td>리리 하나미<span class="sub">여 · 21세 (812학년도)</span></td><td>아마데우스 클라인<span class="sub">남 · 21세 (812학년도)</span></td><td>제이드 블랙번<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>토비아스 해리스<span class="sub">남 · 22세 (812학년도)</span></td><td>모모 아케치<span class="sub">여 · 21세 (812학년도)</span></td><td>이고르 베일<span class="sub">남 · 23세 (812학년도)</span></td><td>세레나 블룸<span class="sub">여 · 22세 (812학년도)</span></td><td>파비오 루치<span class="sub">남 · 21세 (812학년도)</span></td></tr></tbody></table></div></div></details>
 <details class="roster"><summary>810기 · 3학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>발렌티나 크루즈<span class="sub">여 · 23세 (812학년도)</span></td><td>아론 크레스트<span class="sub">남 · 24세 (812학년도)</span></td><td>미카 요한센<span class="sub">여 · 22세 (812학년도)</span></td><td>케이 앤더스<span class="sub">남 · 22세 (812학년도)</span></td><td>줄리아 페로<span class="sub">여 · 24세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>아드리안 노크<span class="sub">남 · 23세 (812학년도)</span></td><td>클로이 마르소<span class="sub">여 · 22세 (812학년도)</span></td><td>바실 오르로프<span class="sub">남 · 24세 (812학년도)</span></td><td>엘레나 로시<span class="sub">여 · 23세 (812학년도)</span></td><td>사이러스 웨이드<span class="sub">남 · 22세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>카밀라 디아스<span class="sub">여 · 23세 (812학년도)</span></td><td>에밀 라르센<span class="sub">남 · 22세 (812학년도)</span></td><td>마리나 벨<span class="sub">여 · 24세 (812학년도)</span></td><td>루시앙 데브루<span class="sub">남 · 23세 (812학년도)</span></td><td>아니카 모렌<span class="sub">여 · 22세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>라이너 폭스<span class="sub">남 · 23세 (812학년도)</span></td><td>헤더 맥클레인<span class="sub">여 · 22세 (812학년도)</span></td><td>타츠미 쿠로<span class="sub">남 · 24세 (812학년도)</span></td><td>베아트리체 골드<span class="sub">여 · 23세 (812학년도)</span></td><td>오스카 템플<span class="sub">남 · 22세 (812학년도)</span></td></tr></tbody></table></div></div></details>
 <details class="roster"><summary>809기 · 4학년 선배</summary><div class="roster-body"><div class="table-scroll"><table class="roster-table"><tbody><tr><th class="matu">마투과</th><td>아스트리드 라그나르<span class="sub">여 · 25세 (812학년도)</span></td><td>마일즈 듀크<span class="sub">남 · 24세 (812학년도)</span></td><td>시린 아마디<span class="sub">여 · 23세 (812학년도)</span></td><td>고트프리트 베버<span class="sub">남 · 26세 (812학년도)</span></td><td>레이첼 테인<span class="sub">여 · 24세 (812학년도)</span></td></tr><tr><th class="mado">마도과</th><td>빈센트 로우<span class="sub">남 · 25세 (812학년도)</span></td><td>오로라 핀치<span class="sub">여 · 23세 (812학년도)</span></td><td>데클란 머피<span class="sub">남 · 24세 (812학년도)</span></td><td>이브 라모스<span class="sub">여 · 25세 (812학년도)</span></td><td>한스 뮐러<span class="sub">남 · 23세 (812학년도)</span></td></tr><tr><th class="seong">성유과</th><td>그레이스 와일드<span class="sub">여 · 24세 (812학년도)</span></td><td>사무엘 노블<span class="sub">남 · 25세 (812학년도)</span></td><td>릴리안 휘트<span class="sub">여 · 23세 (812학년도)</span></td><td>아키라 미즈노<span class="sub">남 · 24세 (812학년도)</span></td><td>에스메 콜린스<span class="sub">여 · 23세 (812학년도)</span></td></tr><tr><th class="tam">탐사과</th><td>잭 해리스<span class="sub">남 · 25세 (812학년도)</span></td><td>니나 로페스<span class="sub">여 · 23세 (812학년도)</span></td><td>오윈 하스<span class="sub">남 · 24세 (812학년도)</span></td><td>카산드라 레인<span class="sub">여 · 24세 (812학년도)</span></td><td>피터 엘리스<span class="sub">남 · 23세 (812학년도)</span></td></tr></tbody></table></div></div></details>
@@ -522,6 +561,65 @@
       </div></details>
     </section>
 
+    <section id="city" class="content-section">
+      <h2>베르나크 시</h2>
+      <p class="lead">학술원 언덕 아래로 호수와 강 항구까지 흘러내린 도시. 슬레이트 지붕, 트램 종소리, 길드 깃발, 그리고 늘 탑에서 끝나는 스카이라인.</p>
+      <p>탑을 둘러싸고 자라난 등반자의 대도시. 도시의 절반은 등반자로 먹고살고, 탑에 누군가를 빼앗기지 않은 집이 없다. 주말에는 하루 종일, 평일에는 저녁에 나갈 수 있다. 통금 23:00까지 학원 문으로 돌아와야 하지만, 여관·호텔·파티의 아지트에서 묵으면 벌점이 없다. 구역 사이는 마차와 트램으로 15~30분. 도시에서 탑으로는 바로 들어갈 수 없고, 학원 광장을 거쳐야 한다.</p>
+
+      <h3>아홉 구역</h3>
+      <div class="mode-cards">
+        <article class="mode-card"><h3>중앙 광장</h3><p>트램과 마차역이 있는 도착 광장. 노점과 길거리 음식이 늘어선 시장 거리, 도시 의뢰 게시판, 그리고 졸업생과 노련한 등반자들이 90층에 대해 허풍을 떠는 선술집 「등반자의 쉼터」. 벽은 파티 문장으로 덮여 있다. 거리 공연가, 소매치기, 학생을 빼 가려는 모험가 길드의 스카우트. 교복을 벗은 동기와 마주치기 좋은 곳.</p></article>
+        <article class="mode-card"><h3>상업 지구</h3><p>유리 지붕의 「크리스털 아케이드」(고급 선물, 드레스 대여, 마력 시계), 길드 회관, 스털링 가의 은행. 저녁마다 탑의 전리품과 "이면층 유물"이 오르는 경매장, 날마다 시세가 바뀌는 환전상. 부유한 상인들이 재능 있는 학생에게 후원을 제안한다. 그 이상을 바라는 이도 있다.</p></article>
+        <article class="mode-card"><h3>귀족 구역</h3><p>가로수 늘어선 저택의 언덕. 엄격한 초상화와 88층에 닿았던 아버지가 있는 그라프 가, 아르장 가의 라이벌 크레인 가, 몬태규 가의 타운하우스, 스털링 가의 은행 궁전. 살롱과 무도회는 명성 30 이상이나 그 가문 학생의 초대가 있어야 들어간다. 정략결혼, 집안의 압박, 예법의 결투. 세드릭, 이사벨, 레오, 빅토리아는 여기서 학원과 다르게 군다.</p></article>
+        <article class="mode-card"><h3>항구</h3><p>강 항구와 그 뒤의 빈민가. 기중기, 어시장, 창고, 묻지 않고 탑의 물건을 크론에 파는 암시장(가짜도 진짜 유물도 있다), 밀수꾼, 한때 마르가 펠과 피에르 뒤랑을 부리던 패거리. 빨랫줄과 등불 켜진 계단이 물가로 이어지는 좁은 뒷골목.</p></article>
+        <article class="mode-card"><h3>환락가</h3><p>새벽까지 꺼지지 않는 네온 마력등과 음악. 유명 등반자 신파극을 올리는 극장 「붉은 장막」, 탑의 메아리를 섞는 DJ와 층 이름을 딴 칵테일의 지하 클럽 「심연」, 명성 60 이상이거나 초대받아야 들어가는 성인 가면 살롱 「베일」, 주사위·탑의 바퀴·층 카드·등반자 경주의 카지노 「황금 계단」. 사이러스 웨이드는 이 거리 절반에 빚이 있다.</p></article>
+        <article class="mode-card"><h3>투기장</h3><p>등반자들이 크론과 명성을 걸고 내기하는 관중 앞에서 겨루는 야외 투기장. 학원 규칙은 못마땅해하고, 교수들은 모르는 척한다. 단골 투사는 항구의 도끼 마그누스, 은빛 결투사 로웨나, 사냥꾼 브락, 쌍검 자매 미라·나라, 그리고 실종된 등반자라는 소문이 도는 가면 투사 「무명」.</p></article>
+        <article class="mode-card"><h3>관리국 본청</h3><p>탑 관리국의 회색 석조 본청. 허가증, 놋쇠 판에 이름이 새겨진 실종자의 공개 홀, 그리고 지하의 봉인된 기록 보관소. 생환자 파일, 시온 블랙우드의 형이 속했던 파티의 기록, 마라 셀윈 어머니의 파일이 그 안 어딘가에 있다. 여기 도시 의뢰는 서류상으로는 지루하고 실제로는 위험하다. 기웃대다 걸리면 명성이 깎이고 회색 코트가 찾아온다.</p></article>
+        <article class="mode-card"><h3>대신전</h3><p>흰 돔의 대신전. 등반 전의 축복, 크론 헌금을 받는 저주 정화, 축복받은 붕대·정화수·해주 부적을 탑 가방에 담아 주는 신전 상점, 실종자를 위한 촛불의 홀. 피오나 그린, 오웬 블레이크, 아키라 미즈노가 오래된 질문을 찾으러 오고, 가브리엘 손이 봉사한다. 순례자들이 탑 발치에서 기도하러 먼 길을 온다.</p></article>
+        <article class="mode-card"><h3>호숫가</h3><p>호숫가 산책로. 은퇴한 등반자 마담 헤일이 운영하는 「버드나무 여관」(1박 20 크론, 얇은 벽, 갈대 뒤의 공동 목욕탕), 물 위로 발코니가 난 그랜드 호텔 「호수궁」(스위트 80 크론), 탑 꼭대기가 보이는 전망대, 해 질 녘의 유람선.</p></article>
+      </div>
+
+      <h3>명성</h3>
+      <p>도시에서의 이름값(0~100). 투기장 승리, 도시 의뢰, 공개적인 활약으로 오르고 추문으로 떨어진다.</p>
+      <div class="table-scroll">
+        <table class="bloom-table">
+          <tbody>
+            <tr><th>30 이상</th><td>귀족 살롱이 열린다.</td></tr>
+            <tr><th>40 이상</th><td>상점들이 10% 깎아 준다. 투기장 챔피언전에 나갈 수 있다.</td></tr>
+            <tr><th>60 이상</th><td>「베일」이 초대장 없이 들여보낸다.</td></tr>
+            <tr><th>80 이상</th><td>도시 전체가 그 이름을 안다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>상태창으로 하는 일</h3>
+      <ul class="rule-list">
+        <li><strong>투기장</strong> — 견습 리그(참가비 5, 상금 20, 명성 +2), 정규 리그(15, 60, +4), 챔피언전(40, 180, +8, 명성 40 이상). 결과는 <code>[투기장 결과]</code>로 이야기에 옮겨지고 크론·명성·부상이 반영된다.</li>
+        <li><strong>경매</strong> — 가방의 물건을 경매장에 올리고, 팔린 값은 <code>[경매 결과]</code>로 크론에 더해진다.</li>
+        <li><strong>카지노</strong> — 크론을 배율로 불린다. <code>[도박 결과]</code>가 그 밤을 그대로 들려준다. 크게 따면 눈길을 끌고, 잃으면 사이러스 웨이드가 돈을 빌려주겠다고 다가온다.</li>
+        <li><strong>환전상</strong> — 그날 시세로 마정석을 크론으로 바꾼다.</li>
+        <li><strong>가게</strong> — 구역마다 다른 가게를 크론으로 이용한다. 항구 암시장과 대신전은 탑에서 쓸 물건을 크론에 판다. 명성 할인은 값에 이미 들어가 있다.</li>
+      </ul>
+
+      <h3>아지트</h3>
+      <p>파티가 도시에 빌리는 집. 보관, 휴식, 둘만의 이야기를 위한 파티만의 공간이고, 그곳에서 묵은 밤은 통금을 무시한다. 꾸미기와 열쇠를 누가 갖는지가 작은 관계 이야기가 된다.</p>
+      <div class="mode-cards">
+        <article class="mode-card"><h3>항구 다락방</h3><p>월세 60 크론</p></article>
+        <article class="mode-card"><h3>상업 지구 2층 집</h3><p>월세 150 크론</p></article>
+        <article class="mode-card"><h3>호숫가 별장</h3><p>월세 300 크론</p></article>
+      </div>
+      <p class="secret-hint">보증금은 한 달 치. 빌릴 때 보증금과 첫 달 월세가 함께 나간다. 월세는 아지트 줄에 적힌 날짜에 다달이 내고, 한 번 밀리면 경고, 두 번째에는 쫓겨난다. 해지하면 보증금을 돌려받는다.</p>
+      <details class="secret mini"><summary>도시의 밤 · 보기</summary><div class="secret-body">
+        <p>친밀한 장면은 언제나 각자의 호감(60 이상)과 분명한 합의로만, 남성끼리는 없이, 수위는 프리셋을 따른다.</p>
+        <ul class="rule-list">
+          <li>함께 나온 여성 파티원과 「버드나무 여관」이나 「호수궁」에서 보내는 밤. 각자 자기 호감과 합의로 고르고, 나머지는 옆방에서 잔다.</li>
+          <li>항구 뒷골목의 어둠 속, 벽에 기댄 위험한 한순간. 들키면 학원 신문에 소문이 난다.</li>
+          <li>가면이 학과와 이름을 가리는 「베일」 위층의 개인실.</li>
+          <li>파티의 아지트.</li>
+        </ul>
+      </div></details>
+    </section>
+
     <section id="life" class="content-section">
       <h2>학원 생활</h2>
       <p class="lead">닳은 돌, 담쟁이, 아침 종소리, 분필 가루, 식당 냄새, 밤의 기숙사 복도. 그리고 어느 장면에든 어딘가 보이는 탑.</p>
@@ -541,10 +639,10 @@
         <article class="mode-card"><h3>기숙사 정전</h3><p>탑이 울컥하면 기숙사 마력등이 한 시간 넘게 꺼진다. 복도는 촛불과 겁먹은 1학년과 괴담으로 가득 차고, 누군가는 욕실이나 남의 방에 갇힌다. 어둠 속에서는 통금을 지킬 수 없다는 걸 다들 안다.</p></article>
         <article class="mode-card"><h3>대도서관과 금서고</h3><p>도서관 아래층에는 실종자의 봉인된 기록과 금지된 마법이 있고, 휴고 마른과 세라핀 노아가 유지하는 결계가 지킨다. 학생들은 이면층 지도나 사라진 가족에 대한 답을 찾아 밤에 숨어든다. 걸리면 휴고 마른과 벌 청소, 들어가면 비밀.</p></article>
         <article class="mode-card"><h3>탑 관리국</h3><p>모든 등반을 관할하는 기관. 회색 코트의 요원들이 파티를 검사하고, 이면층에서 나온 물건을 압수하고, 생환자를 매달 면담하고, 학생들 사이에 정보원을 둔다. 불시 감사 때는 기숙사를 뒤진다. 빅토르 강과 요나스 하트는 관리국을 믿지 않고, 휴고 마른은 협조한다.</p></article>
-        <article class="mode-card"><h3>동아리</h3><p>등반 기록 연구회, 파비오 루치의 요리부, 검무 동호회, 연극부, 사라 블루벨의 별 관측회, 사이러스 웨이드와 엘라 스칼렛의 비공식 도박 모임. 시계탑에서 모이는 생환자와 그 친구들의 비밀 결사가 있다는 소문도 있다.</p></article>
+        <article class="mode-card"><h3>동아리</h3><p>등반 기록 연구회, 파비오 루치의 요리부, 검무 동호회, 연극부, 사라 블루벨의 별 관측회(815학년도부터), 사이러스 웨이드와 엘라 스칼렛의 비공식 도박 모임. 시계탑에서 모이는 생환자와 그 친구들의 비밀 결사가 있다는 소문도 있다.</p></article>
         <article class="mode-card"><h3>고백 명소</h3><p>해 질 녘 시계탑 발코니, 밤의 온실, 축제 때의 호수 선착장, 그리고 등반자들의 13층 온천. 종이 울릴 때 시계탑 아래에서 한 고백은 솔직함 없이는 거절할 수 없다고 한다. 마도과 첨탑 옥상은 울거나 입 맞추러 가는 곳이다.</p></article>
         <article class="mode-card"><h3>대식당과 매점</h3><p>긴 식탁이 대충 학과별로 나뉘어 있어서, 다른 학과 식탁에 앉는 건 하나의 선언이다. 기숙사 옆 매점은 단것과 포션과 가십을 팔고, 주인은 모두의 외상을 기억한다. 늦은 밤의 야식 원정은 고전적인 만남의 방법.</p></article>
-        <article class="mode-card"><h3>대욕장과 온실</h3><p>탑 아래 따뜻한 마력 샘을 끌어온 남탕과 여탕이 통금까지 열려 있다. 성유과 온실은 치유 약초와 밤에 피는 꽃으로 가득하고 일 년 내내 따뜻하다. 빛나는 이끼만 밝힌 밤의 온실은 비밀과 데이트의 명소. 아이비 로드리게스와 엘레나 로시가 돌본다.</p></article>
+        <article class="mode-card"><h3>대욕장과 온실</h3><p>탑 아래 따뜻한 마력 샘을 끌어온 남탕과 여탕이 통금까지 열려 있다. 성유과 온실은 치유 약초와 밤에 피는 꽃으로 가득하고 일 년 내내 따뜻하다. 빛나는 이끼만 밝힌 밤의 온실은 비밀과 데이트의 명소. 엘레나 로시가 돌보고, 815학년도부터 아이비 로드리게스가 함께한다.</p></article>
       </div>
     </section>
 
@@ -598,7 +696,7 @@
       <p class="secret-hint">커스텀 모드 탭에서 모드 세 칸에 취향을 적어 얹을 수 있다. 수위는 프리셋 노트가 정하고, 커스텀 모드는 그 위에 개인 취향을 더한다. 기본 설정과 부딪치면 기본 설정이 이긴다.</p>
 
       <h3>상태창</h3>
-      <p>매 응답 끝에 이 블록이 붙는다. 상태창 '일정' 탭에서는 달력과 시간표를, '탑' 탭에서는 전투와 휴게층 상인을 볼 수 있다.</p>
+      <p>매 응답 끝에 이 블록이 붙는다. 상태창 '일정' 탭에서는 달력과 시간표를, '탑' 탭에서는 전투, 가게, 도시 지도를, '선택지' 탭에서는 버튼으로 고르는 선택지를 볼 수 있다.</p>
       <div class="info-block">상태창 | 0턴
 학적: 마투과 1학년 · 신입
 장소: 숙소
@@ -613,14 +711,47 @@
 동조율: 0
 학과 평판: 마투과 60, 마도과 50, 성유과 50, 탐사과 50
 재화: 마정석 10 · 크론 100
+도시: - · 명성 0
+아지트: -
+모드: -
 호감: -</div>
+      <p class="secret-hint">도시 줄에는 베르나크 시 안의 지금 구역과 명성이, 모드 줄에는 지금 켜진 프리셋 모드가 짧은 이름(은근/직접/음란/하렘/하드코어/일상/비밀/TS/장문)으로 붙는다.</p>
       <h3>입력 명령</h3>
+      <p>직접 입력하는 명령:</p>
       <ul class="rule-list">
-        <li><code>[구매]</code> — 휴게층에서 탑의 상인에게 산다. 마정석이 모자라면 상인이 거절한다.</li>
+        <li><code>!학년 n</code> / <code>!학년 n 선배</code> — 2~4학년으로 시작한다(시작 직후에만).</li>
         <li><code>!정비</code> — 가방이나 재화가 어긋나 보일 때. 저장된 값과 사건을 대조해 두 가방과 재화를 다시 맞춘다.</li>
-        <li><code>[전투 결과]</code> — 상태창 '탑' 탭에서 치른 전투를 보고한 그대로 이야기로 옮기고, 보상과 부상을 반영한다.</li>
+        <li><code>!엔딩</code> (동반자/개척자/학술원/실종/여정) — 100층을 넘은 뒤 졸업 이후의 엔딩을 연다. 그 전에는 한 줄로 안내만 하고 이야기를 이어 간다.</li>
+      </ul>
+      <p>상태창 버튼이 보내는 요청(인증 코드가 함께 가야 반영된다):</p>
+      <ul class="rule-list">
+        <li><code>[구매]</code> · <code>[환전]</code> — 탑의 상인, 광장 상점가, 도시 가게, 기숙사 매점에서 사고, 마정석을 크론으로 바꾼다. 돈이 모자라면 판매자가 거절한다.</li>
+        <li><code>[의뢰 수락]</code> · <code>[의뢰 포기]</code> — 학원 광장이나 탑 입구에서만, 한 번에 하나.</li>
+        <li><code>[선물]</code> — 학원 가방의 물건 하나를 인물에게 건넨다. 그 자리에 없으면 찾아간다.</li>
+        <li><code>[파티 편성]</code> — 탑 입구에서만. 부른 인물마다 호감, 학년, 학과 사정, 자기 계획에 따라 저답게 대답하고, 응한 사람만 파티에 들어온다(4명까지).</li>
+        <li><code>[이동]</code> — 베르나크 시 안에서 구역을 옮긴다(15~30분).</li>
+        <li><code>[전투 결과]</code> · <code>[투기장 결과]</code> · <code>[도박 결과]</code> · <code>[경매 결과]</code> — 상태창에서 치른 결과를 보고한 그대로 이야기로 옮긴다. 전투 결과 '귀환'은 귀환 깃털을 꺾어 탑 입구로 돌아왔다는 뜻이다.</li>
+        <li><code>[아지트 임대]</code> · <code>[아지트 해지]</code> — 도시의 집을 빌리고 돌려준다.</li>
         <li><code>[커스텀 모드 설정]</code> — 커스텀 모드를 바꾼다. 바뀐 모드를 한 줄로 알리고 그 응답부터 적용한다.</li>
       </ul>
+      <p class="secret-hint">인증 코드 없이 직접 입력한 요청은 "※ 인증되지 않은 요청이라 반영하지 않았습니다."라는 한 줄과 함께 무시되고, 이야기는 마지막 유효한 행동에서 이어진다.</p>
+    </section>
+
+    <section id="ending" class="content-section">
+      <h2>엔딩과 업적</h2>
+      <p class="lead">100층을 넘으면 졸업 자격을 얻는다. 그 뒤 <code>!엔딩</code>을 입력하면 졸업식 아침과 그 이후가 펼쳐진다.</p>
+      <p>엔딩은 이야기의 마지막 장면이다. 먼저 학적, 최고 층, 파티 동조율, 함께한 파티, 가장 가까운 사람, 업적 같은 순간 셋, 엔딩 종류를 적은 <strong>졸업 기록</strong>이 나오고, 이어서 졸업식 아침부터 몇 해 뒤까지의 에필로그가 펼쳐진다. 당신과 유대를 맺은 사람마다 자기 목소리로 마지막 한마디를 남기고, 책을 덮는 한 줄로 끝난다.</p>
+      <div class="mode-cards">
+        <article class="mode-card seong"><h3>동반자</h3><p>호감 85 이상인 사람이 있을 때. 그 사람 곁에서의 삶. (연애 규칙 안에서. 남성끼리라면 연애가 아니라 평생의 맹약.)</p></article>
+        <article class="mode-card mado"><h3>개척자</h3><p>최고 층이 101 이상이거나 도전 영역을 골랐을 때. 파티는 기록 너머로 떠난다.</p></article>
+        <article class="mode-card tam"><h3>학술원</h3><p>남기로 골랐을 때. 교수나 관리국에서 다음 등반자들을 길러 낸다.</p></article>
+        <article class="mode-card matu"><h3>실종</h3><p>탑에 남기로 골랐을 때. 120층 위 기록석에 새겨진 이름, 길 잃은 파티를 이끄는 누군가에 대한 소문.</p></article>
+        <article class="mode-card"><h3>여정</h3><p>그 밖의 경우. 파티는 세상 곳곳으로 흩어지고, 편지는 계속 오간다.</p></article>
+      </div>
+      <p class="secret-hint"><code>!엔딩</code>에 종류를 적으면 그 선택이 먼저다. 적지 않으면 동반자 &gt; 개척자 &gt; 여정 순으로 정해진다.</p>
+
+      <h3>업적</h3>
+<div class="table-scroll"><table class="bloom-table"><tbody><tr><th>철문을 넘은 자</th><td>25층 수문장 철문의 기사를 넘어섰습니다. 1학년 구간을 돌파했습니다.<span class="muted">힌트 · 25층 수문장을 쓰러뜨리세요.</span></td></tr><tr><th>쌍두룡의 그늘을 지나</th><td>50층 수문장 쌍두룡을 넘어섰습니다.<span class="muted">힌트 · 50층 수문장을 쓰러뜨리세요.</span></td></tr><tr><th>심판을 견딘 파티</th><td>75층 심판의 거인 앞에서 끝까지 서로를 믿었습니다.<span class="muted">힌트 · 75층 수문장을 쓰러뜨리세요.</span></td></tr><tr><th>정상 돌파</th><td>탑의 그림자를 넘어 공식 기록의 끝, 100층에 섰습니다. 졸업 자격을 얻었습니다.<span class="muted">힌트 · 100층 수문장을 쓰러뜨리세요.</span></td></tr><tr><th>기록 너머로</th><td>학술원이 기록하지 않는 도전 영역에 첫발을 디뎠습니다.<span class="muted">힌트 · 100층 위로 올라가세요.</span></td></tr><tr><th>🔒 숨김 업적</th><td><details class="secret mini"><summary>숨김 업적 · 보기</summary><div class="secret-body"><p><strong>이름 없는 계단</strong> — 도전 영역 120층. 이곳의 기록석에 새겨진 이름은 대부분 아무도 모릅니다.</p></div></details></td></tr><tr><th>뒤집힌 탑</th><td>이면층에 들어섰습니다. 같은 계단, 뒤집힌 규칙.<span class="muted">힌트 · 수문장을 넘은 뒤 탑 입구에서 이면층으로 들어가 보세요.</span></td></tr><tr><th>첫 휴식</th><td>탑 안의 유일한 쉼터, 휴게층에 닿았습니다.<span class="muted">힌트 · 13층까지 올라가 보세요.</span></td></tr><tr><th>한 몸 같은 파티</th><td>파티 동조율 70에 닿았습니다. 말하지 않아도 서로의 위치가 느껴집니다.<span class="muted">힌트 · 파티 동조율을 70까지 올리세요.</span></td></tr><tr><th>🔒 숨김 업적</th><td><details class="secret mini"><summary>숨김 업적 · 보기</summary><div class="secret-body"><p><strong>완전 동조</strong> — 파티 동조율 100. 동조석이 하얗게 타올랐습니다.</p></div></details></td></tr><tr><th>첫 축제</th><td>학술원의 계절 축제를 처음 맞이했습니다.<span class="muted">힌트 · 6주차 주말을 기다려 보세요.</span></td></tr><tr><th>학과의 이름으로</th><td>학과 대항전에 나섰습니다.<span class="muted">힌트 · 봄·가을 10주차 토요일, 겨울 3주차 토요일.</span></td></tr><tr><th>마지막 학년</th><td>4학년이 되었습니다. 이제 100층이 당신의 구간입니다.<span class="muted">힌트 · 학년말 평가를 세 번 통과하세요.</span></td></tr><tr><th>탑의 부자</th><td>마정석 100개를 모았습니다.<span class="muted">힌트 · 수호자와 의뢰에서 마정석을 모으세요.</span></td></tr><tr><th>학원의 큰손</th><td>크론 500을 모았습니다.<span class="muted">힌트 · 아르바이트, 의뢰, 환전으로 크론을 모으세요.</span></td></tr><tr><th>동반자 엔딩</th><td>가장 가까운 사람과 함께 졸업 이후를 걸어갑니다.<span class="muted">힌트 · 호감 85 이상인 사람과 졸업하세요.</span></td></tr><tr><th>개척자 엔딩</th><td>기록의 끝을 넘어 도전 영역으로 떠났습니다.<span class="muted">힌트 · 100층 위로 오르거나 도전 영역을 고르세요.</span></td></tr><tr><th>학술원 엔딩</th><td>학술원에 남아 다음 등반자들을 길러 냅니다.<span class="muted">힌트 · !엔딩 학술원</span></td></tr><tr><th>🔒 숨김 업적</th><td><details class="secret mini"><summary>숨김 업적 · 보기</summary><div class="secret-body"><p><strong>실종 엔딩</strong> — 탑에 남았습니다. 120층 위 기록석에 당신의 이름이 있습니다.</p></div></details></td></tr><tr><th>여정 엔딩</th><td>파티는 세상 곳곳으로 흩어졌고, 편지는 계속 오갑니다.<span class="muted">힌트 · 그 밖의 졸업</span></td></tr><tr><th>베르나크 시의 유명인</th><td>도시 명성 80. 거리의 아이들도 당신 이름을 압니다.<span class="muted">힌트 · 투기장과 도시 의뢰로 이름을 알리세요.</span></td></tr></tbody></table></div>
     </section>
 
     <section id="secrets" class="content-section">
@@ -639,7 +770,7 @@
 
 <script type="module">
   import { initScrollSpy } from "../../js/detail.js";
-  initScrollSpy(["intro", "world", "depts", "tower", "people", "life", "calendar", "modes", "secrets"]
+  initScrollSpy(["intro", "world", "depts", "tower", "people", "city", "life", "calendar", "modes", "ending", "secrets"]
     .map((id) => ({ id, navItemSelector: `[data-nav="${id}"]` })));
 
   // 학과·학년 시간표 전환 (캔버스 로어북의 시간표를 그대로 옮긴 것)

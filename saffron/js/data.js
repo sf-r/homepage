@@ -16,7 +16,10 @@ export const GENRES = {
   adventure: { ko: "모험", en: "Adventure", ja: "冒険" },
   training: { ko: "조교", en: "Training", ja: "調教" },
   "slice-of-life": { ko: "일상", en: "Slice of Life", ja: "日常" },
-  school: { ko: "학원", en: "School", ja: "学園" }
+  school: { ko: "학원", en: "School", ja: "学園" },
+  academy: { ko: "아카데미물", en: "Academy", ja: "アカデミー" },
+  tower: { ko: "탑등반", en: "Tower Climbing", ja: "塔攻略" },
+  fantasy: { ko: "판타지", en: "Fantasy", ja: "ファンタジー" }
 };
 
 // 각 책의 i18n 안에 en / ja 번역을 두면, 그 언어로 볼 때 덮어씁니다.
@@ -111,5 +114,16 @@ export const BOOKS = [
     cover: "https://saffran.kr/Thumbnail/69ef15f03a704f07a29bb017_ko.gif",
     description: "1:1, 메스가키. 귀여워서 차마 참교육 하지 못하는 메스가키 하루비와의 일상.",
     detailUrl: "pages/harubi/index.html"
+  },
+  {
+    id: "bernacque",
+    title: "베르나크 학술원",
+    genres: ["academy", "tower", "fantasy"],
+    safe: true,
+    langs: ["ko"],
+    spine: { bg: "#1d3354", emblem: "♜", height: 244, width: 50 },
+    cover: null,
+    description: "학원 한가운데 솟은 탑의 100층을 넘어야 졸업한다. 네 학과, 네 학년, 그리고 파티의 동조율. 오르고, 돌아온다.",
+    detailUrl: "pages/bernacque/index.html"
   }
 ];

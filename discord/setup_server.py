@@ -35,7 +35,8 @@ READ = VIEW | READ_HISTORY
 # 역할: 위에서부터 높은 순서. 봇 역할은 디스코드가 봇을 초대할 때 자동으로 만들고,
 # 봇이 역할을 줄 수 있도록 서버 설정에서 이 역할들보다 위로 끌어올려야 한다.
 ROLES = [
-    {"name": "👑 관리자", "color": 0xE9C97A, "hoist": True, "permissions": ADMIN},
+    # 서버에 원래 있던 Saffron 역할을 관리자 역할로 쓴다 (있으면 권한만 맞춤)
+    {"name": "Saffron", "color": 0xE9C97A, "hoist": True, "permissions": ADMIN, "ensure": True},
     {"name": "🔞 성인 인증", "color": 0xC0506A, "hoist": False, "permissions": 0},
     {"name": "🌱 멤버", "color": 0x8FDCAE, "hoist": False, "permissions": 0},
     {"name": "🔔 공지 알림", "color": 0, "mentionable": True},
@@ -87,7 +88,7 @@ LAYOUT = [
         ],
     },
     {
-        "name": "🛠️ 운영", "view": ["👑 관리자"], "talk": ["👑 관리자"],
+        "name": "🛠️ 운영", "view": ["Saffron"], "talk": ["Saffron"],
         "channels": [
             {"name": "사이트-로그", "type": TEXT, "topic": "배포·사이트 알림 웹훅"},
             {"name": "가입-로그", "type": TEXT},
@@ -132,7 +133,6 @@ def overwrites(guild_id, roles, view, talk):
         o = out.setdefault(rid(name), {"id": rid(name), "type": 0, "allow": 0, "deny": 0})
         o["allow"] |= TALK
         o["deny"] &= ~TALK
-    # 관리자는 어디든 본다 (ADMIN 권한이 있어 사실상 무시되지만 명시해 둔다)
     for o in out.values():
         o["allow"], o["deny"] = str(o["allow"]), str(o["deny"])
     return list(out.values())
@@ -148,11 +148,25 @@ def main():
     print(f"서버: {guild['name']} ({guild_id}) · 커뮤니티 기능: {'COMMUNITY' in guild.get('features', [])}")
 
     # 역할
-    existing = {r["name"]: r["id"] for r in call("GET", f"/guilds/{guild_id}/roles")}
+    all_roles = call("GET", f"/guilds/{guild_id}/roles")
+    existing = {r["name"]: r["id"] for r in all_roles}
+    # 봇은 자기 역할보다 아래인 역할만 다룰 수 있다: 봇 역할이 맨 위가 아니면 멈춘다
+    me = call("GET", "/users/@me")["id"]
+    member = call("GET", f"/guilds/{guild_id}/members/{me}")
+    bot_top = max((r["position"] for r in all_roles if r["id"] in member["roles"]), default=0)
+    others_top = max((r["position"] for r in all_roles if r["id"] not in member["roles"] and r["id"] != guild_id), default=0)
+    if bot_top <= others_top:
+        raise SystemExit("봇 역할이 맨 위에 있지 않습니다. 서버 설정 → 역할에서 봇 역할을 맨 위로 끌어올린 뒤 다시 실행하세요.")
     roles = dict(existing)
     for r in ROLES:
         if r["name"] in existing:
             print("  역할 있음:", r["name"])
+            if r.get("ensure"):
+                say("    권한 맞춤:", r["name"])
+                if apply:
+                    call("PATCH", f"/guilds/{guild_id}/roles/{existing[r['name']]}", {
+                        "permissions": str(r.get("permissions", 0)), "hoist": r.get("hoist", False), "color": r.get("color", 0),
+                    })
             continue
         say("  역할 만듦:", r["name"])
         if apply:
@@ -167,9 +181,7 @@ def main():
     if apply:
         call("PATCH", f"/guilds/{guild_id}/roles/{guild_id}", {"permissions": str(EVERYONE_PERMS)})
         # 위에서 정한 순서대로 정렬 (봇 역할 바로 아래부터)
-        all_roles = call("GET", f"/guilds/{guild_id}/roles")
-        top = max(r["position"] for r in all_roles if r.get("managed")) if any(r.get("managed") for r in all_roles) else len(all_roles)
-        positions = [{"id": roles[r["name"]], "position": max(1, top - 1 - i)} for i, r in enumerate(ROLES)]
+        positions = [{"id": roles[r["name"]], "position": len(ROLES) - i} for i, r in enumerate(ROLES)]
         call("PATCH", f"/guilds/{guild_id}/roles", positions)
 
     # 카테고리와 채널

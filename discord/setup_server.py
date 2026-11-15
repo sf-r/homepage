@@ -57,6 +57,7 @@ TEXT, CATEGORY, ANNOUNCEMENT, FORUM = 0, 4, 5, 15
 MEMBERS = ["🌱 멤버", "🌱 member", "🌱 メンバー"]
 
 # 카테고리마다: 누가 보는지(view), 누가 말하는지(talk). "@everyone"은 서버 전원.
+# 채널에 view·talk를 적으면 그 채널만 카테고리 설정 대신 그것을 쓴다.
 # 이름은 한국어・영어・日本語 순서. 채널 이름은 10분에 2번까지만 바꿀 수 있다.
 # nsfw: 디스코드 연령 제한 채널. 성인 인증을 마친 계정만 들어올 수 있다.
 LAYOUT = [
@@ -82,9 +83,10 @@ LAYOUT = [
         ],
     },
     {
-        "name": "🔞 Safe OFF", "view": MEMBERS, "talk": MEMBERS, "nsfw": True,
+        # 🔞 성인 인증 역할만 본다. 멤버에게는 그 역할을 받는 인증 채널 하나만 보인다
+        "name": "🔞 Safe OFF", "view": ["🔞 성인 인증"], "talk": ["🔞 성인 인증"], "nsfw": True,
         "channels": [
-            {"name": "성인-인증・age-check・年齢認証", "type": TEXT, "talk": []},
+            {"name": "성인-인증・age-check・年齢認証", "type": TEXT, "view": ["🔞 성인 인증"] + MEMBERS, "talk": []},
             {"name": "성인-작품-이야기・adult-works・成人向け作品", "type": FORUM},
             {"name": "갤러리-소식・gallery・ギャラリー", "type": TEXT, "talk": []},
         ],
@@ -217,7 +219,7 @@ def main():
                 body = {
                     "name": ch["name"], "type": ctype, "parent_id": cat_id, "topic": ch.get("topic"),
                     "nsfw": bool(cat.get("nsfw")),
-                    "permission_overwrites": overwrites(guild_id, roles, cat["view"], ch.get("talk", cat["talk"])),
+                    "permission_overwrites": overwrites(guild_id, roles, ch.get("view", cat["view"]), ch.get("talk", cat["talk"])),
                 }
                 call("POST", f"/guilds/{guild_id}/channels", body)
     if not apply:

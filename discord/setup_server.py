@@ -38,11 +38,14 @@ ROLES = [
     # 서버에 원래 있던 Saffron 역할을 관리자 역할로 쓴다 (있으면 권한만 맞춤)
     {"name": "Saffron", "color": 0xE9C97A, "hoist": True, "permissions": ADMIN, "ensure": True},
     {"name": "🔞 성인 인증", "color": 0xC0506A, "hoist": False, "permissions": 0},
+    # 입장할 때 고른 언어별 멤버 역할. 권한은 셋 다 같고, 봇이 하나만 갖게 한다
     {"name": "🌱 멤버", "color": 0x8FDCAE, "hoist": False, "permissions": 0},
+    {"name": "🌱 member", "color": 0x8FDCAE, "hoist": False, "permissions": 0},
+    {"name": "🌱 メンバー", "color": 0x8FDCAE, "hoist": False, "permissions": 0},
     # 3번 자동 공지가 멘션하는 알림 역할. Safe ON 작품과 서버 소식은 공지 알림,
     # Safe OFF 작품 소식은 성인 공지 알림 (연령 제한 채널에 올라간다)
-    {"name": "🔔 공지 알림", "color": 0, "mentionable": True},
-    {"name": "🔔 성인 공지 알림", "color": 0, "mentionable": True},
+    {"name": "🔔 공지 알림 / notice / お知らせ", "color": 0, "mentionable": True},
+    {"name": "🔔 공지 알림 / notice / お知らせ 🔞", "color": 0, "mentionable": True},
 ]
 
 # @everyone에 있어야 하는 권한: 보이는 채널에서 읽고, 쓰고, 반응하고, 앱 명령을 쓰는 정도.
@@ -51,43 +54,46 @@ EVERYONE_PERMS = READ | ADD_REACTIONS | EMBED | ATTACH | APP_COMMANDS | TALK
 
 TEXT, CATEGORY, ANNOUNCEMENT, FORUM = 0, 4, 5, 15
 
+MEMBERS = ["🌱 멤버", "🌱 member", "🌱 メンバー"]
+
 # 카테고리마다: 누가 보는지(view), 누가 말하는지(talk). "@everyone"은 서버 전원.
+# 이름은 한국어・영어・日本語 순서. 채널 이름은 10분에 2번까지만 바꿀 수 있다.
 # nsfw: 디스코드 연령 제한 채널. 성인 인증을 마친 계정만 들어올 수 있다.
 LAYOUT = [
     {
-        "name": "📌 입구", "view": ["@everyone"], "talk": [],
+        "name": "📌 입구 / Entrance / 入口", "view": ["@everyone"], "talk": [],
         "channels": [
-            {"name": "규칙-및-입장", "type": TEXT, "topic": "서버 규칙. 온보딩에서 동의하면 🌱 멤버가 됩니다."},
-            {"name": "공지", "type": ANNOUNCEMENT, "topic": "Saffron 소식. 새 작품과 업데이트가 자동으로 올라옵니다."},
+            {"name": "규칙-입장・rules・ルール", "type": TEXT, "topic": "규칙을 읽고 사용 언어를 골라 입장하세요. / Read the rules and pick your language to enter. / ルールを読んで言語を選んで入場してください。"},
+            {"name": "공지・notice・お知らせ", "type": ANNOUNCEMENT, "topic": "Saffron 소식 / news / お知らせ"},
         ],
     },
     {
-        "name": "💬 라운지", "view": ["🌱 멤버"], "talk": ["🌱 멤버"],
+        "name": "💬 라운지 / Lounge / ラウンジ", "view": MEMBERS, "talk": MEMBERS,
         "channels": [
-            {"name": "자유", "type": TEXT},
-            {"name": "피드백-제보", "type": TEXT, "topic": "작품 피드백, 오류 제보, 건의"},
-            {"name": "봇-명령어", "type": TEXT, "topic": "/작품 같은 Saffron 봇 명령어는 여기서"},
+            {"name": "자유・chat・雑談", "type": TEXT},
+            {"name": "피드백-제보・feedback・フィードバック", "type": TEXT},
+            {"name": "봇-명령어・bot・ボット", "type": TEXT, "topic": "/작품 · /works · /作品"},
         ],
     },
     {
-        "name": "📚 작품", "view": ["🌱 멤버"], "talk": ["🌱 멤버"],
+        "name": "📚 작품 / Works / 作品", "view": MEMBERS, "talk": MEMBERS,
         "channels": [
-            {"name": "작품-이야기", "type": FORUM, "topic": "Safe ON 작품. 작품마다 글 하나씩."},
+            {"name": "작품-이야기・works・作品トーク", "type": FORUM},
         ],
     },
     {
-        "name": "🔞 Safe OFF", "view": ["🌱 멤버"], "talk": ["🌱 멤버"], "nsfw": True,
+        "name": "🔞 Safe OFF", "view": MEMBERS, "talk": MEMBERS, "nsfw": True,
         "channels": [
-            {"name": "성인-인증", "type": TEXT, "topic": "버튼을 눌러 🔞 성인 인증 역할을 받으면 사이트 갤러리가 열립니다.", "talk": []},
-            {"name": "성인-작품-이야기", "type": FORUM, "topic": "Safe OFF 작품. 작품마다 글 하나씩."},
-            {"name": "갤러리-소식", "type": TEXT, "talk": []},
+            {"name": "성인-인증・age-check・年齢認証", "type": TEXT, "talk": []},
+            {"name": "성인-작품-이야기・adult-works・成人向け作品", "type": FORUM},
+            {"name": "갤러리-소식・gallery・ギャラリー", "type": TEXT, "talk": []},
         ],
     },
     {
-        "name": "🛠️ 운영", "view": ["Saffron"], "talk": ["Saffron"],
+        "name": "🛠️ 운영 / Admin / 運営", "view": ["Saffron"], "talk": ["Saffron"],
         "channels": [
-            {"name": "사이트-로그", "type": TEXT, "topic": "배포·사이트 알림 웹훅"},
-            {"name": "가입-로그", "type": TEXT},
+            {"name": "사이트-로그・site-log・サイトログ", "type": TEXT},
+            {"name": "가입-로그・join-log・参加ログ", "type": TEXT},
         ],
     },
 ]
@@ -181,10 +187,9 @@ def main():
         if everyone_now | EVERYONE_PERMS != everyone_now:
             call("PATCH", f"/guilds/{guild_id}/roles/{guild_id}", {"permissions": str(everyone_now | EVERYONE_PERMS)})
         # 위에서 정한 순서대로 정렬 (봇 역할 바로 아래부터)
-        # 봇은 자기 역할보다 위 번호를 줄 수 없어서, 위에서부터 하나씩 맨 아래(1)로 끼워 넣는다.
-        # 마지막에 넣은 역할이 가장 아래가 되므로 결과는 ROLES 순서와 같다.
-        for r in ROLES:
-            call("PATCH", f"/guilds/{guild_id}/roles", [{"id": roles[r["name"]], "position": 1}])
+        # 봇 역할보다 아래 번호로, ROLES 순서대로 한 번에 정렬한다
+        call("PATCH", f"/guilds/{guild_id}/roles",
+             [{"id": roles[r["name"]], "position": len(ROLES) - i} for i, r in enumerate(ROLES)])
 
     # 카테고리와 채널
     chans = call("GET", f"/guilds/{guild_id}/channels")

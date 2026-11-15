@@ -8,6 +8,7 @@ Interactions Endpoint URL이 https://www.homepage.saffran.kr/discord/interaction
 """
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -46,13 +47,58 @@ def button(label, custom_id, style=2, emoji=None):
     return b
 
 
-COMMANDS = [{
-    "name": "works",
-    "name_localizations": {"ko": "작품", "ja": "作品"},
-    "description": "Saffron library: works and links",
-    "description_localizations": {"ko": "Saffron 서재의 작품과 링크", "ja": "Saffron 書斎の作品とリンク"},
-    "type": 1,
-}]
+def genre_choices():
+    """사이트 책장의 장르(saffron/js/data.js의 GENRES)를 명령 선택지로. 25개까지."""
+    src = open(os.path.join(os.path.dirname(__file__), "..", "saffron", "js", "data.js"), encoding="utf-8").read()
+    block = src.split("export const GENRES = {", 1)[1].split("};", 1)[0]
+    out = []
+    for m in re.finditer(r'"?([\w-]+)"?\s*:\s*\{\s*ko:\s*"([^"]+)",\s*en:\s*"([^"]+)",\s*ja:\s*"([^"]+)"', block):
+        key, ko, en, ja = m.groups()
+        out.append({"name": en, "name_localizations": {"ko": ko, "ja": ja}, "value": key})
+    return out[:25]
+
+
+def opt(type_, name, ko, ja, desc, desc_ko, desc_ja, **extra):
+    return {"type": type_, "name": name, "name_localizations": {"ko": ko, "ja": ja},
+            "description": desc, "description_localizations": {"ko": desc_ko, "ja": desc_ja}, **extra}
+
+
+def cmd(name, ko, ja, desc, desc_ko, desc_ja, options=()):
+    return {"type": 1, "name": name, "name_localizations": {"ko": ko, "ja": ja},
+            "description": desc, "description_localizations": {"ko": desc_ko, "ja": desc_ja},
+            "options": list(options)}
+
+
+STRING = 3
+LANG_CHOICES = [
+    {"name": "한국어", "value": "ko"},
+    {"name": "English", "value": "en"},
+    {"name": "日本語", "value": "ja"},
+]
+NOTICE_CHOICES = [
+    {"name": "Notice", "name_localizations": {"ko": "공지 알림", "ja": "お知らせ"}, "value": "all"},
+    {"name": "Notice 🔞", "name_localizations": {"ko": "공지 알림 🔞", "ja": "お知らせ 🔞"}, "value": "adult"},
+]
+
+COMMANDS = [
+    cmd("works", "작품", "作品", "Saffron works: the list, or one work's card",
+        "Saffron 작품 목록, 또는 작품 하나의 카드", "Saffron の作品一覧、または作品カード",
+        [opt(STRING, "title", "제목", "タイトル", "Work title (pick from the list)", "작품 제목 (목록에서 고르기)",
+             "作品タイトル（リストから選択）", required=False, autocomplete=True)]),
+    cmd("genre", "장르", "ジャンル", "Works in a genre", "장르별 작품", "ジャンル別の作品",
+        [opt(STRING, "genre", "장르", "ジャンル", "Genre", "장르", "ジャンル", required=True, choices=genre_choices())]),
+    cmd("random", "랜덤", "ランダム", "Recommend a random work", "작품 하나를 무작위로 추천", "作品をランダムにおすすめ"),
+    cmd("roll", "주사위", "ダイス", "Roll dice, e.g. 2d6+1", "주사위 굴리기 (예: 2d6+1)", "ダイスを振る（例: 2d6+1）",
+        [opt(STRING, "dice", "주사위", "ダイス", "Dice like 2d6, d20, 3d6+2 (default 1d100)",
+             "2d6, d20, 3d6+2 처럼 (기본 1d100)", "2d6、d20、3d6+2 など（既定 1d100）", required=False, max_length=20)]),
+    cmd("notice", "알림", "お知らせ", "Turn notifications on or off", "공지 알림 켜기·끄기", "お知らせ通知のオン・オフ",
+        [opt(STRING, "kind", "종류", "種類", "Which notifications (🔞 only in age-restricted channels)",
+             "어떤 알림 (🔞 은 연령 제한 채널에서만)", "どの通知（🔞 は年齢制限チャンネルのみ）",
+             required=False, choices=NOTICE_CHOICES)]),
+    cmd("language", "언어", "言語", "Change your language", "사용 언어 바꾸기", "使用言語を変更",
+        [opt(STRING, "lang", "언어", "言語", "Language", "언어", "言語", required=True, choices=LANG_CHOICES)]),
+    cmd("help", "도움말", "ヘルプ", "Saffron bot commands", "Saffron 봇 명령어 안내", "Saffron ボットのコマンド"),
+]
 
 ENTRY = {
     # 온보딩에서 고른 언어(🇰🇷/🇺🇸/🇯🇵)로 퀴즈가 나오고, 맞히면 그 언어의 멤버 역할을 받는다

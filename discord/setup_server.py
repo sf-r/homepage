@@ -39,14 +39,10 @@ ROLES = [
     {"name": "Saffron", "color": 0xE9C97A, "hoist": True, "permissions": ADMIN, "ensure": True},
     {"name": "🔞 성인 인증", "color": 0xC0506A, "hoist": False, "permissions": 0},
     {"name": "🌱 멤버", "color": 0x8FDCAE, "hoist": False, "permissions": 0},
+    # 3번 자동 공지가 멘션하는 알림 역할. Safe ON 작품과 서버 소식은 공지 알림,
+    # Safe OFF 작품 소식은 성인 공지 알림 (연령 제한 채널에 올라간다)
     {"name": "🔔 공지 알림", "color": 0, "mentionable": True},
-    {"name": "🔔 공녀님", "color": 0, "mentionable": True},
-    {"name": "🔔 세 개의 미래", "color": 0, "mentionable": True},
-    {"name": "🔔 Re:Bloomlution", "color": 0, "mentionable": True},
-    {"name": "🔔 Arcana", "color": 0, "mentionable": True},
-    {"name": "🔔 고양이 수인", "color": 0, "mentionable": True},
-    {"name": "🔔 메스가키", "color": 0, "mentionable": True},
-    {"name": "🔔 베르나크 학술원", "color": 0, "mentionable": True},
+    {"name": "🔔 성인 공지 알림", "color": 0, "mentionable": True},
 ]
 
 # @everyone에 있어야 하는 권한: 보이는 채널에서 읽고, 쓰고, 반응하고, 앱 명령을 쓰는 정도.

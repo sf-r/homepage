@@ -15,8 +15,7 @@ import urllib.request
 API = "https://discord.com/api/v10"
 APP = "1571482072290172928"
 GUILD = "1571467020933800088"
-RULES_CHANNEL = "1571468627012624474"   # 규칙-및-주의사항 (커뮤니티 규칙 채널)
-ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール (가입·알림 버튼)
+ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール (커뮤니티 규칙 채널, 가입·알림 버튼)
 ADULT_CHANNEL = "1571486707159662774"   # 성인-인증・age-check・年齢認証 (연령 제한)
 
 
@@ -59,13 +58,13 @@ ENTRY = {
     # 온보딩에서 고른 언어(🇰🇷/🇺🇸/🇯🇵)로 퀴즈가 나오고, 맞히면 그 언어의 멤버 역할을 받는다
     "content": (
         "## Saffron 제작공방\n"
-        f"<#{RULES_CHANNEL}> 채널의 규칙을 읽고 **가입하기**를 눌러 질문에 답해 주세요. 맞히면 바로 채널이 열려요.\n"
-        f"Read the rules in <#{RULES_CHANNEL}>, then press **Join** and answer the questions. The channels open right away.\n"
-        f"<#{RULES_CHANNEL}> のルールを読んでから **参加する** を押して質問に答えてください。正解するとすぐにチャンネルが開きます。\n\n"
+        "이 채널의 규칙을 읽어 주세요. 아래 버튼을 누르면 **규칙에 동의한 것으로 보고**, 질문에 답하면 바로 채널이 열려요.\n"
+        "Please read the rules in this channel. Pressing the button below **means you agree to them**; answer the questions and the channels open right away.\n"
+        "このチャンネルのルールを読んでください。下のボタンを押すと**ルールに同意したものとみなし**、質問に答えるとすぐにチャンネルが開きます。\n\n"
         "🔔 새 작품·업데이트 알림 / New works & updates / 新作・更新のお知らせ"
     ),
     "components": [
-        {"type": 1, "components": [button("가입하기 / Join / 参加する", "join:start", 3, "🌱")]},
+        {"type": 1, "components": [button("규칙에 동의하고 가입 / Agree & Join / 同意して参加", "join:start", 3, "🌱")]},
         {"type": 1, "components": [button("공지 알림 / notice / お知らせ", "notice:all", 2, "🔔")]},
     ],
     "allowed_mentions": {"parse": []},

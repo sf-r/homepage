@@ -8,7 +8,7 @@
 //  - 아래 DISCORD 설정의 ID와 공개 키는 비밀이 아니다. (DISCORD_PUBLIC_KEY 변수가 있으면 그 키로 확인: 로컬 시험용)
 //
 // 가입 흐름: 온보딩 질문으로 사용 언어를 고르면 언어 표시 역할(🇰🇷/🇺🇸/🇯🇵, 권한 없음)이 붙는다.
-// 입구 채널의 「가입하기」 버튼 → 퀴즈 입력 창 → 주 활동 플랫폼을 맞히면
+// 입구 채널의 「규칙에 동의하고 가입」 버튼(누르면 규칙 동의) → 퀴즈 입력 창 → 주 활동 플랫폼을 맞히면
 // 그 언어의 멤버 역할(🌱 멤버 / member / メンバー)을 주고 #가입-로그에 남긴다.
 // 정답은 JOIN_ANSWERS 변수(쉼표로 구분)가 있으면 그것을, 없으면 아래 기본값을 쓴다.
 //
@@ -45,12 +45,12 @@ const TEXT = {
   noticeOff: { ko: "🔕 공지 알림을 껐어요.", en: "🔕 Notifications are off.", ja: "🔕 お知らせ通知をオフにしました。" },
   adultOk: { ko: "🔞 성인 인증 역할을 받았어요. 사이트 갤러리를 열 수 있어요.", en: "🔞 You now have the verified adult role. The site gallery is open to you.", ja: "🔞 成人認証ロールを付与しました。サイトのギャラリーが開けます。" },
   adultOnly: { ko: "이 버튼은 연령 제한 채널에서만 쓸 수 있어요.", en: "This button only works in the age-restricted channel.", ja: "このボタンは年齢制限チャンネルでのみ使えます。" },
-  needMember: { ko: "먼저 입구 채널의 「가입하기」 버튼으로 가입해 주세요.", en: "Please join first with the Join button in the entrance channel.", ja: "まず入口チャンネルの「参加する」ボタンで参加してください。" },
+  needMember: { ko: "먼저 입구 채널의 「규칙에 동의하고 가입」 버튼으로 가입해 주세요.", en: "Please join first with the Agree & Join button in the entrance channel.", ja: "まず入口チャンネルの「同意して参加」ボタンで参加してください。" },
   joinTitle: { ko: "Saffron 제작공방 가입", en: "Join Saffron Studio", ja: "Saffron 制作工房に参加" },
   joinSource: { ko: "어디를 통해 유입되셨나요?", en: "Where did you find us?", ja: "どこでこのサーバーを知りましたか？" },
   joinPlatform: { ko: "제작자의 주 활동 플랫폼은 어디인가요?", en: "What is the creator's main platform?", ja: "制作者の主な活動プラットフォームは？" },
   joinOk: { ko: "🌱 가입했어요! 이제 서버의 채널들이 보여요.", en: "🌱 Welcome in! The server's channels are now open to you.", ja: "🌱 参加しました！サーバーのチャンネルが見えるようになりました。" },
-  joinWrong: { ko: "아쉽지만 정답이 아니에요. 다시 「가입하기」를 눌러 주세요.", en: "Sorry, that's not right. Press Join to try again.", ja: "残念ながら不正解です。もう一度「参加する」を押してください。" },
+  joinWrong: { ko: "아쉽지만 정답이 아니에요. 버튼을 다시 눌러 주세요.", en: "Sorry, that's not right. Press the button to try again.", ja: "残念ながら不正解です。もう一度ボタンを押してください。" },
   joinAlready: { ko: "이미 가입되어 있어요.", en: "You're already a member.", ja: "すでに参加済みです。" },
   failed: { ko: "처리하지 못했어요. 잠시 뒤 다시 눌러 주세요.", en: "Something went wrong. Please try again in a moment.", ja: "処理できませんでした。少し後でもう一度押してください。" },
   langOnly: { ko: { en: "Korean only", ja: "韓国語のみ" } },
@@ -143,7 +143,7 @@ async function joinSubmit(interaction, env, lang) {
   const ok = accepted.includes(normalize(values.platform || ""));
 
   if (ok) await setRole(env, member.user.id, DISCORD.roles.member[lang], true);
-  await log(env, `${ok ? "✅ 가입" : "❌ 오답"} <@${member.user.id}> (${member.user.username}) · ${lang}\n유입: ${values.source || "-"}\n플랫폼: ${values.platform || "-"}`);
+  await log(env, `${ok ? "✅ 가입" : "❌ 오답"} <@${member.user.id}> (${member.user.username}) · ${lang} · 규칙 동의\n유입: ${values.source || "-"}\n플랫폼: ${values.platform || "-"}`);
   return reply((ok ? TEXT.joinOk : TEXT.joinWrong)[lang]);
 }
 

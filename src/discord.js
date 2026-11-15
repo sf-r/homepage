@@ -7,8 +7,9 @@
 //    역할을 주고 빼는 데 쓴다. 저장소가 공개라서 코드에는 적지 않는다.
 //  - 아래 DISCORD 설정의 ID와 공개 키는 비밀이 아니다. (DISCORD_PUBLIC_KEY 변수가 있으면 그 키로 확인: 로컬 시험용)
 //
+// 사용 언어와 멤버 역할은 디스코드 온보딩 질문이 정한다(봇은 관여하지 않음).
+//
 // 버튼(custom_id)
-//  lang:ko / lang:en / lang:ja   사용 언어 고르기 → 그 언어의 멤버 역할 하나만 남긴다
 //  notice:all / notice:adult     공지 알림 역할 켜고 끄기 (성인 쪽은 연령 제한 채널에서만)
 //  adult:verify                  🔞 성인 인증 역할 받기 (연령 제한 채널에서만)
 
@@ -31,12 +32,11 @@ const EPHEMERAL = 64;
 
 // 답장 문구. 언어는 고른 언어(언어 버튼) 또는 디스코드 앱 언어(interaction.locale)를 따른다.
 const TEXT = {
-  langSet: { ko: "🌱 한국어로 입장했어요. 이제 서버의 채널들이 보여요.", en: "🌱 You're in, with English. The server's channels are now open to you.", ja: "🌱 日本語で入場しました。サーバーのチャンネルが見えるようになりました。" },
   noticeOn: { ko: "🔔 공지 알림을 켰어요.", en: "🔔 Notifications are on.", ja: "🔔 お知らせ通知をオンにしました。" },
   noticeOff: { ko: "🔕 공지 알림을 껐어요.", en: "🔕 Notifications are off.", ja: "🔕 お知らせ通知をオフにしました。" },
   adultOk: { ko: "🔞 성인 인증 역할을 받았어요. 사이트 갤러리를 열 수 있어요.", en: "🔞 You now have the verified adult role. The site gallery is open to you.", ja: "🔞 成人認証ロールを付与しました。サイトのギャラリーが開けます。" },
   adultOnly: { ko: "이 버튼은 연령 제한 채널에서만 쓸 수 있어요.", en: "This button only works in the age-restricted channel.", ja: "このボタンは年齢制限チャンネルでのみ使えます。" },
-  needMember: { ko: "먼저 규칙 채널에서 사용 언어를 골라 입장해 주세요.", en: "Please pick your language in the rules channel first.", ja: "まずルールチャンネルで言語を選んで入場してください。" },
+  needMember: { ko: "먼저 서버 온보딩에서 사용 언어를 골라 주세요. (서버 메뉴 → 채널 & 역할)", en: "Please pick your language in the server onboarding first. (Server menu → Channels & Roles)", ja: "まずサーバーのオンボーディングで言語を選んでください。（サーバーメニュー → チャンネル＆ロール）" },
   failed: { ko: "처리하지 못했어요. 잠시 뒤 다시 눌러 주세요.", en: "Something went wrong. Please try again in a moment.", ja: "処理できませんでした。少し後でもう一度押してください。" },
   langOnly: { ko: { en: "Korean only", ja: "韓国語のみ" } },
   worksTitle: { ko: "Saffron 서재", en: "Saffron Library", ja: "Saffron 書斎" },
@@ -77,14 +77,6 @@ async function button(interaction, env, lang) {
   const { roles } = DISCORD;
   const isMember = Object.values(roles.member).some(has);
 
-  if (kind === "lang" && roles.member[value]) {
-    // 언어는 하나만: 고른 역할을 주고 나머지 둘은 뺀다
-    await setRole(env, member.user.id, roles.member[value], true);
-    for (const [code, id] of Object.entries(roles.member)) {
-      if (code !== value && has(id)) await setRole(env, member.user.id, id, false);
-    }
-    return reply(TEXT.langSet[value]);
-  }
   if (kind === "notice") {
     if (!isMember) return reply(TEXT.needMember[lang]);
     if (value === "adult" && !nsfw) return reply(TEXT.adultOnly[lang]);

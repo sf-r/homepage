@@ -16,7 +16,7 @@ API = "https://discord.com/api/v10"
 APP = "1571482072290172928"
 GUILD = "1571467020933800088"
 RULES_CHANNEL = "1571468627012624474"   # 규칙-및-주의사항 (커뮤니티 규칙 채널)
-ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール
+ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール (알림 버튼)
 ADULT_CHANNEL = "1571486707159662774"   # 성인-인증・age-check・年齢認証 (연령 제한)
 
 
@@ -56,21 +56,14 @@ COMMANDS = [{
 }]
 
 ENTRY = {
+    # 사용 언어는 디스코드 온보딩 질문이 정한다(언어별 멤버 역할). 여기는 알림 켜고 끄기만
     "content": (
-        "## Saffron 제작공방\n"
-        f"<#{RULES_CHANNEL}> 채널의 규칙을 읽고, 아래에서 사용 언어를 골라 입장해 주세요.\n"
-        f"Please read the rules in <#{RULES_CHANNEL}>, then pick your language below to enter.\n"
-        f"<#{RULES_CHANNEL}> のルールを読んでから、下で言語を選んで入場してください。\n\n"
-        "**어느 언어를 사용 중이신가요?/Which language are you using?/ どの言語をお使いですか？**\n"
-        "-# 하나만 고를 수 있어요. 다시 누르면 바뀌어요. · Only one; press another to switch. · 一つだけ選べます。押し直すと切り替わります。\n\n"
-        "🔔 새 작품·업데이트 알림 / New works & updates / 新作・更新のお知らせ"
+        "## 🔔 공지 알림 / notice / お知らせ\n"
+        "새 작품·업데이트 소식을 알림으로 받으려면 버튼을 누르세요. 다시 누르면 꺼져요.\n"
+        "Press the button to get pinged for new works and updates. Press again to turn it off.\n"
+        "新作・更新のお知らせを通知で受け取るにはボタンを押してください。もう一度押すとオフになります。"
     ),
     "components": [
-        {"type": 1, "components": [
-            button("한국어", "lang:ko", 1, "🇰🇷"),
-            button("English", "lang:en", 1, "🇺🇸"),
-            button("日本語", "lang:ja", 1, "🇯🇵"),
-        ]},
         {"type": 1, "components": [button("공지 알림 / notice / お知らせ", "notice:all", 2, "🔔")]},
     ],
     "allowed_mentions": {"parse": []},

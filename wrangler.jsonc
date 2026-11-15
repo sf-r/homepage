@@ -6,11 +6,11 @@
   // 대시보드에서 넣은 일반 변수(Text)를 배포할 때 지우지 않는다. (비밀값 Secret은 원래 유지됨)
   "keep_vars": true,
   // 대부분은 정적 파일(saffron/)을 그대로 내보내고,
-  // run_worker_first에 적힌 경로만 src/worker.js가 먼저 검사합니다 (아카라이브 전용 미리보기).
+  // run_worker_first에 적힌 경로만 src/worker.js가 먼저 처리합니다 (아카라이브 전용 미리보기, 디스코드 봇).
   "main": "src/worker.js",
   "assets": {
     "directory": "./saffron",
     "binding": "ASSETS",
-    "run_worker_first": ["/pages/rebloom/gallery", "/pages/rebloom/gallery/*"]
+    "run_worker_first": ["/pages/rebloom/gallery", "/pages/rebloom/gallery/*", "/discord/*"]
   }
 }

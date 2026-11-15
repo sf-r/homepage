@@ -18,8 +18,12 @@
 //
 // 한계: 키가 붙은 링크를 통째로 복사해 퍼뜨리면 그 링크로는 들어올 수 있다. 그럴 땐 키를 바꾼다.
 //
+// 디스코드 봇: /discord/interactions 는 src/discord.js가 처리한다.
+//
 // 쿠키 서명 키: Cloudflare 대시보드 → Workers → homepage → Settings → Variables에
 // GALLERY_SECRET(비밀값)을 넣으면 그 값을 쓴다. 넣지 않으면 아래 기본값을 쓴다.
+
+import { handleDiscord } from "./discord.js";
 
 const GATES = [
   {
@@ -37,6 +41,7 @@ const DEFAULT_SECRET = "saffron-gallery-pass-v1";
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/discord/interactions") return handleDiscord(request, env);
     const gate = GATES.find((g) => url.pathname === g.prefix || url.pathname.startsWith(g.prefix + "/"));
     if (!gate) return env.ASSETS.fetch(request);
 

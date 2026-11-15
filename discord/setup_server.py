@@ -49,7 +49,7 @@ ROLES = [
     {"name": "🔔 베르나크 학술원", "color": 0, "mentionable": True},
 ]
 
-# @everyone의 기본 권한: 보이는 채널에서 읽고, 반응하고, 앱 명령을 쓰는 정도.
+# @everyone에 있어야 하는 권한: 보이는 채널에서 읽고, 쓰고, 반응하고, 앱 명령을 쓰는 정도.
 # 어떤 채널이 보이고 거기서 말할 수 있는지는 카테고리의 권한 덮어쓰기가 정한다.
 EVERYONE_PERMS = READ | ADD_REACTIONS | EMBED | ATTACH | APP_COMMANDS | TALK
 
@@ -177,12 +177,18 @@ def main():
             roles[r["name"]] = made["id"]
         else:
             roles[r["name"]] = f"<{r['name']}>"
-    say("  @everyone 기본 권한 맞춤")
+    # @everyone에는 필요한 권한만 더한다. 기존 채널(음성 등)이 쓰던 권한은 빼지 않는다
+    everyone_now = int(next(r["permissions"] for r in all_roles if r["id"] == guild_id))
+    if everyone_now | EVERYONE_PERMS != everyone_now:
+        say("  @everyone 기본 권한에 빠진 것 추가")
     if apply:
-        call("PATCH", f"/guilds/{guild_id}/roles/{guild_id}", {"permissions": str(EVERYONE_PERMS)})
+        if everyone_now | EVERYONE_PERMS != everyone_now:
+            call("PATCH", f"/guilds/{guild_id}/roles/{guild_id}", {"permissions": str(everyone_now | EVERYONE_PERMS)})
         # 위에서 정한 순서대로 정렬 (봇 역할 바로 아래부터)
-        positions = [{"id": roles[r["name"]], "position": len(ROLES) - i} for i, r in enumerate(ROLES)]
-        call("PATCH", f"/guilds/{guild_id}/roles", positions)
+        # 봇은 자기 역할보다 위 번호를 줄 수 없어서, 위에서부터 하나씩 맨 아래(1)로 끼워 넣는다.
+        # 마지막에 넣은 역할이 가장 아래가 되므로 결과는 ROLES 순서와 같다.
+        for r in ROLES:
+            call("PATCH", f"/guilds/{guild_id}/roles", [{"id": roles[r["name"]], "position": 1}])
 
     # 카테고리와 채널
     chans = call("GET", f"/guilds/{guild_id}/channels")

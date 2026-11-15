@@ -16,7 +16,7 @@ API = "https://discord.com/api/v10"
 APP = "1571482072290172928"
 GUILD = "1571467020933800088"
 RULES_CHANNEL = "1571468627012624474"   # 규칙-및-주의사항 (커뮤니티 규칙 채널)
-ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール (알림 버튼)
+ENTRY_CHANNEL = "1571486695868731393"   # 규칙-입장・rules・ルール (가입·알림 버튼)
 ADULT_CHANNEL = "1571486707159662774"   # 성인-인증・age-check・年齢認証 (연령 제한)
 
 
@@ -56,14 +56,16 @@ COMMANDS = [{
 }]
 
 ENTRY = {
-    # 사용 언어는 디스코드 온보딩 질문이 정한다(언어별 멤버 역할). 여기는 알림 켜고 끄기만
+    # 온보딩에서 고른 언어(🇰🇷/🇺🇸/🇯🇵)로 퀴즈가 나오고, 맞히면 그 언어의 멤버 역할을 받는다
     "content": (
-        "## 🔔 공지 알림 / notice / お知らせ\n"
-        "새 작품·업데이트 소식을 알림으로 받으려면 버튼을 누르세요. 다시 누르면 꺼져요.\n"
-        "Press the button to get pinged for new works and updates. Press again to turn it off.\n"
-        "新作・更新のお知らせを通知で受け取るにはボタンを押してください。もう一度押すとオフになります。"
+        "## Saffron 제작공방\n"
+        f"<#{RULES_CHANNEL}> 채널의 규칙을 읽고 **가입하기**를 눌러 질문에 답해 주세요. 맞히면 바로 채널이 열려요.\n"
+        f"Read the rules in <#{RULES_CHANNEL}>, then press **Join** and answer the questions. The channels open right away.\n"
+        f"<#{RULES_CHANNEL}> のルールを読んでから **参加する** を押して質問に答えてください。正解するとすぐにチャンネルが開きます。\n\n"
+        "🔔 새 작품·업데이트 알림 / New works & updates / 新作・更新のお知らせ"
     ),
     "components": [
+        {"type": 1, "components": [button("가입하기 / Join / 参加する", "join:start", 3, "🌱")]},
         {"type": 1, "components": [button("공지 알림 / notice / お知らせ", "notice:all", 2, "🔔")]},
     ],
     "allowed_mentions": {"parse": []},

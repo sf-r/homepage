@@ -21,10 +21,12 @@
 //  /works [title]   작품 목록, 제목을 고르면 작품 카드     /genre genre   장르별 작품
 //  /random          작품 하나 추천                         /roll [dice]   주사위 (2d6+1 등)
 //  /notice [kind]   공지 알림 켜고 끄기                     /language lang 사용 언어 바꾸기
+//  /idea [kind]     무작위 소재 추천 (SFW, 🔞 NSFW는 연령 제한 채널에서만) + 다시 뽑기 버튼(idea:sfw / idea:nsfw)
 //  /help            명령어 안내
 // 🔞 Safe OFF 작품은 연령 제한 채널에서만 보여 준다.
 
 import { BOOKS, GENRES } from "../saffron/js/data.js";
+import { ideaEmbed } from "./ideas.js";
 
 export const DISCORD = {
   applicationId: "1571482072290172928",
@@ -51,7 +53,7 @@ const TEXT = {
   noticeOn: { ko: "🔔 공지 알림을 켰어요.", en: "🔔 Notifications are on.", ja: "🔔 お知らせ通知をオンにしました。" },
   noticeOff: { ko: "🔕 공지 알림을 껐어요.", en: "🔕 Notifications are off.", ja: "🔕 お知らせ通知をオフにしました。" },
   adultOk: { ko: "🔞 성인 인증 역할을 받았어요. 사이트 갤러리를 열 수 있어요.", en: "🔞 You now have the verified adult role. The site gallery is open to you.", ja: "🔞 成人認証ロールを付与しました。サイトのギャラリーが開けます。" },
-  adultOnly: { ko: "이 버튼은 연령 제한 채널에서만 쓸 수 있어요.", en: "This button only works in the age-restricted channel.", ja: "このボタンは年齢制限チャンネルでのみ使えます。" },
+  adultOnly: { ko: "연령 제한 채널에서만 쓸 수 있어요.", en: "This only works in an age-restricted channel.", ja: "年齢制限チャンネルでのみ使えます。" },
   needMember: { ko: "먼저 입구 채널의 「규칙에 동의하고 가입」 버튼으로 가입해 주세요.", en: "Please join first with the Agree & Join button in the entrance channel.", ja: "まず入口チャンネルの「同意して参加」ボタンで参加してください。" },
   joinTitle: { ko: "Saffron 제작공방 가입", en: "Join Saffron Studio", ja: "Saffron 制作工房に参加" },
   joinSource: { ko: "어디를 통해 유입되셨나요?", en: "Where did you find us?", ja: "どこでこのサーバーを知りましたか？" },
@@ -70,9 +72,9 @@ const TEXT = {
   rollBad: { ko: "주사위는 2d6, d20, 3d6+2 처럼 적어 주세요. (최대 20개, 1000면)", en: "Write dice like 2d6, d20 or 3d6+2. (up to 20 dice, 1000 sides)", ja: "ダイスは 2d6、d20、3d6+2 のように書いてください。（最大20個・1000面）" },
   langChanged: { ko: "🌐 사용 언어를 한국어로 바꿨어요.", en: "🌐 Your language is now English.", ja: "🌐 使用言語を日本語に変更しました。" },
   help: {
-    ko: "**Saffron 봇 명령어**\n`/작품` 작품 목록 · `/작품 제목` 작품 카드\n`/장르` 장르별 작품 · `/랜덤` 작품 하나 추천\n`/주사위 2d6+1` 주사위\n`/알림` 공지 알림 켜기·끄기 · `/언어` 사용 언어 바꾸기\n-# 🔞 Safe OFF 작품은 연령 제한 채널에서만 보여요.",
-    en: "**Saffron bot commands**\n`/works` list · `/works title` work card\n`/genre` works by genre · `/random` a random pick\n`/roll 2d6+1` dice\n`/notice` toggle notifications · `/language` change your language\n-# 🔞 Safe OFF works only show in age-restricted channels.",
-    ja: "**Saffron ボットのコマンド**\n`/作品` 一覧 · `/作品 タイトル` 作品カード\n`/ジャンル` ジャンル別 · `/ランダム` おすすめ\n`/ダイス 2d6+1` ダイス\n`/お知らせ` 通知のオン・オフ · `/言語` 言語の変更\n-# 🔞 Safe OFF 作品は年齢制限チャンネルでのみ表示されます。"
+    ko: "**Saffron 봇 명령어**\n`/작품` 작품 목록 · `/작품 제목` 작품 카드\n`/장르` 장르별 작품 · `/랜덤` 작품 하나 추천\n`/주사위 2d6+1` 주사위 · `/소재` 무작위 소재 추천 (🔞 NSFW는 연령 제한 채널에서)\n`/알림` 공지 알림 켜기·끄기 · `/언어` 사용 언어 바꾸기\n-# 🔞 Safe OFF 작품은 연령 제한 채널에서만 보여요.",
+    en: "**Saffron bot commands**\n`/works` list · `/works title` work card\n`/genre` works by genre · `/random` a random pick\n`/roll 2d6+1` dice · `/idea` random story idea (🔞 NSFW in age-restricted channels)\n`/notice` toggle notifications · `/language` change your language\n-# 🔞 Safe OFF works only show in age-restricted channels.",
+    ja: "**Saffron ボットのコマンド**\n`/作品` 一覧 · `/作品 タイトル` 作品カード\n`/ジャンル` ジャンル別 · `/ランダム` おすすめ\n`/ダイス 2d6+1` ダイス · `/ネタ` ランダムなネタ (🔞 NSFW は年齢制限チャンネルで)\n`/お知らせ` 通知のオン・オフ · `/言語` 言語の変更\n-# 🔞 Safe OFF 作品は年齢制限チャンネルでのみ表示されます。"
   },
   worksAdultHint: { ko: "🔞 Safe OFF 작품은 연령 제한 채널에서 /작품 을 쓰면 함께 보여요.", en: "🔞 Use /works in an age-restricted channel to also see Safe OFF works.", ja: "🔞 年齢制限チャンネルで /作品 を使うと Safe OFF の作品も表示されます。" }
 };
@@ -118,6 +120,7 @@ async function button(interaction, env, lang) {
     if (isMember) return reply(TEXT.joinAlready[lang]);
     return json({ type: 9, data: joinModal(lang) }); // 입력 창 열기
   }
+  if (kind === "idea") return idea(value, nsfw, lang);
   if (kind === "notice") {
     if (!isMember) return reply(TEXT.needMember[lang]);
     if (value === "adult" && !nsfw) return reply(TEXT.adultOnly[lang]);
@@ -214,6 +217,7 @@ async function command(interaction, env, lang) {
   }
   if (name === "language") return changeLanguage(interaction, env, opt.lang);
   if (name === "help") return reply(TEXT.help[lang]);
+  if (name === "idea") return idea(opt.kind || "sfw", nsfw, lang);
   return reply(TEXT.failed[lang]);
 }
 
@@ -289,6 +293,18 @@ function roll(text, interaction, lang) {
   const detail = n > 1 || mod ? ` (${rolls.join(" + ")}${mod ? (mod > 0 ? ` + ${mod}` : ` − ${-mod}`) : ""})` : "";
   const who = interaction.member?.user?.id;
   return json({ type: 4, data: { content: `🎲 <@${who}> **${n}d${sides}${mod ? (mod > 0 ? "+" + mod : mod) : ""}** → **${total}**${detail}`, allowed_mentions: { parse: [] } } });
+}
+
+// 무작위 소재 한 벌을 채널에 올리고, 같은 종류로 다시 뽑는 버튼을 붙인다
+function idea(kind, nsfw, lang) {
+  if (kind !== "nsfw") kind = "sfw";
+  if (kind === "nsfw" && !nsfw) return reply(TEXT.adultOnly[lang]);
+  const reroll = { ko: "다시 뽑기", en: "Reroll", ja: "引き直す" }[lang];
+  return json({ type: 4, data: {
+    embeds: [ideaEmbed(kind, lang)],
+    components: [{ type: 1, components: [{ type: 2, style: 2, label: reroll, emoji: { name: "🎲" }, custom_id: `idea:${kind}` }] }],
+    allowed_mentions: { parse: [] }
+  } });
 }
 
 // 사용 언어 바꾸기: 언어 표시 역할을 바꾸고, 이미 멤버면 멤버 역할도 그 언어로 바꾼다

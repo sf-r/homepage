@@ -98,6 +98,10 @@ COMMANDS = [
     cmd("language", "언어", "言語", "Change your language", "사용 언어 바꾸기", "使用言語を変更",
         [opt(STRING, "lang", "언어", "言語", "Language", "언어", "言語", required=True, choices=LANG_CHOICES)]),
     cmd("help", "도움말", "ヘルプ", "Saffron bot commands", "Saffron 봇 명령어 안내", "Saffron ボットのコマンド"),
+    cmd("idea", "소재", "ネタ", "Random story idea", "무작위 소재 추천", "ランダムなネタ",
+        [opt(STRING, "kind", "종류", "種類", "SFW, or NSFW (age-restricted channels only)",
+             "SFW, 또는 NSFW (연령 제한 채널에서만)", "SFW、または NSFW（年齢制限チャンネルのみ）",
+             required=False, choices=[{"name": "SFW", "value": "sfw"}, {"name": "NSFW 🔞", "value": "nsfw"}])]),
 ]
 
 ENTRY = {
